@@ -2,8 +2,12 @@ import mongoose from 'mongoose';
 
 export const connectDB = async () => {
   try {
+    console.log('🔄 Attempting MongoDB connection...');
+    console.log('📍 Connection string format:', process.env.MONGODB_URI ? process.env.MONGODB_URI.substring(0, 30) + '...' : 'Not found');
+    
     const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/css360-academy', {
-      // These options are no longer needed in Mongoose 6+
+      serverSelectionTimeoutMS: 10000, // 10 second timeout
+      socketTimeoutMS: 45000,
     });
 
     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
@@ -25,9 +29,12 @@ export const connectDB = async () => {
     });
 
   } catch (error) {
-    console.error('❌ MongoDB connection failed:', error.message);
+    console.error('❌ MongoDB connection failed:');
+    console.error('Error name:', error.name);
+    console.error('Error message:', error.message);
+    console.error('Error code:', error.code);
+    console.error('Full error:', JSON.stringify(error, null, 2));
     console.log('⚠️  Server will start without database. Some features may not work.');
-    console.log('💡 Fix: Check MongoDB Atlas cluster status or install local MongoDB');
-    // Don't exit - allow server to start without DB for testing
+    console.log('💡 Fix: Check MongoDB Atlas cluster status and Network Access settings');
   }
 };
