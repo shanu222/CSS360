@@ -6,10 +6,10 @@ services:
     plan: free
     buildCommand: npm install && npx prisma generate && npm run build
     startCommand: npm start
-    # Mount persistent disk for PDF storage
+    # Mount persistent disk for PDF storage at project root
     disk:
       name: css-papers-storage
-      mountPath: /opt/render/project/src/CSS_Past_Papers
+      mountPath: /opt/render/project/CSS_Past_Papers
       sizeGB: 1
     envVars:
       - key: NODE_ENV
