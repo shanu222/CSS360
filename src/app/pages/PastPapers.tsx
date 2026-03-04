@@ -33,7 +33,7 @@ type IndexResponse = {
   stats: {
     totalPapers: number;
     totalSolved: number;
-    yearsAvailable: number[];
+    yearsAvailable: number[] | number;
   };
 };
 
@@ -147,8 +147,17 @@ export default function PastPapers() {
       setLoading(true);
       setError(null);
       const data: IndexResponse = await resourceService.getPastPapersIndex();
-      setPaperIndex(data.index);
-      setStats(data.stats);
+      const safeIndex = data?.index || {};
+      const safeStats = data?.stats || { totalPapers: 0, totalSolved: 0, yearsAvailable: [] as number[] };
+
+      setPaperIndex(safeIndex);
+      setStats({
+        totalPapers: safeStats.totalPapers || 0,
+        totalSolved: safeStats.totalSolved || 0,
+        yearsAvailable: Array.isArray(safeStats.yearsAvailable)
+          ? safeStats.yearsAvailable
+          : [],
+      });
     } catch (err) {
       console.error("Failed to load past papers:", err);
       setError("Failed to load past papers. Please try again.");

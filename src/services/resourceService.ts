@@ -4,13 +4,13 @@ export const resourceService = {
   // Get auto-indexed past papers from CSS_Past_Papers folder
   async getPastPapersIndex() {
     const response = await api.get('/past-papers/index');
-    return response.data;
+    return response.data?.data ?? response.data;
   },
 
   // Get past papers for a specific year
   async getYearPapers(year: number) {
     const response = await api.get(`/past-papers/year/${year}`);
-    return response.data;
+    return response.data?.data ?? response.data;
   },
 
   // Get all resources with optional filters
