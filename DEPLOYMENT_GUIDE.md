@@ -196,6 +196,23 @@ A comprehensive CSS (Central Superior Services) examination preparation platform
 6. Add environment variables from `.env`
 7. Deploy!
 
+### PDF Storage for Past Papers
+
+The CSS_Past_Papers folder (188+ PDFs, ~500MB) is **NOT** included in the repository to avoid large build sizes and deployment timeouts.
+
+**📋 See [PDF_DEPLOYMENT_GUIDE.md](PDF_DEPLOYMENT_GUIDE.md) for complete instructions on:**
+- Setting up Render persistent disk
+- Uploading PDFs to production
+- Alternative cloud storage options (S3, Cloudinary)
+- Running the FPSC scraper in production
+- Troubleshooting deployment issues
+
+**Quick Setup:**
+1. Deploy app to Render (persistent disk auto-created)
+2. Access Render Shell and create folder structure
+3. Upload PDFs manually or via automation script
+4. Verify at: `https://your-app.render.com/api/past-papers/index`
+
 ### MongoDB Atlas Setup
 
 1. Go to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)

@@ -17,6 +17,9 @@ build/
 # Uploads
 uploads/
 
+# Past Papers (use persistent disk in production)
+CSS_Past_Papers/
+
 # IDE
 .vscode/
 .idea/
