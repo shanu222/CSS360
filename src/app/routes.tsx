@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router";
 import { Layout } from "./components/layout/Layout";
-import { ProtectedRoute } from "../components/ProtectedRoute";
 import Home from "./pages/Home";
 import ExamProcess from "./pages/ExamProcess";
 import Subjects from "./pages/Subjects";
@@ -13,22 +12,11 @@ import StudyPlanner from "./pages/StudyPlanner";
 import CurrentAffairs from "./pages/CurrentAffairs";
 import Notes from "./pages/Notes";
 import Community from "./pages/Community";
-import Login from "./pages/Login";
-import Admin from "./pages/Admin";
-
-// Wrapper for protected routes
-const Protected = ({ children }: { children: React.ReactNode }) => (
-  <ProtectedRoute>{children}</ProtectedRoute>
-);
 
 export const router = createBrowserRouter([
   {
-    path: "/login",
-    Component: Login,
-  },
-  {
     path: "/",
-    element: <Protected><Layout /></Protected>,
+    element: <Layout />,
     children: [
       { index: true, Component: Home },
       { path: "exam-process", Component: ExamProcess },
@@ -42,7 +30,6 @@ export const router = createBrowserRouter([
       { path: "current-affairs", Component: CurrentAffairs },
       { path: "notes", Component: Notes },
       { path: "community", Component: Community },
-      { path: "admin", Component: Admin },
     ],
   },
 ]);
