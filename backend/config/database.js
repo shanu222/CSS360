@@ -26,6 +26,8 @@ export const connectDB = async () => {
 
   } catch (error) {
     console.error('❌ MongoDB connection failed:', error.message);
-    process.exit(1);
+    console.log('⚠️  Server will start without database. Some features may not work.');
+    console.log('💡 Fix: Check MongoDB Atlas cluster status or install local MongoDB');
+    // Don't exit - allow server to start without DB for testing
   }
 };
