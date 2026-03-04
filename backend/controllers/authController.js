@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import User from '../models/User.js';
+import prisma from '../config/prisma.js';
 
 // Register new user
 export const register = async (req, res) => {
@@ -8,7 +8,10 @@ export const register = async (req, res) => {
     const { email, password, name } = req.body;
 
     // Check if user exists
-    const existingUser = await User.findOne({ email });
+    const existingUser = await prisma.user.findUnique({
+      where: { email }
+    });
+    
     if (existingUser) {
       return res.status(400).json({ error: 'Email already registered' });
     }
@@ -20,18 +23,18 @@ export const register = async (req, res) => {
     const isAdminEmail = email.toLowerCase() === 'shanuend0@gmail.com';
 
     // Create user
-    const user = new User({
-      email,
-      password: hashedPassword,
-      name,
-      role: isAdminEmail ? 'admin' : 'student',
+    const user = await prisma.user.create({
+      data: {
+        email,
+        password: hashedPassword,
+        name,
+        role: isAdminEmail ? 'admin' : 'student',
+      }
     });
-
-    await user.save();
 
     // Generate token
     const token = jwt.sign(
-      { userId: user._id, email: user.email, role: user.role },
+      { userId: user.id, email: user.email, role: user.role },
       process.env.JWT_SECRET,
       { expiresIn: process.env.JWT_EXPIRES_IN || '7d' }
     );
@@ -40,7 +43,7 @@ export const register = async (req, res) => {
       message: 'User registered successfully',
       token,
       user: {
-        id: user._id,
+        id: user.id,
         email: user.email,
         name: user.name,
         role: user.role,
@@ -58,7 +61,10 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
 
     // Find user
-    const user = await User.findOne({ email });
+    const user = await prisma.user.findUnique({
+      where: { email }
+    });
+    
     if (!user) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
@@ -70,12 +76,14 @@ export const login = async (req, res) => {
     }
 
     // Update last active
-    user.lastActive = new Date();
-    await user.save();
+    await prisma.user.update({
+      where: { id: user.id },
+      data: { lastActive: new Date() }
+    });
 
     // Generate token
     const token = jwt.sign(
-      { userId: user._id, email: user.email, role: user.role },
+      { userId: user.id, email: user.email, role: user.role },
       process.env.JWT_SECRET,
       { expiresIn: process.env.JWT_EXPIRES_IN || '7d' }
     );
@@ -84,12 +92,11 @@ export const login = async (req, res) => {
       message: 'Login successful',
       token,
       user: {
-        id: user._id,
+        id: user.id,
         email: user.email,
         name: user.name,
         role: user.role,
         avatar: user.avatar,
-        subjects: user.subjects,
         studyPlan: user.studyPlan,
       },
     });

@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { connectDB } from './backend/config/database.js';
+import prisma from './backend/config/prisma.js';
 
 // Import routes
 import authRoutes from './backend/routes/auth.js';
@@ -25,8 +25,18 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Connect to MongoDB
-connectDB();
+// Test Prisma connection
+async function testDatabaseConnection() {
+  try {
+    await prisma.$connect();
+    console.log('✅ Database Connected: Supabase PostgreSQL');
+  } catch (error) {
+    console.error('❌ Database connection failed:', error.message);
+    console.log('⚠️  Server will start without database. Some features may not work.');
+  }
+}
+
+testDatabaseConnection();
 
 // Middleware
 app.use(cors({
@@ -38,21 +48,21 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // API Routes
 app.get('/api/health', async (req, res) => {
-  const mongoose = (await import('mongoose')).default;
-  const dbState = {
-    0: 'disconnected',
-    1: 'connected',
-    2: 'connecting',
-    3: 'disconnecting'
-  };
+  let dbStatus = 'disconnected';
+  try {
+    await prisma.$queryRaw`SELECT 1`;
+    dbStatus = 'connected';
+  } catch (error) {
+    dbStatus = 'disconnected';
+  }
   
   res.json({ 
     status: 'Server is running!',
     environment: process.env.NODE_ENV || 'development',
-    mongodb: {
-      status: dbState[mongoose.connection.readyState] || 'unknown',
-      host: mongoose.connection.host || 'not connected',
-      hasMongoURI: !!process.env.MONGODB_URI,
+    database: {
+      status: dbStatus,
+      type: 'PostgreSQL (Supabase)',
+      hasDatabaseURL: !!process.env.DATABASE_URL,
       hasJWTSecret: !!process.env.JWT_SECRET,
     }
   });

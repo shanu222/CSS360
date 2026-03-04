@@ -1,0 +1,182 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int     @id @default(autoincrement())
+  email     String  @unique
+  password  String
+  name      String
+  avatar    String?
+  role      String  @default("student") // 'student' or 'admin'
+  
+  // Relationships
+  notes         Note[]
+  progress      Progress[]
+  mcqAttempts   MCQAttempt[]
+  communityThreads CommunityThread[]
+  communityReplies CommunityReply[]
+  resources     Resource[]
+  currentAffairs CurrentAffair[]
+  
+  // Study tracking
+  studyPlan     Json? // Store as JSON
+  lastActive    DateTime @default(now())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@index([email])
+}
+
+model Note {
+  id        Int     @id @default(autoincrement())
+  userId    Int
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  subjectId String
+  subjectName String
+  title     String
+  content   String
+  tags      String[] // Array of strings
+  
+  // Files stored as JSON array
+  files     Json? // Array of {name, url, type, uploadedAt}
+  
+  isPublic  Boolean @default(false)
+  likes     Int[]   // Array of user IDs who liked
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([userId])
+  @@index([subjectId])
+}
+
+model Progress {
+  id        Int     @id @default(autoincrement())
+  userId    Int
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  subjectId String
+  subjectName String
+  progress  Int @default(0) // 0-100
+  
+  completedTopics Json? // Array of {topicName, completedAt}
+  practiceScores  Json? // Array of scores
+  studyTime       Int @default(0) // in minutes
+  
+  lastStudied     DateTime @default(now())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@unique([userId, subjectId])
+  @@index([userId])
+}
+
+model MCQAttempt {
+  id        Int     @id @default(autoincrement())
+  userId    Int
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  subject   String
+  topic     String
+  
+  questions Json   // Array of questions with answers
+  score     Int
+  totalQuestions Int
+  percentage Float
+  timeTaken Int @default(0) // in seconds
+  
+  completedAt DateTime @default(now())
+  
+  @@index([userId])
+  @@index([subject])
+  @@index([completedAt])
+}
+
+model CommunityThread {
+  id        Int     @id @default(autoincrement())
+  userId    Int
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  author    String
+  avatar    String?
+  subject   String
+  title     String
+  content   String
+  tags      String[]
+  
+  replies   CommunityReply[]
+  
+  views     Int @default(0)
+  likes     Int @default(0)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([userId])
+  @@index([subject])
+  @@index([createdAt])
+}
+
+model CommunityReply {
+  id        Int     @id @default(autoincrement())
+  threadId  Int
+  thread    CommunityThread @relation(fields: [threadId], references: [id], onDelete: Cascade)
+  
+  userId    Int
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  author    String
+  avatar    String?
+  content   String
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([threadId])
+  @@index([userId])
+}
+
+model Resource {
+  id        Int     @id @default(autoincrement())
+  userId    Int
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  title     String
+  description String?
+  url       String
+  type      String  // 'link', 'pdf', 'video', etc.
+  subject   String
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([userId])
+  @@index([subject])
+}
+
+model CurrentAffair {
+  id        Int     @id @default(autoincrement())
+  userId    Int
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  title     String
+  description String
+  content   String
+  image     String?
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([userId])
+  @@index([createdAt])
+}
