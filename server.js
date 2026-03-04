@@ -37,11 +37,24 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // API Routes
-app.get('/api/health', (req, res) => {
+app.get('/api/health', async (req, res) => {
+  const mongoose = (await import('mongoose')).default;
+  const dbState = {
+    0: 'disconnected',
+    1: 'connected',
+    2: 'connecting',
+    3: 'disconnecting'
+  };
+  
   res.json({ 
     status: 'Server is running!',
     environment: process.env.NODE_ENV || 'development',
-    mongodb: 'connected',
+    mongodb: {
+      status: dbState[mongoose.connection.readyState] || 'unknown',
+      host: mongoose.connection.host || 'not connected',
+      hasMongoURI: !!process.env.MONGODB_URI,
+      hasJWTSecret: !!process.env.JWT_SECRET,
+    }
   });
 });
 
