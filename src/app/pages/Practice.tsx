@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { mcqBank, essayTopics } from "../data/mockData";
-import { CheckCircle, XCircle, ArrowRight, RotateCcw, Target, PenTool, Edit3 } from "lucide-react";
+import { CheckCircle, XCircle, ArrowRight, RotateCcw, Target, PenTool, Edit3, Loader2 } from "lucide-react";
+import { aiService } from "../../services/aiService";
 
-type PracticeMode = "home" | "mcq" | "essay" | "answer";
+type PracticeMode = "home" | "mcq" | "essay" | "answer" | "outline";
 
 export default function Practice() {
   const [mode, setMode] = useState<PracticeMode>("home");
@@ -13,8 +14,52 @@ export default function Practice() {
   const [finished, setFinished] = useState(false);
   const [answerText, setAnswerText] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [selectedEssay, setSelectedEssay] = useState<any>(null);
+  const [essayOutline, setEssayOutline] = useState<string>("");
+  const [aiEvaluation, setAiEvaluation] = useState<string>("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const question = mcqBank[currentQ];
+
+  const handleGenerateOutline = async (essay: any) => {
+    setSelectedEssay(essay);
+    setMode("outline");
+    setLoading(true);
+    setError(null);
+    
+    try {
+      const outline = await aiService.generateEssayOutline(essay.topic);
+      setEssayOutline(outline);
+    } catch (err: any) {
+      console.error('Error generating outline:', err);
+      setError(err.response?.data?.error || 'Failed to generate essay outline. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleEvaluateAnswer = async () => {
+    if (answerText.trim().length < 50) return;
+    
+    setSubmitted(true);
+    setLoading(true);
+    setError(null);
+    
+    try {
+      const analysis = await aiService.analyzeEssay(
+        answerText,
+        "Discuss the constitutional development in Pakistan from 1947 to 1973. What were the major challenges faced during this period?"
+      );
+      setAiEvaluation(analysis);
+    } catch (err: any) {
+      console.error('Error evaluating answer:', err);
+      setError(err.response?.data?.error || 'Failed to evaluate answer. Please try again.');
+      setSubmitted(false);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleAnswer = (idx: number) => {
     if (selected !== null) return;
@@ -227,11 +272,20 @@ export default function Practice() {
               </div>
               <p className="text-gray-800 font-medium text-sm mb-3">{essay.topic}</p>
               <div className="flex gap-2">
-                <button className="flex-1 text-xs bg-gray-100 text-gray-600 py-1.5 rounded-lg hover:bg-gray-200 transition-colors">
+                <button 
+                  onClick={() => handleGenerateOutline(essay)}
+                  className="flex-1 text-xs bg-gray-100 text-gray-600 py-1.5 rounded-lg hover:bg-gray-200 transition-colors"
+                >
                   View Outline
                 </button>
                 <button
-                  onClick={() => { setMode("answer"); setAnswerText(""); setSubmitted(false); }}
+                  onClick={() => { 
+                    setSelectedEssay(essay);
+                    setMode("answer"); 
+                    setAnswerText(""); 
+                    setSubmitted(false);
+                    setAiEvaluation("");
+                  }}
                   className="flex-1 text-xs bg-green-600 text-white py-1.5 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-1"
                 >
                   <PenTool className="w-3 h-3" /> Write Essay
@@ -239,6 +293,73 @@ export default function Practice() {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (mode === "outline") {
+    return (
+      <div className="p-4 lg:p-6 space-y-4 max-w-4xl mx-auto">
+        <button onClick={() => setMode("essay")} className="text-green-600 text-sm flex items-center gap-1 hover:underline">
+          ← Back to Essay Lab
+        </button>
+        <div className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
+          <div className="bg-gradient-to-r from-green-600 to-emerald-700 p-5 text-white">
+            <h3 className="text-xl text-white mb-1">Essay Outline</h3>
+            <p className="text-green-200 text-sm">AI-generated structure for your essay</p>
+          </div>
+          <div className="p-5 space-y-4">
+            {selectedEssay && (
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+                <p className="text-gray-500 text-xs font-medium mb-1">ESSAY TOPIC (CSS {selectedEssay.year})</p>
+                <p className="text-gray-800 font-medium">{selectedEssay.topic}</p>
+              </div>
+            )}
+
+            {loading ? (
+              <div className="flex flex-col items-center justify-center py-12">
+                <Loader2 className="w-8 h-8 text-green-600 animate-spin mb-3" />
+                <p className="text-gray-600 text-sm">Generating essay outline...</p>
+              </div>
+            ) : error ? (
+              <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-center">
+                <p className="text-red-700 text-sm">{error}</p>
+                <button
+                  onClick={() => selectedEssay && handleGenerateOutline(selectedEssay)}
+                  className="mt-3 text-red-600 text-sm hover:underline"
+                >
+                  Try Again
+                </button>
+              </div>
+            ) : essayOutline ? (
+              <div className="prose prose-sm max-w-none">
+                <div 
+                  className="text-gray-700 whitespace-pre-wrap"
+                  dangerouslySetInnerHTML={{ 
+                    __html: essayOutline
+                      .replace(/\*\*(.*?)\*\*/g, '<strong class="text-gray-900">$1</strong>')
+                      .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                      .replace(/\n/g, '<br/>')
+                  }}
+                />
+              </div>
+            ) : null}
+
+            {essayOutline && !loading && (
+              <button
+                onClick={() => {
+                  setMode("answer");
+                  setAnswerText("");
+                  setSubmitted(false);
+                  setAiEvaluation("");
+                }}
+                className="w-full bg-green-600 text-white py-3 rounded-xl hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
+              >
+                <PenTool className="w-4 h-4" /> Start Writing Essay
+              </button>
+            )}
+          </div>
         </div>
       </div>
     );
@@ -258,7 +379,9 @@ export default function Practice() {
           <div className="p-5 space-y-4">
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
               <p className="text-gray-500 text-xs font-medium mb-1">CSS QUESTION (2023 — Pakistan Affairs)</p>
-              <p className="text-gray-800 font-medium">Discuss the constitutional development in Pakistan from 1947 to 1973. What were the major challenges faced during this period?</p>
+              <p className="text-gray-800 font-medium">
+                {selectedEssay?.topic || "Discuss the constitutional development in Pakistan from 1947 to 1973. What were the major challenges faced during this period?"}
+              </p>
             </div>
 
             <div>
@@ -268,6 +391,7 @@ export default function Practice() {
                 onChange={e => setAnswerText(e.target.value)}
                 placeholder="Write your CSS answer here... (aim for 400-500 words for long questions)"
                 className="w-full h-64 bg-gray-50 border border-gray-200 rounded-xl p-4 text-sm text-gray-700 outline-none focus:border-green-400 resize-none"
+                disabled={submitted}
               />
               <div className="flex justify-between text-xs text-gray-400 mt-1">
                 <span>{answerText.split(/\s+/).filter(Boolean).length} words</span>
@@ -275,48 +399,58 @@ export default function Practice() {
               </div>
             </div>
 
+            {error && (
+              <div className="bg-red-50 border border-red-200 rounded-xl p-3 text-sm text-red-700">
+                {error}
+              </div>
+            )}
+
             {!submitted ? (
               <button
-                onClick={() => setSubmitted(true)}
-                disabled={answerText.trim().length < 50}
+                onClick={handleEvaluateAnswer}
+                disabled={answerText.trim().length < 50 || loading}
                 className="w-full bg-purple-600 text-white py-3 rounded-xl hover:bg-purple-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                <Edit3 className="w-4 h-4" /> Submit for AI Evaluation
+                {loading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" /> Evaluating...
+                  </>
+                ) : (
+                  <>
+                    <Edit3 className="w-4 h-4" /> Submit for AI Evaluation
+                  </>
+                )}
               </button>
             ) : (
               <div className="space-y-3">
-                <div className="bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-200 rounded-xl p-4">
-                  <h4 className="text-purple-800 font-semibold mb-3 flex items-center gap-2">🤖 AI Evaluation</h4>
-                  <div className="grid grid-cols-2 gap-3 mb-4">
-                    {[
-                      { label: "Structure", score: 7, max: 10 },
-                      { label: "Content Depth", score: 6, max: 10 },
-                      { label: "Grammar", score: 8, max: 10 },
-                      { label: "CSS Style", score: 6, max: 10 },
-                    ].map((item) => (
-                      <div key={item.label} className="bg-white rounded-lg p-3">
-                        <div className="flex justify-between text-xs mb-1">
-                          <span className="text-gray-600">{item.label}</span>
-                          <span className="text-purple-700 font-bold">{item.score}/{item.max}</span>
-                        </div>
-                        <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                          <div className="h-full bg-purple-500 rounded-full" style={{ width: `${(item.score / item.max) * 100}%` }} />
-                        </div>
-                      </div>
-                    ))}
+                {loading ? (
+                  <div className="flex flex-col items-center justify-center py-12">
+                    <Loader2 className="w-8 h-8 text-purple-600 animate-spin mb-3" />
+                    <p className="text-gray-600 text-sm">Analyzing your answer...</p>
                   </div>
-                  <div className="bg-white rounded-lg p-3 text-sm text-gray-700">
-                    <p className="font-medium text-gray-800 mb-2">Feedback:</p>
-                    <ul className="space-y-1.5 text-gray-600">
-                      <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" /> Good introductory paragraph with clear thesis statement</li>
-                      <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" /> Well-organized body with chronological structure</li>
-                      <li className="flex items-start gap-2"><XCircle className="w-4 h-4 text-orange-400 mt-0.5 flex-shrink-0" /> Add more specific constitutional articles and dates</li>
-                      <li className="flex items-start gap-2"><XCircle className="w-4 h-4 text-orange-400 mt-0.5 flex-shrink-0" /> Conclusion needs stronger analytical insight</li>
-                    </ul>
+                ) : aiEvaluation ? (
+                  <div className="bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-200 rounded-xl p-4">
+                    <h4 className="text-purple-800 font-semibold mb-3 flex items-center gap-2">🤖 AI Evaluation</h4>
+                    <div className="bg-white rounded-lg p-4 text-sm">
+                      <div 
+                        className="prose prose-sm max-w-none text-gray-700"
+                        dangerouslySetInnerHTML={{ 
+                          __html: aiEvaluation
+                            .replace(/\*\*(.*?)\*\*/g, '<strong class="text-gray-900">$1</strong>')
+                            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                            .replace(/\n/g, '<br/>')
+                        }}
+                      />
+                    </div>
                   </div>
-                </div>
+                ) : null}
                 <button
-                  onClick={() => { setAnswerText(""); setSubmitted(false); }}
+                  onClick={() => { 
+                    setAnswerText(""); 
+                    setSubmitted(false); 
+                    setAiEvaluation(""); 
+                    setError(null);
+                  }}
                   className="w-full border border-gray-200 text-gray-600 py-2.5 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-2 text-sm"
                 >
                   <RotateCcw className="w-4 h-4" /> Try Again

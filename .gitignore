@@ -4,10 +4,18 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Environment variables
+.env
+.env.local
+.env.*.local
+
 # Build outputs
 dist/
 build/
 .next/
+
+# Uploads
+uploads/
 
 # IDE
 .vscode/

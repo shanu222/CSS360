@@ -4,8 +4,9 @@ import {
   Home, BookOpen, GraduationCap, FileText, ChevronLeft,
   ChevronRight, Brain, Calendar, Globe, Users, Newspaper,
   Menu, X, Star, Zap, Target, Award, Search, Bell, User,
-  ClipboardList, Library
+  ClipboardList, Library, Shield
 } from "lucide-react";
+import { useAuth } from "../../../contexts/AuthContext";
 
 const navItems = [
   { path: "/", label: "Dashboard", icon: Home },
@@ -25,6 +26,7 @@ export function Layout() {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const { user } = useAuth();
 
   const currentPage = navItems.find(item =>
     item.path === location.pathname || (item.path !== "/" && location.pathname.startsWith(item.path))
@@ -97,6 +99,41 @@ export function Layout() {
               )}
             </NavLink>
           ))}
+
+          {/* Admin Section - Only visible to admin users */}
+          {user?.role === 'admin' && (
+            <>
+              {!collapsed && (
+                <div className="px-3 py-2 mt-4">
+                  <div className="border-t border-white/10"></div>
+                  <p className="text-white/50 text-xs mt-3 mb-1 uppercase tracking-wider">Admin</p>
+                </div>
+              )}
+              <NavLink
+                to="/admin"
+                onClick={() => setMobileOpen(false)}
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-150 group relative
+                  ${isActive
+                    ? "bg-amber-600 text-white shadow-md"
+                    : "text-white/70 hover:bg-white/10 hover:text-white"
+                  }`
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    {isActive && (
+                      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-amber-300 rounded-r-full" />
+                    )}
+                    <Shield className={`w-5 h-5 flex-shrink-0 ${isActive ? "text-white" : "text-white/60 group-hover:text-white"}`} />
+                    {!collapsed && (
+                      <span className="text-sm truncate">Admin Panel</span>
+                    )}
+                  </>
+                )}
+              </NavLink>
+            </>
+          )}
         </nav>
 
         {/* Collapse button (desktop) */}

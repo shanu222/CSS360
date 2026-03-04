@@ -1,18 +1,63 @@
-import { useState } from "react";
-import { books } from "../data/mockData";
-import { Search, Star, Download, BookOpen, Filter } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Search, Star, Download, BookOpen, Filter, Loader2, AlertCircle } from "lucide-react";
+import { resourceService } from "../../services/resourceService";
 
 const categories = ["All", "compulsory", "optional", "bestseller", "classic", "mcq"];
 
 export default function Books() {
   const [search, setSearch] = useState("");
   const [activeTag, setActiveTag] = useState("All");
+  const [books, setBooks] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    loadBooks();
+  }, []);
+
+  const loadBooks = async () => {
+    try {
+      setLoading(true);
+      setError("");
+      const data = await resourceService.getResources({ type: 'book' });
+      setBooks(data);
+    } catch (err: any) {
+      setError(err.message || "Failed to load books");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleView = async (book: any) => {
+    try {
+      await resourceService.incrementViews(book._id);
+      if (book.fileUrl) {
+        window.open(`/uploads/${book.fileUrl}`, '_blank');
+      }
+    } catch (err) {
+      console.error('Failed to view book:', err);
+    }
+  };
+
+  const handleDownload = async (book: any) => {
+    try {
+      await resourceService.incrementDownloads(book._id);
+      if (book.fileUrl) {
+        const link = document.createElement('a');
+        link.href = `/uploads/${book.fileUrl}`;
+        link.download = book.title;
+        link.click();
+      }
+    } catch (err) {
+      console.error('Failed to download book:', err);
+    }
+  };
 
   const filtered = books.filter((b) => {
-    const matchSearch = b.title.toLowerCase().includes(search.toLowerCase()) ||
-      b.subject.toLowerCase().includes(search.toLowerCase()) ||
-      b.author.toLowerCase().includes(search.toLowerCase());
-    const matchTag = activeTag === "All" || b.tags.includes(activeTag);
+    const matchSearch = b.title?.toLowerCase().includes(search.toLowerCase()) ||
+      b.category?.toLowerCase().includes(search.toLowerCase()) ||
+      b.description?.toLowerCase().includes(search.toLowerCase());
+    const matchTag = activeTag === "All" || b.tags?.includes(activeTag);
     return matchSearch && matchTag;
   });
 
@@ -65,21 +110,50 @@ export default function Books() {
         </div>
       </div>
 
+      {/* Loading State */}
+      {loading && (
+        <div className="flex items-center justify-center py-12">
+          <Loader2 className="w-8 h-8 text-green-600 animate-spin" />
+        </div>
+      )}
+
+      {/* Error State */}
+      {error && (
+        <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center gap-3">
+          <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
+          <div>
+            <p className="text-red-800 font-medium text-sm">Failed to load books</p>
+            <p className="text-red-600 text-xs mt-0.5">{error}</p>
+          </div>
+          <button
+            onClick={loadBooks}
+            className="ml-auto text-red-600 hover:text-red-700 text-sm font-medium"
+          >
+            Retry
+          </button>
+        </div>
+      )}
+
       {/* Books Grid */}
+      {!loading && !error && (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {filtered.map((book) => (
-          <div key={book.id} className="bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md hover:border-green-200 transition-all overflow-hidden group flex flex-col">
+        {filtered.map((book) => {
+          const colorOptions = ['bg-blue-500', 'bg-green-600', 'bg-purple-500', 'bg-orange-500', 'bg-teal-500'];
+          const bookColor = colorOptions[Math.abs(book.title?.charCodeAt(0) || 0) % colorOptions.length];
+          
+          return (
+          <div key={book._id} className="bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md hover:border-green-200 transition-all overflow-hidden group flex flex-col">
             {/* Book Spine Visual */}
-            <div className={`${book.color} h-28 flex items-center justify-center relative`}>
+            <div className={`${bookColor} h-28 flex items-center justify-center relative`}>
               <BookOpen className="w-10 h-10 text-white/80" />
               <div className="absolute inset-0 bg-black/10" />
               <div className="absolute top-2 right-2">
-                {book.tags.includes("bestseller") && (
+                {book.tags?.includes("bestseller") && (
                   <span className="bg-yellow-400 text-yellow-900 text-xs px-2 py-0.5 rounded-full font-medium flex items-center gap-1">
                     <Star className="w-3 h-3" fill="currentColor" /> Bestseller
                   </span>
                 )}
-                {book.tags.includes("classic") && (
+                {book.tags?.includes("classic") && (
                   <span className="bg-purple-400 text-white text-xs px-2 py-0.5 rounded-full font-medium">Classic</span>
                 )}
               </div>
@@ -87,34 +161,40 @@ export default function Books() {
 
             <div className="p-4 flex-1 flex flex-col">
               <div className="mb-2">
-                <span className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">{book.subject}</span>
+                <span className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">{book.category || 'General'}</span>
               </div>
               <h4 className="text-gray-800 font-semibold text-sm mb-0.5 group-hover:text-green-700 transition-colors line-clamp-2">{book.title}</h4>
-              <p className="text-gray-500 text-xs">by {book.author} · {book.edition}</p>
+              {book.metadata?.author && (
+                <p className="text-gray-500 text-xs">by {book.metadata.author}{book.metadata.edition && ` · ${book.metadata.edition}`}</p>
+              )}
               <p className="text-gray-600 text-xs mt-2 flex-1 line-clamp-2">{book.description}</p>
 
               <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
-                <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className={`w-3 h-3 ${i < Math.floor(book.rating) ? "text-yellow-400 fill-yellow-400" : "text-gray-200"}`} />
-                  ))}
-                  <span className="text-gray-500 text-xs ml-1">{book.rating}</span>
+                <div className="text-xs text-gray-500">
+                  {book.views || 0} views · {book.downloads || 0} downloads
                 </div>
                 <div className="flex gap-2">
-                  <button className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-lg hover:bg-gray-200 transition-colors">
-                    Details
+                  <button
+                    onClick={() => handleView(book)}
+                    className="text-xs bg-blue-50 text-blue-600 px-2.5 py-1 rounded-lg hover:bg-blue-100 transition-colors"
+                  >
+                    View
                   </button>
-                  <button className="text-xs bg-green-600 text-white px-2.5 py-1 rounded-lg hover:bg-green-700 transition-colors flex items-center gap-1">
+                  <button
+                    onClick={() => handleDownload(book)}
+                    className="text-xs bg-green-600 text-white px-2.5 py-1 rounded-lg hover:bg-green-700 transition-colors flex items-center gap-1"
+                  >
                     <Download className="w-3 h-3" /> PDF
                   </button>
                 </div>
               </div>
             </div>
           </div>
-        ))}
+        )})}
       </div>
+      )}
 
-      {filtered.length === 0 && (
+      {!loading && !error && filtered.length === 0 && (
         <div className="text-center py-12">
           <BookOpen className="w-12 h-12 text-gray-200 mx-auto mb-3" />
           <p className="text-gray-500">No books found matching your search.</p>

@@ -1,58 +1,41 @@
-import { useState } from "react";
-import { Search, Plus, Star, BookOpen, FileText, Tag, Clock, ChevronRight } from "lucide-react";
-
-const notesData = [
-  {
-    id: 1, subject: "International Relations", topic: "Realism Theory",
-    content: "Realism holds that states are the primary actors in IR, driven by self-interest and power. Key thinkers: Thucydides, Morgenthau, Waltz. Core concepts: balance of power, national interest, security dilemma, anarchy of international system.",
-    tags: ["IR", "Theory"], starred: true, lastEdited: "2 hours ago", color: "bg-sky-500",
-  },
-  {
-    id: 2, subject: "Pakistan Affairs", topic: "Constitutional Development",
-    content: "Pakistan has had 3 constitutions (1956, 1962, 1973). Current 1973 Constitution: Federal parliamentary system, 270 National Assembly seats, Bicameral legislature, Role of Islam, Fundamental rights (Article 8-28), Emergency provisions.",
-    tags: ["Pakistan", "Constitution"], starred: false, lastEdited: "Yesterday", color: "bg-emerald-600",
-  },
-  {
-    id: 3, subject: "Current Affairs", topic: "CPEC Overview",
-    content: "CPEC is a $62bn initiative connecting Xinjiang (China) to Gwadar (Pakistan). Phase I: Energy & infrastructure. Phase II: Industrial cooperation, Agriculture, IT. Key projects: Motorways, Power plants, Gwadar port, SEZs.",
-    tags: ["CPEC", "China"], starred: true, lastEdited: "3 days ago", color: "bg-orange-500",
-  },
-  {
-    id: 4, subject: "International Relations", topic: "UN System",
-    content: "UN founded 1945 with 51 members (now 193). Main organs: General Assembly (all members, 1 vote), Security Council (5 P5 + 10 non-permanent, VETO power), ICJ, Secretariat, ECOSOC. Budget 2024: ~$3.2 billion.",
-    tags: ["UN", "International"], starred: false, lastEdited: "1 week ago", color: "bg-blue-500",
-  },
-  {
-    id: 5, subject: "English Essay", topic: "Essay Structure",
-    content: "CSS Essay: 2000 words. Structure: Hook → Thesis → Body (PEEL: Point, Evidence, Explanation, Link) → Counter-argument & rebuttal → Conclusion. Key: Academic tone, diverse vocabulary, balanced arguments, strong conclusion.",
-    tags: ["Essay", "Writing"], starred: true, lastEdited: "4 days ago", color: "bg-purple-500",
-  },
-  {
-    id: 6, subject: "Pakistan Affairs", topic: "Pakistan Movement",
-    content: "Key events: Simla Deputation (1906) → Khilafat Movement (1919) → Nehru Report (1928) → Allahabad Address (1930) → Lahore Resolution (1940) → Cabinet Mission Plan (1946) → Independence (Aug 14, 1947). Key figures: Jinnah, Iqbal, Liaquat Ali Khan.",
-    tags: ["History", "Pakistan"], starred: false, lastEdited: "5 days ago", color: "bg-green-600",
-  },
-  {
-    id: 7, subject: "Islamic Studies", topic: "Pillars of Islam",
-    content: "Five Pillars: 1) Shahadah (Declaration of faith) 2) Salat (5 daily prayers) 3) Zakat (2.5% on savings annually) 4) Sawm (Ramadan fasting) 5) Hajj (pilgrimage once in lifetime for able). Foundation of Islamic practice.",
-    tags: ["Islam", "Basics"], starred: false, lastEdited: "1 week ago", color: "bg-teal-500",
-  },
-];
+import { useState, useEffect } from "react";
+import { Search, Plus, Star, BookOpen, FileText, Tag, Clock, ChevronRight, Loader2, AlertCircle } from "lucide-react";
+import { resourceService } from "../../services/resourceService";
 
 export default function Notes() {
   const [search, setSearch] = useState("");
   const [filterSubject, setFilterSubject] = useState("All");
-  const [activeNote, setActiveNote] = useState<typeof notesData[0] | null>(null);
+  const [activeNote, setActiveNote] = useState<any | null>(null);
   const [showStarred, setShowStarred] = useState(false);
+  const [notesData, setNotesData] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const subjects = ["All", ...Array.from(new Set(notesData.map(n => n.subject)))];
+  useEffect(() => {
+    loadNotes();
+  }, []);
+
+  const loadNotes = async () => {
+    try {
+      setLoading(true);
+      setError("");
+      const data = await resourceService.getResources({ type: 'note' });
+      setNotesData(data);
+    } catch (err: any) {
+      setError(err.message || "Failed to load notes");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const subjects = ["All", ...Array.from(new Set(notesData.map(n => n.category)))];
 
   const filtered = notesData.filter(note => {
-    const matchSearch = note.topic.toLowerCase().includes(search.toLowerCase()) ||
-      note.subject.toLowerCase().includes(search.toLowerCase()) ||
-      note.content.toLowerCase().includes(search.toLowerCase());
-    const matchSub = filterSubject === "All" || note.subject === filterSubject;
-    const matchStar = !showStarred || note.starred;
+    const matchSearch = note.title?.toLowerCase().includes(search.toLowerCase()) ||
+      note.category?.toLowerCase().includes(search.toLowerCase()) ||
+      note.description?.toLowerCase().includes(search.toLowerCase());
+    const matchSub = filterSubject === "All" || note.category === filterSubject;
+    const matchStar = !showStarred || note.metadata?.starred;
     return matchSearch && matchSub && matchStar;
   });
 
@@ -109,7 +92,32 @@ export default function Notes() {
             </div>
           </div>
 
+          {/* Loading State */}
+          {loading && (
+            <div className="flex-1 flex items-center justify-center">
+              <Loader2 className="w-6 h-6 text-green-600 animate-spin" />
+            </div>
+          )}
+
+          {/* Error State */}
+          {error && (
+            <div className="m-3 bg-red-50 border border-red-200 rounded-xl p-3">
+              <div className="flex items-center gap-2 mb-2">
+                <AlertCircle className="w-4 h-4 text-red-600" />
+                <p className="text-red-800 font-medium text-sm">Failed to load notes</p>
+              </div>
+              <p className="text-red-600 text-xs mb-2">{error}</p>
+              <button
+                onClick={loadNotes}
+                className="text-red-600 hover:text-red-700 text-sm font-medium"
+              >
+                Retry
+              </button>
+            </div>
+          )}
+
           {/* Notes List */}
+          {!loading && !error && (
           <div className="flex-1 overflow-y-auto">
             {filtered.length === 0 ? (
               <div className="text-center py-10">
@@ -117,35 +125,40 @@ export default function Notes() {
                 <p className="text-gray-400 text-sm">No notes found</p>
               </div>
             ) : (
-              filtered.map((note) => (
+              filtered.map((note) => {
+                const colorOptions = ['bg-sky-500', 'bg-emerald-600', 'bg-orange-500', 'bg-blue-500', 'bg-purple-500', 'bg-green-600', 'bg-teal-500'];
+                const noteColor = colorOptions[Math.abs(note.title?.charCodeAt(0) || 0) % colorOptions.length];
+                
+                return (
                 <button
-                  key={note.id}
+                  key={note._id}
                   onClick={() => setActiveNote(note)}
                   className={`w-full text-left p-3.5 border-b border-gray-50 hover:bg-gray-50 transition-colors ${
-                    activeNote?.id === note.id ? "bg-green-50 border-l-4 border-l-green-500" : ""
+                    activeNote?._id === note._id ? "bg-green-50 border-l-4 border-l-green-500" : ""
                   }`}
                 >
                   <div className="flex items-start gap-2.5">
-                    <div className={`w-8 h-8 rounded-lg ${note.color} flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                    <div className={`w-8 h-8 rounded-lg ${noteColor} flex items-center justify-center flex-shrink-0 mt-0.5`}>
                       <BookOpen className="w-4 h-4 text-white" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between">
-                        <p className="text-gray-800 text-sm font-medium truncate">{note.topic}</p>
-                        {note.starred && <Star className="w-3.5 h-3.5 text-yellow-400 flex-shrink-0 ml-1" fill="currentColor" />}
+                        <p className="text-gray-800 text-sm font-medium truncate">{note.title}</p>
+                        {note.metadata?.starred && <Star className="w-3.5 h-3.5 text-yellow-400 flex-shrink-0 ml-1" fill="currentColor" />}
                       </div>
-                      <p className="text-gray-500 text-xs">{note.subject}</p>
-                      <p className="text-gray-400 text-xs mt-1 line-clamp-2">{note.content}</p>
+                      <p className="text-gray-500 text-xs">{note.category}</p>
+                      <p className="text-gray-400 text-xs mt-1 line-clamp-2">{note.description}</p>
                       <div className="flex items-center gap-2 mt-1.5">
                         <Clock className="w-3 h-3 text-gray-300" />
-                        <span className="text-gray-300 text-xs">{note.lastEdited}</span>
+                        <span className="text-gray-300 text-xs">{new Date(note.createdAt).toLocaleDateString()}</span>
                       </div>
                     </div>
                   </div>
                 </button>
-              ))
+              )})
             )}
           </div>
+          )}
 
           {/* Add Note Button */}
           <div className="p-3 border-t border-gray-100">
@@ -166,16 +179,16 @@ export default function Notes() {
                 >
                   ←
                 </button>
-                <div className={`w-10 h-10 rounded-xl ${activeNote.color} flex items-center justify-center flex-shrink-0`}>
+                <div className={`w-10 h-10 rounded-xl ${['bg-sky-500', 'bg-emerald-600', 'bg-orange-500'][Math.abs(activeNote.title?.charCodeAt(0) || 0) % 3]} flex items-center justify-center flex-shrink-0`}>
                   <BookOpen className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-gray-800 font-semibold">{activeNote.topic}</h3>
-                  <p className="text-gray-500 text-xs">{activeNote.subject}</p>
+                  <h3 className="text-gray-800 font-semibold">{activeNote.title}</h3>
+                  <p className="text-gray-500 text-xs">{activeNote.category}</p>
                 </div>
                 <div className="flex gap-2">
                   <button className="p-2 rounded-lg hover:bg-gray-100 transition-colors">
-                    <Star className={`w-4 h-4 ${activeNote.starred ? "text-yellow-400 fill-yellow-400" : "text-gray-400"}`} />
+                    <Star className={`w-4 h-4 ${activeNote.metadata?.starred ? "text-yellow-400 fill-yellow-400" : "text-gray-400"}`} />
                   </button>
                 </div>
               </div>
@@ -184,19 +197,29 @@ export default function Notes() {
                 <div className="max-w-2xl mx-auto">
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {activeNote.tags.map(tag => (
+                    {activeNote.tags?.map((tag: string) => (
                       <span key={tag} className="flex items-center gap-1 text-xs bg-green-100 text-green-700 px-2.5 py-1 rounded-full">
                         <Tag className="w-3 h-3" /> {tag}
                       </span>
                     ))}
                     <span className="text-xs text-gray-400 flex items-center gap-1 ml-auto">
-                      <Clock className="w-3 h-3" /> {activeNote.lastEdited}
+                      <Clock className="w-3 h-3" /> {new Date(activeNote.createdAt).toLocaleDateString()}
                     </span>
                   </div>
 
                   {/* Content */}
                   <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-5">
-                    <p className="text-gray-700 leading-relaxed text-sm">{activeNote.content}</p>
+                    <p className="text-gray-700 leading-relaxed text-sm">{activeNote.description}</p>
+                    {activeNote.fileUrl && (
+                      <a
+                        href={`/uploads/${activeNote.fileUrl}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 mt-3 text-green-600 hover:text-green-700 text-sm font-medium"
+                      >
+                        <FileText className="w-4 h-4" /> View attachment
+                      </a>
+                    )}
                   </div>
 
                   {/* Related Topics */}
@@ -205,18 +228,22 @@ export default function Notes() {
                       <ChevronRight className="w-3 h-3" /> Related Notes
                     </p>
                     <div className="space-y-1.5">
-                      {notesData.filter(n => n.id !== activeNote.id && n.subject === activeNote.subject).slice(0, 3).map(n => (
+                      {notesData.filter(n => n._id !== activeNote._id && n.category === activeNote.category).slice(0, 3).map(n => {
+                        const colorOptions = ['bg-sky-500', 'bg-emerald-600', 'bg-orange-500', 'bg-blue-500'];
+                        const relatedColor = colorOptions[Math.abs(n.title?.charCodeAt(0) || 0) % colorOptions.length];
+                        
+                        return (
                         <button
-                          key={n.id}
+                          key={n._id}
                           onClick={() => setActiveNote(n)}
                           className="w-full flex items-center gap-2 p-2 rounded-lg hover:bg-gray-50 transition-colors text-left"
                         >
-                          <div className={`w-6 h-6 rounded-md ${n.color} flex items-center justify-center flex-shrink-0`}>
+                          <div className={`w-6 h-6 rounded-md ${relatedColor} flex items-center justify-center flex-shrink-0`}>
                             <BookOpen className="w-3 h-3 text-white" />
                           </div>
-                          <span className="text-gray-600 text-xs">{n.topic}</span>
+                          <span className="text-gray-600 text-xs">{n.title}</span>
                         </button>
-                      ))}
+                      )})}
                     </div>
                   </div>
                 </div>
