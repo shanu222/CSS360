@@ -56,7 +56,7 @@ export function Layout() {
           </div>
           {!collapsed && (
             <div className="overflow-hidden">
-              <p className="font-bold text-white leading-tight text-[15px]">CSS Academy</p>
+              <p className="font-bold text-white leading-tight text-[15px]">CSS360 ACADEMY</p>
               <p className="text-green-300 text-[11px]">Pakistan Civil Service</p>
             </div>
           )}
