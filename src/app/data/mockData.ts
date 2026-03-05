@@ -1923,6 +1923,97 @@ export const optionalGroups = [
       { id: "british-history", name: "British History", marks: 200, icon: "🏰", color: "bg-stone-500", progress: 0 },
       { id: "european-history", name: "European History", marks: 200, icon: "🏯", color: "bg-slate-500", progress: 0 },
       { id: "history-usa", name: "History of USA", marks: 200, icon: "🗽", color: "bg-blue-500", progress: 0 },
+      {
+        id: "history-pakistan-india",
+        name: "History of Pakistan & India",
+        marks: 100,
+        icon: "🕌",
+        color: "bg-amber-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Muslim Rule in the Subcontinent",
+            marks: 12,
+            subsections: [
+              "Arab conquest of Sindh",
+              "Establishment of Muslim rule in India",
+              "Delhi Sultanate and its administration",
+              "Mughal Empire: rise, administration, and decline"
+            ]
+          },
+          {
+            section: "2. Muslim Society and Culture",
+            marks: 12,
+            subsections: [
+              "Social structure during Muslim rule",
+              "Educational and cultural developments",
+              "Contribution of Muslim rulers to administration and culture"
+            ]
+          },
+          {
+            section: "3. Decline of Muslim Power",
+            marks: 12,
+            subsections: [
+              "Weaknesses of the Mughal Empire",
+              "Internal conflicts and administrative decline",
+              "Rise of regional powers"
+            ]
+          },
+          {
+            section: "4. Reform Movements",
+            marks: 13,
+            subsections: [
+              "Religious and social reform movements among Muslims",
+              "Role of Sheikh Ahmad Sirhindi",
+              "Role of Shah Waliullah",
+              "Jihad Movement of Syed Ahmad Shaheed Barelvi"
+            ]
+          },
+          {
+            section: "5. British Rule in India",
+            marks: 13,
+            subsections: [
+              "Establishment of British power",
+              "Administrative and economic policies of the British",
+              "Impact of British rule on Indian society"
+            ]
+          },
+          {
+            section: "6. Muslim Reform and Educational Movements",
+            marks: 12,
+            subsections: [
+              "Aligarh Movement",
+              "Role of Sir Syed Ahmad Khan",
+              "Educational reforms among Muslims"
+            ]
+          },
+          {
+            section: "7. Rise of Muslim Nationalism",
+            marks: 13,
+            subsections: [
+              "Political awakening of Muslims",
+              "Formation of All India Muslim League",
+              "Role of Muslim leadership"
+            ]
+          },
+          {
+            section: "8. Freedom Movement and Creation of Pakistan",
+            marks: 13,
+            subsections: [
+              "Important constitutional developments",
+              "Role of Quaid-e-Azam Muhammad Ali Jinnah",
+              "Major events leading to the creation of Pakistan",
+              "Partition of Bengal (1905)",
+              "Lucknow Pact (1916)",
+              "Khilafat Movement",
+              "Allahabad Address (1930)",
+              "Lahore Resolution (1940)",
+              "Cabinet Mission Plan",
+              "Partition of India and creation of Pakistan (1947)"
+            ]
+          }
+        ]
+      },
     ],
   },
   {
