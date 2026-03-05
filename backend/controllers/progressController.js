@@ -1,53 +1,41 @@
-import Progress from '../models/Progress.js';
-
-// Get user progress for all subjects
+// Get user progress - returns empty (auth removed)
 export const getUserProgress = async (req, res) => {
   try {
-    const progress = await Progress.find({ userId: req.userId });
-    res.json({ progress });
+    res.json({ progress: [] });
   } catch (error) {
     console.error('Get progress error:', error);
-    res.status(500).json({ error: 'Failed to fetch progress' });
+    res.json({ progress: [] });
   }
 };
 
-// Get progress for specific subject
+// Get progress for specific subject - returns empty
 export const getSubjectProgress = async (req, res) => {
   try {
     const { subjectId } = req.params;
-    
-    let progress = await Progress.findOne({ 
-      userId: req.userId, 
-      subjectId 
-    });
-
-    if (!progress) {
-      // Create new progress if doesn't exist
-      progress = new Progress({
-        userId: req.userId,
+    res.json({ 
+      progress: {
         subjectId,
-        subjectName: req.query.subjectName || subjectId,
-      });
-      await progress.save();
-    }
-
-    res.json({ progress });
+        progress: 0,
+        completedTopics: [],
+        studyTime: 0,
+      }
+    });
   } catch (error) {
     console.error('Get subject progress error:', error);
-    res.status(500).json({ error: 'Failed to fetch subject progress' });
+    res.json({ 
+      progress: {
+        subjectId,
+        progress: 0,
+        completedTopics: [],
+        studyTime: 0,
+      }
+    });
   }
 };
 
-// Update subject progress
+// Update progress - requires auth
 export const updateProgress = async (req, res) => {
-  try {
-    const { subjectId } = req.params;
-    const { progress: progressValue, completedTopics, studyTime } = req.body;
-
-    let progress = await Progress.findOne({ 
-      userId: req.userId, 
-      subjectId 
-    });
+  res.status(401).json({ error: 'Authentication required (progress feature removed)' });
 
     if (!progress) {
       progress = new Progress({
