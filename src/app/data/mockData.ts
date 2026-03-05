@@ -1182,7 +1182,128 @@ export const optionalGroups = [
           }
         ]
       },
-      { id: "chemistry", name: "Chemistry", marks: 200, icon: "🧪", color: "bg-yellow-500", progress: 0 },
+      {
+        id: "chemistry",
+        name: "Chemistry",
+        marks: 200,
+        icon: "🧪",
+        color: "bg-yellow-500",
+        progress: 0,
+        syllabus: [
+          {
+            section: "PAPER I – PHYSICAL AND INORGANIC CHEMISTRY (100 Marks) – 1. Atomic Structure",
+            marks: 15,
+            subsections: [
+              "Structure of atoms",
+              "Quantum numbers and electronic configuration",
+              "Periodic table and periodic trends"
+            ]
+          },
+          {
+            section: "PAPER I – PHYSICAL AND INORGANIC CHEMISTRY (100 Marks) – 2. Chemical Bonding",
+            marks: 15,
+            subsections: [
+              "Ionic bonding",
+              "Covalent bonding",
+              "Metallic bonding",
+              "Molecular orbital theory"
+            ]
+          },
+          {
+            section: "PAPER I – PHYSICAL AND INORGANIC CHEMISTRY (100 Marks) – 3. States of Matter",
+            marks: 15,
+            subsections: [
+              "Gases and gas laws",
+              "Liquids and intermolecular forces",
+              "Solids and crystal structures"
+            ]
+          },
+          {
+            section: "PAPER I – PHYSICAL AND INORGANIC CHEMISTRY (100 Marks) – 4. Thermodynamics",
+            marks: 20,
+            subsections: [
+              "Laws of thermodynamics",
+              "Enthalpy, entropy, and free energy",
+              "Thermochemical calculations"
+            ]
+          },
+          {
+            section: "PAPER I – PHYSICAL AND INORGANIC CHEMISTRY (100 Marks) – 5. Chemical Kinetics",
+            marks: 20,
+            subsections: [
+              "Rate of chemical reactions",
+              "Factors affecting reaction rates",
+              "Reaction mechanisms"
+            ]
+          },
+          {
+            section: "PAPER I – PHYSICAL AND INORGANIC CHEMISTRY (100 Marks) – 6. Electrochemistry",
+            marks: 15,
+            subsections: [
+              "Redox reactions",
+              "Electrochemical cells",
+              "Electrolysis"
+            ]
+          },
+          {
+            section: "PAPER II – ORGANIC AND ANALYTICAL CHEMISTRY (100 Marks) – 1. Organic Chemistry Fundamentals",
+            marks: 16,
+            subsections: [
+              "Structure and bonding in organic compounds",
+              "Functional groups and nomenclature",
+              "Isomerism"
+            ]
+          },
+          {
+            section: "PAPER II – ORGANIC AND ANALYTICAL CHEMISTRY (100 Marks) – 2. Reaction Mechanisms",
+            marks: 16,
+            subsections: [
+              "Substitution reactions",
+              "Addition reactions",
+              "Elimination reactions"
+            ]
+          },
+          {
+            section: "PAPER II – ORGANIC AND ANALYTICAL CHEMISTRY (100 Marks) – 3. Hydrocarbons",
+            marks: 17,
+            subsections: [
+              "Alkanes",
+              "Alkenes",
+              "Alkynes",
+              "Aromatic hydrocarbons"
+            ]
+          },
+          {
+            section: "PAPER II – ORGANIC AND ANALYTICAL CHEMISTRY (100 Marks) – 4. Organic Compounds",
+            marks: 17,
+            subsections: [
+              "Alcohols, phenols, and ethers",
+              "Aldehydes and ketones",
+              "Carboxylic acids and derivatives"
+            ]
+          },
+          {
+            section: "PAPER II – ORGANIC AND ANALYTICAL CHEMISTRY (100 Marks) – 5. Biomolecules",
+            marks: 17,
+            subsections: [
+              "Carbohydrates",
+              "Proteins",
+              "Lipids",
+              "Nucleic acids"
+            ]
+          },
+          {
+            section: "PAPER II – ORGANIC AND ANALYTICAL CHEMISTRY (100 Marks) – 6. Analytical Chemistry",
+            marks: 17,
+            subsections: [
+              "Qualitative analysis",
+              "Quantitative analysis",
+              "Chromatography",
+              "Spectroscopy"
+            ]
+          }
+        ]
+      },
       { id: "mathematics", name: "Mathematics", marks: 200, icon: "∑", color: "bg-rose-500", progress: 0 },
     ],
   },
