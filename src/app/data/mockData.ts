@@ -4558,6 +4558,87 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    id: 26,
+    name: "Group XXVI",
+    subjects: [
+      {
+        id: "balochi",
+        name: "Balochi",
+        marks: 100,
+        icon: "🏜️",
+        color: "from-orange-600 to-yellow-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Origin and Development of Balochi Language",
+            marks: 14,
+            subsections: [
+              "Historical background of the Balochi language",
+              "Linguistic characteristics of Balochi",
+              "Evolution of Balochi literature"
+            ]
+          },
+          {
+            section: "Classical Balochi Poetry",
+            marks: 15,
+            subsections: [
+              "Study of Jam Durrak and his works",
+              "Study of Mast Tawakali and his works",
+              "Study of Gul Khan Naseer and his works",
+              "Themes: Heroism and tribal traditions",
+              "Themes: Love and mysticism",
+              "Themes: Cultural values of Baloch society"
+            ]
+          },
+          {
+            section: "Balochi Folk Literature",
+            marks: 14,
+            subsections: [
+              "Folk poetry and folk songs",
+              "Folktales and legends",
+              "Oral traditions in Balochi culture"
+            ]
+          },
+          {
+            section: "Modern Balochi Literature",
+            marks: 15,
+            subsections: [
+              "Development of modern Balochi literature and its themes",
+              "Major writer: Atta Shad",
+              "Major writer: Gul Khan Naseer"
+            ]
+          },
+          {
+            section: "Balochi Prose",
+            marks: 14,
+            subsections: [
+              "Development of Balochi prose",
+              "Essays and short stories",
+              "Novels",
+              "Drama"
+            ]
+          },
+          {
+            section: "Literary Criticism",
+            marks: 14,
+            subsections: [
+              "Principles of literary criticism in Balochi literature",
+              "Contributions of major Balochi critics"
+            ]
+          },
+          {
+            section: "Balochi Literature in Pakistan",
+            marks: 14,
+            subsections: [
+              "Development of Balochi literature after independence",
+              "Cultural and literary importance of the Balochi language"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
