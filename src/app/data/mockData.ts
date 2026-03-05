@@ -4784,47 +4784,2820 @@ export const books = [
 ];
 
 export const subjectBooksHierarchy: Record<string, any> = {
-  "accountancy-auditing": {
-    isHierarchical: true,
-    categories: [
+  "english-essay": {
+    "isHierarchical": true,
+    "categories": [
       {
-        name: "Recommended Books",
-        color: "bg-green-500",
-        papers: [
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
           {
-            paperName: "Paper I",
-            books: [
-              { id: "acc-rec-p1-1", name: "Book Name - Placeholder 1", author: "", pdfUrl: "", downloadUrl: "" },
-              { id: "acc-rec-p1-2", name: "Book Name - Placeholder 2", author: "", pdfUrl: "", downloadUrl: "" },
-              { id: "acc-rec-p1-3", name: "Book Name - Placeholder 3", author: "", pdfUrl: "", downloadUrl: "" },
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "english-essay-rec-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "english-essay-rec-p1-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
             ]
           },
           {
-            paperName: "Paper II",
-            books: [
-              { id: "acc-rec-p2-1", name: "Book Name - Placeholder 1", author: "", pdfUrl: "", downloadUrl: "" },
-              { id: "acc-rec-p2-2", name: "Book Name - Placeholder 2", author: "", pdfUrl: "", downloadUrl: "" },
-              { id: "acc-rec-p2-3", name: "Book Name - Placeholder 3", author: "", pdfUrl: "", downloadUrl: "" },
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "english-essay-rec-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "english-essay-rec-p2-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
             ]
           }
         ]
       },
       {
-        name: "Suggested Books",
-        color: "bg-blue-500",
-        papers: [
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
           {
-            paperName: "Paper I",
-            books: [
-              { id: "acc-sug-p1-1", name: "Book Name - Placeholder 1", author: "", pdfUrl: "", downloadUrl: "" },
-              { id: "acc-sug-p1-2", name: "Book Name - Placeholder 2", author: "", pdfUrl: "", downloadUrl: "" },
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "english-essay-sug-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
             ]
           },
           {
-            paperName: "Paper II",
-            books: [
-              { id: "acc-sug-p2-1", name: "Book Name - Placeholder 1", author: "", pdfUrl: "", downloadUrl: "" },
-              { id: "acc-sug-p2-2", name: "Book Name - Placeholder 2", author: "", pdfUrl: "", downloadUrl: "" },
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "english-essay-sug-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "english-precis": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "english-precis-rec-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "english-precis-rec-p1-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "english-precis-rec-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "english-precis-rec-p2-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "english-precis-sug-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "english-precis-sug-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "general-science": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "general-science-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "general-science-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "general-science-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "current-affairs-comp": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "current-affairs-comp-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "current-affairs-comp-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "current-affairs-comp-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "pakistan-affairs": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "pakistan-affairs-rec-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "pakistan-affairs-rec-p1-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "pakistan-affairs-rec-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "pakistan-affairs-rec-p2-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "pakistan-affairs-sug-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "pakistan-affairs-sug-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "islamic-studies": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "islamic-studies-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "islamic-studies-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "islamic-studies-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "accountancy-auditing": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "accountancy-auditing-rec-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p1-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "accountancy-auditing-rec-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p2-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "accountancy-auditing-sug-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "accountancy-auditing-sug-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "economics": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "economics-rec-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "economics-rec-p1-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "economics-rec-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "economics-rec-p2-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "economics-sug-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "economics-sug-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "computer-science": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "computer-science-rec-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "computer-science-rec-p1-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "computer-science-rec-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "computer-science-rec-p2-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "computer-science-sug-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "computer-science-sug-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "political-science": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "political-science-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "political-science-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "political-science-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "international-relations": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "international-relations-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "international-relations-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "international-relations-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "physics": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "physics-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "physics-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "physics-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "chemistry": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "chemistry-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "chemistry-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "chemistry-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "mathematics": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "mathematics-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "mathematics-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "mathematics-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "pure-mathematics": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "pure-mathematics-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "pure-mathematics-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "pure-mathematics-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "statistics": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "statistics-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "statistics-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "statistics-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "geology": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "geology-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "geology-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "geology-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "business-administration": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "business-administration-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "business-administration-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "business-administration-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "public-administration": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "public-administration-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "public-administration-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "public-administration-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "governance": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "governance-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "governance-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "governance-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "town-planning-urban-management": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "town-planning-urban-management-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "town-planning-urban-management-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "town-planning-urban-management-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "history-pakistan-india": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "history-pakistan-india-rec-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "history-pakistan-india-rec-p1-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "history-pakistan-india-rec-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "history-pakistan-india-rec-p2-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "history-pakistan-india-sug-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "history-pakistan-india-sug-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "islamic-history-culture": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "islamic-history-culture-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "islamic-history-culture-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "islamic-history-culture-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "british-history": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "british-history-rec-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "british-history-rec-p1-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "british-history-rec-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "british-history-rec-p2-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "british-history-sug-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "british-history-sug-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "european-history": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "european-history-rec-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "european-history-rec-p1-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "european-history-rec-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "european-history-rec-p2-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "european-history-sug-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "european-history-sug-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "history-usa": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "history-usa-rec-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "history-usa-rec-p1-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "history-usa-rec-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "history-usa-rec-p2-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "history-usa-sug-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "history-usa-sug-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "gender-studies": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "gender-studies-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "gender-studies-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "gender-studies-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "environmental-science": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "environmental-science-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "environmental-science-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "environmental-science-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "agriculture-forestry": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "agriculture-forestry-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "agriculture-forestry-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "agriculture-forestry-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "botany": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "botany-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "botany-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "botany-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "zoology": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "zoology-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "zoology-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "zoology-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "english-literature": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "english-literature-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "english-literature-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "english-literature-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "urdu-literature": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "urdu-literature-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "urdu-literature-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "urdu-literature-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "law": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "law-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "law-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "law-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "constitutional-law": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "constitutional-law-rec-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "constitutional-law-rec-p1-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "constitutional-law-rec-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "constitutional-law-rec-p2-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "constitutional-law-sug-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "constitutional-law-sug-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "international-law": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "international-law-rec-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "international-law-rec-p1-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "international-law-rec-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "international-law-rec-p2-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "international-law-sug-p1-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          },
+          {
+            "paperName": "Paper II",
+            "books": [
+              {
+                "id": "international-law-sug-p2-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "muslim-law-jurisprudence": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "muslim-law-jurisprudence-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "muslim-law-jurisprudence-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "muslim-law-jurisprudence-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "mercantile-law": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "mercantile-law-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "mercantile-law-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "mercantile-law-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "criminology": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "criminology-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "criminology-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "criminology-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "philosophy": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "philosophy-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "philosophy-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "philosophy-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "journalism-mass-communication": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "journalism-mass-communication-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "journalism-mass-communication-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "journalism-mass-communication-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "psychology": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "psychology-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "psychology-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "psychology-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "geography": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "geography-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "geography-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "geography-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sociology": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "sociology-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "sociology-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "sociology-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "anthropology": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "anthropology-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "anthropology-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "anthropology-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "punjabi": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "punjabi-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "punjabi-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "punjabi-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sindhi": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "sindhi-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "sindhi-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "sindhi-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "pashto": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "pashto-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "pashto-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "pashto-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "balochi": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "balochi-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "balochi-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "balochi-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "persian": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "persian-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "persian-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "persian-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "arabic": {
+    "isHierarchical": true,
+    "categories": [
+      {
+        "name": "Recommended Books",
+        "color": "bg-green-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "arabic-rec-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "arabic-rec-2",
+                "name": "Book Name - Placeholder 2",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Suggested Books",
+        "color": "bg-blue-500",
+        "papers": [
+          {
+            "paperName": "Paper I",
+            "books": [
+              {
+                "id": "arabic-sug-1",
+                "name": "Book Name - Placeholder 1",
+                "author": "",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              }
             ]
           }
         ]
