@@ -2010,7 +2010,95 @@ export const optionalGroups = [
           }
         ]
       },
-      { id: "european-history", name: "European History", marks: 200, icon: "🏯", color: "bg-slate-500", progress: 0 },
+      { id: "european-history", name: "European History", marks: 100, icon: "🏯", color: "bg-slate-500", progress: 0, syllabus: [
+          {
+            section: "1. Renaissance",
+            marks: 11,
+            subsections: [
+              "Causes of the Renaissance",
+              "Cultural and intellectual revival in Europe",
+              "Contributions in art, literature, and science",
+              "Major Renaissance thinkers and artists"
+            ]
+          },
+          {
+            section: "2. Reformation",
+            marks: 11,
+            subsections: [
+              "Causes of the Protestant Reformation",
+              "Role of Martin Luther and John Calvin",
+              "Catholic Counter-Reformation",
+              "Religious conflicts in Europe"
+            ]
+          },
+          {
+            section: "3. Rise of Nation States",
+            marks: 11,
+            subsections: [
+              "Formation of modern nation states in Europe",
+              "Development of centralized governments",
+              "Political changes in major European countries"
+            ]
+          },
+          {
+            section: "4. French Revolution (1789)",
+            marks: 12,
+            subsections: [
+              "Causes of the French Revolution",
+              "Major events and phases of the revolution",
+              "Role of Napoleon Bonaparte",
+              "Impact of the revolution on Europe"
+            ]
+          },
+          {
+            section: "5. Industrial Revolution",
+            marks: 12,
+            subsections: [
+              "Causes and origin of industrialization in Europe",
+              "Technological developments",
+              "Social and economic impacts",
+              "Urbanization and labor movements"
+            ]
+          },
+          {
+            section: "6. Unification Movements",
+            marks: 12,
+            subsections: [
+              "Unification of Italy",
+              "Unification of Germany",
+              "Role of major political leaders"
+            ]
+          },
+          {
+            section: "7. World War I",
+            marks: 12,
+            subsections: [
+              "Causes of World War I",
+              "Major events of the war",
+              "Treaty of Versailles",
+              "Political consequences in Europe"
+            ]
+          },
+          {
+            section: "8. World War II",
+            marks: 12,
+            subsections: [
+              "Causes and outbreak of World War II",
+              "Rise of totalitarian regimes",
+              "Major events of the war",
+              "Consequences and restructuring of Europe"
+            ]
+          },
+          {
+            section: "9. Post-War Europe",
+            marks: 7,
+            subsections: [
+              "Cold War division of Europe",
+              "Formation of European organizations",
+              "Development of the European Union"
+            ]
+          }
+        ] },
       { id: "history-usa", name: "History of USA", marks: 200, icon: "🗽", color: "bg-blue-500", progress: 0 },
       {
         id: "history-pakistan-india",
