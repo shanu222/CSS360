@@ -39,12 +39,5 @@ export const deleteNote = async (req, res) => {
 
 // Toggle like on note
 export const likeNote = async (req, res) => {
-  res.status(401).json({ error: 'Authentication required' }); 
-      message: 'Like toggled', 
-      likes: note.likes.length 
-    });
-  } catch (error) {
-    console.error('Like note error:', error);
-    res.status(500).json({ error: 'Failed to update like' });
-  }
+  res.status(401).json({ error: 'Authentication required' });
 };

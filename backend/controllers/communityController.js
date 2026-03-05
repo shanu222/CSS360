@@ -54,96 +54,14 @@ export const createThread = async (req, res) => {
 // Add reply to thread - requires auth
 export const addReply = async (req, res) => {
   res.status(401).json({ error: 'Authentication required' });
-export const addReply = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { content } = req.body;
-
-    const thread = await CommunityThread.findById(id);
-
-    if (!thread) {
-      return res.status(404).json({ error: 'Thread not found' });
-    }
-
-    if (thread.isClosed) {
-      return res.status(403).json({ error: 'Thread is closed' });
-    }
-
-    const user = await User.findById(req.userId);
-
-    thread.replies.push({
-      userId: req.userId,
-      author: user.name,
-      avatar: user.avatar || user.name.substring(0, 2).toUpperCase(),
-      content,
-      createdAt: new Date(),
-    });
-
-    thread.updatedAt = new Date();
-    await thread.save();
-
-    res.status(201).json({ 
-      message: 'Reply added successfully', 
-      thread 
-    });
-  } catch (error) {
-    console.error('Add reply error:', error);
-    res.status(500).json({ error: 'Failed to add reply' });
-  }
 };
 
-// Toggle like on thread
+// Toggle like on thread - requires auth
 export const likeThread = async (req, res) => {
-  try {
-    const { id } = req.params;
-
-    const thread = await CommunityThread.findById(id);
-
-    if (!thread) {
-      return res.status(404).json({ error: 'Thread not found' });
-    }
-
-    const likeIndex = thread.likes.indexOf(req.userId);
-
-    if (likeIndex > -1) {
-      thread.likes.splice(likeIndex, 1);
-    } else {
-      thread.likes.push(req.userId);
-    }
-
-    await thread.save();
-
-    res.json({ 
-      message: 'Like toggled', 
-      likes: thread.likes.length 
-    });
-  } catch (error) {
-    console.error('Like thread error:', error);
-    res.status(500).json({ error: 'Failed to update like' });
-  }
+  res.status(401).json({ error: 'Authentication required' });
 };
 
-// Delete thread (owner or admin)
+// Delete thread - requires auth
 export const deleteThread = async (req, res) => {
-  try {
-    const { id } = req.params;
-
-    const thread = await CommunityThread.findById(id);
-
-    if (!thread) {
-      return res.status(404).json({ error: 'Thread not found' });
-    }
-
-    // Check permission
-    if (thread.userId.toString() !== req.userId && req.user.role !== 'admin') {
-      return res.status(403).json({ error: 'Access denied' });
-    }
-
-    await thread.deleteOne();
-
-    res.json({ message: 'Thread deleted successfully' });
-  } catch (error) {
-    console.error('Delete thread error:', error);
-    res.status(500).json({ error: 'Failed to delete thread' });
-  }
+  res.status(401).json({ error: 'Authentication required' });
 };

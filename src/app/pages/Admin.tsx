@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Plus, FileText, Video, BookOpen, File, Search, Filter, Download, Eye, Trash2, Edit, CheckCircle, XCircle, Upload, Loader2 } from 'lucide-react';
+import { Plus, File, Eye, Trash2, Upload, Loader2 } from 'lucide-react';
 import { resourceService } from '../../services/resourceService';
 import { useAuth } from '../../contexts/AuthContext';
 
