@@ -2659,7 +2659,89 @@ export const optionalGroups = [
           }
         ]
       },
-      { id: "constitutional-law", name: "Constitutional Law", marks: 200, icon: "📜", color: "bg-zinc-500", progress: 0 },
+      {
+        id: "constitutional-law",
+        name: "Constitutional Law",
+        marks: 100,
+        icon: "📜",
+        color: "bg-zinc-500",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Introduction to Constitutional Law",
+            marks: 11,
+            subsections: [
+              "Definition and scope of constitutional law",
+              "Nature and importance of constitutions",
+              "Types of constitutions: written and unwritten"
+            ]
+          },
+          {
+            section: "2. Principles of Constitutional Law",
+            marks: 12,
+            subsections: [
+              "Rule of law",
+              "Separation of powers",
+              "Checks and balances",
+              "Judicial review"
+            ]
+          },
+          {
+            section: "3. Fundamental Rights",
+            marks: 12,
+            subsections: [
+              "Concept of fundamental rights",
+              "Protection of civil liberties",
+              "Enforcement of fundamental rights"
+            ]
+          },
+          {
+            section: "4. Constitutional Development",
+            marks: 11,
+            subsections: [
+              "Historical evolution of constitutional systems",
+              "Development of democratic institutions"
+            ]
+          },
+          {
+            section: "5. Constitution of the United Kingdom",
+            marks: 12,
+            subsections: [
+              "Features of the British constitution",
+              "Role of Parliament",
+              "Role of the Prime Minister and Cabinet",
+              "Constitutional monarchy"
+            ]
+          },
+          {
+            section: "6. Constitution of the United States",
+            marks: 12,
+            subsections: [
+              "Federal system of government",
+              "Separation of powers",
+              "Role of Congress, President, and Supreme Court"
+            ]
+          },
+          {
+            section: "7. Constitution of France",
+            marks: 12,
+            subsections: [
+              "Structure of government in France",
+              "Role of the President and Parliament",
+              "Constitutional framework of the Fifth Republic"
+            ]
+          },
+          {
+            section: "8. Constitution of Pakistan",
+            marks: 6,
+            subsections: [
+              "Constitutional development in Pakistan",
+              "Features of the Constitution of 1973",
+              "Fundamental rights and institutions of governance"
+            ]
+          }
+        ]
+      },
     ],
   },
   {
