@@ -1542,6 +1542,87 @@ export const optionalGroups = [
     subjects: [
       { id: "public-administration", name: "Public Administration", marks: 200, icon: "🏢", color: "bg-orange-500", progress: 70 },
       { id: "governance", name: "Governance & Public Policy", marks: 200, icon: "⚖️", color: "bg-amber-500", progress: 45 },
+      {
+        id: "business-administration",
+        name: "Business Administration",
+        marks: 100,
+        icon: "💼",
+        color: "bg-blue-500",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Introduction to Business Administration",
+            marks: 12,
+            subsections: [
+              "Definition and scope of business administration",
+              "Nature and importance of business",
+              "Role of business in economic development",
+              "Forms of business organizations"
+            ]
+          },
+          {
+            section: "2. Management",
+            marks: 16,
+            subsections: [
+              "Definition and functions of management",
+              "Planning, organizing, leading, and controlling",
+              "Decision-making process in management",
+              "Strategic management"
+            ]
+          },
+          {
+            section: "3. Organizational Behavior",
+            marks: 16,
+            subsections: [
+              "Individual behavior in organizations",
+              "Motivation theories",
+              "Leadership styles",
+              "Communication in organizations",
+              "Group dynamics and teamwork"
+            ]
+          },
+          {
+            section: "4. Human Resource Management",
+            marks: 14,
+            subsections: [
+              "Recruitment and selection",
+              "Training and development",
+              "Performance appraisal",
+              "Compensation and benefits"
+            ]
+          },
+          {
+            section: "5. Marketing Management",
+            marks: 14,
+            subsections: [
+              "Concepts of marketing",
+              "Marketing mix: product, price, place, promotion",
+              "Consumer behavior",
+              "Market segmentation and targeting"
+            ]
+          },
+          {
+            section: "6. Financial Management",
+            marks: 14,
+            subsections: [
+              "Nature and scope of financial management",
+              "Sources of business finance",
+              "Financial markets and institutions",
+              "Capital budgeting and financial decision-making"
+            ]
+          },
+          {
+            section: "7. Business Environment",
+            marks: 14,
+            subsections: [
+              "Economic environment",
+              "Legal environment",
+              "Technological environment",
+              "Global business environment"
+            ]
+          }
+        ]
+      },
     ],
   },
   {
