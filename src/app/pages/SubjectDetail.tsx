@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router";
 import { compulsorySubjects, optionalGroups } from "../data/mockData";
-import { ChevronLeft, BookOpen, FileText, ClipboardList, Target, Brain, Download, Star } from "lucide-react";
+import { ChevronLeft, BookOpen, FileText, ClipboardList, Target, Brain, Download, Star, ChevronDown, ChevronUp } from "lucide-react";
 import { noteService } from "../../services/noteService";
 
 const allSubjects = [
@@ -61,10 +61,18 @@ export default function SubjectDetail() {
   const { subjectId } = useParams();
   const [tab, setTab] = useState("notes");
   const [myNotes, setMyNotes] = useState<any[]>([]);
+  const [expandedSections, setExpandedSections] = useState<Record<number, boolean>>({});
 
   const subject = allSubjects.find(s => s.id === subjectId);
   const notes = (subjectId && subjectNotesMap[subjectId]) || defaultNotes;
   const books = (subjectId && subjectBooksMap[subjectId]) || defaultBooks;
+
+  const toggleSection = (index: number) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
 
   useEffect(() => {
     if (!subjectId) return;
@@ -200,26 +208,80 @@ export default function SubjectDetail() {
 
       {tab === "syllabus" && (
         <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-5">
-          <h3 className="text-gray-700 font-semibold mb-4">Official Syllabus Topics</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {((subject as any).topics?.length > 0 ? (subject as any).topics : [
-              "Introduction & Scope", "Historical Background", "Theoretical Frameworks",
-              "Contemporary Issues", "Pakistan Perspective", "International Comparisons",
-              "Policy Implications", "Case Studies",
-            ]).map((topic: string, i: number) => (
-              <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-100">
-                <div className="w-6 h-6 rounded-full bg-green-100 text-green-700 text-xs flex items-center justify-center font-bold flex-shrink-0">
-                  {i + 1}
+          <h3 className="text-gray-700 font-semibold mb-4">Official Syllabus</h3>
+          
+          {/* Check if detailed syllabus exists */}
+          {(subject as any).syllabus ? (
+            <div className="space-y-3">
+              {(subject as any).syllabus.map((item: any, index: number) => (
+                <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
+                  {/* Section Header - Clickable */}
+                  <button
+                    onClick={() => toggleSection(index)}
+                    className="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left"
+                  >
+                    <div className="flex items-center gap-3 flex-1">
+                      <div className="w-8 h-8 rounded-lg bg-indigo-600 text-white text-xs flex items-center justify-center font-bold flex-shrink-0">
+                        {index + 1}
+                      </div>
+                      <div>
+                        <h4 className="text-gray-800 font-semibold">{item.section}</h4>
+                        <span className="text-xs text-indigo-600 font-medium">{item.marks} Marks</span>
+                      </div>
+                    </div>
+                    {expandedSections[index] ? (
+                      <ChevronUp className="w-5 h-5 text-gray-400" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-gray-400" />
+                    )}
+                  </button>
+                  
+                  {/* Subsections - Expandable */}
+                  {expandedSections[index] && (
+                    <div className="p-4 bg-white border-t border-gray-100">
+                      <ul className="space-y-2">
+                        {item.subsections.map((subsection: string, subIndex: number) => (
+                          <li key={subIndex} className="flex items-start gap-3 text-sm text-gray-600">
+                            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-1.5 flex-shrink-0"></span>
+                            <span>{subsection}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
-                <span className="text-gray-700 text-sm">{topic}</span>
+              ))}
+              
+              <div className="mt-4 p-3 bg-indigo-50 border border-indigo-200 rounded-lg">
+                <p className="text-indigo-800 text-xs">
+                  💡 <strong>Tip:</strong> Click on each section to expand and see detailed requirements. Total marks: {subject.marks}
+                </p>
               </div>
-            ))}
-          </div>
-          <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
-            <p className="text-yellow-800 text-xs">
-              📌 <strong>FPSC Note:</strong> Always refer to the official FPSC syllabus document for the most up-to-date topic list. This is a representative summary.
-            </p>
-          </div>
+            </div>
+          ) : (
+            /* Fallback to simple topics list */
+            <div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {((subject as any).topics?.length > 0 ? (subject as any).topics : [
+                  "Introduction & Scope", "Historical Background", "Theoretical Frameworks",
+                  "Contemporary Issues", "Pakistan Perspective", "International Comparisons",
+                  "Policy Implications", "Case Studies",
+                ]).map((topic: string, i: number) => (
+                  <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-100">
+                    <div className="w-6 h-6 rounded-full bg-green-100 text-green-700 text-xs flex items-center justify-center font-bold flex-shrink-0">
+                      {i + 1}
+                    </div>
+                    <span className="text-gray-700 text-sm">{topic}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <p className="text-yellow-800 text-xs">
+                  📌 <strong>FPSC Note:</strong> Always refer to the official FPSC syllabus document for the most up-to-date topic list. This is a representative summary.
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       )}
 

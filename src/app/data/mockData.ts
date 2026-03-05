@@ -20,6 +20,68 @@ export const compulsorySubjects = [
     description: "Master précis writing, grammar, comprehension, and translation skills.",
     progress: 42,
     topics: ["Précis Writing", "Grammar & Usage", "Comprehension", "Translation", "Idioms & Phrases", "Letter Writing"],
+    syllabus: [
+      {
+        section: "I. Precis Writing",
+        marks: 20,
+        subsections: [
+          "A carefully selected passage will be given for precis writing",
+          "Candidates will summarize the passage while preserving the central idea",
+          "They must also suggest an appropriate title",
+          "15 marks are for precis writing and 5 marks for the title"
+        ]
+      },
+      {
+        section: "II. Reading Comprehension",
+        marks: 20,
+        subsections: [
+          "A passage will be provided followed by five questions",
+          "Each question carries 4 marks",
+          "The objective is to test the candidate's understanding and analytical ability"
+        ]
+      },
+      {
+        section: "III. Grammar and Vocabulary",
+        marks: 20,
+        subsections: [
+          "Correct usage of tense, articles, prepositions, conjunctions, and punctuation",
+          "Understanding of phrasal verbs",
+          "Knowledge of synonyms and antonyms"
+        ]
+      },
+      {
+        section: "IV. Sentence Correction",
+        marks: 10,
+        subsections: [
+          "Sentences containing grammatical or punctuation errors will be provided",
+          "Candidates must correct them without unnecessary alterations"
+        ]
+      },
+      {
+        section: "V. Grouping of Words",
+        marks: 10,
+        subsections: [
+          "A list of twenty words will be provided",
+          "Candidates will group words based on similar or opposite meanings"
+        ]
+      },
+      {
+        section: "VI. Pairs of Words",
+        marks: 10,
+        subsections: [
+          "Ten pairs of commonly confused words will be given",
+          "Candidates must explain the difference and use them in sentences"
+        ]
+      },
+      {
+        section: "VII. Translation",
+        marks: 10,
+        subsections: [
+          "Ten short Urdu sentences will be provided",
+          "Candidates must translate them accurately into English"
+        ]
+      }
+    ]
   },
   {
     id: "general-science",
