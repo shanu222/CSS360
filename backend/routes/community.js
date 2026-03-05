@@ -1,11 +1,9 @@
 import express from 'express';
 import * as communityController from '../controllers/communityController.js';
-import { authenticate } from '../middleware/auth.js';
 
 const router = express.Router();
 
-// All routes require authentication
-router.use(authenticate);
+// Public routes (auth removed)
 
 router.get('/', communityController.getThreads);
 router.get('/:id', communityController.getThread);
