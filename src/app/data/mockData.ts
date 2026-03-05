@@ -1571,6 +1571,88 @@ export const optionalGroups = [
     subjects: [
       { id: "sociology", name: "Sociology", marks: 200, icon: "👥", color: "bg-violet-500", progress: 50 },
       { id: "geography", name: "Geography", marks: 200, icon: "🗺️", color: "bg-lime-600", progress: 35 },
+      {
+        id: "geology",
+        name: "Geology",
+        marks: 100,
+        icon: "🪨",
+        color: "bg-amber-700",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Introduction to Geology",
+            marks: 10,
+            subsections: [
+              "Definition and scope of geology",
+              "Branches of geology",
+              "Importance of geology in modern society"
+            ]
+          },
+          {
+            section: "2. Earth and its Structure",
+            marks: 15,
+            subsections: [
+              "Structure of the Earth: crust, mantle, core",
+              "Plate tectonics and continental drift",
+              "Earthquakes and volcanoes"
+            ]
+          },
+          {
+            section: "3. Minerals",
+            marks: 10,
+            subsections: [
+              "Definition and classification of minerals",
+              "Physical properties of minerals",
+              "Identification of common minerals"
+            ]
+          },
+          {
+            section: "4. Rocks",
+            marks: 15,
+            subsections: [
+              "Types of rocks: igneous, sedimentary, metamorphic",
+              "Rock formation processes",
+              "Rock cycle"
+            ]
+          },
+          {
+            section: "5. Geological Structures",
+            marks: 10,
+            subsections: [
+              "Folds and faults",
+              "Joints and fractures",
+              "Structural deformation of rocks"
+            ]
+          },
+          {
+            section: "6. Stratigraphy",
+            marks: 10,
+            subsections: [
+              "Principles of stratigraphy",
+              "Geological time scale",
+              "Fossils and their importance in stratigraphy"
+            ]
+          },
+          {
+            section: "7. Economic Geology",
+            marks: 15,
+            subsections: [
+              "Mineral resources",
+              "Energy resources",
+              "Exploration and mining of minerals"
+            ]
+          },
+          {
+            section: "8. Geology of Pakistan",
+            marks: 15,
+            subsections: [
+              "Geological structure of Pakistan",
+              "Major mineral resources of Pakistan",
+              "Energy resources and geological prospects"
+            ]
+          }
+        ]
+      },
       { id: "psychology", name: "Psychology", marks: 200, icon: "🧠", color: "bg-fuchsia-500", progress: 10 },
     ],
   },
