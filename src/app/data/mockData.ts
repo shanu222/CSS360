@@ -3710,6 +3710,101 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    id: 17,
+    name: "Group XVII",
+    subjects: [
+      {
+        id: "philosophy",
+        name: "Philosophy",
+        marks: 100,
+        icon: "🧠",
+        color: "from-violet-600 to-indigo-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Introduction to Philosophy",
+            marks: 10,
+            subsections: [
+              "Definition and scope of philosophy",
+              "Branches of philosophy",
+              "Relationship between philosophy, religion, and science"
+            ]
+          },
+          {
+            section: "Greek Philosophy",
+            marks: 12,
+            subsections: [
+              "Socrates and the Socratic method",
+              "Plato and his theory of ideas",
+              "Aristotle and his contributions to logic and ethics"
+            ]
+          },
+          {
+            section: "Medieval Philosophy",
+            marks: 11,
+            subsections: [
+              "Influence of religion on philosophy",
+              "Contributions of St. Augustine",
+              "Contributions of St. Thomas Aquinas"
+            ]
+          },
+          {
+            section: "Modern Philosophy",
+            marks: 12,
+            subsections: [
+              "Rationalism: Descartes, Spinoza, Leibniz",
+              "Empiricism: Locke, Berkeley, Hume"
+            ]
+          },
+          {
+            section: "Kant and German Idealism",
+            marks: 11,
+            subsections: [
+              "Philosophy of Immanuel Kant",
+              "German idealism and its influence"
+            ]
+          },
+          {
+            section: "Existentialism",
+            marks: 11,
+            subsections: [
+              "Major ideas of existentialism",
+              "Contributions of Kierkegaard, Nietzsche, and Sartre"
+            ]
+          },
+          {
+            section: "Islamic Philosophy",
+            marks: 13,
+            subsections: [
+              "Contributions of Al-Farabi",
+              "Contributions of Ibn Sina (Avicenna)",
+              "Contributions of Al-Ghazali",
+              "Contributions of Ibn Rushd (Averroes)"
+            ]
+          },
+          {
+            section: "Logic",
+            marks: 11,
+            subsections: [
+              "Basic principles of logic",
+              "Deductive and inductive reasoning",
+              "Logical fallacies"
+            ]
+          },
+          {
+            section: "Ethics",
+            marks: 9,
+            subsections: [
+              "Concepts of good and evil",
+              "Moral philosophy",
+              "Major ethical theories"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
