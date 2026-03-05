@@ -4396,6 +4396,87 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    id: 24,
+    name: "Group XXIV",
+    subjects: [
+      {
+        id: "sindhi",
+        name: "Sindhi",
+        marks: 100,
+        icon: "📜",
+        color: "from-lime-600 to-green-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Origin and Development of Sindhi Language",
+            marks: 14,
+            subsections: [
+              "Historical background of Sindhi language",
+              "Linguistic characteristics of Sindhi",
+              "Evolution of Sindhi literature"
+            ]
+          },
+          {
+            section: "Classical Sindhi Poetry",
+            marks: 15,
+            subsections: [
+              "Study of Shah Abdul Latif Bhittai and his works",
+              "Study of Sachal Sarmast and his works",
+              "Study of Sami and his works",
+              "Themes: Mysticism",
+              "Themes: Love and devotion",
+              "Themes: Spiritual philosophy"
+            ]
+          },
+          {
+            section: "Sindhi Folk Literature",
+            marks: 14,
+            subsections: [
+              "Folk songs and poetry",
+              "Folktales and legends",
+              "Cultural traditions reflected in Sindhi folklore"
+            ]
+          },
+          {
+            section: "Modern Sindhi Literature",
+            marks: 15,
+            subsections: [
+              "Development of modern Sindhi literature and its themes",
+              "Major writer: Shaikh Ayaz",
+              "Major writer: Mirza Qaleech Beg"
+            ]
+          },
+          {
+            section: "Sindhi Prose",
+            marks: 14,
+            subsections: [
+              "Development of Sindhi prose",
+              "Essays and short stories",
+              "Novels",
+              "Drama"
+            ]
+          },
+          {
+            section: "Literary Criticism",
+            marks: 14,
+            subsections: [
+              "Principles of literary criticism in Sindhi literature",
+              "Contributions of major Sindhi critics"
+            ]
+          },
+          {
+            section: "Sindhi Literature in Pakistan",
+            marks: 14,
+            subsections: [
+              "Development of Sindhi literature after independence",
+              "Role of Sindhi literature in cultural preservation"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
