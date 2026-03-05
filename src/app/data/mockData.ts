@@ -1920,7 +1920,96 @@ export const optionalGroups = [
   {
     group: 4,
     subjects: [
-      { id: "british-history", name: "British History", marks: 200, icon: "🏰", color: "bg-stone-500", progress: 0 },
+      {
+        id: "british-history",
+        name: "British History",
+        marks: 100,
+        icon: "🏰",
+        color: "bg-stone-500",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. The Tudor Period (1485–1603)",
+            marks: 12,
+            subsections: [
+              "Rise of the Tudor dynasty",
+              "Reign of Henry VII and consolidation of power",
+              "Reign of Henry VIII and the English Reformation",
+              "Reign of Elizabeth I",
+              "Political and religious developments during the Tudor era"
+            ]
+          },
+          {
+            section: "2. The Stuart Period (1603–1714)",
+            marks: 13,
+            subsections: [
+              "Reign of James I",
+              "Reign of Charles I and conflict with Parliament",
+              "English Civil War",
+              "Execution of Charles I",
+              "Commonwealth and rule of Oliver Cromwell",
+              "Restoration of the monarchy"
+            ]
+          },
+          {
+            section: "3. The Glorious Revolution (1688)",
+            marks: 12,
+            subsections: [
+              "Causes of the Glorious Revolution",
+              "Deposition of James II",
+              "Rise of William and Mary",
+              "Establishment of parliamentary supremacy",
+              "Bill of Rights (1689)"
+            ]
+          },
+          {
+            section: "4. Constitutional Development",
+            marks: 13,
+            subsections: [
+              "Growth of parliamentary institutions",
+              "Cabinet system and the role of the Prime Minister",
+              "Evolution of constitutional monarchy"
+            ]
+          },
+          {
+            section: "5. Industrial Revolution",
+            marks: 13,
+            subsections: [
+              "Causes and development of industrialization",
+              "Economic and social impacts",
+              "Changes in industry, agriculture, and urbanization"
+            ]
+          },
+          {
+            section: "6. British Empire",
+            marks: 13,
+            subsections: [
+              "Expansion of the British Empire",
+              "Colonial administration",
+              "Economic and political influence of the empire"
+            ]
+          },
+          {
+            section: "7. Britain in the 19th Century",
+            marks: 13,
+            subsections: [
+              "Reform Acts and expansion of democracy",
+              "Social and political reforms",
+              "Rise of political parties"
+            ]
+          },
+          {
+            section: "8. Britain in the 20th Century",
+            marks: 11,
+            subsections: [
+              "Role in World War I",
+              "Role in World War II",
+              "Decline of the British Empire",
+              "Emergence of modern Britain"
+            ]
+          }
+        ]
+      },
       { id: "european-history", name: "European History", marks: 200, icon: "🏯", color: "bg-slate-500", progress: 0 },
       { id: "history-usa", name: "History of USA", marks: 200, icon: "🗽", color: "bg-blue-500", progress: 0 },
       {
