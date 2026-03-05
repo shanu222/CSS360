@@ -854,7 +854,127 @@ export const optionalGroups = [
           }
         ]
       },
-      { id: "international-relations", name: "International Relations", marks: 200, icon: "🌐", color: "bg-sky-500", progress: 55 },
+      {
+        id: "international-relations",
+        name: "International Relations",
+        marks: 200,
+        icon: "🌐",
+        color: "bg-sky-500",
+        progress: 55,
+        syllabus: [
+          {
+            section: "PAPER I – THEORIES AND CONCEPTS OF INTERNATIONAL RELATIONS (100 Marks) – 1. Introduction to International Relations",
+            marks: 16,
+            subsections: [
+              "Definition, nature, and scope of international relations",
+              "Evolution of international relations as an academic discipline",
+              "Key concepts in international relations"
+            ]
+          },
+          {
+            section: "PAPER I – THEORIES AND CONCEPTS OF INTERNATIONAL RELATIONS (100 Marks) – 2. Theories of International Relations",
+            marks: 22,
+            subsections: [
+              "Realism",
+              "Neo-realism",
+              "Liberalism",
+              "Neo-liberalism",
+              "Constructivism",
+              "Marxism and dependency theory"
+            ]
+          },
+          {
+            section: "PAPER I – THEORIES AND CONCEPTS OF INTERNATIONAL RELATIONS (100 Marks) – 3. National Power",
+            marks: 16,
+            subsections: [
+              "Elements of national power",
+              "Balance of power",
+              "Collective security",
+              "Deterrence and strategic stability"
+            ]
+          },
+          {
+            section: "PAPER I – THEORIES AND CONCEPTS OF INTERNATIONAL RELATIONS (100 Marks) – 4. Foreign Policy",
+            marks: 16,
+            subsections: [
+              "Determinants of foreign policy",
+              "Decision-making process in foreign policy",
+              "Diplomacy and diplomatic practices"
+            ]
+          },
+          {
+            section: "PAPER I – THEORIES AND CONCEPTS OF INTERNATIONAL RELATIONS (100 Marks) – 5. International Law",
+            marks: 14,
+            subsections: [
+              "Nature and sources of international law",
+              "Relationship between international law and state sovereignty"
+            ]
+          },
+          {
+            section: "PAPER I – THEORIES AND CONCEPTS OF INTERNATIONAL RELATIONS (100 Marks) – 6. International Organizations",
+            marks: 16,
+            subsections: [
+              "United Nations and its structure",
+              "Role of international organizations in maintaining peace and security"
+            ]
+          },
+          {
+            section: "PAPER II – INTERNATIONAL POLITICS AND GLOBAL ISSUES (100 Marks) – 1. Major Developments in International Politics",
+            marks: 18,
+            subsections: [
+              "World Wars and their impact on international politics",
+              "Cold War and post-Cold War world order",
+              "Emergence of new global powers"
+            ]
+          },
+          {
+            section: "PAPER II – INTERNATIONAL POLITICS AND GLOBAL ISSUES (100 Marks) – 2. International Security",
+            marks: 17,
+            subsections: [
+              "Arms race and arms control",
+              "Nuclear proliferation",
+              "Terrorism and counterterrorism"
+            ]
+          },
+          {
+            section: "PAPER II – INTERNATIONAL POLITICS AND GLOBAL ISSUES (100 Marks) – 3. International Political Economy",
+            marks: 17,
+            subsections: [
+              "Global economic institutions",
+              "International trade and economic cooperation",
+              "Globalization and economic interdependence"
+            ]
+          },
+          {
+            section: "PAPER II – INTERNATIONAL POLITICS AND GLOBAL ISSUES (100 Marks) – 4. Regional Organizations",
+            marks: 16,
+            subsections: [
+              "European Union (EU)",
+              "ASEAN",
+              "SAARC",
+              "African Union"
+            ]
+          },
+          {
+            section: "PAPER II – INTERNATIONAL POLITICS AND GLOBAL ISSUES (100 Marks) – 5. Pakistan's Foreign Policy",
+            marks: 16,
+            subsections: [
+              "Principles and objectives of Pakistan's foreign policy",
+              "Pakistan's relations with neighboring countries",
+              "Pakistan's relations with major global powers"
+            ]
+          },
+          {
+            section: "PAPER II – INTERNATIONAL POLITICS AND GLOBAL ISSUES (100 Marks) – 6. Contemporary Global Issues",
+            marks: 16,
+            subsections: [
+              "Climate change",
+              "Migration and refugees",
+              "Human rights and humanitarian intervention"
+            ]
+          }
+        ]
+      },
       {
         id: "accountancy-auditing",
         name: "Accountancy & Auditing",
