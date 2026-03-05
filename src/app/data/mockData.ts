@@ -4008,6 +4008,106 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    id: 20,
+    name: "Group XX",
+    subjects: [
+      {
+        id: "journalism-mass-communication",
+        name: "Journalism & Mass Communication",
+        marks: 100,
+        icon: "📰",
+        color: "from-rose-600 to-red-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Introduction to Mass Communication",
+            marks: 10,
+            subsections: [
+              "Definition and scope of mass communication",
+              "Functions of mass media",
+              "Types of mass media (print, electronic, digital)"
+            ]
+          },
+          {
+            section: "History of Journalism",
+            marks: 11,
+            subsections: [
+              "Development of journalism in the world",
+              "Evolution of journalism in the subcontinent",
+              "Development of journalism in Pakistan"
+            ]
+          },
+          {
+            section: "News and Reporting",
+            marks: 12,
+            subsections: [
+              "Definition and elements of news",
+              "News values and news sources",
+              "Reporting techniques",
+              "Interviewing skills"
+            ]
+          },
+          {
+            section: "Editing and News Writing",
+            marks: 11,
+            subsections: [
+              "Principles of editing",
+              "Headline writing",
+              "Structure of news stories",
+              "Editorial writing"
+            ]
+          },
+          {
+            section: "Communication Theories",
+            marks: 12,
+            subsections: [
+              "Hypodermic needle theory",
+              "Two-step flow theory",
+              "Agenda-setting theory",
+              "Uses and gratifications theory"
+            ]
+          },
+          {
+            section: "Media Ethics and Laws",
+            marks: 11,
+            subsections: [
+              "Ethical standards in journalism",
+              "Freedom of the press",
+              "Media laws and regulations"
+            ]
+          },
+          {
+            section: "Public Relations and Advertising",
+            marks: 11,
+            subsections: [
+              "Concept of public relations",
+              "Role of advertising in media",
+              "Communication strategies"
+            ]
+          },
+          {
+            section: "Electronic and Digital Media",
+            marks: 11,
+            subsections: [
+              "Television and radio broadcasting",
+              "Online journalism and social media",
+              "Impact of digital media on communication"
+            ]
+          },
+          {
+            section: "Media and Society",
+            marks: 11,
+            subsections: [
+              "Role of media in shaping public opinion",
+              "Media and democracy",
+              "Media influence on culture and politics"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
