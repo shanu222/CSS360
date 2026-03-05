@@ -2863,6 +2863,104 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    group: 10,
+    subjects: [
+      {
+        id: "zoology",
+        name: "Zoology",
+        marks: 100,
+        icon: "🦁",
+        color: "bg-orange-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Introduction to Zoology",
+            marks: 11,
+            subsections: [
+              "Definition and scope of zoology",
+              "Branches of zoology",
+              "Importance of studying animal life"
+            ]
+          },
+          {
+            section: "2. Animal Classification",
+            marks: 12,
+            subsections: [
+              "Principles of animal classification",
+              "Major groups of animals",
+              "Invertebrates and vertebrates",
+              "Characteristics of different animal phyla"
+            ]
+          },
+          {
+            section: "3. Cell Biology",
+            marks: 11,
+            subsections: [
+              "Structure and function of animal cells",
+              "Cell organelles",
+              "Cell division (mitosis and meiosis)"
+            ]
+          },
+          {
+            section: "4. Animal Physiology",
+            marks: 13,
+            subsections: [
+              "Digestive system",
+              "Respiratory system",
+              "Circulatory system",
+              "Nervous system"
+            ]
+          },
+          {
+            section: "5. Reproduction and Development",
+            marks: 12,
+            subsections: [
+              "Types of reproduction in animals",
+              "Fertilization and embryonic development",
+              "Growth and development"
+            ]
+          },
+          {
+            section: "6. Genetics and Evolution",
+            marks: 12,
+            subsections: [
+              "Principles of heredity",
+              "Genetic variation",
+              "Theories of evolution"
+            ]
+          },
+          {
+            section: "7. Animal Ecology",
+            marks: 12,
+            subsections: [
+              "Interaction between animals and environment",
+              "Food chains and food webs",
+              "Ecological balance"
+            ]
+          },
+          {
+            section: "8. Economic Zoology",
+            marks: 12,
+            subsections: [
+              "Importance of animals in agriculture and industry",
+              "Fisheries and livestock",
+              "Animal resources and management"
+            ]
+          },
+          {
+            section: "9. Zoology in Pakistan",
+            marks: 5,
+            subsections: [
+              "Major animal species of Pakistan",
+              "Conservation of wildlife",
+              "Challenges in wildlife management"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
