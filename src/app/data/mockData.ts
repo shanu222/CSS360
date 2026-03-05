@@ -4639,6 +4639,89 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    id: 27,
+    name: "Group XXVII",
+    subjects: [
+      {
+        id: "persian",
+        name: "Persian",
+        marks: 100,
+        icon: "📚",
+        color: "from-indigo-600 to-purple-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Origin and Development of Persian Language",
+            marks: 14,
+            subsections: [
+              "Historical development of Persian language",
+              "Influence of Persian on other languages",
+              "Importance of Persian literature in Islamic civilization"
+            ]
+          },
+          {
+            section: "Classical Persian Poetry",
+            marks: 15,
+            subsections: [
+              "Study of Firdawsi and his literary works",
+              "Study of Saadi and his literary works",
+              "Study of Hafiz Shirazi and his literary works",
+              "Study of Jalaluddin Rumi and his literary works",
+              "Study of Umar Khayyam and his literary works",
+              "Themes: Mysticism",
+              "Themes: Love and spirituality",
+              "Themes: Moral philosophy"
+            ]
+          },
+          {
+            section: "Persian Prose",
+            marks: 14,
+            subsections: [
+              "Development of Persian prose",
+              "Historical writings",
+              "Essays and biographical works",
+              "Religious literature"
+            ]
+          },
+          {
+            section: "Persian Literary Forms",
+            marks: 14,
+            subsections: [
+              "Ghazal",
+              "Masnavi",
+              "Rubai",
+              "Qasida"
+            ]
+          },
+          {
+            section: "Modern Persian Literature",
+            marks: 14,
+            subsections: [
+              "Development of modern Persian literature",
+              "Modern literary trends and writers"
+            ]
+          },
+          {
+            section: "Translation",
+            marks: 14,
+            subsections: [
+              "Translation of Persian passages into English or Urdu",
+              "Understanding and interpretation of classical texts"
+            ]
+          },
+          {
+            section: "Literary Criticism",
+            marks: 15,
+            subsections: [
+              "Principles of literary criticism in Persian literature",
+              "Contributions of major Persian scholars"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
