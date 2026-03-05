@@ -11,7 +11,7 @@ const navItems = [
   { path: "/", label: "Dashboard", icon: Home },
   { path: "/exam-process", label: "Exam Process", icon: Award },
   { path: "/subjects", label: "Subjects", icon: GraduationCap },
-  { path: "/notes", label: "Notes", icon: FileText },
+  { path: "/notes", label: "My Notes", icon: FileText },
   { path: "/books", label: "Books Library", icon: Library },
   { path: "/past-papers", label: "Past Papers", icon: ClipboardList },
   { path: "/practice", label: "Practice", icon: Target },

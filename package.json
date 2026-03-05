@@ -8,7 +8,7 @@
     "dev": "vite",
     "start": "node server.js",
     "seed": "node backend/scripts/seed.js",
-    "test:api": "node --test backend/tests/ai.examiner.routes.test.js",
+    "test:api": "node --test backend/tests/ai.examiner.routes.test.js backend/tests/notes.my-notes.routes.test.js",
     "test": "npm run test:api"
   },
   "dependencies": {
@@ -65,6 +65,7 @@
     "openai": "^4.28.0",
     "pdf-parse": "^2.4.5",
     "prisma": "^5.22.0",
+    "tesseract.js": "^6.0.1",
     "react-day-picker": "8.10.1",
     "react-dnd": "16.0.1",
     "react-dnd-html5-backend": "16.0.1",

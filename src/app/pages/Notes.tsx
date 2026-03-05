@@ -1,265 +1,532 @@
-import { useState, useEffect } from "react";
-import { Search, Plus, Star, BookOpen, FileText, Tag, Clock, ChevronRight, Loader2, AlertCircle } from "lucide-react";
-import { resourceService } from "../../services/resourceService";
+import { useEffect, useMemo, useState } from 'react';
+import {
+  AlertCircle,
+  Brain,
+  Check,
+  FileText,
+  Image as ImageIcon,
+  Loader2,
+  Plus,
+  Sparkles,
+  Upload,
+} from 'lucide-react';
+import { noteService } from '../../services/noteService';
+
+type SubjectItem = {
+  id: string;
+  name: string;
+  topics?: string[];
+};
+
+type NoteItem = {
+  id: string;
+  title: string;
+  content: string;
+  sourceType: 'typed' | 'image';
+  imageUrl?: string | null;
+  ocrText?: string;
+  ocrConfidence?: number;
+  ocrError?: string | null;
+  organized?: boolean;
+  placements?: Array<{
+    subjectId: string;
+    subjectName: string;
+    topic: string;
+    confidence: number;
+  }>;
+  createdAt: string;
+};
 
 export default function Notes() {
-  const [search, setSearch] = useState("");
-  const [filterSubject, setFilterSubject] = useState("All");
-  const [activeNote, setActiveNote] = useState<any | null>(null);
-  const [showStarred, setShowStarred] = useState(false);
-  const [notesData, setNotesData] = useState<any[]>([]);
+  const [notes, setNotes] = useState<NoteItem[]>([]);
+  const [subjects, setSubjects] = useState<SubjectItem[]>([]);
+  const [selectedNoteIds, setSelectedNoteIds] = useState<string[]>([]);
+  const [selectedSubjectIds, setSelectedSubjectIds] = useState<string[]>([]);
+
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [imageTitle, setImageTitle] = useState('');
+  const [imageText, setImageText] = useState('');
+  const [imageFile, setImageFile] = useState<File | null>(null);
+
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [savingTyped, setSavingTyped] = useState(false);
+  const [savingImage, setSavingImage] = useState(false);
+  const [organizing, setOrganizing] = useState(false);
+  const [showSubjectPicker, setShowSubjectPicker] = useState(false);
+  const [includeAllSubjects, setIncludeAllSubjects] = useState(true);
+  const [editingNoteId, setEditingNoteId] = useState<string | null>(null);
+  const [editTitle, setEditTitle] = useState('');
+  const [editContent, setEditContent] = useState('');
+  const [updating, setUpdating] = useState(false);
+  const [deletingNoteId, setDeletingNoteId] = useState<string | null>(null);
 
-  useEffect(() => {
-    loadNotes();
-  }, []);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [lastOrganizeSummary, setLastOrganizeSummary] = useState<string>('');
 
-  const loadNotes = async () => {
+  const selectedNotes = useMemo(
+    () => notes.filter((note) => selectedNoteIds.includes(note.id)),
+    [notes, selectedNoteIds]
+  );
+
+  const loadData = async () => {
     try {
       setLoading(true);
-      setError("");
-      const data = await resourceService.getResources({ type: 'note' });
-      setNotesData(data);
+      setError(null);
+      const [myNotes, subjectList] = await Promise.all([
+        noteService.getNotes(),
+        noteService.getAvailableSubjects(),
+      ]);
+
+      setNotes(Array.isArray(myNotes) ? myNotes : []);
+      setSubjects(Array.isArray(subjectList) ? subjectList : []);
     } catch (err: any) {
-      setError(err.message || "Failed to load notes");
+      setError(err.response?.data?.error || err.message || 'Failed to load My Notes');
     } finally {
       setLoading(false);
     }
   };
 
-  const subjects = ["All", ...Array.from(new Set(notesData.map(n => n.category)))];
+  useEffect(() => {
+    loadData();
+  }, []);
 
-  const filtered = notesData.filter(note => {
-    const matchSearch = note.title?.toLowerCase().includes(search.toLowerCase()) ||
-      note.category?.toLowerCase().includes(search.toLowerCase()) ||
-      note.description?.toLowerCase().includes(search.toLowerCase());
-    const matchSub = filterSubject === "All" || note.category === filterSubject;
-    const matchStar = !showStarred || note.metadata?.starred;
-    return matchSearch && matchSub && matchStar;
-  });
+  const clearAlerts = () => {
+    setError(null);
+    setSuccess(null);
+  };
+
+  const toggleNoteSelection = (noteId: string) => {
+    setSelectedNoteIds((prev) =>
+      prev.includes(noteId) ? prev.filter((id) => id !== noteId) : [...prev, noteId]
+    );
+  };
+
+  const toggleSubjectSelection = (subjectId: string) => {
+    setSelectedSubjectIds((prev) =>
+      prev.includes(subjectId) ? prev.filter((id) => id !== subjectId) : [...prev, subjectId]
+    );
+  };
+
+  const saveTypedNote = async () => {
+    clearAlerts();
+
+    if (!content.trim()) {
+      setError('Please write note content before saving.');
+      return;
+    }
+
+    try {
+      setSavingTyped(true);
+      await noteService.createNote({ title: title.trim() || undefined, content });
+      setTitle('');
+      setContent('');
+      setSuccess('Typed note saved in My Notes.');
+      await loadData();
+    } catch (err: any) {
+      setError(err.response?.data?.error || err.message || 'Failed to save note');
+    } finally {
+      setSavingTyped(false);
+    }
+  };
+
+  const uploadImageNote = async () => {
+    clearAlerts();
+
+    if (!imageFile) {
+      setError('Please select an image to upload.');
+      return;
+    }
+
+    try {
+      setSavingImage(true);
+      await noteService.uploadImageNote({
+        image: imageFile,
+        title: imageTitle.trim() || undefined,
+        content: imageText.trim() || undefined,
+      });
+      setImageTitle('');
+      setImageText('');
+      setImageFile(null);
+      setSuccess('Image note uploaded successfully.');
+      await loadData();
+    } catch (err: any) {
+      setError(err.response?.data?.error || err.message || 'Failed to upload image note');
+    } finally {
+      setSavingImage(false);
+    }
+  };
+
+  const organizeWithAI = async () => {
+    clearAlerts();
+
+    const noteIds = selectedNoteIds.length > 0 ? selectedNoteIds : notes.map((n) => n.id);
+    if (noteIds.length === 0) {
+      setError('Please add at least one note before organizing.');
+      return;
+    }
+
+    if (!includeAllSubjects && selectedSubjectIds.length === 0) {
+      setError('Select at least one subject or choose All Subjects.');
+      return;
+    }
+
+    try {
+      setOrganizing(true);
+      const result = await noteService.organizeMyNotes({
+        noteIds,
+        subjectIds: selectedSubjectIds,
+        includeAllSubjects,
+      });
+
+      setShowSubjectPicker(false);
+      setLastOrganizeSummary(`${result.organizedCount} note(s) organized with ${result.aiEngine}.`);
+      setSuccess('AI organization completed.');
+      await loadData();
+    } catch (err: any) {
+      setError(err.response?.data?.error || err.message || 'Failed to organize notes');
+    } finally {
+      setOrganizing(false);
+    }
+  };
+
+  const startEdit = (note: NoteItem) => {
+    setEditingNoteId(note.id);
+    setEditTitle(note.title || '');
+    setEditContent(note.content || '');
+    clearAlerts();
+  };
+
+  const cancelEdit = () => {
+    setEditingNoteId(null);
+    setEditTitle('');
+    setEditContent('');
+  };
+
+  const saveEdit = async () => {
+    if (!editingNoteId) return;
+    try {
+      setUpdating(true);
+      await noteService.updateNote(editingNoteId, {
+        title: editTitle,
+        content: editContent,
+      });
+      setSuccess('Note updated successfully.');
+      cancelEdit();
+      await loadData();
+    } catch (err: any) {
+      setError(err.response?.data?.error || err.message || 'Failed to update note');
+    } finally {
+      setUpdating(false);
+    }
+  };
+
+  const deleteNote = async (noteId: string) => {
+    if (!window.confirm('Delete this note? This action cannot be undone.')) return;
+
+    try {
+      setDeletingNoteId(noteId);
+      await noteService.deleteNote(noteId);
+      setSelectedNoteIds((prev) => prev.filter((id) => id !== noteId));
+      setSuccess('Note deleted successfully.');
+      await loadData();
+    } catch (err: any) {
+      setError(err.response?.data?.error || err.message || 'Failed to delete note');
+    } finally {
+      setDeletingNoteId(null);
+    }
+  };
 
   return (
-    <div className="h-full flex flex-col bg-white">
-      {/* Header */}
-      <div className="p-3 sm:p-4 lg:p-5 bg-gradient-to-r from-[#0f3d2b] to-[#1a5c3e] text-white flex-shrink-0">
-        <div className="flex items-center justify-between gap-2">
-          <div className="min-w-0">
-            <h2 className="text-lg sm:text-xl text-white font-semibold">Notes</h2>
-            <p className="text-green-200 text-xs">Topic-wise notes for all CSS subjects</p>
-          </div>
-          <button className="flex items-center gap-1.5 bg-white/20 hover:bg-white/30 active:bg-white/40 text-white text-xs sm:text-sm px-2.5 sm:px-3 py-2 rounded-xl transition-colors flex-shrink-0 touch-highlight">
-            <Plus className="w-4 h-4" /> <span className="hidden sm:inline">New Note</span>
-          </button>
-        </div>
+    <div className="h-full flex flex-col bg-gray-50">
+      <div className="p-4 sm:p-5 bg-gradient-to-r from-[#0f3d2b] to-[#1a5c3e] text-white">
+        <h2 className="text-xl font-semibold text-white">My Notes</h2>
+        <p className="text-green-200 text-xs mt-1">
+          Upload handwritten or typed notes, then organize them with AI into relevant CSS subjects and topics.
+        </p>
       </div>
 
-      <div className="flex-1 flex overflow-hidden">
-        {/* Left Panel - Notes List */}
-        <div className={`${activeNote ? "hidden lg:flex" : "flex"} flex-col w-full lg:w-80 xl:w-96 flex-shrink-0 border-r border-gray-200 bg-white`}>
-          {/* Search & Filters */}
-          <div className="p-2 sm:p-3 border-b border-gray-100 space-y-2 flex-shrink-0">
-            <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
-              <Search className="w-4 h-4 text-gray-400 flex-shrink-0" />
-              <input
-                type="text"
-                placeholder="Search..."
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-                className="flex-1 bg-transparent text-sm text-gray-600 outline-none placeholder:text-gray-400 min-w-0"
-              />
-            </div>
-            <div className="flex gap-1 overflow-x-auto pb-1">
-              <button
-                onClick={() => setShowStarred(!showStarred)}
-                className={`flex items-center gap-1 px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all flex-shrink-0 active:opacity-80 ${
-                  showStarred ? "bg-yellow-100 text-yellow-700 border border-yellow-300" : "bg-gray-100 text-gray-500 hover:bg-gray-200"
-                }`}
-              >
-                <Star className="w-3 h-3" fill={showStarred ? "currentColor" : "none"} /> Starred
-              </button>
-              {subjects.slice(0, 5).map(sub => (
-                <button
-                  key={sub}
-                  onClick={() => setFilterSubject(sub)}
-                  className={`px-2 sm:px-2.5 py-1.5 rounded-lg text-xs whitespace-nowrap flex-shrink-0 transition-all active:opacity-80 ${
-                    filterSubject === sub ? "bg-green-600 text-white" : "bg-gray-100 text-gray-500 hover:bg-gray-200"
-                  }`}
-                >
-                  {sub === "All" ? "All" : sub.split(" ")[0]}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Loading State */}
-          {loading && (
-            <div className="flex-1 flex items-center justify-center">
-              <Loader2 className="w-6 h-6 text-green-600 animate-spin" />
-            </div>
-          )}
-
-          {/* Error State */}
+      {(error || success) && (
+        <div className="px-4 pt-3">
           {error && (
-            <div className="m-3 bg-red-50 border border-red-200 rounded-xl p-3">
-              <div className="flex items-center gap-2 mb-2">
-                <AlertCircle className="w-4 h-4 text-red-600" />
-                <p className="text-red-800 font-medium text-sm">Failed to load notes</p>
-              </div>
-              <p className="text-red-600 text-xs mb-2">{error}</p>
-              <button
-                onClick={loadNotes}
-                className="text-red-600 hover:text-red-700 text-sm font-medium"
-              >
-                Retry
-              </button>
+            <div className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-red-700 text-sm flex items-center gap-2">
+              <AlertCircle className="w-4 h-4" />
+              <span>{error}</span>
             </div>
           )}
-
-          {/* Notes List */}
-          {!loading && !error && (
-          <div className="flex-1 overflow-y-auto">
-            {filtered.length === 0 ? (
-              <div className="text-center py-10">
-                <FileText className="w-10 h-10 text-gray-200 mx-auto mb-2" />
-                <p className="text-gray-400 text-sm">No notes found</p>
-              </div>
-            ) : (
-              filtered.map((note) => {
-                const colorOptions = ['bg-sky-500', 'bg-emerald-600', 'bg-orange-500', 'bg-blue-500', 'bg-purple-500', 'bg-green-600', 'bg-teal-500'];
-                const noteColor = colorOptions[Math.abs(note.title?.charCodeAt(0) || 0) % colorOptions.length];
-                
-                return (
-                <button
-                  key={note._id}
-                  onClick={() => setActiveNote(note)}
-                  className={`w-full text-left p-3.5 border-b border-gray-50 hover:bg-gray-50 transition-colors ${
-                    activeNote?._id === note._id ? "bg-green-50 border-l-4 border-l-green-500" : ""
-                  }`}
-                >
-                  <div className="flex items-start gap-2.5">
-                    <div className={`w-8 h-8 rounded-lg ${noteColor} flex items-center justify-center flex-shrink-0 mt-0.5`}>
-                      <BookOpen className="w-4 h-4 text-white" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between">
-                        <p className="text-gray-800 text-sm font-medium truncate">{note.title}</p>
-                        {note.metadata?.starred && <Star className="w-3.5 h-3.5 text-yellow-400 flex-shrink-0 ml-1" fill="currentColor" />}
-                      </div>
-                      <p className="text-gray-500 text-xs">{note.category}</p>
-                      <p className="text-gray-400 text-xs mt-1 line-clamp-2">{note.description}</p>
-                      <div className="flex items-center gap-2 mt-1.5">
-                        <Clock className="w-3 h-3 text-gray-300" />
-                        <span className="text-gray-300 text-xs">{new Date(note.createdAt).toLocaleDateString()}</span>
-                      </div>
-                    </div>
-                  </div>
-                </button>
-              )})
-            )}
-          </div>
+          {success && (
+            <div className="rounded-lg border border-green-200 bg-green-50 px-3 py-2 text-green-700 text-sm flex items-center gap-2">
+              <Check className="w-4 h-4" />
+              <span>{success}</span>
+            </div>
           )}
+        </div>
+      )}
 
-          {/* Add Note Button */}
-          <div className="p-3 border-t border-gray-100">
-            <button className="w-full flex items-center justify-center gap-2 bg-green-50 border border-green-200 text-green-700 text-sm py-2.5 rounded-xl hover:bg-green-100 transition-colors">
-              <Plus className="w-4 h-4" /> Add New Note
+      <div className="flex-1 overflow-y-auto p-4 grid grid-cols-1 xl:grid-cols-3 gap-4">
+        <div className="xl:col-span-1 space-y-4">
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h3 className="text-sm font-semibold text-gray-800 mb-3 flex items-center gap-2">
+              <FileText className="w-4 h-4 text-green-600" />
+              Write Note in Editor
+            </h3>
+            <input
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Note title"
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm mb-2"
+            />
+            <textarea
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              placeholder="Type your notes here..."
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm min-h-[140px]"
+            />
+            <button
+              onClick={saveTypedNote}
+              disabled={savingTyped}
+              className="mt-3 w-full rounded-lg bg-green-600 text-white text-sm py-2 hover:bg-green-700 disabled:opacity-60"
+            >
+              {savingTyped ? 'Saving...' : 'Save Typed Note'}
+            </button>
+          </div>
+
+          <div className="bg-white rounded-xl border border-gray-200 p-4">
+            <h3 className="text-sm font-semibold text-gray-800 mb-3 flex items-center gap-2">
+              <ImageIcon className="w-4 h-4 text-blue-600" />
+              Upload Image Note
+            </h3>
+            <input
+              value={imageTitle}
+              onChange={(e) => setImageTitle(e.target.value)}
+              placeholder="Image note title"
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm mb-2"
+            />
+            <textarea
+              value={imageText}
+              onChange={(e) => setImageText(e.target.value)}
+              placeholder="Optional text context for this image"
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm min-h-[90px] mb-2"
+            />
+            <label className="w-full rounded-lg border border-dashed border-gray-300 px-3 py-3 text-sm text-gray-600 flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-50">
+              <Upload className="w-4 h-4" />
+              <span>{imageFile ? imageFile.name : 'Choose image (JPG, PNG, WEBP)'}</span>
+              <input
+                type="file"
+                accept="image/*"
+                className="hidden"
+                onChange={(e) => setImageFile(e.target.files?.[0] || null)}
+              />
+            </label>
+            <button
+              onClick={uploadImageNote}
+              disabled={savingImage}
+              className="mt-3 w-full rounded-lg bg-blue-600 text-white text-sm py-2 hover:bg-blue-700 disabled:opacity-60"
+            >
+              {savingImage ? 'Uploading...' : 'Upload Image Note'}
             </button>
           </div>
         </div>
 
-        {/* Right Panel - Note Detail */}
-        <div className={`${activeNote ? "flex" : "hidden lg:flex"} flex-1 flex-col overflow-hidden bg-gray-50`}>
-          {activeNote ? (
-            <>
-              <div className="flex items-center gap-3 p-4 bg-white border-b border-gray-200 flex-shrink-0">
-                <button
-                  onClick={() => setActiveNote(null)}
-                  className="lg:hidden p-1.5 rounded-lg hover:bg-gray-100 transition-colors"
-                >
-                  ←
-                </button>
-                <div className={`w-10 h-10 rounded-xl ${['bg-sky-500', 'bg-emerald-600', 'bg-orange-500'][Math.abs(activeNote.title?.charCodeAt(0) || 0) % 3]} flex items-center justify-center flex-shrink-0`}>
-                  <BookOpen className="w-5 h-5 text-white" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-gray-800 font-semibold">{activeNote.title}</h3>
-                  <p className="text-gray-500 text-xs">{activeNote.category}</p>
-                </div>
-                <div className="flex gap-2">
-                  <button className="p-2 rounded-lg hover:bg-gray-100 transition-colors">
-                    <Star className={`w-4 h-4 ${activeNote.metadata?.starred ? "text-yellow-400 fill-yellow-400" : "text-gray-400"}`} />
-                  </button>
-                </div>
+        <div className="xl:col-span-2 bg-white rounded-xl border border-gray-200 p-4">
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <h3 className="text-sm font-semibold text-gray-800">My Notes Library</h3>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setShowSubjectPicker(true)}
+                disabled={organizing || notes.length === 0}
+                className="rounded-lg bg-purple-600 text-white text-xs px-3 py-2 hover:bg-purple-700 disabled:opacity-60 flex items-center gap-1"
+              >
+                {organizing ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Brain className="w-3.5 h-3.5" />}
+                Organize with AI
+              </button>
+              <button
+                onClick={loadData}
+                className="rounded-lg border border-gray-300 text-gray-600 text-xs px-3 py-2 hover:bg-gray-50"
+              >
+                Refresh
+              </button>
+            </div>
+          </div>
+
+          {lastOrganizeSummary && (
+            <div className="mb-3 rounded-lg bg-purple-50 border border-purple-200 p-2 text-purple-700 text-xs flex items-center gap-2">
+              <Sparkles className="w-3.5 h-3.5" />
+              {lastOrganizeSummary}
+            </div>
+          )}
+
+          {loading ? (
+            <div className="h-56 flex items-center justify-center">
+              <Loader2 className="w-6 h-6 text-green-600 animate-spin" />
+            </div>
+          ) : notes.length === 0 ? (
+            <div className="h-56 flex items-center justify-center text-center text-gray-500 text-sm">
+              <div>
+                <Plus className="w-6 h-6 mx-auto mb-2 text-gray-400" />
+                Add your first note using the editor or image upload.
               </div>
-
-              <div className="flex-1 overflow-y-auto p-5">
-                <div className="max-w-2xl mx-auto">
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {activeNote.tags?.map((tag: string) => (
-                      <span key={tag} className="flex items-center gap-1 text-xs bg-green-100 text-green-700 px-2.5 py-1 rounded-full">
-                        <Tag className="w-3 h-3" /> {tag}
-                      </span>
-                    ))}
-                    <span className="text-xs text-gray-400 flex items-center gap-1 ml-auto">
-                      <Clock className="w-3 h-3" /> {new Date(activeNote.createdAt).toLocaleDateString()}
-                    </span>
-                  </div>
-
-                  {/* Content */}
-                  <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-5">
-                    <p className="text-gray-700 leading-relaxed text-sm">{activeNote.description}</p>
-                    {activeNote.fileUrl && (
-                      <a
-                        href={`/uploads/${activeNote.fileUrl}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 mt-3 text-green-600 hover:text-green-700 text-sm font-medium"
-                      >
-                        <FileText className="w-4 h-4" /> View attachment
-                      </a>
-                    )}
-                  </div>
-
-                  {/* Related Topics */}
-                  <div className="mt-4 bg-white rounded-xl border border-gray-100 shadow-sm p-4">
-                    <p className="text-gray-500 text-xs font-semibold mb-2 flex items-center gap-1">
-                      <ChevronRight className="w-3 h-3" /> Related Notes
-                    </p>
-                    <div className="space-y-1.5">
-                      {notesData.filter(n => n._id !== activeNote._id && n.category === activeNote.category).slice(0, 3).map(n => {
-                        const colorOptions = ['bg-sky-500', 'bg-emerald-600', 'bg-orange-500', 'bg-blue-500'];
-                        const relatedColor = colorOptions[Math.abs(n.title?.charCodeAt(0) || 0) % colorOptions.length];
-                        
-                        return (
-                        <button
-                          key={n._id}
-                          onClick={() => setActiveNote(n)}
-                          className="w-full flex items-center gap-2 p-2 rounded-lg hover:bg-gray-50 transition-colors text-left"
+            </div>
+          ) : (
+            <div className="space-y-2 max-h-[62vh] overflow-y-auto pr-1">
+              {notes.map((note) => (
+                <div key={note.id} className="rounded-lg border border-gray-200 p-3">
+                  <div className="flex items-start gap-3">
+                    <input
+                      type="checkbox"
+                      checked={selectedNoteIds.includes(note.id)}
+                      onChange={() => toggleNoteSelection(note.id)}
+                      className="mt-1"
+                    />
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <p className="text-sm font-medium text-gray-800 truncate">{note.title}</p>
+                        <span className="text-[11px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-700">
+                          {note.sourceType === 'image' ? 'Image Note' : 'Typed Note'}
+                        </span>
+                        {note.organized && (
+                          <span className="text-[11px] px-2 py-0.5 rounded-full bg-green-100 text-green-700">Organized</span>
+                        )}
+                        <div className="ml-auto flex items-center gap-1">
+                          <button
+                            onClick={() => startEdit(note)}
+                            className="text-[11px] px-2 py-0.5 rounded border border-gray-300 text-gray-600 hover:bg-gray-50"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            onClick={() => deleteNote(note.id)}
+                            disabled={deletingNoteId === note.id}
+                            className="text-[11px] px-2 py-0.5 rounded border border-red-300 text-red-600 hover:bg-red-50 disabled:opacity-60"
+                          >
+                            {deletingNoteId === note.id ? 'Deleting...' : 'Delete'}
+                          </button>
+                        </div>
+                      </div>
+                      {note.content && (
+                        <p className="text-xs text-gray-600 mt-1 line-clamp-3">{note.content}</p>
+                      )}
+                      {note.imageUrl && (
+                        <a
+                          href={note.imageUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-block text-xs text-blue-600 mt-1 hover:underline"
                         >
-                          <div className={`w-6 h-6 rounded-md ${relatedColor} flex items-center justify-center flex-shrink-0`}>
-                            <BookOpen className="w-3 h-3 text-white" />
+                          View uploaded image
+                        </a>
+                      )}
+                      {note.ocrText && (
+                        <div className="mt-1 text-[11px] text-gray-500">
+                          OCR: {note.ocrText.slice(0, 220)}{note.ocrText.length > 220 ? '...' : ''}
+                          {typeof note.ocrConfidence === 'number' && ` (confidence ${(note.ocrConfidence * 100).toFixed(0)}%)`}
+                        </div>
+                      )}
+                      {note.ocrError && (
+                        <div className="mt-1 text-[11px] text-orange-600">OCR issue: {note.ocrError}</div>
+                      )}
+
+                      {editingNoteId === note.id && (
+                        <div className="mt-2 rounded-lg border border-gray-300 bg-gray-50 p-2 space-y-2">
+                          <input
+                            value={editTitle}
+                            onChange={(e) => setEditTitle(e.target.value)}
+                            placeholder="Edit title"
+                            className="w-full rounded border border-gray-300 px-2 py-1 text-xs"
+                          />
+                          <textarea
+                            value={editContent}
+                            onChange={(e) => setEditContent(e.target.value)}
+                            placeholder="Edit note content"
+                            className="w-full rounded border border-gray-300 px-2 py-1 text-xs min-h-[72px]"
+                          />
+                          <div className="flex justify-end gap-2">
+                            <button
+                              onClick={cancelEdit}
+                              className="text-xs px-2 py-1 rounded border border-gray-300 text-gray-600 hover:bg-white"
+                            >
+                              Cancel
+                            </button>
+                            <button
+                              onClick={saveEdit}
+                              disabled={updating}
+                              className="text-xs px-2 py-1 rounded bg-green-600 text-white hover:bg-green-700 disabled:opacity-60"
+                            >
+                              {updating ? 'Saving...' : 'Save'}
+                            </button>
                           </div>
-                          <span className="text-gray-600 text-xs">{n.title}</span>
-                        </button>
-                      )})}
+                        </div>
+                      )}
+                      {(note.placements || []).length > 0 && (
+                        <div className="mt-2 flex flex-wrap gap-1">
+                          {note.placements?.map((placement) => (
+                            <span key={`${note.id}-${placement.subjectId}-${placement.topic}`} className="text-[11px] px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">
+                              {placement.subjectName} -> {placement.topic}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
-              </div>
-            </>
-          ) : (
-            <div className="flex-1 flex items-center justify-center flex-col gap-3 text-center p-6">
-              <div className="w-16 h-16 rounded-2xl bg-gray-100 flex items-center justify-center">
-                <FileText className="w-8 h-8 text-gray-300" />
-              </div>
-              <p className="text-gray-500 font-medium">Select a note to read</p>
-              <p className="text-gray-400 text-sm">Choose any note from the list to view its content</p>
+              ))}
             </div>
           )}
         </div>
       </div>
+
+      {showSubjectPicker && (
+        <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4">
+          <div className="w-full max-w-2xl rounded-xl bg-white border border-gray-200 shadow-xl p-4 max-h-[80vh] overflow-y-auto">
+            <h3 className="text-base font-semibold text-gray-800">Choose Subject Scope for AI Organization</h3>
+            <p className="text-xs text-gray-500 mt-1">
+              Selected notes: {selectedNotes.length > 0 ? selectedNotes.length : notes.length}.
+              You can select one, multiple, or all subjects.
+            </p>
+
+            <label className="mt-3 flex items-center gap-2 text-sm text-gray-700">
+              <input
+                type="checkbox"
+                checked={includeAllSubjects}
+                onChange={(e) => setIncludeAllSubjects(e.target.checked)}
+              />
+              Organize across all subjects
+            </label>
+
+            {!includeAllSubjects && (
+              <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {subjects.map((subject) => (
+                  <label key={subject.id} className="flex items-center gap-2 text-sm border border-gray-200 rounded-lg px-3 py-2">
+                    <input
+                      type="checkbox"
+                      checked={selectedSubjectIds.includes(subject.id)}
+                      onChange={() => toggleSubjectSelection(subject.id)}
+                    />
+                    <span className="truncate">{subject.name}</span>
+                  </label>
+                ))}
+              </div>
+            )}
+
+            <div className="mt-4 flex justify-end gap-2">
+              <button
+                onClick={() => setShowSubjectPicker(false)}
+                className="rounded-lg border border-gray-300 text-gray-700 text-sm px-3 py-2 hover:bg-gray-50"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={organizeWithAI}
+                disabled={organizing}
+                className="rounded-lg bg-purple-600 text-white text-sm px-3 py-2 hover:bg-purple-700 disabled:opacity-60"
+              >
+                {organizing ? 'Organizing...' : 'Run AI Organizer'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

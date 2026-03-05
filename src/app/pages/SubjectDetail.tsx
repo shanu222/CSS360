@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router";
 import { compulsorySubjects, optionalGroups } from "../data/mockData";
 import { ChevronLeft, BookOpen, FileText, ClipboardList, Target, Brain, Download, Star } from "lucide-react";
+import { noteService } from "../../services/noteService";
 
 const allSubjects = [
   ...compulsorySubjects,
@@ -59,10 +60,21 @@ const defaultBooks = [
 export default function SubjectDetail() {
   const { subjectId } = useParams();
   const [tab, setTab] = useState("notes");
+  const [myNotes, setMyNotes] = useState<any[]>([]);
 
   const subject = allSubjects.find(s => s.id === subjectId);
   const notes = (subjectId && subjectNotesMap[subjectId]) || defaultNotes;
   const books = (subjectId && subjectBooksMap[subjectId]) || defaultBooks;
+
+  useEffect(() => {
+    if (!subjectId) return;
+
+    noteService.getNotes({ subjectId }).then((items) => {
+      setMyNotes(Array.isArray(items) ? items : []);
+    }).catch(() => {
+      setMyNotes([]);
+    });
+  }, [subjectId]);
 
   if (!subject) {
     return (
@@ -161,6 +173,28 @@ export default function SubjectDetail() {
               Generate AI Notes
             </Link>
           </div>
+
+          {myNotes.length > 0 && (
+            <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-4">
+              <h4 className="text-gray-800 font-semibold mb-3">My Notes Organized Here</h4>
+              <div className="space-y-3">
+                {myNotes.map((note) => {
+                  const placement = (note.placements || []).find((p: any) => p.subjectId === subjectId);
+                  return (
+                    <div key={note.id} className="rounded-lg border border-gray-200 p-3">
+                      <div className="flex items-center justify-between gap-2">
+                        <p className="text-sm font-medium text-gray-800">{note.title}</p>
+                        <span className="text-[11px] px-2 py-0.5 rounded-full bg-green-100 text-green-700">
+                          {placement?.topic || 'General'}
+                        </span>
+                      </div>
+                      {note.content && <p className="text-xs text-gray-600 mt-1 line-clamp-3">{note.content}</p>}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
       )}
 
