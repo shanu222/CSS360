@@ -4996,6 +4996,113 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    id: 31,
+    name: "Group XXXI",
+    subjects: [
+      {
+        id: "islamic-history-culture",
+        name: "Islamic History & Culture",
+        marks: 200,
+        icon: "🕌",
+        color: "from-teal-600 to-green-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Paper I - Pre-Islamic Arabia",
+            marks: 20,
+            subsections: [
+              "Social, political, and economic conditions of Arabia before Islam",
+              "Religious beliefs and tribal structure",
+              "Cultural traditions of Arab society"
+            ]
+          },
+          {
+            section: "Paper I - Life of Prophet Muhammad (PBUH)",
+            marks: 30,
+            subsections: [
+              "Early life and prophethood",
+              "Preaching of Islam in Makkah",
+              "Migration (Hijrah) to Madinah",
+              "Establishment of the Islamic state in Madinah",
+              "Major battles and treaties",
+              "Conquest of Makkah"
+            ]
+          },
+          {
+            section: "Paper I - The Pious Caliphate (Khulafa-e-Rashideen)",
+            marks: 30,
+            subsections: [
+              "Caliphate of Hazrat Abu Bakr (RA)",
+              "Caliphate of Hazrat Umar (RA)",
+              "Caliphate of Hazrat Uthman (RA)",
+              "Caliphate of Hazrat Ali (RA)",
+              "Administrative system",
+              "Judicial system",
+              "Expansion of the Islamic state"
+            ]
+          },
+          {
+            section: "Paper I - Umayyad Dynasty",
+            marks: 20,
+            subsections: [
+              "Establishment of the Umayyad rule",
+              "Political and administrative system",
+              "Expansion of the Muslim empire",
+              "Cultural developments"
+            ]
+          },
+          {
+            section: "Paper II - Abbasid Dynasty",
+            marks: 25,
+            subsections: [
+              "Rise of the Abbasid dynasty",
+              "Political and administrative system",
+              "Development of Islamic civilization",
+              "Scientific and intellectual achievements"
+            ]
+          },
+          {
+            section: "Paper II - Muslim Spain (Al-Andalus)",
+            marks: 20,
+            subsections: [
+              "Establishment of Muslim rule in Spain",
+              "Cultural and scientific developments",
+              "Educational institutions and intellectual contributions"
+            ]
+          },
+          {
+            section: "Paper II - Ottoman Empire",
+            marks: 20,
+            subsections: [
+              "Rise and expansion of the Ottoman Empire",
+              "Administrative and military organization",
+              "Cultural and architectural achievements",
+              "Decline of the Ottoman Empire"
+            ]
+          },
+          {
+            section: "Paper II - Muslim Contributions to Civilization",
+            marks: 20,
+            subsections: [
+              "Contributions to science and medicine",
+              "Development of philosophy and literature",
+              "Advances in mathematics and astronomy"
+            ]
+          },
+          {
+            section: "Paper II - Islamic Art and Architecture",
+            marks: 15,
+            subsections: [
+              "Development of Islamic architecture",
+              "Mosques, palaces, and monuments",
+              "Calligraphy and decorative arts"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
