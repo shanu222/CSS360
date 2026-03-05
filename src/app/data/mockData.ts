@@ -3056,6 +3056,106 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    group: 12,
+    subjects: [
+      {
+        id: "urdu-literature",
+        name: "Urdu Literature",
+        marks: 100,
+        icon: "🖋️",
+        color: "bg-indigo-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Origin and Development of Urdu Language",
+            marks: 10,
+            subsections: [
+              "Origin of the Urdu language",
+              "Evolution and development of Urdu",
+              "Linguistic characteristics of Urdu"
+            ]
+          },
+          {
+            section: "2. Classical Urdu Poetry",
+            marks: 12,
+            subsections: [
+              "Early development of Urdu poetry",
+              "Major poetic forms: Ghazal, Nazm, Qasida, Marsiya"
+            ]
+          },
+          {
+            section: "3. Classical Poets",
+            marks: 12,
+            subsections: [
+              "Study of major classical poets and their contributions",
+              "Mir Taqi Mir",
+              "Mirza Ghalib",
+              "Momin Khan Momin",
+              "Sauda",
+              "Zauq"
+            ]
+          },
+          {
+            section: "4. Modern Urdu Poetry",
+            marks: 12,
+            subsections: [
+              "Development of modern Urdu poetry and its themes",
+              "Allama Muhammad Iqbal",
+              "Faiz Ahmed Faiz",
+              "Josh Malihabadi"
+            ]
+          },
+          {
+            section: "5. Urdu Prose",
+            marks: 12,
+            subsections: [
+              "Development of Urdu prose and its literary forms",
+              "Novel",
+              "Short story (Afsana)",
+              "Essay (Mazmoon)",
+              "Drama"
+            ]
+          },
+          {
+            section: "6. Prominent Urdu Prose Writers",
+            marks: 12,
+            subsections: [
+              "Sir Syed Ahmad Khan",
+              "Deputy Nazir Ahmad",
+              "Premchand",
+              "Saadat Hasan Manto"
+            ]
+          },
+          {
+            section: "7. Literary Movements in Urdu",
+            marks: 12,
+            subsections: [
+              "Aligarh Movement",
+              "Progressive Writers Movement",
+              "Modern literary trends"
+            ]
+          },
+          {
+            section: "8. Literary Criticism",
+            marks: 12,
+            subsections: [
+              "Development of literary criticism in Urdu",
+              "Major Urdu critics and their works"
+            ]
+          },
+          {
+            section: "9. Urdu Literature in Pakistan",
+            marks: 6,
+            subsections: [
+              "Development of Urdu literature after independence",
+              "Contribution of Pakistani writers to Urdu literature"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
