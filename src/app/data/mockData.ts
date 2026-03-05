@@ -1540,7 +1540,92 @@ export const optionalGroups = [
   {
     group: 3,
     subjects: [
-      { id: "public-administration", name: "Public Administration", marks: 200, icon: "🏢", color: "bg-orange-500", progress: 70 },
+      {
+        id: "public-administration",
+        name: "Public Administration",
+        marks: 100,
+        icon: "🏢",
+        color: "bg-orange-500",
+        progress: 70,
+        syllabus: [
+          {
+            section: "1. Introduction to Public Administration",
+            marks: 12,
+            subsections: [
+              "Definition and scope of public administration",
+              "Evolution and development of public administration",
+              "Difference between public and private administration",
+              "Importance of public administration in modern governance"
+            ]
+          },
+          {
+            section: "2. Administrative Theories",
+            marks: 12,
+            subsections: [
+              "Classical theory of administration",
+              "Bureaucratic theory (Max Weber)",
+              "Human relations theory",
+              "Modern administrative theories"
+            ]
+          },
+          {
+            section: "3. Organization and Management",
+            marks: 14,
+            subsections: [
+              "Principles of organization",
+              "Types of organizational structures",
+              "Leadership and decision-making",
+              "Communication in public organizations"
+            ]
+          },
+          {
+            section: "4. Public Policy",
+            marks: 12,
+            subsections: [
+              "Concept of public policy",
+              "Policy formulation and implementation",
+              "Policy evaluation",
+              "Role of institutions in policymaking"
+            ]
+          },
+          {
+            section: "5. Bureaucracy",
+            marks: 12,
+            subsections: [
+              "Nature and role of bureaucracy",
+              "Bureaucratic structure and functions",
+              "Relationship between bureaucracy and politics"
+            ]
+          },
+          {
+            section: "6. Financial Administration",
+            marks: 12,
+            subsections: [
+              "Budgeting process",
+              "Public finance management",
+              "Accountability and financial control"
+            ]
+          },
+          {
+            section: "7. Administrative Reforms",
+            marks: 12,
+            subsections: [
+              "Need for administrative reforms",
+              "New public management",
+              "Good governance and accountability"
+            ]
+          },
+          {
+            section: "8. Public Administration in Pakistan",
+            marks: 14,
+            subsections: [
+              "Structure of public administration in Pakistan",
+              "Federal, provincial, and local governments",
+              "Administrative challenges in Pakistan"
+            ]
+          }
+        ]
+      },
       { id: "governance", name: "Governance & Public Policy", marks: 200, icon: "⚖️", color: "bg-amber-500", progress: 45 },
       {
         id: "business-administration",
