@@ -33,32 +33,32 @@ export default function Home() {
   const progressPercent = Math.round((studyPlanData.daysCompleted / studyPlanData.totalDays) * 100);
 
   return (
-    <div className="p-4 lg:p-6 space-y-6">
+    <div className="p-3 sm:p-4 lg:p-6 space-y-5 sm:space-y-6 overflow-y-auto">
       {/* Hero Banner */}
       <div
-        className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#0f3d2b] via-[#1a5c3e] to-[#0e4d34] p-6 lg:p-8 text-white"
+        className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#0f3d2b] via-[#1a5c3e] to-[#0e4d34] p-4 sm:p-6 lg:p-8 text-white"
         style={{
           backgroundImage: `linear-gradient(135deg, rgba(15,61,43,0.95) 0%, rgba(26,92,62,0.92) 50%, rgba(14,77,52,0.95) 100%), url(https://images.unsplash.com/photo-1758525861622-f4e7ac86a2d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-          <div>
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 sm:gap-4">
+          <div className="min-w-0">
             <div className="flex items-center gap-2 mb-2">
-              <Star className="w-4 h-4 text-yellow-400" fill="currentColor" />
-              <span className="text-green-300 text-sm">{dateStr}</span>
+              <Star className="w-4 h-4 text-yellow-400 flex-shrink-0" fill="currentColor" />
+              <span className="text-green-300 text-xs sm:text-sm truncate">{dateStr}</span>
             </div>
-            <h2 className="text-2xl lg:text-3xl text-white mb-1">Welcome back, Ahmad! 👋</h2>
-            <p className="text-green-200 text-sm lg:text-base max-w-xl">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl text-white mb-1 leading-tight">Welcome back, Ahmad! 👋</h2>
+            <p className="text-green-200 text-xs sm:text-sm lg:text-base max-w-xl">
               You're on day <span className="text-yellow-400 font-semibold">{studyPlanData.daysCompleted}</span> of your CSS preparation journey.
               Keep going — your dream civil service career is within reach!
             </p>
           </div>
-          <div className="flex flex-col items-start lg:items-end gap-2">
+          <div className="flex flex-col items-start sm:items-center lg:items-end gap-2 flex-shrink-0">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-3 text-center">
               <p className="text-green-200 text-xs mb-1">Exam Countdown</p>
-              <p className="text-white text-2xl font-bold">223</p>
+              <p className="text-white text-xl sm:text-2xl font-bold">223</p>
               <p className="text-green-300 text-xs">Days to CSS 2026</p>
             </div>
           </div>
@@ -81,15 +81,15 @@ export default function Home() {
       </div>
 
       {/* Stats Row */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
         {stats.map((stat) => (
-          <div key={stat.label} className="bg-white rounded-xl p-4 border border-gray-100 shadow-sm flex items-center gap-3">
+          <div key={stat.label} className="bg-white rounded-xl p-3 sm:p-4 border border-gray-100 shadow-sm flex items-center gap-2 sm:gap-3">
             <div className={`w-10 h-10 rounded-xl ${stat.bg} flex items-center justify-center flex-shrink-0`}>
               <stat.icon className={`w-5 h-5 ${stat.color}`} />
             </div>
-            <div>
+            <div className="min-w-0">
               <p className="text-gray-400 text-xs">{stat.label}</p>
-              <p className="text-gray-800 font-bold text-base">{stat.value}</p>
+              <p className="text-gray-800 font-bold text-sm sm:text-base truncate">{stat.value}</p>
             </div>
           </div>
         ))}
@@ -97,23 +97,23 @@ export default function Home() {
 
       {/* Quick Navigation */}
       <div>
-        <h2 className="text-gray-700 font-semibold mb-3 flex items-center gap-2">
-          <BarChart2 className="w-5 h-5 text-green-600" />
+        <h2 className="text-gray-700 font-semibold mb-3 text-sm sm:text-base flex items-center gap-2">
+          <BarChart2 className="w-5 h-5 text-green-600 flex-shrink-0" />
           Quick Access
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3">
           {quickCards.map((card) => (
             <Link
               key={card.path}
               to={card.path}
-              className="bg-white border border-gray-100 rounded-xl p-4 hover:shadow-md hover:border-green-200 transition-all duration-200 group flex flex-col items-center text-center gap-2"
+              className="bg-white border border-gray-100 rounded-xl p-3 sm:p-4 hover:shadow-md hover:border-green-200 transition-all duration-200 group flex flex-col items-center text-center gap-2 active:bg-gray-50"
             >
-              <div className={`w-12 h-12 rounded-xl ${card.color} flex items-center justify-center shadow-md group-hover:scale-110 transition-transform`}>
-                <card.icon className="w-6 h-6 text-white" />
+              <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl ${card.color} flex items-center justify-center shadow-md group-hover:scale-110 transition-transform flex-shrink-0`}>
+                <card.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
-              <div>
-                <p className="text-gray-800 text-sm font-medium">{card.label}</p>
-                <p className="text-gray-400 text-xs">{card.desc}</p>
+              <div className="min-w-0">
+                <p className="text-gray-800 text-xs sm:text-sm font-medium">{card.label}</p>
+                <p className="text-gray-400 text-xs line-clamp-1">{card.desc}</p>
               </div>
             </Link>
           ))}

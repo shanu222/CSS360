@@ -1,6 +1,6 @@
 import express from 'express';
 import * as currentAffairController from '../controllers/currentAffairController.js';
-import { authenticate, adminOnly } from '../middleware/auth.js';
+// Authentication removed - all routes are now public
 
 const router = express.Router();
 
@@ -8,9 +8,9 @@ const router = express.Router();
 router.get('/', currentAffairController.getCurrentAffairs);
 router.get('/:id', currentAffairController.getCurrentAffair);
 
-// Admin routes
-router.post('/', authenticate, adminOnly, currentAffairController.createCurrentAffair);
-router.put('/:id', authenticate, adminOnly, currentAffairController.updateCurrentAffair);
-router.delete('/:id', authenticate, adminOnly, currentAffairController.deleteCurrentAffair);
+// Public routes (previously admin)
+router.post('/', currentAffairController.createCurrentAffair);
+router.put('/:id', currentAffairController.updateCurrentAffair);
+router.delete('/:id', currentAffairController.deleteCurrentAffair);
 
 export default router;

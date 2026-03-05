@@ -40,16 +40,16 @@ export default function Notes() {
   });
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full flex flex-col bg-white">
       {/* Header */}
-      <div className="p-4 lg:p-5 bg-gradient-to-r from-[#0f3d2b] to-[#1a5c3e] text-white flex-shrink-0">
-        <div className="flex items-center justify-between">
-          <div>
-            <h2 className="text-xl text-white font-semibold">Notes</h2>
+      <div className="p-3 sm:p-4 lg:p-5 bg-gradient-to-r from-[#0f3d2b] to-[#1a5c3e] text-white flex-shrink-0">
+        <div className="flex items-center justify-between gap-2">
+          <div className="min-w-0">
+            <h2 className="text-lg sm:text-xl text-white font-semibold">Notes</h2>
             <p className="text-green-200 text-xs">Topic-wise notes for all CSS subjects</p>
           </div>
-          <button className="flex items-center gap-1.5 bg-white/20 hover:bg-white/30 text-white text-sm px-3 py-2 rounded-xl transition-colors">
-            <Plus className="w-4 h-4" /> New Note
+          <button className="flex items-center gap-1.5 bg-white/20 hover:bg-white/30 active:bg-white/40 text-white text-xs sm:text-sm px-2.5 sm:px-3 py-2 rounded-xl transition-colors flex-shrink-0 touch-highlight">
+            <Plus className="w-4 h-4" /> <span className="hidden sm:inline">New Note</span>
           </button>
         </div>
       </div>
@@ -58,31 +58,31 @@ export default function Notes() {
         {/* Left Panel - Notes List */}
         <div className={`${activeNote ? "hidden lg:flex" : "flex"} flex-col w-full lg:w-80 xl:w-96 flex-shrink-0 border-r border-gray-200 bg-white`}>
           {/* Search & Filters */}
-          <div className="p-3 border-b border-gray-100 space-y-2">
+          <div className="p-2 sm:p-3 border-b border-gray-100 space-y-2 flex-shrink-0">
             <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
-              <Search className="w-4 h-4 text-gray-400" />
+              <Search className="w-4 h-4 text-gray-400 flex-shrink-0" />
               <input
                 type="text"
-                placeholder="Search notes..."
+                placeholder="Search..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="flex-1 bg-transparent text-sm text-gray-600 outline-none placeholder:text-gray-400"
+                className="flex-1 bg-transparent text-sm text-gray-600 outline-none placeholder:text-gray-400 min-w-0"
               />
             </div>
-            <div className="flex gap-1 overflow-x-auto">
+            <div className="flex gap-1 overflow-x-auto pb-1">
               <button
                 onClick={() => setShowStarred(!showStarred)}
-                className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all flex-shrink-0 ${
-                  showStarred ? "bg-yellow-100 text-yellow-700 border border-yellow-300" : "bg-gray-100 text-gray-500"
+                className={`flex items-center gap-1 px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all flex-shrink-0 active:opacity-80 ${
+                  showStarred ? "bg-yellow-100 text-yellow-700 border border-yellow-300" : "bg-gray-100 text-gray-500 hover:bg-gray-200"
                 }`}
               >
                 <Star className="w-3 h-3" fill={showStarred ? "currentColor" : "none"} /> Starred
               </button>
-              {subjects.map(sub => (
+              {subjects.slice(0, 5).map(sub => (
                 <button
                   key={sub}
                   onClick={() => setFilterSubject(sub)}
-                  className={`px-2.5 py-1.5 rounded-lg text-xs whitespace-nowrap flex-shrink-0 transition-all ${
+                  className={`px-2 sm:px-2.5 py-1.5 rounded-lg text-xs whitespace-nowrap flex-shrink-0 transition-all active:opacity-80 ${
                     filterSubject === sub ? "bg-green-600 text-white" : "bg-gray-100 text-gray-500 hover:bg-gray-200"
                   }`}
                 >

@@ -189,10 +189,10 @@ export default function PastPapers() {
 
   if (loading) {
     return (
-      <div className="p-4 lg:p-6 flex items-center justify-center min-h-[400px]">
+      <div className="p-3 sm:p-4 lg:p-6 flex items-center justify-center min-h-[400px]">
         <div className="text-center">
           <Loader2 className="w-8 h-8 text-green-600 animate-spin mx-auto mb-3" />
-          <p className="text-gray-600">Loading past papers...</p>
+          <p className="text-gray-600 text-sm sm:text-base">Loading past papers...</p>
         </div>
       </div>
     );
@@ -200,10 +200,10 @@ export default function PastPapers() {
 
   if (error) {
     return (
-      <div className="p-4 lg:p-6">
-        <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-center">
-          <p className="text-red-700">{error}</p>
-          <button onClick={loadPapers} className="mt-3 text-red-600 hover:underline">
+      <div className="p-3 sm:p-4 lg:p-6">
+        <div className="bg-red-50 border border-red-200 rounded-xl p-3 sm:p-4 text-center">
+          <p className="text-red-700 text-sm sm:text-base">{error}</p>
+          <button onClick={loadPapers} className="mt-3 text-red-600 hover:underline active:opacity-70 transition-opacity text-xs sm:text-sm">
             Try Again
           </button>
         </div>
@@ -212,38 +212,38 @@ export default function PastPapers() {
   }
 
   return (
-    <div className="p-4 lg:p-6 space-y-5">
-      <div className="bg-gradient-to-r from-[#0f3d2b] to-[#1a5c3e] rounded-2xl p-5 text-white">
-        <h2 className="text-2xl text-white mb-1">Past Papers</h2>
-        <p className="text-green-200 text-sm">Browse CSS past papers year-wise, then subject-wise</p>
-        <div className="flex gap-6 mt-3">
+    <div className="p-3 sm:p-4 lg:p-6 space-y-4 sm:space-y-5 overflow-y-auto">
+      <div className="bg-gradient-to-r from-[#0f3d2b] to-[#1a5c3e] rounded-2xl p-4 sm:p-5 text-white">
+        <h2 className="text-xl sm:text-2xl text-white mb-1">Past Papers</h2>
+        <p className="text-green-200 text-xs sm:text-sm">Browse CSS past papers year-wise, then subject-wise</p>
+        <div className="flex gap-3 sm:gap-6 mt-3 flex-wrap">
           <div>
-            <p className="text-xl text-yellow-400 font-bold">{CSS_YEARS.length}</p>
-            <p className="text-green-300 text-xs">Years Covered (2016-2026)</p>
+            <p className="text-lg sm:text-xl text-yellow-400 font-bold">{CSS_YEARS.length}</p>
+            <p className="text-green-300 text-xs">Years Covered</p>
           </div>
           <div>
-            <p className="text-xl text-yellow-400 font-bold">{stats.totalPapers}</p>
-            <p className="text-green-300 text-xs">Available Papers</p>
+            <p className="text-lg sm:text-xl text-yellow-400 font-bold">{stats.totalPapers}</p>
+            <p className="text-green-300 text-xs">Papers</p>
           </div>
           <div>
-            <p className="text-xl text-yellow-400 font-bold">{stats.totalSolved}</p>
-            <p className="text-green-300 text-xs">Solved Papers</p>
+            <p className="text-lg sm:text-xl text-yellow-400 font-bold">{stats.totalSolved}</p>
+            <p className="text-green-300 text-xs">Solved</p>
           </div>
         </div>
       </div>
 
-      <div className="flex items-center gap-4 text-xs text-gray-500">
+      <div className="flex items-center gap-1.5 sm:gap-3 text-xs sm:text-sm text-gray-600 flex-wrap">
         <div className="flex items-center gap-1.5">
-          <CheckCircle className="w-4 h-4 text-green-500" />
-          <span>Solved/Answers Available</span>
+          <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+          <span>Solved/Answers</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <XCircle className="w-4 h-4 text-gray-300" />
+          <XCircle className="w-4 h-4 text-gray-300 flex-shrink-0" />
           <span>Unsolved</span>
         </div>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-3 sm:space-y-4">
         {CSS_YEARS.map((year) => {
           const yearData = paperIndex[year] || { compulsory: {}, optional: {} };
           const yearPapers = [
@@ -256,10 +256,10 @@ export default function PastPapers() {
             <div key={year} className="bg-white border border-gray-100 rounded-xl shadow-sm overflow-hidden">
               <button
                 onClick={() => setExpandedYear(expandedYear === year ? null : year)}
-                className="w-full flex items-center gap-3 p-4 hover:bg-gray-50 transition-colors"
+                className="w-full flex items-center gap-2 sm:gap-3 p-3 sm:p-4 hover:bg-gray-50 transition-colors active:bg-gray-100"
               >
                 <div
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-md flex-shrink-0 ${
+                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-md flex-shrink-0 ${
                     year >= 2024
                       ? "bg-gradient-to-br from-green-500 to-emerald-600"
                       : year >= 2020
@@ -269,15 +269,15 @@ export default function PastPapers() {
                 >
                   {year}
                 </div>
-                <div className="flex-1 text-left">
-                  <p className="text-gray-800 font-semibold">CSS {year} Papers</p>
+                <div className="flex-1 text-left min-w-0">
+                  <p className="text-gray-800 font-medium text-sm sm:text-base">CSS {year}</p>
                   <p className="text-gray-500 text-xs">
                     {yearPapers.length} available · {solvedCount} solved
                   </p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
-                    {solvedCount}/{yearPapers.length || 0} solved
+                <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+                  <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full whitespace-nowrap">
+                    {solvedCount}/{yearPapers.length || 0}
                   </span>
                   {expandedYear === year ? (
                     <ChevronDown className="w-4 h-4 text-gray-400" />
@@ -288,7 +288,7 @@ export default function PastPapers() {
               </button>
 
               {expandedYear === year && (
-                <div className="border-t border-gray-100 px-4 py-4 space-y-4">
+                <div className="border-t border-gray-100 px-3 sm:px-4 py-3 sm:py-4 space-y-3 sm:space-y-4">
                   {([
                     { key: "compulsory", label: "Compulsory Subjects", subjects: COMPULSORY_SUBJECTS },
                     { key: "optional", label: "Optional Subjects", subjects: OPTIONAL_SUBJECTS },
@@ -300,20 +300,20 @@ export default function PastPapers() {
                       <div key={section.key} className="border border-gray-200 rounded-xl overflow-hidden">
                         <button
                           onClick={() => toggleCategory(year, section.key)}
-                          className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 hover:bg-gray-100 transition-colors"
+                          className="w-full flex items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 bg-gray-50 hover:bg-gray-100 transition-colors active:bg-gray-200"
                         >
-                          <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-2 min-w-0">
                             {isExpanded ? (
-                              <FolderOpen className="w-4 h-4 text-emerald-700" />
+                              <FolderOpen className="w-4 h-4 text-emerald-700 flex-shrink-0" />
                             ) : (
-                              <Folder className="w-4 h-4 text-gray-500" />
+                              <Folder className="w-4 h-4 text-gray-500 flex-shrink-0" />
                             )}
-                            <span className="text-sm font-semibold text-gray-800">{section.label}</span>
+                            <span className="text-xs sm:text-sm font-semibold text-gray-800">{section.label}</span>
                           </div>
                           {isExpanded ? (
-                            <ChevronDown className="w-4 h-4 text-gray-500" />
+                            <ChevronDown className="w-4 h-4 text-gray-500 flex-shrink-0" />
                           ) : (
-                            <ChevronRight className="w-4 h-4 text-gray-500" />
+                            <ChevronRight className="w-4 h-4 text-gray-500 flex-shrink-0" />
                           )}
                         </button>
 
@@ -322,29 +322,29 @@ export default function PastPapers() {
                             {section.subjects.map((subject) => {
                               const subjectPapers = paperIndex[year][section.key][subject.key] || [];
                               return (
-                                <div key={subject.key} className="px-4 py-3">
-                                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                                    <div>
-                                      <p className="text-sm font-medium text-gray-800">{subject.label}</p>
+                                <div key={subject.key} className="px-3 sm:px-4 py-2.5 sm:py-3">
+                                  <div className="flex flex-col gap-2">
+                                    <div className="min-w-0">
+                                      <p className="text-xs sm:text-sm font-medium text-gray-800">{subject.label}</p>
                                       <p className="text-xs text-gray-500">
                                         {subjectPapers.length > 0
-                                          ? `${subjectPapers.length} file${subjectPapers.length > 1 ? "s" : ""} available`
-                                          : "No paper uploaded yet"}
+                                          ? `${subjectPapers.length} file${subjectPapers.length > 1 ? "s" : ""}`
+                                          : "No papers yet"}
                                       </p>
                                     </div>
                                     {subjectPapers.length === 0 && (
-                                      <div className="flex items-center gap-2">
+                                      <div className="flex gap-1.5 flex-wrap">
                                         <button
                                           disabled
-                                          className="text-xs text-gray-400 bg-gray-100 px-2.5 py-1 rounded-lg flex items-center gap-1 cursor-not-allowed"
+                                          className="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded-lg flex items-center gap-1 cursor-not-allowed"
                                         >
-                                          <Eye className="w-3 h-3" /> View
+                                          <Eye className="w-3 h-3" /> <span className="hidden sm:inline">View</span>
                                         </button>
                                         <button
                                           disabled
-                                          className="text-xs text-gray-400 bg-gray-100 px-2.5 py-1 rounded-lg flex items-center gap-1 cursor-not-allowed"
+                                          className="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded-lg flex items-center gap-1 cursor-not-allowed"
                                         >
-                                          <Download className="w-3 h-3" /> Download
+                                          <Download className="w-3 h-3" /> <span className="hidden sm:inline">Download</span>
                                         </button>
                                       </div>
                                     )}
@@ -355,32 +355,32 @@ export default function PastPapers() {
                                       {subjectPapers.map((paper) => (
                                         <div
                                           key={paper._id}
-                                          className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 bg-gray-50 border border-gray-100 rounded-lg p-2"
+                                          className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-2 bg-gray-50 border border-gray-100 rounded-lg p-2 sm:p-2.5"
                                         >
-                                          <div className="min-w-0">
-                                            <p className="text-xs md:text-sm text-gray-700 font-medium truncate">{paper.title}</p>
+                                          <div className="min-w-0 flex-1">
+                                            <p className="text-xs sm:text-sm text-gray-700 font-medium truncate">{paper.title}</p>
                                           </div>
-                                          <div className="flex items-center gap-2">
+                                          <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
                                             {paper.isSolved ? (
-                                              <span className="flex items-center gap-1 text-xs text-green-600 bg-green-50 px-2 py-0.5 rounded-full">
-                                                <CheckCircle className="w-3 h-3" /> Solved
+                                              <span className="flex items-center gap-1 text-xs text-green-600 bg-green-50 px-2 py-0.5 rounded-full whitespace-nowrap">
+                                                <CheckCircle className="w-3 h-3 flex-shrink-0" /> <span className="hidden sm:inline">Solved</span>
                                               </span>
                                             ) : (
-                                              <span className="flex items-center gap-1 text-xs text-gray-400 bg-gray-50 px-2 py-0.5 rounded-full">
-                                                <XCircle className="w-3 h-3" /> Unsolved
+                                              <span className="flex items-center gap-1 text-xs text-gray-400 bg-gray-50 px-2 py-0.5 rounded-full whitespace-nowrap">
+                                                <XCircle className="w-3 h-3 flex-shrink-0" /> <span className="hidden sm:inline">Unsolved</span>
                                               </span>
                                             )}
                                             <button
                                               onClick={() => handleView(paper)}
-                                              className="text-xs text-blue-600 hover:text-blue-700 bg-blue-50 px-2.5 py-1 rounded-lg flex items-center gap-1 transition-colors"
+                                              className="text-xs text-blue-600 hover:text-blue-700 active:opacity-70 bg-blue-50 px-2 py-1 rounded-lg flex items-center gap-1 transition-colors"
                                             >
-                                              <Eye className="w-3 h-3" /> View
+                                              <Eye className="w-3 h-3" /> <span className="hidden sm:inline">View</span>
                                             </button>
                                             <button
                                               onClick={() => handleDownload(paper)}
-                                              className="text-xs text-green-600 hover:text-green-700 bg-green-50 px-2.5 py-1 rounded-lg flex items-center gap-1 transition-colors"
+                                              className="text-xs text-green-600 hover:text-green-700 active:opacity-70 bg-green-50 px-2 py-1 rounded-lg flex items-center gap-1 transition-colors"
                                             >
-                                              <Download className="w-3 h-3" /> Download
+                                              <Download className="w-3 h-3" /> <span className="hidden sm:inline">Download</span>
                                             </button>
                                           </div>
                                         </div>
@@ -402,20 +402,20 @@ export default function PastPapers() {
         })}
       </div>
 
-      <div className="bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-200 rounded-xl p-5">
-        <div className="flex items-start gap-4">
-          <div className="w-12 h-12 rounded-xl bg-purple-500 flex items-center justify-center text-white text-xl flex-shrink-0">
+      <div className="bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-200 rounded-xl p-3 sm:p-4 lg:p-5">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-purple-500 flex items-center justify-center text-xl flex-shrink-0">
             🧠
           </div>
-          <div>
-            <h3 className="text-purple-900 font-semibold">Practice with AI Answer Checker</h3>
-            <p className="text-purple-700 text-sm mt-1">
-              Pick any past paper question, write your answer, and get instant AI feedback on structure, arguments, grammar, and CSS scoring criteria.
+          <div className="flex-1">
+            <h3 className="text-purple-900 font-semibold text-sm sm:text-base">Practice Writing Answers</h3>
+            <p className="text-purple-700 text-xs sm:text-sm mt-1">
+              Pick any question, write your answer, and get instant AI feedback on structure and grammar.
             </p>
-            <button className="mt-3 bg-purple-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors">
-              Start Answer Writing Practice
-            </button>
           </div>
+          <button className="w-full sm:w-auto bg-purple-600 text-white text-xs sm:text-sm px-3 sm:px-4 py-2 rounded-lg hover:bg-purple-700 active:bg-purple-800 transition-colors whitespace-nowrap flex-shrink-0">
+            Start Practice
+          </button>
         </div>
       </div>
     </div>

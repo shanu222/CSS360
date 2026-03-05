@@ -2,8 +2,7 @@ import express from 'express';
 import multer from 'multer';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { authenticate } from '../middleware/auth.js';
-import { isAdmin } from '../middleware/admin.js';
+// Authentication removed - all routes are now public
 import {
   getResources,
   getResource,
@@ -52,17 +51,17 @@ const upload = multer({
 
 // Public routes
 router.get('/', getResources); // Get all resources (with filters)
-router.get('/stats', authenticate, isAdmin, getStatistics); // Admin statistics
+router.get('/stats', getStatistics); // Statistics
 router.get('/:id', getResource); // Get single resource
 router.post('/:id/view', incrementViews); // Increment view count
 router.post('/:id/download', incrementDownloads); // Increment download count
 
-// Admin routes
-router.post('/', authenticate, isAdmin, createResource); // Create resource
-router.put('/:id', authenticate, isAdmin, updateResource); // Update resource
-router.delete('/:id', authenticate, isAdmin, deleteResource); // Delete resource
+// Public routes (previously admin)
+router.post('/', createResource); // Create resource
+router.put('/:id', updateResource); // Update resource
+router.delete('/:id', deleteResource); // Delete resource
 
 // File upload route
-router.post('/upload', authenticate, isAdmin, upload.single('file'), handleFileUpload);
+router.post('/upload', upload.single('file'), handleFileUpload);
 
 export default router;

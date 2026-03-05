@@ -32,55 +32,64 @@ export default function Community() {
   };
 
   return (
-    <div className="p-4 lg:p-6 space-y-5">
+    <div className="p-3 sm:p-4 lg:p-6 space-y-4 sm:space-y-5 overflow-y-auto">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#0f3d2b] to-[#1a5c3e] rounded-2xl p-5 text-white">
-        <div className="flex items-center gap-3 mb-2">
-          <Users className="w-6 h-6 text-green-300" />
-          <h2 className="text-2xl text-white">Community</h2>
+      <div className="bg-gradient-to-r from-[#0f3d2b] to-[#1a5c3e] rounded-2xl p-4 sm:p-5 text-white">
+        <div className="flex items-center gap-3 mb-3">
+          <Users className="w-6 h-6 text-green-300 flex-shrink-0" />
+          <h2 className="text-xl sm:text-2xl text-white">Community</h2>
         </div>
-        <p className="text-green-200 text-sm">Connect with CSS aspirants, share strategies, and get help</p>
-        <div className="flex gap-5 mt-3">
-          <div><p className="text-xl text-yellow-400 font-bold">2.4K</p><p className="text-green-300 text-xs">Members</p></div>
-          <div><p className="text-xl text-yellow-400 font-bold">156</p><p className="text-green-300 text-xs">Discussions</p></div>
-          <div><p className="text-xl text-yellow-400 font-bold">48</p><p className="text-green-300 text-xs">Online Now</p></div>
+        <p className="text-green-200 text-xs sm:text-sm mb-3">Connect with CSS aspirants, share strategies, and get help</p>
+        <div className="flex gap-3 sm:gap-5 flex-wrap">
+          <div>
+            <p className="text-lg sm:text-xl text-yellow-400 font-bold">2.4K</p>
+            <p className="text-green-300 text-xs">Members</p>
+          </div>
+          <div>
+            <p className="text-lg sm:text-xl text-yellow-400 font-bold">156</p>
+            <p className="text-green-300 text-xs">Discussions</p>
+          </div>
+          <div>
+            <p className="text-lg sm:text-xl text-yellow-400 font-bold">48</p>
+            <p className="text-green-300 text-xs">Online Now</p>
+          </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5">
         {/* Main Content */}
         <div className="lg:col-span-2 space-y-4">
           {/* Search + New Thread */}
           <div className="flex gap-2">
             <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-3 py-2 flex-1 shadow-sm">
-              <Search className="w-4 h-4 text-gray-400" />
+              <Search className="w-4 h-4 text-gray-400 flex-shrink-0" />
               <input
                 type="text"
                 placeholder="Search discussions..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="flex-1 outline-none text-sm text-gray-600 placeholder:text-gray-400 bg-transparent"
+                className="flex-1 outline-none text-sm text-gray-600 placeholder:text-gray-400 bg-transparent min-w-0"
               />
             </div>
-            <button className="flex items-center gap-1.5 bg-green-600 text-white text-sm px-3 py-2 rounded-xl hover:bg-green-700 transition-colors whitespace-nowrap">
-              <Plus className="w-4 h-4" /> New Post
+            <button className="flex items-center gap-1.5 bg-green-600 text-white text-xs sm:text-sm px-2 sm:px-3 py-2 rounded-xl hover:bg-green-700 active:bg-green-800 transition-colors whitespace-nowrap flex-shrink-0 touch-highlight">
+              <Plus className="w-4 h-4" /> <span className="hidden sm:inline">New</span>
             </button>
           </div>
 
           {/* Category Filter */}
-          <div className="flex gap-2 overflow-x-auto pb-1">
+          <div className="flex gap-2 overflow-x-auto pb-1\">
             <Filter className="w-4 h-4 text-gray-400 flex-shrink-0 mt-1.5" />
-            {categories.map(cat => (
+            {categories.slice(0, 6).map(cat => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-medium whitespace-nowrap flex-shrink-0 transition-all ${
+                className={`px-2.5 sm:px-3 py-1.5 rounded-xl text-xs whitespace-nowrap flex-shrink-0 transition-all active:opacity-80 ${
                   activeCategory === cat
                     ? "bg-green-600 text-white"
                     : "bg-white border border-gray-200 text-gray-600 hover:border-green-300"
                 }`}
               >
-                {cat}
+                {cat.split(" ")[0]}
               </button>
             ))}
           </div>

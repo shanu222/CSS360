@@ -88,58 +88,58 @@ export default function Practice() {
 
   if (mode === "home") {
     return (
-      <div className="p-4 lg:p-6 space-y-5">
-        <div className="bg-gradient-to-r from-[#0f3d2b] to-[#1a5c3e] rounded-2xl p-5 text-white">
-          <h2 className="text-2xl text-white mb-1">Practice Center</h2>
-          <p className="text-green-200 text-sm">Sharpen your CSS skills with MCQs, essay practice, and answer writing</p>
+      <div className="p-3 sm:p-4 lg:p-6 space-y-4 sm:space-y-5 overflow-y-auto">
+        <div className="bg-gradient-to-r from-[#0f3d2b] to-[#1a5c3e] rounded-2xl p-4 sm:p-5 text-white">
+          <h2 className="text-xl sm:text-2xl text-white mb-1">Practice Center</h2>
+          <p className="text-green-200 text-xs sm:text-sm">Sharpen your CSS skills with MCQs, essays, and answer writing</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {[
             {
               mode: "mcq" as const, icon: "🎯", title: "MCQ Bank",
-              desc: "Practice multiple choice questions subject-wise and topic-wise. Build exam speed and accuracy.",
+              desc: "Practice multiple choice questions. Build speed and accuracy.",
               color: "from-blue-500 to-blue-600", stats: "512+ Questions",
             },
             {
               mode: "essay" as const, icon: "✍️", title: "Essay Lab",
-              desc: "Explore essay topics with outlines, structure suggestions, and model answers.",
+              desc: "Explore essay topics with outlines and structure suggestions.",
               color: "from-green-500 to-emerald-600", stats: "50+ Topics",
             },
             {
               mode: "answer" as const, icon: "📝", title: "Answer Writing",
-              desc: "Write structured CSS answers on past paper questions and get instant evaluation.",
+              desc: "Write CSS answers and get instant AI evaluation.",
               color: "from-purple-500 to-purple-600", stats: "AI Evaluation",
             },
           ].map((card) => (
             <button
               key={card.mode}
               onClick={() => setMode(card.mode)}
-              className="bg-white border border-gray-100 rounded-xl p-5 text-left hover:shadow-lg hover:border-green-200 transition-all group"
+              className="bg-white border border-gray-100 rounded-xl p-3 sm:p-4 text-left hover:shadow-lg hover:border-green-200 transition-all active:bg-green-50 group"
             >
-              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${card.color} flex items-center justify-center text-2xl mb-3 group-hover:scale-110 transition-transform shadow-lg`}>
+              <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${card.color} flex items-center justify-center text-lg sm:text-xl mb-2 sm:mb-3 group-hover:scale-110 transition-transform shadow-lg flex-shrink-0`}>
                 {card.icon}
               </div>
-              <h3 className="text-gray-800 font-semibold mb-1">{card.title}</h3>
-              <p className="text-gray-500 text-sm mb-3">{card.desc}</p>
-              <span className="text-xs bg-green-100 text-green-700 px-2.5 py-1 rounded-full">{card.stats}</span>
-              <div className="flex items-center gap-1 text-green-600 text-sm mt-3 font-medium">
-                Start Practice <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <h3 className="text-gray-800 font-semibold text-sm sm:text-base mb-1">{card.title}</h3>
+              <p className="text-gray-500 text-xs sm:text-sm mb-2">{card.desc}</p>
+              <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full inline-block">{card.stats}</span>
+              <div className="flex items-center gap-1 text-green-600 text-xs sm:text-sm mt-2 font-medium">
+                Start <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </button>
           ))}
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
           {[
             { label: "MCQs Attempted", value: "512", color: "text-blue-600", bg: "bg-blue-50" },
-            { label: "Correct Answers", value: "394", color: "text-green-600", bg: "bg-green-50" },
-            { label: "Essays Written", value: "8", color: "text-orange-600", bg: "bg-orange-50" },
-            { label: "Accuracy Rate", value: "76.9%", color: "text-purple-600", bg: "bg-purple-50" },
+            { label: "Correct", value: "394", color: "text-green-600", bg: "bg-green-50" },
+            { label: "Essays", value: "8", color: "text-orange-600", bg: "bg-orange-50" },
+            { label: "Accuracy", value: "76.9%", color: "text-purple-600", bg: "bg-purple-50" },
           ].map((stat) => (
-            <div key={stat.label} className={`${stat.bg} border border-gray-100 rounded-xl p-4 text-center`}>
-              <p className={`text-2xl font-bold ${stat.color}`}>{stat.value}</p>
+            <div key={stat.label} className={`${stat.bg} border border-gray-100 rounded-xl p-2.5 sm:p-3 lg:p-4 text-center`}>
+              <p className={`text-lg sm:text-2xl font-bold ${stat.color}`}>{stat.value}</p>
               <p className="text-gray-600 text-xs mt-1">{stat.label}</p>
             </div>
           ))}
@@ -150,49 +150,49 @@ export default function Practice() {
 
   if (mode === "mcq") {
     return (
-      <div className="p-4 lg:p-6 space-y-4 max-w-2xl mx-auto">
-        <button onClick={() => { setMode("home"); resetMCQ(); }} className="text-green-600 text-sm flex items-center gap-1 hover:underline">
-          ← Back to Practice
+      <div className="p-3 sm:p-4 lg:p-6 space-y-3 sm:space-y-4 max-w-4xl mx-auto overflow-y-auto">
+        <button onClick={() => { setMode("home"); resetMCQ(); }} className="text-green-600 text-xs sm:text-sm flex items-center gap-1 hover:underline active:opacity-70 transition-opacity">
+          ← Back
         </button>
 
         {finished ? (
-          <div className="bg-white border border-gray-100 rounded-2xl shadow-sm p-8 text-center">
-            <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
-              <Target className="w-10 h-10 text-green-600" />
+          <div className="bg-white border border-gray-100 rounded-2xl shadow-sm p-4 sm:p-6 lg:p-8 text-center">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+              <Target className="w-8 h-8 sm:w-10 sm:h-10 text-green-600" />
             </div>
-            <h3 className="text-gray-800 text-xl font-semibold mb-2">Practice Complete!</h3>
-            <p className="text-gray-500 text-sm mb-4">You scored <span className="text-green-600 font-bold text-lg">{score}</span> out of <span className="font-bold">{mcqBank.length}</span></p>
-            <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden mb-6">
+            <h3 className="text-gray-800 text-lg sm:text-xl font-semibold mb-2">Practice Complete!</h3>
+            <p className="text-gray-500 text-xs sm:text-sm mb-4">You scored <span className="text-green-600 font-bold text-base sm:text-lg">{score}</span> out of <span className="font-bold">{mcqBank.length}</span></p>
+            <div className="w-full h-2 sm:h-3 bg-gray-100 rounded-full overflow-hidden mb-6">
               <div className="h-full bg-gradient-to-r from-green-500 to-emerald-400 rounded-full" style={{ width: `${(score / mcqBank.length) * 100}%` }} />
             </div>
-            <p className="text-gray-500 text-sm mb-6">
-              {score >= mcqBank.length * 0.8 ? "Excellent performance! 🎉" :
-               score >= mcqBank.length * 0.6 ? "Good job! Keep practicing. 👍" :
-               "Keep practicing — review the explanations carefully. 📚"}
+            <p className="text-gray-500 text-xs sm:text-sm mb-6">
+              {score >= mcqBank.length * 0.8 ? "Excellent! 🎉" :
+               score >= mcqBank.length * 0.6 ? "Good job! 👍" :
+               "Keep practicing 📚"}
             </p>
-            <button onClick={resetMCQ} className="flex items-center gap-2 bg-green-600 text-white px-5 py-2.5 rounded-xl mx-auto hover:bg-green-700 transition-colors">
-              <RotateCcw className="w-4 h-4" /> Try Again
+            <button onClick={resetMCQ} className="flex items-center gap-2 bg-green-600 text-white px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl mx-auto hover:bg-green-700 active:bg-green-800 transition-colors text-xs sm:text-sm">
+              <RotateCcw className="w-3 h-3 sm:w-4 sm:h-4" /> Try Again
             </button>
           </div>
         ) : (
           <div className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
             {/* Progress */}
-            <div className="p-4 border-b border-gray-100 bg-gray-50">
-              <div className="flex justify-between text-xs text-gray-500 mb-1.5">
-                <span>Question {currentQ + 1} of {mcqBank.length}</span>
-                <span className="text-green-600">{score} correct</span>
+            <div className="p-3 sm:p-4 border-b border-gray-100 bg-gray-50 space-y-2">
+              <div className="flex justify-between items-center text-xs text-gray-500">
+                <span>Q{currentQ + 1}/{mcqBank.length}</span>
+                <span className="text-green-600 font-semibold">{score} ✓</span>
               </div>
               <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
                 <div className="h-full bg-green-500 rounded-full transition-all" style={{ width: `${((currentQ) / mcqBank.length) * 100}%` }} />
               </div>
-              <div className="flex items-center gap-2 mt-2">
+              <div className="flex items-center gap-1.5 flex-wrap">
                 <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">{question.subject}</span>
                 <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{question.topic}</span>
               </div>
             </div>
 
-            <div className="p-5">
-              <p className="text-gray-800 font-medium mb-5 text-base">{question.question}</p>
+            <div className="p-3 sm:p-4 lg:p-5">
+              <p className="text-gray-800 font-medium mb-4 sm:mb-5 text-sm sm:text-base">{question.question}</p>
 
               <div className="space-y-2.5">
                 {question.options.map((option, idx) => (
