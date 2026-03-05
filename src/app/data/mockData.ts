@@ -5103,6 +5103,126 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    id: 32,
+    name: "Group XXXII",
+    subjects: [
+      {
+        id: "international-relations",
+        name: "International Relations",
+        marks: 200,
+        icon: "🌐",
+        color: "from-sky-600 to-blue-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Paper I - Introduction to International Relations",
+            marks: 15,
+            subsections: [
+              "Definition, nature, and scope of international relations",
+              "Evolution of international relations as a discipline",
+              "Key concepts in international relations"
+            ]
+          },
+          {
+            section: "Paper I - Theories of International Relations",
+            marks: 20,
+            subsections: [
+              "Realism",
+              "Neo-realism",
+              "Liberalism",
+              "Neo-liberalism",
+              "Constructivism",
+              "Marxism and dependency theory"
+            ]
+          },
+          {
+            section: "Paper I - National Power",
+            marks: 15,
+            subsections: [
+              "Elements of national power",
+              "Balance of power",
+              "Collective security",
+              "Deterrence"
+            ]
+          },
+          {
+            section: "Paper I - Foreign Policy",
+            marks: 20,
+            subsections: [
+              "Determinants of foreign policy",
+              "Decision-making process in foreign policy",
+              "Role of diplomacy in international relations"
+            ]
+          },
+          {
+            section: "Paper I - International Law and Organizations",
+            marks: 30,
+            subsections: [
+              "Role of international law in global politics",
+              "Structure and functions of the United Nations",
+              "Role of international organizations"
+            ]
+          },
+          {
+            section: "Paper II - Major Developments in International Politics",
+            marks: 20,
+            subsections: [
+              "World Wars and their impact on international relations",
+              "Cold War and post-Cold War world order",
+              "Emergence of new global powers"
+            ]
+          },
+          {
+            section: "Paper II - International Security",
+            marks: 15,
+            subsections: [
+              "Arms race and arms control",
+              "Nuclear proliferation",
+              "Terrorism and counterterrorism"
+            ]
+          },
+          {
+            section: "Paper II - International Political Economy",
+            marks: 20,
+            subsections: [
+              "Global economic institutions",
+              "International trade and financial systems",
+              "Globalization and economic interdependence"
+            ]
+          },
+          {
+            section: "Paper II - Regional Organizations",
+            marks: 15,
+            subsections: [
+              "European Union (EU)",
+              "ASEAN",
+              "SAARC",
+              "African Union"
+            ]
+          },
+          {
+            section: "Paper II - Pakistan's Foreign Policy",
+            marks: 20,
+            subsections: [
+              "Principles and objectives of Pakistan's foreign policy",
+              "Pakistan's relations with neighboring countries",
+              "Pakistan's relations with major global powers"
+            ]
+          },
+          {
+            section: "Paper II - Contemporary Global Issues",
+            marks: 15,
+            subsections: [
+              "Climate change",
+              "Migration and refugee crises",
+              "Human rights issues"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
