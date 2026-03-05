@@ -1304,7 +1304,75 @@ export const optionalGroups = [
           }
         ]
       },
-      { id: "mathematics", name: "Mathematics", marks: 200, icon: "∑", color: "bg-rose-500", progress: 0 },
+      {
+        id: "mathematics",
+        name: "Applied Mathematics",
+        marks: 100,
+        icon: "∑",
+        color: "bg-rose-500",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Vectors and Vector Analysis",
+            marks: 18,
+            subsections: [
+              "Scalars and vectors",
+              "Vector addition and scalar multiplication",
+              "Dot product and cross product",
+              "Gradient, divergence, and curl",
+              "Vector identities"
+            ]
+          },
+          {
+            section: "2. Matrices and Determinants",
+            marks: 16,
+            subsections: [
+              "Matrix algebra",
+              "Determinants and their properties",
+              "Inverse of a matrix",
+              "Solution of linear equations using matrices"
+            ]
+          },
+          {
+            section: "3. Differential Equations",
+            marks: 20,
+            subsections: [
+              "First-order differential equations",
+              "Linear differential equations",
+              "Homogeneous and non-homogeneous equations",
+              "Partial differential equations"
+            ]
+          },
+          {
+            section: "4. Analytical Geometry",
+            marks: 14,
+            subsections: [
+              "Straight line and conic sections",
+              "Coordinate geometry in two and three dimensions",
+              "Transformation of coordinates"
+            ]
+          },
+          {
+            section: "5. Mechanics",
+            marks: 17,
+            subsections: [
+              "Motion of particles",
+              "Laws of motion",
+              "Work and energy",
+              "Projectile motion"
+            ]
+          },
+          {
+            section: "6. Mathematical Methods in Physics",
+            marks: 15,
+            subsections: [
+              "Fourier series",
+              "Laplace transforms",
+              "Applications in physical systems"
+            ]
+          }
+        ]
+      },
     ],
   },
   {
