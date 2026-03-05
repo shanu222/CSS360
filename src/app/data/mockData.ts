@@ -1082,7 +1082,106 @@ export const optionalGroups = [
   {
     group: 2,
     subjects: [
-      { id: "physics", name: "Physics", marks: 200, icon: "⚛️", color: "bg-red-500", progress: 15 },
+      {
+        id: "physics",
+        name: "Physics",
+        marks: 200,
+        icon: "⚛️",
+        color: "bg-red-500",
+        progress: 15,
+        syllabus: [
+          {
+            section: "PAPER I – CLASSICAL PHYSICS (100 Marks) – 1. Mechanics",
+            marks: 30,
+            subsections: [
+              "Vectors and vector algebra",
+              "Kinematics and motion in one and two dimensions",
+              "Newton's laws of motion",
+              "Work, energy, and power",
+              "Conservation laws: energy and momentum",
+              "Rotational motion and torque"
+            ]
+          },
+          {
+            section: "PAPER I – CLASSICAL PHYSICS (100 Marks) – 2. Oscillations and Waves",
+            marks: 20,
+            subsections: [
+              "Simple harmonic motion",
+              "Damped and forced oscillations",
+              "Wave motion and properties of waves",
+              "Sound waves and acoustics"
+            ]
+          },
+          {
+            section: "PAPER I – CLASSICAL PHYSICS (100 Marks) – 3. Thermodynamics",
+            marks: 25,
+            subsections: [
+              "Temperature and heat",
+              "Laws of thermodynamics",
+              "Heat engines and refrigerators",
+              "Kinetic theory of gases"
+            ]
+          },
+          {
+            section: "PAPER I – CLASSICAL PHYSICS (100 Marks) – 4. Optics",
+            marks: 25,
+            subsections: [
+              "Reflection and refraction of light",
+              "Interference and diffraction",
+              "Polarization of light",
+              "Optical instruments"
+            ]
+          },
+          {
+            section: "PAPER II – ELECTRICITY, MAGNETISM, AND MODERN PHYSICS (100 Marks) – 1. Electricity and Magnetism",
+            marks: 30,
+            subsections: [
+              "Electric fields and potential",
+              "Capacitance and dielectrics",
+              "Electric current and circuits",
+              "Magnetic fields and electromagnetic induction",
+              "Maxwell's equations"
+            ]
+          },
+          {
+            section: "PAPER II – ELECTRICITY, MAGNETISM, AND MODERN PHYSICS (100 Marks) – 2. Electromagnetic Waves",
+            marks: 15,
+            subsections: [
+              "Properties of electromagnetic waves",
+              "Wave propagation",
+              "Applications of electromagnetic radiation"
+            ]
+          },
+          {
+            section: "PAPER II – ELECTRICITY, MAGNETISM, AND MODERN PHYSICS (100 Marks) – 3. Modern Physics",
+            marks: 25,
+            subsections: [
+              "Photoelectric effect",
+              "Wave-particle duality",
+              "Atomic models",
+              "Nuclear physics and radioactivity"
+            ]
+          },
+          {
+            section: "PAPER II – ELECTRICITY, MAGNETISM, AND MODERN PHYSICS (100 Marks) – 4. Solid State Physics",
+            marks: 15,
+            subsections: [
+              "Crystal structure",
+              "Semiconductor physics",
+              "Conductors and insulators"
+            ]
+          },
+          {
+            section: "PAPER II – ELECTRICITY, MAGNETISM, AND MODERN PHYSICS (100 Marks) – 5. Electronics",
+            marks: 15,
+            subsections: [
+              "Diodes and transistors",
+              "Amplifiers",
+              "Basic electronic circuits"
+            ]
+          }
+        ]
+      },
       { id: "chemistry", name: "Chemistry", marks: 200, icon: "🧪", color: "bg-yellow-500", progress: 0 },
       { id: "mathematics", name: "Mathematics", marks: 200, icon: "∑", color: "bg-rose-500", progress: 0 },
     ],
