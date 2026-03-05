@@ -619,7 +619,126 @@ export const optionalGroups = [
         ]
       },
       { id: "political-science", name: "Political Science", marks: 200, icon: "🏛️", color: "bg-blue-600", progress: 25 },
-      { id: "computer-science", name: "Computer Science", marks: 200, icon: "💻", color: "bg-cyan-500", progress: 60 },
+      {
+        id: "computer-science",
+        name: "Computer Science",
+        marks: 200,
+        icon: "💻",
+        color: "bg-cyan-500",
+        progress: 60,
+        syllabus: [
+          {
+            section: "PAPER I – FUNDAMENTAL CONCEPTS (100 Marks) – 1. Programming Fundamentals",
+            marks: 20,
+            subsections: [
+              "Basic concepts of programming",
+              "Programming languages and paradigms",
+              "Data types and variables",
+              "Operators and expressions",
+              "Control structures: if, switch, loops",
+              "Functions and recursion"
+            ]
+          },
+          {
+            section: "PAPER I – FUNDAMENTAL CONCEPTS (100 Marks) – 2. Data Structures",
+            marks: 22,
+            subsections: [
+              "Arrays",
+              "Linked lists",
+              "Stacks",
+              "Queues",
+              "Trees",
+              "Graphs",
+              "Searching and sorting algorithms"
+            ]
+          },
+          {
+            section: "PAPER I – FUNDAMENTAL CONCEPTS (100 Marks) – 3. Object-Oriented Programming",
+            marks: 18,
+            subsections: [
+              "Concepts of object-oriented programming",
+              "Classes and objects",
+              "Encapsulation",
+              "Inheritance",
+              "Polymorphism"
+            ]
+          },
+          {
+            section: "PAPER I – FUNDAMENTAL CONCEPTS (100 Marks) – 4. Computer Organization and Architecture",
+            marks: 20,
+            subsections: [
+              "Basic components of a computer system",
+              "CPU architecture",
+              "Memory hierarchy",
+              "Input and output devices",
+              "Instruction sets and machine language"
+            ]
+          },
+          {
+            section: "PAPER I – FUNDAMENTAL CONCEPTS (100 Marks) – 5. Software Engineering",
+            marks: 20,
+            subsections: [
+              "Software development life cycle (SDLC)",
+              "Software design principles",
+              "Software testing and maintenance",
+              "Software project management"
+            ]
+          },
+          {
+            section: "PAPER II – ADVANCED TOPICS (100 Marks) – 1. Operating Systems",
+            marks: 20,
+            subsections: [
+              "Role and functions of operating systems",
+              "Process management",
+              "Memory management",
+              "File systems",
+              "Deadlocks"
+            ]
+          },
+          {
+            section: "PAPER II – ADVANCED TOPICS (100 Marks) – 2. Database Systems",
+            marks: 20,
+            subsections: [
+              "Database concepts",
+              "Relational data model",
+              "SQL",
+              "Database design and normalization",
+              "Transaction management"
+            ]
+          },
+          {
+            section: "PAPER II – ADVANCED TOPICS (100 Marks) – 3. Computer Networks",
+            marks: 20,
+            subsections: [
+              "Network models: OSI and TCP/IP",
+              "Network protocols",
+              "LAN, WAN, and wireless networks",
+              "Network security"
+            ]
+          },
+          {
+            section: "PAPER II – ADVANCED TOPICS (100 Marks) – 4. Digital Image Processing",
+            marks: 20,
+            subsections: [
+              "Image acquisition and representation",
+              "Image enhancement and restoration",
+              "Image segmentation",
+              "Image compression"
+            ]
+          },
+          {
+            section: "PAPER II – ADVANCED TOPICS (100 Marks) – 5. Web Engineering and Technologies",
+            marks: 20,
+            subsections: [
+              "Web application development",
+              "HTML, CSS, and JavaScript",
+              "Client-side and server-side programming",
+              "Web architectures and frameworks",
+              "Web application security"
+            ]
+          }
+        ]
+      },
       { id: "international-relations", name: "International Relations", marks: 200, icon: "🌐", color: "bg-sky-500", progress: 55 },
       {
         id: "accountancy-auditing",
