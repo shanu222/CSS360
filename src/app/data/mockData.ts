@@ -194,6 +194,70 @@ export const compulsorySubjects = [
     description: "Pakistan and international current events, global institutions, and world affairs.",
     progress: 55,
     topics: ["Pakistan Affairs", "International Relations", "Economy", "Environmental Issues", "Security Issues", "UN & Global Bodies"],
+    syllabus: [
+      {
+        section: "I. Pakistan's Domestic Affairs",
+        marks: 20,
+        subsections: [
+          "Political developments in Pakistan",
+          "Constitutional and governance issues",
+          "Economic challenges and reforms",
+          "Social issues: education, health, population, poverty",
+          "Energy crisis and economic stability",
+          "Role of institutions and democratic development"
+        ]
+      },
+      {
+        section: "II. Pakistan's Foreign Policy",
+        marks: 20,
+        subsections: [
+          "Pakistan's relations with neighboring countries",
+          "Pakistan's relations with major powers: USA, China, Russia, EU",
+          "Pakistan's role in international organizations: UN, OIC, SCO",
+          "Regional cooperation and strategic partnerships"
+        ]
+      },
+      {
+        section: "III. International Affairs",
+        marks: 15,
+        subsections: [
+          "Major global political developments",
+          "Global security issues and conflicts",
+          "International diplomacy and strategic alliances",
+          "Emerging global powers and shifting world order"
+        ]
+      },
+      {
+        section: "IV. Global Economic Issues",
+        marks: 15,
+        subsections: [
+          "International trade and economic cooperation",
+          "Global financial institutions: IMF, World Bank, WTO",
+          "Economic globalization and its impacts",
+          "Energy security and global economic trends"
+        ]
+      },
+      {
+        section: "V. Contemporary Global Challenges",
+        marks: 20,
+        subsections: [
+          "Climate change and environmental challenges",
+          "Terrorism and extremism",
+          "Migration and refugee crises",
+          "Human rights issues",
+          "Cybersecurity and technological developments"
+        ]
+      },
+      {
+        section: "VI. International Organizations and Global Governance",
+        marks: 10,
+        subsections: [
+          "Role of the United Nations and its agencies",
+          "International law and global governance mechanisms",
+          "Regional organizations and their impact on world politics"
+        ]
+      }
+    ]
   },
   {
     id: "pakistan-affairs",
