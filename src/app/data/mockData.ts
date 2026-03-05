@@ -4783,6 +4783,56 @@ export const books = [
   },
 ];
 
+export const subjectBooksHierarchy: Record<string, any> = {
+  "accountancy-auditing": {
+    isHierarchical: true,
+    categories: [
+      {
+        name: "Recommended Books",
+        color: "bg-green-500",
+        papers: [
+          {
+            paperName: "Paper I",
+            books: [
+              { id: "acc-rec-p1-1", name: "Book Name - Placeholder 1", author: "", pdfUrl: "", downloadUrl: "" },
+              { id: "acc-rec-p1-2", name: "Book Name - Placeholder 2", author: "", pdfUrl: "", downloadUrl: "" },
+              { id: "acc-rec-p1-3", name: "Book Name - Placeholder 3", author: "", pdfUrl: "", downloadUrl: "" },
+            ]
+          },
+          {
+            paperName: "Paper II",
+            books: [
+              { id: "acc-rec-p2-1", name: "Book Name - Placeholder 1", author: "", pdfUrl: "", downloadUrl: "" },
+              { id: "acc-rec-p2-2", name: "Book Name - Placeholder 2", author: "", pdfUrl: "", downloadUrl: "" },
+              { id: "acc-rec-p2-3", name: "Book Name - Placeholder 3", author: "", pdfUrl: "", downloadUrl: "" },
+            ]
+          }
+        ]
+      },
+      {
+        name: "Suggested Books",
+        color: "bg-blue-500",
+        papers: [
+          {
+            paperName: "Paper I",
+            books: [
+              { id: "acc-sug-p1-1", name: "Book Name - Placeholder 1", author: "", pdfUrl: "", downloadUrl: "" },
+              { id: "acc-sug-p1-2", name: "Book Name - Placeholder 2", author: "", pdfUrl: "", downloadUrl: "" },
+            ]
+          },
+          {
+            paperName: "Paper II",
+            books: [
+              { id: "acc-sug-p2-1", name: "Book Name - Placeholder 1", author: "", pdfUrl: "", downloadUrl: "" },
+              { id: "acc-sug-p2-2", name: "Book Name - Placeholder 2", author: "", pdfUrl: "", downloadUrl: "" },
+            ]
+          }
+        ]
+      }
+    ]
+  }
+};
+
 export const pastPapers = [
   {
     year: 2024, subjects: [

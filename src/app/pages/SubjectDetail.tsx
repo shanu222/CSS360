@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router";
-import { compulsorySubjects, optionalGroups } from "../data/mockData";
-import { ChevronLeft, BookOpen, FileText, ClipboardList, Target, Brain, Download, Star, ChevronDown, ChevronUp } from "lucide-react";
+import { compulsorySubjects, optionalGroups, subjectBooksHierarchy } from "../data/mockData";
+import { ChevronLeft, BookOpen, FileText, ClipboardList, Target, Brain, Download, Star, ChevronDown, ChevronUp, Eye } from "lucide-react";
 import { noteService } from "../../services/noteService";
 
 const allSubjects = [
@@ -62,6 +62,8 @@ export default function SubjectDetail() {
   const [tab, setTab] = useState("notes");
   const [myNotes, setMyNotes] = useState<any[]>([]);
   const [expandedSections, setExpandedSections] = useState<Record<number, boolean>>({});
+  const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({});
+  const [expandedPapers, setExpandedPapers] = useState<Record<string, boolean>>({});
 
   const subject = allSubjects.find(s => s.id === subjectId);
   const notes = (subjectId && subjectNotesMap[subjectId]) || defaultNotes;
@@ -287,24 +289,122 @@ export default function SubjectDetail() {
 
       {tab === "books" && (
         <div className="space-y-3">
-          {books.map((book, i) => (
-            <div key={i} className="bg-white border border-gray-100 rounded-xl shadow-sm p-4 flex items-start gap-4">
-              <div className="w-12 h-16 rounded-lg bg-gradient-to-b from-green-500 to-green-700 flex items-center justify-center flex-shrink-0 shadow">
-                <BookOpen className="w-6 h-6 text-white" />
-              </div>
-              <div className="flex-1">
-                <h4 className="text-gray-800 font-semibold">{book.title}</h4>
-                <p className="text-gray-500 text-sm">by {book.author}</p>
-                <p className="text-gray-600 text-xs mt-1 italic">"{book.note}"</p>
-              </div>
-              <button className="flex items-center gap-1 text-green-600 text-xs hover:text-green-700 bg-green-50 px-3 py-1.5 rounded-lg border border-green-200 flex-shrink-0">
-                <Download className="w-3.5 h-3.5" /> PDF
-              </button>
+          {/* Check if subject has hierarchical books */}
+          {subjectId && subjectBooksHierarchy[subjectId] && subjectBooksHierarchy[subjectId].isHierarchical ? (
+            // Hierarchical Books Structure
+            <div className="space-y-4">
+              {subjectBooksHierarchy[subjectId].categories.map((category: any, catIndex: number) => (
+                <div key={catIndex} className="border border-gray-200 rounded-xl overflow-hidden">
+                  {/* Category Header */}
+                  <button
+                    onClick={() => setExpandedCategories(prev => ({
+                      ...prev,
+                      [`cat-${catIndex}`]: !prev[`cat-${catIndex}`]
+                    }))}
+                    className={`w-full flex items-center justify-between p-4 ${category.color} hover:opacity-90 transition-opacity text-left`}
+                  >
+                    <div className="flex items-center gap-3 text-white font-semibold">
+                      <BookOpen className="w-5 h-5" />
+                      <span>{category.name}</span>
+                    </div>
+                    {expandedCategories[`cat-${catIndex}`] ? (
+                      <ChevronUp className="w-5 h-5 text-white" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-white" />
+                    )}
+                  </button>
+
+                  {/* Papers inside Category */}
+                  {expandedCategories[`cat-${catIndex}`] && (
+                    <div className="bg-white p-4 space-y-4 border-t border-gray-200">
+                      {category.papers.map((paper: any, paperIndex: number) => (
+                        <div key={paperIndex} className="border border-gray-200 rounded-lg overflow-hidden">
+                          {/* Paper Header */}
+                          <button
+                            onClick={() => setExpandedPapers(prev => ({
+                              ...prev,
+                              [`paper-${catIndex}-${paperIndex}`]: !prev[`paper-${catIndex}-${paperIndex}`]
+                            }))}
+                            className="w-full flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 transition-colors text-left"
+                          >
+                            <span className="font-semibold text-gray-800">{paper.paperName}</span>
+                            {expandedPapers[`paper-${catIndex}-${paperIndex}`] ? (
+                              <ChevronUp className="w-4 h-4 text-gray-600" />
+                            ) : (
+                              <ChevronDown className="w-4 h-4 text-gray-600" />
+                            )}
+                          </button>
+
+                          {/* Books List */}
+                          {expandedPapers[`paper-${catIndex}-${paperIndex}`] && (
+                            <div className="p-3 bg-white space-y-2 border-t border-gray-100">
+                              {paper.books.map((book: any, bookIndex: number) => (
+                                <div key={bookIndex} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-100 hover:bg-gray-100 transition-colors">
+                                  <div className="flex items-start gap-3 flex-1">
+                                    <BookOpen className="w-4 h-4 text-gray-500 mt-1 flex-shrink-0" />
+                                    <div>
+                                      <p className="text-sm font-medium text-gray-800">{book.name}</p>
+                                      {book.author && <p className="text-xs text-gray-500">by {book.author}</p>}
+                                    </div>
+                                  </div>
+                                  <div className="flex gap-2 flex-shrink-0">
+                                    <button
+                                      disabled={!book.pdfUrl}
+                                      className={`flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-lg border transition-all ${
+                                        book.pdfUrl
+                                          ? "bg-blue-50 text-blue-600 border-blue-200 hover:bg-blue-100"
+                                          : "bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed"
+                                      }`}
+                                      title={!book.pdfUrl ? "PDF will be available after upload" : "View PDF in browser"}
+                                    >
+                                      <Eye className="w-3 h-3" /> View
+                                    </button>
+                                    <button
+                                      disabled={!book.downloadUrl}
+                                      className={`flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-lg border transition-all ${
+                                        book.downloadUrl
+                                          ? "bg-green-50 text-green-600 border-green-200 hover:bg-green-100"
+                                          : "bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed"
+                                      }`}
+                                      title={!book.downloadUrl ? "Download will be available after upload" : "Download PDF"}
+                                    >
+                                      <Download className="w-3 h-3" /> Download
+                                    </button>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
-          ))}
-          <Link to="/books" className="block text-center text-green-600 text-sm hover:underline mt-2">
-            View All Books in Library →
-          </Link>
+          ) : (
+            // Flat Books Structure (default)
+            <>
+              {books.map((book, i) => (
+                <div key={i} className="bg-white border border-gray-100 rounded-xl shadow-sm p-4 flex items-start gap-4">
+                  <div className="w-12 h-16 rounded-lg bg-gradient-to-b from-green-500 to-green-700 flex items-center justify-center flex-shrink-0 shadow">
+                    <BookOpen className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-gray-800 font-semibold">{book.title}</h4>
+                    <p className="text-gray-500 text-sm">by {book.author}</p>
+                    <p className="text-gray-600 text-xs mt-1 italic">"{book.note}"</p>
+                  </div>
+                  <button className="flex items-center gap-1 text-green-600 text-xs hover:text-green-700 bg-green-50 px-3 py-1.5 rounded-lg border border-green-200 flex-shrink-0">
+                    <Download className="w-3.5 h-3.5" /> PDF
+                  </button>
+                </div>
+              ))}
+              <Link to="/books" className="block text-center text-green-600 text-sm hover:underline mt-2">
+                View All Books in Library →
+              </Link>
+            </>
+          )}
         </div>
       )}
 
