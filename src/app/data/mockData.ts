@@ -4722,6 +4722,96 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    id: 28,
+    name: "Group XXVIII",
+    subjects: [
+      {
+        id: "arabic",
+        name: "Arabic",
+        marks: 100,
+        icon: "🕌",
+        color: "from-red-600 to-rose-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Origin and Development of Arabic Language",
+            marks: 12,
+            subsections: [
+              "Historical development of Arabic",
+              "Importance of Arabic in Islamic civilization",
+              "Influence of Arabic language on other languages"
+            ]
+          },
+          {
+            section: "Classical Arabic Literature",
+            marks: 15,
+            subsections: [
+              "Study of Imru' al-Qais and his works",
+              "Study of Al-Mutanabbi and his works",
+              "Study of Abu Tammam and his works",
+              "Themes: Heroism",
+              "Themes: Love",
+              "Themes: Wisdom and philosophy"
+            ]
+          },
+          {
+            section: "Arabic Prose",
+            marks: 13,
+            subsections: [
+              "Development of Arabic prose",
+              "Essays and historical writings",
+              "Religious literature",
+              "Prominent writer: Al-Jahiz",
+              "Prominent writer: Ibn Khaldun"
+            ]
+          },
+          {
+            section: "Arabic Poetry",
+            marks: 13,
+            subsections: [
+              "Major poetic form: Qasida",
+              "Major poetic form: Ghazal",
+              "Major poetic form: Marsiya"
+            ]
+          },
+          {
+            section: "Arabic Grammar",
+            marks: 12,
+            subsections: [
+              "Basic principles of Arabic grammar",
+              "Sentence structure",
+              "Morphology"
+            ]
+          },
+          {
+            section: "Modern Arabic Literature",
+            marks: 12,
+            subsections: [
+              "Development of modern Arabic literature",
+              "Major modern writers and literary trends"
+            ]
+          },
+          {
+            section: "Translation",
+            marks: 12,
+            subsections: [
+              "Translation of Arabic passages into English or Urdu",
+              "Understanding and interpretation of classical Arabic texts"
+            ]
+          },
+          {
+            section: "Literary Criticism",
+            marks: 11,
+            subsections: [
+              "Principles of literary criticism in Arabic literature",
+              "Contributions of major Arabic scholars"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
