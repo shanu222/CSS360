@@ -2099,7 +2099,101 @@ export const optionalGroups = [
             ]
           }
         ] },
-      { id: "history-usa", name: "History of USA", marks: 200, icon: "🗽", color: "bg-blue-500", progress: 0 },
+      { id: "history-usa", name: "History of USA", marks: 100, icon: "🗽", color: "bg-blue-500", progress: 0, syllabus: [
+          {
+            section: "1. Colonial Period",
+            marks: 10,
+            subsections: [
+              "European exploration and colonization of North America",
+              "Establishment of British colonies",
+              "Social, political, and economic life in the colonies"
+            ]
+          },
+          {
+            section: "2. American War of Independence (1775–1783)",
+            marks: 11,
+            subsections: [
+              "Causes of the American Revolution",
+              "Role of colonial leadership",
+              "Declaration of Independence (1776)",
+              "Major events and outcomes of the war"
+            ]
+          },
+          {
+            section: "3. Formation of the American Constitution",
+            marks: 11,
+            subsections: [
+              "Constitutional Convention (1787)",
+              "Key features of the U.S. Constitution",
+              "Federal system and separation of powers",
+              "Bill of Rights"
+            ]
+          },
+          {
+            section: "4. Expansion and Development",
+            marks: 10,
+            subsections: [
+              "Westward expansion",
+              "Manifest Destiny",
+              "Economic growth and industrial development"
+            ]
+          },
+          {
+            section: "5. American Civil War (1861–1865)",
+            marks: 11,
+            subsections: [
+              "Causes of the Civil War",
+              "Role of slavery and sectional differences",
+              "Major battles and leadership",
+              "Consequences of the war"
+            ]
+          },
+          {
+            section: "6. Reconstruction Era",
+            marks: 11,
+            subsections: [
+              "Political and social reconstruction after the Civil War",
+              "Amendments to the Constitution",
+              "Challenges of rebuilding the nation"
+            ]
+          },
+          {
+            section: "7. Industrialization and Economic Growth",
+            marks: 11,
+            subsections: [
+              "Rise of industrial capitalism",
+              "Urbanization and immigration",
+              "Labor movements and reforms"
+            ]
+          },
+          {
+            section: "8. USA in World Wars",
+            marks: 11,
+            subsections: [
+              "Role of the United States in World War I",
+              "Role of the United States in World War II",
+              "Emergence of the United States as a global power"
+            ]
+          },
+          {
+            section: "9. Cold War Era",
+            marks: 10,
+            subsections: [
+              "U.S. foreign policy during the Cold War",
+              "Containment policy",
+              "Conflicts and international alliances"
+            ]
+          },
+          {
+            section: "10. Contemporary USA",
+            marks: 4,
+            subsections: [
+              "Political and economic developments",
+              "Role of the USA in global politics",
+              "Major social and political changes in modern America"
+            ]
+          }
+        ] },
       {
         id: "history-pakistan-india",
         name: "History of Pakistan & India",
