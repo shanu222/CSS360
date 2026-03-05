@@ -1373,6 +1373,71 @@ export const optionalGroups = [
           }
         ]
       },
+      {
+        id: "pure-mathematics",
+        name: "Pure Mathematics",
+        marks: 100,
+        icon: "π",
+        color: "bg-fuchsia-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Section A – Modern Algebra",
+            marks: 40,
+            subsections: [
+              "Groups and subgroups",
+              "Lagrange's theorem",
+              "Cyclic groups",
+              "Normal subgroups and quotient groups",
+              "Homomorphisms and isomorphisms",
+              "Rings and subrings",
+              "Integral domains and quotient fields",
+              "Field extensions and finite fields",
+              "Vector spaces",
+              "Linear independence",
+              "Bases and dimension of vector spaces",
+              "Linear transformations and matrices",
+              "Systems of linear equations",
+              "Determinants and their properties"
+            ]
+          },
+          {
+            section: "Section B – Calculus and Analytical Geometry",
+            marks: 40,
+            subsections: [
+              "Calculus: real numbers and limits",
+              "Continuity and differentiability",
+              "Indefinite and definite integration",
+              "Mean value theorems",
+              "Taylor's theorem",
+              "Functions of several variables",
+              "Partial derivatives",
+              "Maxima and minima",
+              "Double and triple integrals",
+              "Applications of Beta and Gamma functions",
+              "Areas and volumes",
+              "Analytical Geometry: conic sections in Cartesian coordinates",
+              "Polar coordinates and their applications",
+              "Straight line and conic sections",
+              "Three-dimensional geometry",
+              "Planes, spheres, ellipsoids, paraboloids, and hyperboloids"
+            ]
+          },
+          {
+            section: "Section C – Complex Variables",
+            marks: 20,
+            subsections: [
+              "Functions of a complex variable",
+              "De Moivre's theorem and applications",
+              "Analytic functions",
+              "Cauchy's theorem and integral formula",
+              "Taylor and Laurent series",
+              "Singularities and residues",
+              "Contour integration"
+            ]
+          }
+        ]
+      },
     ],
   },
   {
