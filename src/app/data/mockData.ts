@@ -92,6 +92,98 @@ export const compulsorySubjects = [
     description: "Covers everyday science, mental ability, and analytical reasoning.",
     progress: 78,
     topics: ["Physics Basics", "Chemistry Concepts", "Biology Fundamentals", "Mental Ability", "Analytical Reasoning", "Data Interpretation"],
+    syllabus: [
+      {
+        section: "Part I: General Science - Physical Sciences",
+        marks: 30,
+        subsections: [
+          "Structure and properties of matter",
+          "Atoms, molecules, elements, and compounds",
+          "States of matter",
+          "Energy: forms, sources, and transformations",
+          "Basic laws of motion and energy",
+          "Sound, light, heat, and electricity"
+        ]
+      },
+      {
+        section: "Part I: General Science - Earth and Environmental Sciences",
+        marks: 20,
+        subsections: [
+          "Structure of the Earth",
+          "Atmosphere and climate",
+          "Weather systems and climate change",
+          "Natural disasters (earthquakes, floods, cyclones)",
+          "Environmental pollution and conservation"
+        ]
+      },
+      {
+        section: "Part I: General Science - Biological Sciences",
+        marks: 20,
+        subsections: [
+          "Basic concepts of biology",
+          "Cell structure and function",
+          "Human body systems",
+          "Nutrition, health, and diseases",
+          "Genetics and heredity",
+          "Biodiversity and ecosystems"
+        ]
+      },
+      {
+        section: "Part II: Scientific and Technological Developments",
+        marks: 10,
+        subsections: [
+          "Role of science and technology in modern society",
+          "Information and communication technology",
+          "Space technology and exploration",
+          "Biotechnology and genetic engineering",
+          "Renewable and non-renewable energy resources"
+        ]
+      },
+      {
+        section: "Part III: Ability - Basic Arithmetic",
+        marks: 5,
+        subsections: [
+          "Whole numbers and fractions",
+          "Ratios and proportions",
+          "Percentages",
+          "Averages",
+          "Profit and loss"
+        ]
+      },
+      {
+        section: "Part III: Ability - Algebra",
+        marks: 3,
+        subsections: [
+          "Basic algebraic expressions",
+          "Linear equations"
+        ]
+      },
+      {
+        section: "Part III: Ability - Geometry",
+        marks: 3,
+        subsections: [
+          "Basic geometric concepts",
+          "Angles, triangles, and circles"
+        ]
+      },
+      {
+        section: "Part III: Ability - Data Analysis",
+        marks: 5,
+        subsections: [
+          "Interpretation of tables and charts",
+          "Graphs and diagrams"
+        ]
+      },
+      {
+        section: "Part III: Ability - Logical Reasoning",
+        marks: 4,
+        subsections: [
+          "Analytical reasoning problems",
+          "Pattern recognition",
+          "Logical deductions"
+        ]
+      }
+    ]
   },
   {
     id: "current-affairs-comp",
