@@ -2384,7 +2384,100 @@ export const optionalGroups = [
     group: 5,
     subjects: [
       { id: "environmental-science", name: "Environmental Science", marks: 200, icon: "🌿", color: "bg-green-600", progress: 30 },
-      { id: "gender-studies", name: "Gender Studies", marks: 200, icon: "⚧", color: "bg-pink-500", progress: 20 },
+      {
+        id: "gender-studies",
+        name: "Gender Studies",
+        marks: 100,
+        icon: "⚧",
+        color: "bg-pink-500",
+        progress: 20,
+        syllabus: [
+          {
+            section: "1. Introduction to Gender Studies",
+            marks: 11,
+            subsections: [
+              "Definition and scope of gender studies",
+              "Difference between sex and gender",
+              "Gender as a social construct",
+              "Importance of gender studies in modern societies"
+            ]
+          },
+          {
+            section: "2. Feminist Theories",
+            marks: 13,
+            subsections: [
+              "Liberal feminism",
+              "Radical feminism",
+              "Marxist feminism",
+              "Socialist feminism",
+              "Postmodern feminism"
+            ]
+          },
+          {
+            section: "3. Gender and Society",
+            marks: 12,
+            subsections: [
+              "Gender roles and stereotypes",
+              "Gender socialization",
+              "Gender discrimination and inequality"
+            ]
+          },
+          {
+            section: "4. Women and Development",
+            marks: 12,
+            subsections: [
+              "Role of women in economic development",
+              "Women's participation in labor markets",
+              "Gender and poverty"
+            ]
+          },
+          {
+            section: "5. Gender and Politics",
+            marks: 12,
+            subsections: [
+              "Women's political participation",
+              "Gender representation in political institutions",
+              "Gender equality in governance"
+            ]
+          },
+          {
+            section: "6. Gender and Law",
+            marks: 12,
+            subsections: [
+              "Legal rights of women",
+              "Gender-based laws and policies",
+              "International conventions on women's rights"
+            ]
+          },
+          {
+            section: "7. Gender-Based Violence",
+            marks: 12,
+            subsections: [
+              "Types of gender-based violence",
+              "Causes and consequences",
+              "Measures to prevent violence against women"
+            ]
+          },
+          {
+            section: "8. Gender Issues in Pakistan",
+            marks: 11,
+            subsections: [
+              "Status of women in Pakistan",
+              "Social and cultural challenges",
+              "Government policies for gender equality"
+            ]
+          },
+          {
+            section: "9. Global Gender Issues",
+            marks: 5,
+            subsections: [
+              "Gender equality movements",
+              "Role of international organizations",
+              "Global initiatives for women's empowerment"
+            ]
+          }
+        ]
+      },
     ],
   },
   {
