@@ -4313,6 +4313,89 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    id: 23,
+    name: "Group XXIII",
+    subjects: [
+      {
+        id: "punjabi",
+        name: "Punjabi",
+        marks: 100,
+        icon: "📖",
+        color: "from-yellow-600 to-amber-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Origin and Development of Punjabi Language",
+            marks: 14,
+            subsections: [
+              "Historical background of Punjabi",
+              "Linguistic characteristics of Punjabi",
+              "Development of Punjabi literature"
+            ]
+          },
+          {
+            section: "Classical Punjabi Poetry",
+            marks: 15,
+            subsections: [
+              "Study of Shah Hussain and his works",
+              "Study of Sultan Bahu and his works",
+              "Study of Bulleh Shah and his works",
+              "Study of Waris Shah and his works",
+              "Themes: Mysticism",
+              "Themes: Love and human values",
+              "Themes: Social and cultural reflections"
+            ]
+          },
+          {
+            section: "Punjabi Folk Literature",
+            marks: 14,
+            subsections: [
+              "Folk poetry and folk songs",
+              "Folktales and legends",
+              "Cultural traditions in Punjabi folklore"
+            ]
+          },
+          {
+            section: "Modern Punjabi Literature",
+            marks: 15,
+            subsections: [
+              "Development of modern Punjabi literature and its themes",
+              "Major poets: Mian Muhammad Bakhsh",
+              "Major poets: Baba Farid",
+              "Major writers: Amrita Pritam"
+            ]
+          },
+          {
+            section: "Punjabi Prose",
+            marks: 14,
+            subsections: [
+              "Development of Punjabi prose",
+              "Essays and short stories",
+              "Novels",
+              "Drama"
+            ]
+          },
+          {
+            section: "Literary Criticism",
+            marks: 14,
+            subsections: [
+              "Principles of literary criticism in Punjabi literature",
+              "Contributions of major Punjabi critics"
+            ]
+          },
+          {
+            section: "Punjabi Literature in Pakistan",
+            marks: 14,
+            subsections: [
+              "Development of Punjabi literature after independence",
+              "Cultural significance of Punjabi literature"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
