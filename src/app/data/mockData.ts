@@ -479,6 +479,108 @@ export const optionalGroups = [
       { id: "political-science", name: "Political Science", marks: 200, icon: "🏛️", color: "bg-blue-600", progress: 25 },
       { id: "computer-science", name: "Computer Science", marks: 200, icon: "💻", color: "bg-cyan-500", progress: 60 },
       { id: "international-relations", name: "International Relations", marks: 200, icon: "🌐", color: "bg-sky-500", progress: 55 },
+      {
+        id: "accountancy-auditing",
+        name: "Accountancy & Auditing",
+        marks: 200,
+        icon: "📊",
+        color: "bg-indigo-500",
+        progress: 0,
+        syllabus: [
+          {
+            section: "PAPER I – ACCOUNTING (100 Marks) – 1. Financial Accounting",
+            marks: 20,
+            subsections: [
+              "Accounting principles and concepts",
+              "Accounting cycle and preparation of financial statements",
+              "Preparation and analysis of balance sheets and income statements",
+              "Depreciation methods and accounting for fixed assets"
+            ]
+          },
+          {
+            section: "PAPER I – ACCOUNTING (100 Marks) – 2. Partnership Accounting",
+            marks: 20,
+            subsections: [
+              "Formation of partnership",
+              "Admission, retirement, and dissolution of partners",
+              "Profit and loss sharing arrangements",
+              "Capital and current accounts"
+            ]
+          },
+          {
+            section: "PAPER I – ACCOUNTING (100 Marks) – 3. Company Accounting",
+            marks: 20,
+            subsections: [
+              "Formation of companies",
+              "Share capital and debentures",
+              "Issue, forfeiture, and reissue of shares",
+              "Final accounts of companies"
+            ]
+          },
+          {
+            section: "PAPER I – ACCOUNTING (100 Marks) – 4. Cost Accounting",
+            marks: 20,
+            subsections: [
+              "Concepts and objectives of cost accounting",
+              "Classification of costs",
+              "Costing methods",
+              "Job costing and process costing"
+            ]
+          },
+          {
+            section: "PAPER I – ACCOUNTING (100 Marks) – 5. Managerial Accounting",
+            marks: 20,
+            subsections: [
+              "Role of accounting in managerial decision-making",
+              "Budgeting and budgetary control",
+              "Financial analysis and performance evaluation"
+            ]
+          },
+          {
+            section: "PAPER II – AUDITING (100 Marks) – 1. Introduction to Auditing",
+            marks: 20,
+            subsections: [
+              "Meaning and objectives of auditing",
+              "Types of audit",
+              "Internal and external auditing"
+            ]
+          },
+          {
+            section: "PAPER II – AUDITING (100 Marks) – 2. Audit Procedures",
+            marks: 25,
+            subsections: [
+              "Audit planning and documentation",
+              "Audit evidence and techniques",
+              "Internal control systems"
+            ]
+          },
+          {
+            section: "PAPER II – AUDITING (100 Marks) – 3. Audit of Companies",
+            marks: 20,
+            subsections: [
+              "Audit of share capital",
+              "Audit of liabilities and assets",
+              "Verification and valuation"
+            ]
+          },
+          {
+            section: "PAPER II – AUDITING (100 Marks) – 4. Professional Ethics",
+            marks: 20,
+            subsections: [
+              "Responsibilities of auditors",
+              "Professional conduct and ethical standards"
+            ]
+          },
+          {
+            section: "PAPER II – AUDITING (100 Marks) – 5. Corporate Laws Related to Auditing",
+            marks: 15,
+            subsections: [
+              "Companies Ordinance",
+              "Legal framework governing auditing practices"
+            ]
+          }
+        ]
+      },
     ],
   },
   {

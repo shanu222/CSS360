@@ -6,7 +6,7 @@ import { noteService } from "../../services/noteService";
 
 const allSubjects = [
   ...compulsorySubjects,
-  ...optionalGroups.flatMap(g => g.subjects.map(s => ({ ...s, topics: [], description: `${s.name} — CSS Optional Subject`, marks: s.marks, progress: s.progress }))),
+  ...optionalGroups.flatMap(g => g.subjects.map(s => ({ ...s, topics: s.topics || [], description: s.description || `${s.name} — CSS Optional Subject`, marks: s.marks, progress: s.progress, syllabus: (s as any).syllabus }))),
 ];
 
 const subjectNotesMap: Record<string, { topic: string; content: string }[]> = {
