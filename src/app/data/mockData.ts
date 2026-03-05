@@ -475,7 +475,149 @@ export const optionalGroups = [
   {
     group: 1,
     subjects: [
-      { id: "economics", name: "Economics", marks: 200, icon: "📊", color: "bg-purple-500", progress: 40 },
+      {
+        id: "economics",
+        name: "Economics",
+        marks: 200,
+        icon: "📊",
+        color: "bg-purple-500",
+        progress: 40,
+        syllabus: [
+          {
+            section: "PAPER I – MICROECONOMICS (100 Marks) – 1. Introduction to Economics",
+            marks: 16,
+            subsections: [
+              "Definition and scope of economics",
+              "Economic systems: capitalism, socialism, mixed economy",
+              "Basic economic problems: what to produce, how to produce, for whom to produce",
+              "Opportunity cost and scarcity"
+            ]
+          },
+          {
+            section: "PAPER I – MICROECONOMICS (100 Marks) – 2. Demand and Supply",
+            marks: 17,
+            subsections: [
+              "Law of demand and exceptions",
+              "Determinants of demand",
+              "Elasticity of demand: price, income, cross elasticity",
+              "Law of supply and determinants",
+              "Market equilibrium and disequilibrium"
+            ]
+          },
+          {
+            section: "PAPER I – MICROECONOMICS (100 Marks) – 3. Consumer Behavior",
+            marks: 15,
+            subsections: [
+              "Utility analysis: total and marginal utility",
+              "Marginal utility theory and law of diminishing marginal utility",
+              "Indifference curve analysis",
+              "Consumer equilibrium and budget constraints"
+            ]
+          },
+          {
+            section: "PAPER I – MICROECONOMICS (100 Marks) – 4. Production and Cost",
+            marks: 17,
+            subsections: [
+              "Factors of production: land, labor, capital, entrepreneurship",
+              "Production function and isoquants",
+              "Laws of production: law of variable proportions",
+              "Short-run costs: fixed, variable, total, average, marginal costs",
+              "Long-run costs and returns to scale"
+            ]
+          },
+          {
+            section: "PAPER I – MICROECONOMICS (100 Marks) – 5. Market Structures",
+            marks: 19,
+            subsections: [
+              "Perfect competition: characteristics and equilibrium",
+              "Monopoly: characteristics, price determination, welfare effects",
+              "Monopolistic competition",
+              "Oligopoly: kinked demand curve, collusion"
+            ]
+          },
+          {
+            section: "PAPER I – MICROECONOMICS (100 Marks) – 6. Factor Pricing",
+            marks: 16,
+            subsections: [
+              "Wages: determination and theories",
+              "Rent: Ricardian rent, economic rent",
+              "Interest: theories of interest rate",
+              "Profit: nature and theories"
+            ]
+          },
+          {
+            section: "PAPER II – MACROECONOMICS (100 Marks) – 1. National Income",
+            marks: 14,
+            subsections: [
+              "Concepts of national income: GDP, GNP, NNP, National Income",
+              "Methods of measuring national income: income, expenditure, output methods",
+              "National income accounting and circular flow",
+              "Per capita income and income distribution"
+            ]
+          },
+          {
+            section: "PAPER II – MACROECONOMICS (100 Marks) – 2. Money and Banking",
+            marks: 16,
+            subsections: [
+              "Functions of money: medium of exchange, store of value, unit of account",
+              "Commercial banking system and credit creation",
+              "Central banking functions and operations",
+              "Monetary policy: tools and objectives"
+            ]
+          },
+          {
+            section: "PAPER II – MACROECONOMICS (100 Marks) – 3. Inflation and Unemployment",
+            marks: 15,
+            subsections: [
+              "Causes and effects of inflation",
+              "Types of unemployment: frictional, structural, cyclical",
+              "Phillips curve and inflation-unemployment trade-off",
+              "Policies to control inflation and unemployment",
+              "Stagflation"
+            ]
+          },
+          {
+            section: "PAPER II – MACROECONOMICS (100 Marks) – 4. Fiscal Policy",
+            marks: 15,
+            subsections: [
+              "Government revenue and expenditure",
+              "Taxation systems: progressive, proportional, regressive taxes",
+              "Budget and public finance",
+              "Deficit financing and public debt"
+            ]
+          },
+          {
+            section: "PAPER II – MACROECONOMICS (100 Marks) – 5. International Trade",
+            marks: 15,
+            subsections: [
+              "Theory of international trade: comparative advantage, specialization",
+              "Balance of payments: current account, capital account",
+              "Exchange rates: fixed, floating, managed float",
+              "Trade policies: tariffs, quotas, protectionism vs. free trade"
+            ]
+          },
+          {
+            section: "PAPER II – MACROECONOMICS (100 Marks) – 6. Economic Development",
+            marks: 12,
+            subsections: [
+              "Concepts of economic growth and development",
+              "Development strategies: capital accumulation, human capital, technology",
+              "Role of institutions, governance, and rule of law in development"
+            ]
+          },
+          {
+            section: "PAPER II – MACROECONOMICS (100 Marks) – 7. Economy of Pakistan",
+            marks: 13,
+            subsections: [
+              "Structure of Pakistan's economy: sectoral composition",
+              "Agricultural sector: production, issues, reforms",
+              "Industrial sector: SMEs, manufacturing, challenges",
+              "Economic challenges: inflation, debt, current account deficit",
+              "Policy reforms: privatization, deregulation, economic liberalization"
+            ]
+          }
+        ]
+      },
       { id: "political-science", name: "Political Science", marks: 200, icon: "🏛️", color: "bg-blue-600", progress: 25 },
       { id: "computer-science", name: "Computer Science", marks: 200, icon: "💻", color: "bg-cyan-500", progress: 60 },
       { id: "international-relations", name: "International Relations", marks: 200, icon: "🌐", color: "bg-sky-500", progress: 55 },
