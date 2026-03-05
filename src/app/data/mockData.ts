@@ -2576,7 +2576,89 @@ export const optionalGroups = [
   {
     group: 6,
     subjects: [
-      { id: "law", name: "Law", marks: 200, icon: "⚖️", color: "bg-gray-600", progress: 0 },
+      {
+        id: "law",
+        name: "Law",
+        marks: 100,
+        icon: "⚖️",
+        color: "bg-gray-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Introduction to Law",
+            marks: 12,
+            subsections: [
+              "Definition and nature of law",
+              "Importance and functions of law in society",
+              "Classification of law"
+            ]
+          },
+          {
+            section: "2. Sources of Law",
+            marks: 12,
+            subsections: [
+              "Legislation",
+              "Customs",
+              "Judicial precedents",
+              "Islamic law as a source of law"
+            ]
+          },
+          {
+            section: "3. Legal System",
+            marks: 12,
+            subsections: [
+              "Structure of the legal system",
+              "Civil and criminal law",
+              "Role of courts in the administration of justice"
+            ]
+          },
+          {
+            section: "4. Constitution and Legal Framework",
+            marks: 12,
+            subsections: [
+              "Basic principles of constitutional law",
+              "Separation of powers",
+              "Rule of law"
+            ]
+          },
+          {
+            section: "5. Court System in Pakistan",
+            marks: 12,
+            subsections: [
+              "Structure of courts in Pakistan",
+              "Jurisdiction of courts",
+              "Role of the Supreme Court and High Courts"
+            ]
+          },
+          {
+            section: "6. Rights and Duties",
+            marks: 12,
+            subsections: [
+              "Fundamental rights",
+              "Legal duties and obligations",
+              "Protection of civil liberties"
+            ]
+          },
+          {
+            section: "7. Legal Procedures",
+            marks: 12,
+            subsections: [
+              "Civil procedure",
+              "Criminal procedure",
+              "Evidence and legal proof"
+            ]
+          },
+          {
+            section: "8. Legal Profession",
+            marks: 4,
+            subsections: [
+              "Role of lawyers and judges",
+              "Ethics of the legal profession",
+              "Responsibilities of legal practitioners"
+            ]
+          }
+        ]
+      },
       { id: "constitutional-law", name: "Constitutional Law", marks: 200, icon: "📜", color: "bg-zinc-500", progress: 0 },
     ],
   },
