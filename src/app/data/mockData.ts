@@ -4905,6 +4905,97 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    id: 30,
+    name: "Group XXX",
+    subjects: [
+      {
+        id: "comparative-study-religions",
+        name: "Comparative Study of Major Religions",
+        marks: 100,
+        icon: "⛪",
+        color: "from-blue-600 to-purple-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Introduction to the Study of Religions",
+            marks: 12,
+            subsections: [
+              "Definition and scope of comparative religion",
+              "Importance of studying different religions",
+              "Methods used in comparative religious studies"
+            ]
+          },
+          {
+            section: "Judaism",
+            marks: 12,
+            subsections: [
+              "Historical background of Judaism",
+              "Sacred texts (Torah, Talmud)",
+              "Basic beliefs and practices",
+              "Social and cultural influence"
+            ]
+          },
+          {
+            section: "Christianity",
+            marks: 13,
+            subsections: [
+              "Origin and development of Christianity",
+              "Life and teachings of Jesus Christ (AS)",
+              "Sacred texts (Bible)",
+              "Major Christian denominations"
+            ]
+          },
+          {
+            section: "Hinduism",
+            marks: 13,
+            subsections: [
+              "Historical development of Hinduism",
+              "Sacred texts (Vedas, Upanishads, Bhagavad Gita)",
+              "Major beliefs and practices",
+              "Social and cultural traditions"
+            ]
+          },
+          {
+            section: "Buddhism",
+            marks: 12,
+            subsections: [
+              "Life and teachings of Gautama Buddha",
+              "Basic principles of Buddhism",
+              "Spread of Buddhism in Asia"
+            ]
+          },
+          {
+            section: "Islam",
+            marks: 12,
+            subsections: [
+              "Basic beliefs and practices of Islam",
+              "Quran and Hadith",
+              "Principles of Islamic teachings"
+            ]
+          },
+          {
+            section: "Comparative Analysis of Religions",
+            marks: 12,
+            subsections: [
+              "Similarities and differences among major religions",
+              "Concepts of God, morality, and salvation",
+              "Role of religion in society"
+            ]
+          },
+          {
+            section: "Religion and Modern Society",
+            marks: 12,
+            subsections: [
+              "Role of religion in contemporary world",
+              "Interfaith dialogue",
+              "Religious tolerance and coexistence"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
