@@ -2670,6 +2670,102 @@ export const optionalGroups = [
       { id: "psychology", name: "Psychology", marks: 200, icon: "🧠", color: "bg-fuchsia-500", progress: 10 },
     ],
   },
+  {
+    group: 8,
+    subjects: [
+      {
+        id: "agriculture-forestry",
+        name: "Agriculture & Forestry",
+        marks: 100,
+        icon: "🌾",
+        color: "bg-yellow-700",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Introduction to Agriculture",
+            marks: 11,
+            subsections: [
+              "Definition and scope of agriculture",
+              "Importance of agriculture in national economies",
+              "Agricultural systems and practices"
+            ]
+          },
+          {
+            section: "2. Soil Science",
+            marks: 12,
+            subsections: [
+              "Soil formation and classification",
+              "Physical and chemical properties of soil",
+              "Soil fertility and soil management"
+            ]
+          },
+          {
+            section: "3. Crop Production",
+            marks: 12,
+            subsections: [
+              "Major crops and cropping systems",
+              "Methods of crop cultivation",
+              "Crop improvement and plant breeding"
+            ]
+          },
+          {
+            section: "4. Irrigation and Water Management",
+            marks: 12,
+            subsections: [
+              "Irrigation systems",
+              "Water conservation techniques",
+              "Efficient water management in agriculture"
+            ]
+          },
+          {
+            section: "5. Agricultural Inputs and Technology",
+            marks: 11,
+            subsections: [
+              "Use of fertilizers and pesticides",
+              "Agricultural mechanization",
+              "Modern agricultural technologies"
+            ]
+          },
+          {
+            section: "6. Forestry",
+            marks: 12,
+            subsections: [
+              "Importance of forests",
+              "Types of forests",
+              "Forest management and conservation"
+            ]
+          },
+          {
+            section: "7. Agroforestry",
+            marks: 11,
+            subsections: [
+              "Concept of agroforestry",
+              "Benefits of integrating trees with agriculture",
+              "Sustainable land management practices"
+            ]
+          },
+          {
+            section: "8. Agricultural Development",
+            marks: 12,
+            subsections: [
+              "Agricultural policies",
+              "Rural development",
+              "Challenges of agricultural development in developing countries"
+            ]
+          },
+          {
+            section: "9. Agriculture and Forestry in Pakistan",
+            marks: 5,
+            subsections: [
+              "Importance of agriculture in Pakistan's economy",
+              "Major crops of Pakistan",
+              "Forest resources and conservation challenges"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
