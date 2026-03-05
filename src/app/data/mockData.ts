@@ -1827,6 +1827,94 @@ export const optionalGroups = [
           }
         ]
       },
+      {
+        id: "town-planning-urban-management",
+        name: "Town Planning & Urban Management",
+        marks: 100,
+        icon: "🏙️",
+        color: "bg-cyan-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Introduction to Town Planning",
+            marks: 12,
+            subsections: [
+              "Definition and scope of town planning",
+              "Evolution of urban planning",
+              "Objectives of town planning",
+              "Importance of urban planning in modern societies"
+            ]
+          },
+          {
+            section: "2. Urbanization",
+            marks: 12,
+            subsections: [
+              "Causes of urbanization",
+              "Patterns of urban growth",
+              "Urbanization trends in developing countries",
+              "Problems associated with rapid urbanization"
+            ]
+          },
+          {
+            section: "3. Urban Planning Principles",
+            marks: 14,
+            subsections: [
+              "Land-use planning",
+              "Zoning and urban regulations",
+              "Transportation planning",
+              "Environmental considerations in urban planning"
+            ]
+          },
+          {
+            section: "4. Housing and Urban Development",
+            marks: 14,
+            subsections: [
+              "Housing policies",
+              "Housing problems in developing countries",
+              "Low-cost housing and housing finance",
+              "Urban housing programs"
+            ]
+          },
+          {
+            section: "5. Urban Infrastructure and Services",
+            marks: 12,
+            subsections: [
+              "Water supply systems",
+              "Sanitation and waste management",
+              "Energy supply in cities",
+              "Transportation systems"
+            ]
+          },
+          {
+            section: "6. Urban Management",
+            marks: 12,
+            subsections: [
+              "Urban governance and institutions",
+              "Role of municipal governments",
+              "Urban management strategies",
+              "Community participation in urban development"
+            ]
+          },
+          {
+            section: "7. Urban Environmental Issues",
+            marks: 12,
+            subsections: [
+              "Urban pollution",
+              "Environmental sustainability in cities",
+              "Green spaces and urban ecology"
+            ]
+          },
+          {
+            section: "8. Urban Planning in Pakistan",
+            marks: 12,
+            subsections: [
+              "Urban development in Pakistan",
+              "Housing and urban policies in Pakistan",
+              "Challenges of urban management in Pakistan"
+            ]
+          }
+        ]
+      },
     ],
   },
   {
