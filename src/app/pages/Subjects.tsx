@@ -1,31 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import { compulsorySubjects, optionalGroups } from "../data/mockData";
-import { ChevronRight, BookOpen, CheckCircle, ChevronDown } from "lucide-react";
+import { ChevronRight, BookOpen, CheckCircle, Lock } from "lucide-react";
 
 export default function Subjects() {
   const [tab, setTab] = useState<"compulsory" | "optional">("compulsory");
-  const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({});
-  const [expandedSubjects, setExpandedSubjects] = useState<Record<string, boolean>>({});
-  const [expandedPapers, setExpandedPapers] = useState<Record<string, boolean>>({});
-  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
-
-  const toggle = (setter: (updater: (prev: Record<string, boolean>) => Record<string, boolean>) => void, key: string) => {
-    setter((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
-
-  const getPapers = (subject: any) => {
-    const buckets = new Map<string, any[]>();
-    (subject.syllabus || []).forEach((section: any, idx: number) => {
-      const matched = section.section.match(/^(Paper\s+[IVX]+)\s*[\-–:]\s*(.*)$/i);
-      const paperName = matched ? matched[1].replace(/^PAPER/i, "Paper") : "Subject Outline";
-      const cleanedSection = matched ? matched[2] : section.section;
-      if (!buckets.has(paperName)) buckets.set(paperName, []);
-      buckets.get(paperName)!.push({ ...section, section: cleanedSection, originalIndex: idx });
-    });
-
-    return Array.from(buckets.entries()).map(([name, sections]) => ({ name, sections }));
-  };
 
   return (
     <div className="p-3 sm:p-4 lg:p-6 space-y-4 sm:space-y-5 overflow-y-auto">
@@ -113,104 +92,44 @@ export default function Subjects() {
         <div className="space-y-3 sm:space-y-4 lg:space-y-5">
           <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-2.5 sm:p-3 lg:p-4">
             <p className="text-yellow-800 text-xs sm:text-sm leading-relaxed">
-              <strong>📌 Navigation:</strong> Expand by <strong>Group → Subject/Paper → Section → Subsection</strong> to explore the full syllabus hierarchy.
+              <strong>📌 Rule:</strong> <span className="hidden sm:inline">You must choose 6 optional papers from different groups. Max 2 from any single group. Each is 200 marks.</span>
+              <span className="sm:hidden">Pick 6 papers from different groups (max 2 per group).</span>
             </p>
           </div>
 
           {optionalGroups.map((group) => (
             <div key={group.group} className="bg-white border border-gray-100 rounded-xl p-3 sm:p-4 lg:p-5 shadow-sm">
-              <button
-                onClick={() => toggle(setExpandedGroups, String(group.group))}
-                className="w-full flex items-center justify-between text-left"
-              >
-                <div className="flex items-center gap-2 min-w-0">
-                  <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-green-600 text-white text-xs flex items-center justify-center font-bold flex-shrink-0">
-                    G{group.group}
-                  </span>
-                  <div className="min-w-0">
-                    <h3 className="text-gray-700 font-semibold text-sm sm:text-base">{group.name || `Group ${group.group}`}</h3>
-                    <p className="text-gray-500 text-xs sm:text-sm">{group.selectionCriteria || "Optional subjects"}</p>
-                  </div>
-                </div>
-                <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform ${expandedGroups[group.group] ? "rotate-180" : ""}`} />
-              </button>
-
-              {expandedGroups[group.group] && (
-                <div className="mt-3 space-y-2">
-                  {group.subjects.map((subject) => {
-                    const subjectKey = `${group.group}:${subject.id}`;
-                    const papers = getPapers(subject);
-                    return (
-                      <div key={subject.id} className="border border-gray-100 rounded-xl bg-gray-50">
-                        <button
-                          onClick={() => toggle(setExpandedSubjects, subjectKey)}
-                          className="w-full p-3 flex items-center justify-between text-left"
-                        >
-                          <div className="flex items-center gap-2 min-w-0">
-                            <div className={`w-8 h-8 rounded-lg ${subject.color} flex items-center justify-center text-base shadow flex-shrink-0`}>
-                              {subject.icon}
-                            </div>
-                            <div className="min-w-0">
-                              <p className="text-sm font-medium text-gray-800 truncate">{subject.name}</p>
-                              <p className="text-xs text-gray-500">{subject.marks} marks</p>
-                            </div>
-                          </div>
-                          <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform ${expandedSubjects[subjectKey] ? "rotate-180" : ""}`} />
-                        </button>
-
-                        {expandedSubjects[subjectKey] && (
-                          <div className="px-3 pb-3 space-y-2">
-                            {papers.map((paper) => {
-                              const paperKey = `${subjectKey}:${paper.name}`;
-                              return (
-                                <div key={paper.name} className="bg-white border border-gray-100 rounded-lg">
-                                  <button
-                                    onClick={() => toggle(setExpandedPapers, paperKey)}
-                                    className="w-full p-2.5 flex items-center justify-between text-left"
-                                  >
-                                    <p className="text-xs sm:text-sm font-medium text-gray-700">{paper.name}</p>
-                                    <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform ${expandedPapers[paperKey] ? "rotate-180" : ""}`} />
-                                  </button>
-
-                                  {expandedPapers[paperKey] && (
-                                    <div className="px-2.5 pb-2.5 space-y-1.5">
-                                      {paper.sections.map((section: any, idx: number) => {
-                                        const sectionKey = `${paperKey}:${idx}`;
-                                        return (
-                                          <div key={sectionKey} className="border border-gray-100 rounded-md">
-                                            <button
-                                              onClick={() => toggle(setExpandedSections, sectionKey)}
-                                              className="w-full p-2 flex items-center justify-between text-left"
-                                            >
-                                              <div className="min-w-0">
-                                                <p className="text-xs sm:text-sm text-gray-700 truncate">{section.section}</p>
-                                                <p className="text-[11px] text-gray-500">{section.marks} marks</p>
-                                              </div>
-                                              <ChevronDown className={`w-3.5 h-3.5 text-gray-500 transition-transform ${expandedSections[sectionKey] ? "rotate-180" : ""}`} />
-                                            </button>
-
-                                            {expandedSections[sectionKey] && (
-                                              <ul className="px-4 pb-2.5 list-disc space-y-1 text-xs text-gray-600">
-                                                {section.subsections.map((sub: string) => (
-                                                  <li key={sub}>{sub}</li>
-                                                ))}
-                                              </ul>
-                                            )}
-                                          </div>
-                                        );
-                                      })}
-                                    </div>
-                                  )}
-                                </div>
-                              );
-                            })}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
+              <h3 className="text-gray-700 font-semibold text-sm sm:text-base mb-3 sm:mb-4 flex items-center gap-2">
+                <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-green-600 text-white text-xs flex items-center justify-center font-bold flex-shrink-0">G{group.group}</span>
+                <span>Group {group.group}</span>
+                <span className="text-gray-400 text-xs font-normal hidden sm:inline">— Max 2 from group</span>
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
+                {group.subjects.map((subject) => (
+                  <Link
+                    key={subject.id}
+                    to={`/subjects/${subject.id}`}
+                    className="flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 bg-gray-50 rounded-xl border border-gray-100 hover:border-green-300 hover:bg-green-50 transition-all active:opacity-70 group cursor-pointer"
+                  >
+                    <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl ${subject.color} flex items-center justify-center text-lg sm:text-xl shadow flex-shrink-0`}>
+                      {subject.icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-gray-700 text-xs sm:text-sm font-medium group-hover:text-green-700 truncate">{subject.name}</p>
+                      <p className="text-gray-400 text-xs">{subject.marks}M</p>
+                      {subject.progress > 0 ? (
+                        <div className="mt-1 w-full h-1 bg-gray-200 rounded-full overflow-hidden">
+                          <div className="h-full bg-green-500 rounded-full" style={{ width: `${subject.progress}%` }} />
+                        </div>
+                      ) : (
+                        <p className="text-gray-300 text-xs flex items-center gap-1 mt-1">
+                          <Lock className="w-2.5 h-2.5" /> Not started
+                        </p>
+                      )}
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
           ))}
         </div>

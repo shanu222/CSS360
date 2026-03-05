@@ -473,124 +473,20 @@ export const compulsorySubjects = [
 
 export const optionalGroups = [
   {
-    "group": 1,
-    "name": "Group I",
-    "selectionCriteria": "Select one subject - 200 marks",
-    "subjects": [
+    group: 1,
+    subjects: [
       {
-        "id": "accountancy-auditing",
-        "name": "Accountancy & Auditing",
-        "marks": 200,
-        "icon": "📊",
-        "color": "bg-indigo-500",
-        "progress": 0,
-        "syllabus": [
+        id: "economics",
+        name: "Economics",
+        marks: 200,
+        icon: "📊",
+        color: "bg-purple-500",
+        progress: 40,
+        syllabus: [
           {
-            "section": "PAPER I – ACCOUNTING (100 Marks) – 1. Financial Accounting",
-            "marks": 20,
-            "subsections": [
-              "Accounting principles and concepts",
-              "Accounting cycle and preparation of financial statements",
-              "Preparation and analysis of balance sheets and income statements",
-              "Depreciation methods and accounting for fixed assets"
-            ]
-          },
-          {
-            "section": "PAPER I – ACCOUNTING (100 Marks) – 2. Partnership Accounting",
-            "marks": 20,
-            "subsections": [
-              "Formation of partnership",
-              "Admission, retirement, and dissolution of partners",
-              "Profit and loss sharing arrangements",
-              "Capital and current accounts"
-            ]
-          },
-          {
-            "section": "PAPER I – ACCOUNTING (100 Marks) – 3. Company Accounting",
-            "marks": 20,
-            "subsections": [
-              "Formation of companies",
-              "Share capital and debentures",
-              "Issue, forfeiture, and reissue of shares",
-              "Final accounts of companies"
-            ]
-          },
-          {
-            "section": "PAPER I – ACCOUNTING (100 Marks) – 4. Cost Accounting",
-            "marks": 20,
-            "subsections": [
-              "Concepts and objectives of cost accounting",
-              "Classification of costs",
-              "Costing methods",
-              "Job costing and process costing"
-            ]
-          },
-          {
-            "section": "PAPER I – ACCOUNTING (100 Marks) – 5. Managerial Accounting",
-            "marks": 20,
-            "subsections": [
-              "Role of accounting in managerial decision-making",
-              "Budgeting and budgetary control",
-              "Financial analysis and performance evaluation"
-            ]
-          },
-          {
-            "section": "PAPER II – AUDITING (100 Marks) – 1. Introduction to Auditing",
-            "marks": 20,
-            "subsections": [
-              "Meaning and objectives of auditing",
-              "Types of audit",
-              "Internal and external auditing"
-            ]
-          },
-          {
-            "section": "PAPER II – AUDITING (100 Marks) – 2. Audit Procedures",
-            "marks": 25,
-            "subsections": [
-              "Audit planning and documentation",
-              "Audit evidence and techniques",
-              "Internal control systems"
-            ]
-          },
-          {
-            "section": "PAPER II – AUDITING (100 Marks) – 3. Audit of Companies",
-            "marks": 20,
-            "subsections": [
-              "Audit of share capital",
-              "Audit of liabilities and assets",
-              "Verification and valuation"
-            ]
-          },
-          {
-            "section": "PAPER II – AUDITING (100 Marks) – 4. Professional Ethics",
-            "marks": 20,
-            "subsections": [
-              "Responsibilities of auditors",
-              "Professional conduct and ethical standards"
-            ]
-          },
-          {
-            "section": "PAPER II – AUDITING (100 Marks) – 5. Corporate Laws Related to Auditing",
-            "marks": 15,
-            "subsections": [
-              "Companies Ordinance",
-              "Legal framework governing auditing practices"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "economics",
-        "name": "Economics",
-        "marks": 200,
-        "icon": "📊",
-        "color": "bg-purple-500",
-        "progress": 0,
-        "syllabus": [
-          {
-            "section": "PAPER I – MICROECONOMICS (100 Marks) – 1. Introduction to Economics",
-            "marks": 16,
-            "subsections": [
+            section: "PAPER I – MICROECONOMICS (100 Marks) – 1. Introduction to Economics",
+            marks: 16,
+            subsections: [
               "Definition and scope of economics",
               "Economic systems: capitalism, socialism, mixed economy",
               "Basic economic problems: what to produce, how to produce, for whom to produce",
@@ -598,9 +494,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER I – MICROECONOMICS (100 Marks) – 2. Demand and Supply",
-            "marks": 17,
-            "subsections": [
+            section: "PAPER I – MICROECONOMICS (100 Marks) – 2. Demand and Supply",
+            marks: 17,
+            subsections: [
               "Law of demand and exceptions",
               "Determinants of demand",
               "Elasticity of demand: price, income, cross elasticity",
@@ -609,9 +505,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER I – MICROECONOMICS (100 Marks) – 3. Consumer Behavior",
-            "marks": 15,
-            "subsections": [
+            section: "PAPER I – MICROECONOMICS (100 Marks) – 3. Consumer Behavior",
+            marks: 15,
+            subsections: [
               "Utility analysis: total and marginal utility",
               "Marginal utility theory and law of diminishing marginal utility",
               "Indifference curve analysis",
@@ -619,9 +515,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER I – MICROECONOMICS (100 Marks) – 4. Production and Cost",
-            "marks": 17,
-            "subsections": [
+            section: "PAPER I – MICROECONOMICS (100 Marks) – 4. Production and Cost",
+            marks: 17,
+            subsections: [
               "Factors of production: land, labor, capital, entrepreneurship",
               "Production function and isoquants",
               "Laws of production: law of variable proportions",
@@ -630,9 +526,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER I – MICROECONOMICS (100 Marks) – 5. Market Structures",
-            "marks": 19,
-            "subsections": [
+            section: "PAPER I – MICROECONOMICS (100 Marks) – 5. Market Structures",
+            marks: 19,
+            subsections: [
               "Perfect competition: characteristics and equilibrium",
               "Monopoly: characteristics, price determination, welfare effects",
               "Monopolistic competition",
@@ -640,9 +536,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER I – MICROECONOMICS (100 Marks) – 6. Factor Pricing",
-            "marks": 16,
-            "subsections": [
+            section: "PAPER I – MICROECONOMICS (100 Marks) – 6. Factor Pricing",
+            marks: 16,
+            subsections: [
               "Wages: determination and theories",
               "Rent: Ricardian rent, economic rent",
               "Interest: theories of interest rate",
@@ -650,9 +546,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER II – MACROECONOMICS (100 Marks) – 1. National Income",
-            "marks": 14,
-            "subsections": [
+            section: "PAPER II – MACROECONOMICS (100 Marks) – 1. National Income",
+            marks: 14,
+            subsections: [
               "Concepts of national income: GDP, GNP, NNP, National Income",
               "Methods of measuring national income: income, expenditure, output methods",
               "National income accounting and circular flow",
@@ -660,9 +556,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER II – MACROECONOMICS (100 Marks) – 2. Money and Banking",
-            "marks": 16,
-            "subsections": [
+            section: "PAPER II – MACROECONOMICS (100 Marks) – 2. Money and Banking",
+            marks: 16,
+            subsections: [
               "Functions of money: medium of exchange, store of value, unit of account",
               "Commercial banking system and credit creation",
               "Central banking functions and operations",
@@ -670,9 +566,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER II – MACROECONOMICS (100 Marks) – 3. Inflation and Unemployment",
-            "marks": 15,
-            "subsections": [
+            section: "PAPER II – MACROECONOMICS (100 Marks) – 3. Inflation and Unemployment",
+            marks: 15,
+            subsections: [
               "Causes and effects of inflation",
               "Types of unemployment: frictional, structural, cyclical",
               "Phillips curve and inflation-unemployment trade-off",
@@ -681,9 +577,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER II – MACROECONOMICS (100 Marks) – 4. Fiscal Policy",
-            "marks": 15,
-            "subsections": [
+            section: "PAPER II – MACROECONOMICS (100 Marks) – 4. Fiscal Policy",
+            marks: 15,
+            subsections: [
               "Government revenue and expenditure",
               "Taxation systems: progressive, proportional, regressive taxes",
               "Budget and public finance",
@@ -691,9 +587,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER II – MACROECONOMICS (100 Marks) – 5. International Trade",
-            "marks": 15,
-            "subsections": [
+            section: "PAPER II – MACROECONOMICS (100 Marks) – 5. International Trade",
+            marks: 15,
+            subsections: [
               "Theory of international trade: comparative advantage, specialization",
               "Balance of payments: current account, capital account",
               "Exchange rates: fixed, floating, managed float",
@@ -701,18 +597,18 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER II – MACROECONOMICS (100 Marks) – 6. Economic Development",
-            "marks": 12,
-            "subsections": [
+            section: "PAPER II – MACROECONOMICS (100 Marks) – 6. Economic Development",
+            marks: 12,
+            subsections: [
               "Concepts of economic growth and development",
               "Development strategies: capital accumulation, human capital, technology",
               "Role of institutions, governance, and rule of law in development"
             ]
           },
           {
-            "section": "PAPER II – MACROECONOMICS (100 Marks) – 7. Economy of Pakistan",
-            "marks": 13,
-            "subsections": [
+            section: "PAPER II – MACROECONOMICS (100 Marks) – 7. Economy of Pakistan",
+            marks: 13,
+            subsections: [
               "Structure of Pakistan's economy: sectoral composition",
               "Agricultural sector: production, issues, reforms",
               "Industrial sector: SMEs, manufacturing, challenges",
@@ -723,17 +619,133 @@ export const optionalGroups = [
         ]
       },
       {
-        "id": "computer-science",
-        "name": "Computer Science",
-        "marks": 200,
-        "icon": "💻",
-        "color": "bg-cyan-500",
-        "progress": 0,
-        "syllabus": [
+        id: "political-science",
+        name: "Political Science",
+        marks: 200,
+        icon: "🏛️",
+        color: "bg-blue-600",
+        progress: 25,
+        syllabus: [
           {
-            "section": "PAPER I – FUNDAMENTAL CONCEPTS (100 Marks) – 1. Programming Fundamentals",
-            "marks": 20,
-            "subsections": [
+            section: "PAPER I – POLITICAL THEORY AND POLITICAL SYSTEMS (100 Marks) – 1. Introduction to Political Science",
+            marks: 14,
+            subsections: [
+              "Definition and scope of political science",
+              "Relationship of political science with other social sciences",
+              "Nature and importance of political theory"
+            ]
+          },
+          {
+            section: "PAPER I – POLITICAL THEORY AND POLITICAL SYSTEMS (100 Marks) – 2. State",
+            marks: 16,
+            subsections: [
+              "Definition and elements of the state",
+              "Theories of the origin of the state",
+              "Functions of the state",
+              "Sovereignty and its evolution"
+            ]
+          },
+          {
+            section: "PAPER I – POLITICAL THEORY AND POLITICAL SYSTEMS (100 Marks) – 3. Political Ideologies",
+            marks: 18,
+            subsections: [
+              "Liberalism",
+              "Socialism",
+              "Marxism",
+              "Fascism",
+              "Nationalism"
+            ]
+          },
+          {
+            section: "PAPER I – POLITICAL THEORY AND POLITICAL SYSTEMS (100 Marks) – 4. Forms of Government",
+            marks: 16,
+            subsections: [
+              "Democracy and dictatorship",
+              "Parliamentary system",
+              "Presidential system",
+              "Federal and unitary systems"
+            ]
+          },
+          {
+            section: "PAPER I – POLITICAL THEORY AND POLITICAL SYSTEMS (100 Marks) – 5. Political Institutions",
+            marks: 20,
+            subsections: [
+              "Legislature: structure and functions",
+              "Executive: powers and responsibilities",
+              "Judiciary: independence and role in governance"
+            ]
+          },
+          {
+            section: "PAPER I – POLITICAL THEORY AND POLITICAL SYSTEMS (100 Marks) – 6. Political Parties and Pressure Groups",
+            marks: 16,
+            subsections: [
+              "Role of political parties in democracy",
+              "Party systems",
+              "Pressure groups and interest groups"
+            ]
+          },
+          {
+            section: "PAPER II – COMPARATIVE POLITICS AND INTERNATIONAL POLITICS (100 Marks) – 1. Comparative Political Systems",
+            marks: 25,
+            subsections: [
+              "Political systems of major countries",
+              "United Kingdom",
+              "United States of America",
+              "France",
+              "China"
+            ]
+          },
+          {
+            section: "PAPER II – COMPARATIVE POLITICS AND INTERNATIONAL POLITICS (100 Marks) – 2. Political Development",
+            marks: 15,
+            subsections: [
+              "Concept of political development",
+              "Political modernization",
+              "Political culture and socialization"
+            ]
+          },
+          {
+            section: "PAPER II – COMPARATIVE POLITICS AND INTERNATIONAL POLITICS (100 Marks) – 3. International Politics",
+            marks: 20,
+            subsections: [
+              "Nature and scope of international politics",
+              "National interest and power",
+              "Diplomacy and foreign policy"
+            ]
+          },
+          {
+            section: "PAPER II – COMPARATIVE POLITICS AND INTERNATIONAL POLITICS (100 Marks) – 4. International Organizations",
+            marks: 20,
+            subsections: [
+              "United Nations and its structure",
+              "Regional organizations",
+              "Role of international institutions in global governance"
+            ]
+          },
+          {
+            section: "PAPER II – COMPARATIVE POLITICS AND INTERNATIONAL POLITICS (100 Marks) – 5. Contemporary Global Issues",
+            marks: 20,
+            subsections: [
+              "Globalization",
+              "Security challenges",
+              "International conflicts",
+              "Economic cooperation"
+            ]
+          }
+        ]
+      },
+      {
+        id: "computer-science",
+        name: "Computer Science",
+        marks: 200,
+        icon: "💻",
+        color: "bg-cyan-500",
+        progress: 60,
+        syllabus: [
+          {
+            section: "PAPER I – FUNDAMENTAL CONCEPTS (100 Marks) – 1. Programming Fundamentals",
+            marks: 20,
+            subsections: [
               "Basic concepts of programming",
               "Programming languages and paradigms",
               "Data types and variables",
@@ -743,9 +755,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER I – FUNDAMENTAL CONCEPTS (100 Marks) – 2. Data Structures",
-            "marks": 22,
-            "subsections": [
+            section: "PAPER I – FUNDAMENTAL CONCEPTS (100 Marks) – 2. Data Structures",
+            marks: 22,
+            subsections: [
               "Arrays",
               "Linked lists",
               "Stacks",
@@ -756,9 +768,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER I – FUNDAMENTAL CONCEPTS (100 Marks) – 3. Object-Oriented Programming",
-            "marks": 18,
-            "subsections": [
+            section: "PAPER I – FUNDAMENTAL CONCEPTS (100 Marks) – 3. Object-Oriented Programming",
+            marks: 18,
+            subsections: [
               "Concepts of object-oriented programming",
               "Classes and objects",
               "Encapsulation",
@@ -767,9 +779,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER I – FUNDAMENTAL CONCEPTS (100 Marks) – 4. Computer Organization and Architecture",
-            "marks": 20,
-            "subsections": [
+            section: "PAPER I – FUNDAMENTAL CONCEPTS (100 Marks) – 4. Computer Organization and Architecture",
+            marks: 20,
+            subsections: [
               "Basic components of a computer system",
               "CPU architecture",
               "Memory hierarchy",
@@ -778,9 +790,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER I – FUNDAMENTAL CONCEPTS (100 Marks) – 5. Software Engineering",
-            "marks": 20,
-            "subsections": [
+            section: "PAPER I – FUNDAMENTAL CONCEPTS (100 Marks) – 5. Software Engineering",
+            marks: 20,
+            subsections: [
               "Software development life cycle (SDLC)",
               "Software design principles",
               "Software testing and maintenance",
@@ -788,9 +800,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER II – ADVANCED TOPICS (100 Marks) – 1. Operating Systems",
-            "marks": 20,
-            "subsections": [
+            section: "PAPER II – ADVANCED TOPICS (100 Marks) – 1. Operating Systems",
+            marks: 20,
+            subsections: [
               "Role and functions of operating systems",
               "Process management",
               "Memory management",
@@ -799,9 +811,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER II – ADVANCED TOPICS (100 Marks) – 2. Database Systems",
-            "marks": 20,
-            "subsections": [
+            section: "PAPER II – ADVANCED TOPICS (100 Marks) – 2. Database Systems",
+            marks: 20,
+            subsections: [
               "Database concepts",
               "Relational data model",
               "SQL",
@@ -810,9 +822,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER II – ADVANCED TOPICS (100 Marks) – 3. Computer Networks",
-            "marks": 20,
-            "subsections": [
+            section: "PAPER II – ADVANCED TOPICS (100 Marks) – 3. Computer Networks",
+            marks: 20,
+            subsections: [
               "Network models: OSI and TCP/IP",
               "Network protocols",
               "LAN, WAN, and wireless networks",
@@ -820,9 +832,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER II – ADVANCED TOPICS (100 Marks) – 4. Digital Image Processing",
-            "marks": 20,
-            "subsections": [
+            section: "PAPER II – ADVANCED TOPICS (100 Marks) – 4. Digital Image Processing",
+            marks: 20,
+            subsections: [
               "Image acquisition and representation",
               "Image enhancement and restoration",
               "Image segmentation",
@@ -830,9 +842,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER II – ADVANCED TOPICS (100 Marks) – 5. Web Engineering and Technologies",
-            "marks": 20,
-            "subsections": [
+            section: "PAPER II – ADVANCED TOPICS (100 Marks) – 5. Web Engineering and Technologies",
+            marks: 20,
+            subsections: [
               "Web application development",
               "HTML, CSS, and JavaScript",
               "Client-side and server-side programming",
@@ -843,142 +855,26 @@ export const optionalGroups = [
         ]
       },
       {
-        "id": "political-science",
-        "name": "Political Science",
-        "marks": 200,
-        "icon": "🏛️",
-        "color": "bg-blue-600",
-        "progress": 0,
-        "syllabus": [
+        id: "international-relations",
+        name: "International Relations",
+        marks: 200,
+        icon: "🌐",
+        color: "bg-sky-500",
+        progress: 55,
+        syllabus: [
           {
-            "section": "PAPER I – POLITICAL THEORY AND POLITICAL SYSTEMS (100 Marks) – 1. Introduction to Political Science",
-            "marks": 14,
-            "subsections": [
-              "Definition and scope of political science",
-              "Relationship of political science with other social sciences",
-              "Nature and importance of political theory"
-            ]
-          },
-          {
-            "section": "PAPER I – POLITICAL THEORY AND POLITICAL SYSTEMS (100 Marks) – 2. State",
-            "marks": 16,
-            "subsections": [
-              "Definition and elements of the state",
-              "Theories of the origin of the state",
-              "Functions of the state",
-              "Sovereignty and its evolution"
-            ]
-          },
-          {
-            "section": "PAPER I – POLITICAL THEORY AND POLITICAL SYSTEMS (100 Marks) – 3. Political Ideologies",
-            "marks": 18,
-            "subsections": [
-              "Liberalism",
-              "Socialism",
-              "Marxism",
-              "Fascism",
-              "Nationalism"
-            ]
-          },
-          {
-            "section": "PAPER I – POLITICAL THEORY AND POLITICAL SYSTEMS (100 Marks) – 4. Forms of Government",
-            "marks": 16,
-            "subsections": [
-              "Democracy and dictatorship",
-              "Parliamentary system",
-              "Presidential system",
-              "Federal and unitary systems"
-            ]
-          },
-          {
-            "section": "PAPER I – POLITICAL THEORY AND POLITICAL SYSTEMS (100 Marks) – 5. Political Institutions",
-            "marks": 20,
-            "subsections": [
-              "Legislature: structure and functions",
-              "Executive: powers and responsibilities",
-              "Judiciary: independence and role in governance"
-            ]
-          },
-          {
-            "section": "PAPER I – POLITICAL THEORY AND POLITICAL SYSTEMS (100 Marks) – 6. Political Parties and Pressure Groups",
-            "marks": 16,
-            "subsections": [
-              "Role of political parties in democracy",
-              "Party systems",
-              "Pressure groups and interest groups"
-            ]
-          },
-          {
-            "section": "PAPER II – COMPARATIVE POLITICS AND INTERNATIONAL POLITICS (100 Marks) – 1. Comparative Political Systems",
-            "marks": 25,
-            "subsections": [
-              "Political systems of major countries",
-              "United Kingdom",
-              "United States of America",
-              "France",
-              "China"
-            ]
-          },
-          {
-            "section": "PAPER II – COMPARATIVE POLITICS AND INTERNATIONAL POLITICS (100 Marks) – 2. Political Development",
-            "marks": 15,
-            "subsections": [
-              "Concept of political development",
-              "Political modernization",
-              "Political culture and socialization"
-            ]
-          },
-          {
-            "section": "PAPER II – COMPARATIVE POLITICS AND INTERNATIONAL POLITICS (100 Marks) – 3. International Politics",
-            "marks": 20,
-            "subsections": [
-              "Nature and scope of international politics",
-              "National interest and power",
-              "Diplomacy and foreign policy"
-            ]
-          },
-          {
-            "section": "PAPER II – COMPARATIVE POLITICS AND INTERNATIONAL POLITICS (100 Marks) – 4. International Organizations",
-            "marks": 20,
-            "subsections": [
-              "United Nations and its structure",
-              "Regional organizations",
-              "Role of international institutions in global governance"
-            ]
-          },
-          {
-            "section": "PAPER II – COMPARATIVE POLITICS AND INTERNATIONAL POLITICS (100 Marks) – 5. Contemporary Global Issues",
-            "marks": 20,
-            "subsections": [
-              "Globalization",
-              "Security challenges",
-              "International conflicts",
-              "Economic cooperation"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "international-relations",
-        "name": "International Relations",
-        "marks": 200,
-        "icon": "🌐",
-        "color": "bg-sky-500",
-        "progress": 0,
-        "syllabus": [
-          {
-            "section": "PAPER I – THEORIES AND CONCEPTS OF INTERNATIONAL RELATIONS (100 Marks) – 1. Introduction to International Relations",
-            "marks": 16,
-            "subsections": [
+            section: "PAPER I – THEORIES AND CONCEPTS OF INTERNATIONAL RELATIONS (100 Marks) – 1. Introduction to International Relations",
+            marks: 16,
+            subsections: [
               "Definition, nature, and scope of international relations",
               "Evolution of international relations as an academic discipline",
               "Key concepts in international relations"
             ]
           },
           {
-            "section": "PAPER I – THEORIES AND CONCEPTS OF INTERNATIONAL RELATIONS (100 Marks) – 2. Theories of International Relations",
-            "marks": 22,
-            "subsections": [
+            section: "PAPER I – THEORIES AND CONCEPTS OF INTERNATIONAL RELATIONS (100 Marks) – 2. Theories of International Relations",
+            marks: 22,
+            subsections: [
               "Realism",
               "Neo-realism",
               "Liberalism",
@@ -988,9 +884,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER I – THEORIES AND CONCEPTS OF INTERNATIONAL RELATIONS (100 Marks) – 3. National Power",
-            "marks": 16,
-            "subsections": [
+            section: "PAPER I – THEORIES AND CONCEPTS OF INTERNATIONAL RELATIONS (100 Marks) – 3. National Power",
+            marks: 16,
+            subsections: [
               "Elements of national power",
               "Balance of power",
               "Collective security",
@@ -998,61 +894,61 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER I – THEORIES AND CONCEPTS OF INTERNATIONAL RELATIONS (100 Marks) – 4. Foreign Policy",
-            "marks": 16,
-            "subsections": [
+            section: "PAPER I – THEORIES AND CONCEPTS OF INTERNATIONAL RELATIONS (100 Marks) – 4. Foreign Policy",
+            marks: 16,
+            subsections: [
               "Determinants of foreign policy",
               "Decision-making process in foreign policy",
               "Diplomacy and diplomatic practices"
             ]
           },
           {
-            "section": "PAPER I – THEORIES AND CONCEPTS OF INTERNATIONAL RELATIONS (100 Marks) – 5. International Law",
-            "marks": 14,
-            "subsections": [
+            section: "PAPER I – THEORIES AND CONCEPTS OF INTERNATIONAL RELATIONS (100 Marks) – 5. International Law",
+            marks: 14,
+            subsections: [
               "Nature and sources of international law",
               "Relationship between international law and state sovereignty"
             ]
           },
           {
-            "section": "PAPER I – THEORIES AND CONCEPTS OF INTERNATIONAL RELATIONS (100 Marks) – 6. International Organizations",
-            "marks": 16,
-            "subsections": [
+            section: "PAPER I – THEORIES AND CONCEPTS OF INTERNATIONAL RELATIONS (100 Marks) – 6. International Organizations",
+            marks: 16,
+            subsections: [
               "United Nations and its structure",
               "Role of international organizations in maintaining peace and security"
             ]
           },
           {
-            "section": "PAPER II – INTERNATIONAL POLITICS AND GLOBAL ISSUES (100 Marks) – 1. Major Developments in International Politics",
-            "marks": 18,
-            "subsections": [
+            section: "PAPER II – INTERNATIONAL POLITICS AND GLOBAL ISSUES (100 Marks) – 1. Major Developments in International Politics",
+            marks: 18,
+            subsections: [
               "World Wars and their impact on international politics",
               "Cold War and post-Cold War world order",
               "Emergence of new global powers"
             ]
           },
           {
-            "section": "PAPER II – INTERNATIONAL POLITICS AND GLOBAL ISSUES (100 Marks) – 2. International Security",
-            "marks": 17,
-            "subsections": [
+            section: "PAPER II – INTERNATIONAL POLITICS AND GLOBAL ISSUES (100 Marks) – 2. International Security",
+            marks: 17,
+            subsections: [
               "Arms race and arms control",
               "Nuclear proliferation",
               "Terrorism and counterterrorism"
             ]
           },
           {
-            "section": "PAPER II – INTERNATIONAL POLITICS AND GLOBAL ISSUES (100 Marks) – 3. International Political Economy",
-            "marks": 17,
-            "subsections": [
+            section: "PAPER II – INTERNATIONAL POLITICS AND GLOBAL ISSUES (100 Marks) – 3. International Political Economy",
+            marks: 17,
+            subsections: [
               "Global economic institutions",
               "International trade and economic cooperation",
               "Globalization and economic interdependence"
             ]
           },
           {
-            "section": "PAPER II – INTERNATIONAL POLITICS AND GLOBAL ISSUES (100 Marks) – 4. Regional Organizations",
-            "marks": 16,
-            "subsections": [
+            section: "PAPER II – INTERNATIONAL POLITICS AND GLOBAL ISSUES (100 Marks) – 4. Regional Organizations",
+            marks: 16,
+            subsections: [
               "European Union (EU)",
               "ASEAN",
               "SAARC",
@@ -1060,44 +956,144 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER II – INTERNATIONAL POLITICS AND GLOBAL ISSUES (100 Marks) – 5. Pakistan's Foreign Policy",
-            "marks": 16,
-            "subsections": [
+            section: "PAPER II – INTERNATIONAL POLITICS AND GLOBAL ISSUES (100 Marks) – 5. Pakistan's Foreign Policy",
+            marks: 16,
+            subsections: [
               "Principles and objectives of Pakistan's foreign policy",
               "Pakistan's relations with neighboring countries",
               "Pakistan's relations with major global powers"
             ]
           },
           {
-            "section": "PAPER II – INTERNATIONAL POLITICS AND GLOBAL ISSUES (100 Marks) – 6. Contemporary Global Issues",
-            "marks": 16,
-            "subsections": [
+            section: "PAPER II – INTERNATIONAL POLITICS AND GLOBAL ISSUES (100 Marks) – 6. Contemporary Global Issues",
+            marks: 16,
+            subsections: [
               "Climate change",
               "Migration and refugees",
               "Human rights and humanitarian intervention"
             ]
           }
         ]
-      }
-    ]
+      },
+      {
+        id: "accountancy-auditing",
+        name: "Accountancy & Auditing",
+        marks: 200,
+        icon: "📊",
+        color: "bg-indigo-500",
+        progress: 0,
+        syllabus: [
+          {
+            section: "PAPER I – ACCOUNTING (100 Marks) – 1. Financial Accounting",
+            marks: 20,
+            subsections: [
+              "Accounting principles and concepts",
+              "Accounting cycle and preparation of financial statements",
+              "Preparation and analysis of balance sheets and income statements",
+              "Depreciation methods and accounting for fixed assets"
+            ]
+          },
+          {
+            section: "PAPER I – ACCOUNTING (100 Marks) – 2. Partnership Accounting",
+            marks: 20,
+            subsections: [
+              "Formation of partnership",
+              "Admission, retirement, and dissolution of partners",
+              "Profit and loss sharing arrangements",
+              "Capital and current accounts"
+            ]
+          },
+          {
+            section: "PAPER I – ACCOUNTING (100 Marks) – 3. Company Accounting",
+            marks: 20,
+            subsections: [
+              "Formation of companies",
+              "Share capital and debentures",
+              "Issue, forfeiture, and reissue of shares",
+              "Final accounts of companies"
+            ]
+          },
+          {
+            section: "PAPER I – ACCOUNTING (100 Marks) – 4. Cost Accounting",
+            marks: 20,
+            subsections: [
+              "Concepts and objectives of cost accounting",
+              "Classification of costs",
+              "Costing methods",
+              "Job costing and process costing"
+            ]
+          },
+          {
+            section: "PAPER I – ACCOUNTING (100 Marks) – 5. Managerial Accounting",
+            marks: 20,
+            subsections: [
+              "Role of accounting in managerial decision-making",
+              "Budgeting and budgetary control",
+              "Financial analysis and performance evaluation"
+            ]
+          },
+          {
+            section: "PAPER II – AUDITING (100 Marks) – 1. Introduction to Auditing",
+            marks: 20,
+            subsections: [
+              "Meaning and objectives of auditing",
+              "Types of audit",
+              "Internal and external auditing"
+            ]
+          },
+          {
+            section: "PAPER II – AUDITING (100 Marks) – 2. Audit Procedures",
+            marks: 25,
+            subsections: [
+              "Audit planning and documentation",
+              "Audit evidence and techniques",
+              "Internal control systems"
+            ]
+          },
+          {
+            section: "PAPER II – AUDITING (100 Marks) – 3. Audit of Companies",
+            marks: 20,
+            subsections: [
+              "Audit of share capital",
+              "Audit of liabilities and assets",
+              "Verification and valuation"
+            ]
+          },
+          {
+            section: "PAPER II – AUDITING (100 Marks) – 4. Professional Ethics",
+            marks: 20,
+            subsections: [
+              "Responsibilities of auditors",
+              "Professional conduct and ethical standards"
+            ]
+          },
+          {
+            section: "PAPER II – AUDITING (100 Marks) – 5. Corporate Laws Related to Auditing",
+            marks: 15,
+            subsections: [
+              "Companies Ordinance",
+              "Legal framework governing auditing practices"
+            ]
+          }
+        ]
+      },
+    ],
   },
   {
-    "group": 2,
-    "name": "Group II",
-    "selectionCriteria": "Select subjects up to a total of 200 marks",
-    "subjects": [
+    group: 2,
+    subjects: [
       {
-        "id": "physics",
-        "name": "Physics",
-        "marks": 200,
-        "icon": "⚛️",
-        "color": "bg-red-500",
-        "progress": 0,
-        "syllabus": [
+        id: "physics",
+        name: "Physics",
+        marks: 200,
+        icon: "⚛️",
+        color: "bg-red-500",
+        progress: 15,
+        syllabus: [
           {
-            "section": "PAPER I – CLASSICAL PHYSICS (100 Marks) – 1. Mechanics",
-            "marks": 30,
-            "subsections": [
+            section: "PAPER I – CLASSICAL PHYSICS (100 Marks) – 1. Mechanics",
+            marks: 30,
+            subsections: [
               "Vectors and vector algebra",
               "Kinematics and motion in one and two dimensions",
               "Newton's laws of motion",
@@ -1107,9 +1103,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER I – CLASSICAL PHYSICS (100 Marks) – 2. Oscillations and Waves",
-            "marks": 20,
-            "subsections": [
+            section: "PAPER I – CLASSICAL PHYSICS (100 Marks) – 2. Oscillations and Waves",
+            marks: 20,
+            subsections: [
               "Simple harmonic motion",
               "Damped and forced oscillations",
               "Wave motion and properties of waves",
@@ -1117,9 +1113,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER I – CLASSICAL PHYSICS (100 Marks) – 3. Thermodynamics",
-            "marks": 25,
-            "subsections": [
+            section: "PAPER I – CLASSICAL PHYSICS (100 Marks) – 3. Thermodynamics",
+            marks: 25,
+            subsections: [
               "Temperature and heat",
               "Laws of thermodynamics",
               "Heat engines and refrigerators",
@@ -1127,9 +1123,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER I – CLASSICAL PHYSICS (100 Marks) – 4. Optics",
-            "marks": 25,
-            "subsections": [
+            section: "PAPER I – CLASSICAL PHYSICS (100 Marks) – 4. Optics",
+            marks: 25,
+            subsections: [
               "Reflection and refraction of light",
               "Interference and diffraction",
               "Polarization of light",
@@ -1137,9 +1133,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER II – ELECTRICITY, MAGNETISM, AND MODERN PHYSICS (100 Marks) – 1. Electricity and Magnetism",
-            "marks": 30,
-            "subsections": [
+            section: "PAPER II – ELECTRICITY, MAGNETISM, AND MODERN PHYSICS (100 Marks) – 1. Electricity and Magnetism",
+            marks: 30,
+            subsections: [
               "Electric fields and potential",
               "Capacitance and dielectrics",
               "Electric current and circuits",
@@ -1148,18 +1144,18 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER II – ELECTRICITY, MAGNETISM, AND MODERN PHYSICS (100 Marks) – 2. Electromagnetic Waves",
-            "marks": 15,
-            "subsections": [
+            section: "PAPER II – ELECTRICITY, MAGNETISM, AND MODERN PHYSICS (100 Marks) – 2. Electromagnetic Waves",
+            marks: 15,
+            subsections: [
               "Properties of electromagnetic waves",
               "Wave propagation",
               "Applications of electromagnetic radiation"
             ]
           },
           {
-            "section": "PAPER II – ELECTRICITY, MAGNETISM, AND MODERN PHYSICS (100 Marks) – 3. Modern Physics",
-            "marks": 25,
-            "subsections": [
+            section: "PAPER II – ELECTRICITY, MAGNETISM, AND MODERN PHYSICS (100 Marks) – 3. Modern Physics",
+            marks: 25,
+            subsections: [
               "Photoelectric effect",
               "Wave-particle duality",
               "Atomic models",
@@ -1167,18 +1163,18 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER II – ELECTRICITY, MAGNETISM, AND MODERN PHYSICS (100 Marks) – 4. Solid State Physics",
-            "marks": 15,
-            "subsections": [
+            section: "PAPER II – ELECTRICITY, MAGNETISM, AND MODERN PHYSICS (100 Marks) – 4. Solid State Physics",
+            marks: 15,
+            subsections: [
               "Crystal structure",
               "Semiconductor physics",
               "Conductors and insulators"
             ]
           },
           {
-            "section": "PAPER II – ELECTRICITY, MAGNETISM, AND MODERN PHYSICS (100 Marks) – 5. Electronics",
-            "marks": 15,
-            "subsections": [
+            section: "PAPER II – ELECTRICITY, MAGNETISM, AND MODERN PHYSICS (100 Marks) – 5. Electronics",
+            marks: 15,
+            subsections: [
               "Diodes and transistors",
               "Amplifiers",
               "Basic electronic circuits"
@@ -1187,26 +1183,26 @@ export const optionalGroups = [
         ]
       },
       {
-        "id": "chemistry",
-        "name": "Chemistry",
-        "marks": 200,
-        "icon": "🧪",
-        "color": "bg-yellow-500",
-        "progress": 0,
-        "syllabus": [
+        id: "chemistry",
+        name: "Chemistry",
+        marks: 200,
+        icon: "🧪",
+        color: "bg-yellow-500",
+        progress: 0,
+        syllabus: [
           {
-            "section": "PAPER I – PHYSICAL AND INORGANIC CHEMISTRY (100 Marks) – 1. Atomic Structure",
-            "marks": 15,
-            "subsections": [
+            section: "PAPER I – PHYSICAL AND INORGANIC CHEMISTRY (100 Marks) – 1. Atomic Structure",
+            marks: 15,
+            subsections: [
               "Structure of atoms",
               "Quantum numbers and electronic configuration",
               "Periodic table and periodic trends"
             ]
           },
           {
-            "section": "PAPER I – PHYSICAL AND INORGANIC CHEMISTRY (100 Marks) – 2. Chemical Bonding",
-            "marks": 15,
-            "subsections": [
+            section: "PAPER I – PHYSICAL AND INORGANIC CHEMISTRY (100 Marks) – 2. Chemical Bonding",
+            marks: 15,
+            subsections: [
               "Ionic bonding",
               "Covalent bonding",
               "Metallic bonding",
@@ -1214,63 +1210,63 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER I – PHYSICAL AND INORGANIC CHEMISTRY (100 Marks) – 3. States of Matter",
-            "marks": 15,
-            "subsections": [
+            section: "PAPER I – PHYSICAL AND INORGANIC CHEMISTRY (100 Marks) – 3. States of Matter",
+            marks: 15,
+            subsections: [
               "Gases and gas laws",
               "Liquids and intermolecular forces",
               "Solids and crystal structures"
             ]
           },
           {
-            "section": "PAPER I – PHYSICAL AND INORGANIC CHEMISTRY (100 Marks) – 4. Thermodynamics",
-            "marks": 20,
-            "subsections": [
+            section: "PAPER I – PHYSICAL AND INORGANIC CHEMISTRY (100 Marks) – 4. Thermodynamics",
+            marks: 20,
+            subsections: [
               "Laws of thermodynamics",
               "Enthalpy, entropy, and free energy",
               "Thermochemical calculations"
             ]
           },
           {
-            "section": "PAPER I – PHYSICAL AND INORGANIC CHEMISTRY (100 Marks) – 5. Chemical Kinetics",
-            "marks": 20,
-            "subsections": [
+            section: "PAPER I – PHYSICAL AND INORGANIC CHEMISTRY (100 Marks) – 5. Chemical Kinetics",
+            marks: 20,
+            subsections: [
               "Rate of chemical reactions",
               "Factors affecting reaction rates",
               "Reaction mechanisms"
             ]
           },
           {
-            "section": "PAPER I – PHYSICAL AND INORGANIC CHEMISTRY (100 Marks) – 6. Electrochemistry",
-            "marks": 15,
-            "subsections": [
+            section: "PAPER I – PHYSICAL AND INORGANIC CHEMISTRY (100 Marks) – 6. Electrochemistry",
+            marks: 15,
+            subsections: [
               "Redox reactions",
               "Electrochemical cells",
               "Electrolysis"
             ]
           },
           {
-            "section": "PAPER II – ORGANIC AND ANALYTICAL CHEMISTRY (100 Marks) – 1. Organic Chemistry Fundamentals",
-            "marks": 16,
-            "subsections": [
+            section: "PAPER II – ORGANIC AND ANALYTICAL CHEMISTRY (100 Marks) – 1. Organic Chemistry Fundamentals",
+            marks: 16,
+            subsections: [
               "Structure and bonding in organic compounds",
               "Functional groups and nomenclature",
               "Isomerism"
             ]
           },
           {
-            "section": "PAPER II – ORGANIC AND ANALYTICAL CHEMISTRY (100 Marks) – 2. Reaction Mechanisms",
-            "marks": 16,
-            "subsections": [
+            section: "PAPER II – ORGANIC AND ANALYTICAL CHEMISTRY (100 Marks) – 2. Reaction Mechanisms",
+            marks: 16,
+            subsections: [
               "Substitution reactions",
               "Addition reactions",
               "Elimination reactions"
             ]
           },
           {
-            "section": "PAPER II – ORGANIC AND ANALYTICAL CHEMISTRY (100 Marks) – 3. Hydrocarbons",
-            "marks": 17,
-            "subsections": [
+            section: "PAPER II – ORGANIC AND ANALYTICAL CHEMISTRY (100 Marks) – 3. Hydrocarbons",
+            marks: 17,
+            subsections: [
               "Alkanes",
               "Alkenes",
               "Alkynes",
@@ -1278,18 +1274,18 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER II – ORGANIC AND ANALYTICAL CHEMISTRY (100 Marks) – 4. Organic Compounds",
-            "marks": 17,
-            "subsections": [
+            section: "PAPER II – ORGANIC AND ANALYTICAL CHEMISTRY (100 Marks) – 4. Organic Compounds",
+            marks: 17,
+            subsections: [
               "Alcohols, phenols, and ethers",
               "Aldehydes and ketones",
               "Carboxylic acids and derivatives"
             ]
           },
           {
-            "section": "PAPER II – ORGANIC AND ANALYTICAL CHEMISTRY (100 Marks) – 5. Biomolecules",
-            "marks": 17,
-            "subsections": [
+            section: "PAPER II – ORGANIC AND ANALYTICAL CHEMISTRY (100 Marks) – 5. Biomolecules",
+            marks: 17,
+            subsections: [
               "Carbohydrates",
               "Proteins",
               "Lipids",
@@ -1297,9 +1293,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "PAPER II – ORGANIC AND ANALYTICAL CHEMISTRY (100 Marks) – 6. Analytical Chemistry",
-            "marks": 17,
-            "subsections": [
+            section: "PAPER II – ORGANIC AND ANALYTICAL CHEMISTRY (100 Marks) – 6. Analytical Chemistry",
+            marks: 17,
+            subsections: [
               "Qualitative analysis",
               "Quantitative analysis",
               "Chromatography",
@@ -1309,17 +1305,17 @@ export const optionalGroups = [
         ]
       },
       {
-        "id": "mathematics",
-        "name": "Applied Mathematics",
-        "marks": 100,
-        "icon": "∑",
-        "color": "bg-rose-500",
-        "progress": 0,
-        "syllabus": [
+        id: "mathematics",
+        name: "Applied Mathematics",
+        marks: 100,
+        icon: "∑",
+        color: "bg-rose-500",
+        progress: 0,
+        syllabus: [
           {
-            "section": "1. Vectors and Vector Analysis",
-            "marks": 18,
-            "subsections": [
+            section: "1. Vectors and Vector Analysis",
+            marks: 18,
+            subsections: [
               "Scalars and vectors",
               "Vector addition and scalar multiplication",
               "Dot product and cross product",
@@ -1328,9 +1324,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "2. Matrices and Determinants",
-            "marks": 16,
-            "subsections": [
+            section: "2. Matrices and Determinants",
+            marks: 16,
+            subsections: [
               "Matrix algebra",
               "Determinants and their properties",
               "Inverse of a matrix",
@@ -1338,9 +1334,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "3. Differential Equations",
-            "marks": 20,
-            "subsections": [
+            section: "3. Differential Equations",
+            marks: 20,
+            subsections: [
               "First-order differential equations",
               "Linear differential equations",
               "Homogeneous and non-homogeneous equations",
@@ -1348,18 +1344,18 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "4. Analytical Geometry",
-            "marks": 14,
-            "subsections": [
+            section: "4. Analytical Geometry",
+            marks: 14,
+            subsections: [
               "Straight line and conic sections",
               "Coordinate geometry in two and three dimensions",
               "Transformation of coordinates"
             ]
           },
           {
-            "section": "5. Mechanics",
-            "marks": 17,
-            "subsections": [
+            section: "5. Mechanics",
+            marks: 17,
+            subsections: [
               "Motion of particles",
               "Laws of motion",
               "Work and energy",
@@ -1367,9 +1363,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "6. Mathematical Methods in Physics",
-            "marks": 15,
-            "subsections": [
+            section: "6. Mathematical Methods in Physics",
+            marks: 15,
+            subsections: [
               "Fourier series",
               "Laplace transforms",
               "Applications in physical systems"
@@ -1378,17 +1374,17 @@ export const optionalGroups = [
         ]
       },
       {
-        "id": "pure-mathematics",
-        "name": "Pure Mathematics",
-        "marks": 100,
-        "icon": "π",
-        "color": "bg-fuchsia-600",
-        "progress": 0,
-        "syllabus": [
+        id: "pure-mathematics",
+        name: "Pure Mathematics",
+        marks: 100,
+        icon: "π",
+        color: "bg-fuchsia-600",
+        progress: 0,
+        syllabus: [
           {
-            "section": "Section A – Modern Algebra",
-            "marks": 40,
-            "subsections": [
+            section: "Section A – Modern Algebra",
+            marks: 40,
+            subsections: [
               "Groups and subgroups",
               "Lagrange's theorem",
               "Cyclic groups",
@@ -1406,9 +1402,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Section B – Calculus and Analytical Geometry",
-            "marks": 40,
-            "subsections": [
+            section: "Section B – Calculus and Analytical Geometry",
+            marks: 40,
+            subsections: [
               "Calculus: real numbers and limits",
               "Continuity and differentiability",
               "Indefinite and definite integration",
@@ -1428,9 +1424,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Section C – Complex Variables",
-            "marks": 20,
-            "subsections": [
+            section: "Section C – Complex Variables",
+            marks: 20,
+            subsections: [
               "Functions of a complex variable",
               "De Moivre's theorem and applications",
               "Analytic functions",
@@ -1443,26 +1439,26 @@ export const optionalGroups = [
         ]
       },
       {
-        "id": "statistics",
-        "name": "Statistics",
-        "marks": 100,
-        "icon": "📈",
-        "color": "bg-emerald-500",
-        "progress": 0,
-        "syllabus": [
+        id: "statistics",
+        name: "Statistics",
+        marks: 100,
+        icon: "📈",
+        color: "bg-emerald-500",
+        progress: 0,
+        syllabus: [
           {
-            "section": "1. Introduction to Statistics",
-            "marks": 8,
-            "subsections": [
+            section: "1. Introduction to Statistics",
+            marks: 8,
+            subsections: [
               "Definition and scope of statistics",
               "Importance and applications of statistics",
               "Types of data and measurement scales"
             ]
           },
           {
-            "section": "2. Data Collection and Presentation",
-            "marks": 10,
-            "subsections": [
+            section: "2. Data Collection and Presentation",
+            marks: 10,
+            subsections: [
               "Methods of data collection",
               "Primary and secondary data",
               "Classification and tabulation of data",
@@ -1470,9 +1466,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "3. Measures of Central Tendency",
-            "marks": 12,
-            "subsections": [
+            section: "3. Measures of Central Tendency",
+            marks: 12,
+            subsections: [
               "Arithmetic mean",
               "Median",
               "Mode",
@@ -1481,9 +1477,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "4. Measures of Dispersion",
-            "marks": 12,
-            "subsections": [
+            section: "4. Measures of Dispersion",
+            marks: 12,
+            subsections: [
               "Range",
               "Mean deviation",
               "Variance",
@@ -1492,9 +1488,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "5. Probability",
-            "marks": 12,
-            "subsections": [
+            section: "5. Probability",
+            marks: 12,
+            subsections: [
               "Basic concepts of probability",
               "Laws of probability",
               "Conditional probability",
@@ -1502,36 +1498,36 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "6. Probability Distributions",
-            "marks": 10,
-            "subsections": [
+            section: "6. Probability Distributions",
+            marks: 10,
+            subsections: [
               "Binomial distribution",
               "Poisson distribution",
               "Normal distribution"
             ]
           },
           {
-            "section": "7. Sampling and Sampling Distributions",
-            "marks": 10,
-            "subsections": [
+            section: "7. Sampling and Sampling Distributions",
+            marks: 10,
+            subsections: [
               "Methods of sampling",
               "Sampling errors",
               "Sampling distributions"
             ]
           },
           {
-            "section": "8. Statistical Inference",
-            "marks": 12,
-            "subsections": [
+            section: "8. Statistical Inference",
+            marks: 12,
+            subsections: [
               "Estimation",
               "Hypothesis testing",
               "Confidence intervals"
             ]
           },
           {
-            "section": "9. Correlation and Regression",
-            "marks": 14,
-            "subsections": [
+            section: "9. Correlation and Regression",
+            marks: 14,
+            subsections: [
               "Correlation analysis",
               "Regression analysis",
               "Linear regression"
@@ -1539,188 +1535,23 @@ export const optionalGroups = [
           }
         ]
       },
-      {
-        "id": "geology",
-        "name": "Geology",
-        "marks": 100,
-        "icon": "🪨",
-        "color": "bg-amber-700",
-        "progress": 0,
-        "syllabus": [
-          {
-            "section": "1. Introduction to Geology",
-            "marks": 10,
-            "subsections": [
-              "Definition and scope of geology",
-              "Branches of geology",
-              "Importance of geology in modern society"
-            ]
-          },
-          {
-            "section": "2. Earth and its Structure",
-            "marks": 15,
-            "subsections": [
-              "Structure of the Earth: crust, mantle, core",
-              "Plate tectonics and continental drift",
-              "Earthquakes and volcanoes"
-            ]
-          },
-          {
-            "section": "3. Minerals",
-            "marks": 10,
-            "subsections": [
-              "Definition and classification of minerals",
-              "Physical properties of minerals",
-              "Identification of common minerals"
-            ]
-          },
-          {
-            "section": "4. Rocks",
-            "marks": 15,
-            "subsections": [
-              "Types of rocks: igneous, sedimentary, metamorphic",
-              "Rock formation processes",
-              "Rock cycle"
-            ]
-          },
-          {
-            "section": "5. Geological Structures",
-            "marks": 10,
-            "subsections": [
-              "Folds and faults",
-              "Joints and fractures",
-              "Structural deformation of rocks"
-            ]
-          },
-          {
-            "section": "6. Stratigraphy",
-            "marks": 10,
-            "subsections": [
-              "Principles of stratigraphy",
-              "Geological time scale",
-              "Fossils and their importance in stratigraphy"
-            ]
-          },
-          {
-            "section": "7. Economic Geology",
-            "marks": 15,
-            "subsections": [
-              "Mineral resources",
-              "Energy resources",
-              "Exploration and mining of minerals"
-            ]
-          },
-          {
-            "section": "8. Geology of Pakistan",
-            "marks": 15,
-            "subsections": [
-              "Geological structure of Pakistan",
-              "Major mineral resources of Pakistan",
-              "Energy resources and geological prospects"
-            ]
-          }
-        ]
-      }
-    ]
+    ],
   },
   {
-    "group": 3,
-    "name": "Group III",
-    "selectionCriteria": "Select one subject - 100 marks",
-    "subjects": [
+    group: 3,
+    subjects: [
       {
-        "id": "business-administration",
-        "name": "Business Administration",
-        "marks": 100,
-        "icon": "💼",
-        "color": "bg-blue-500",
-        "progress": 0,
-        "syllabus": [
+        id: "public-administration",
+        name: "Public Administration",
+        marks: 100,
+        icon: "🏢",
+        color: "bg-orange-500",
+        progress: 70,
+        syllabus: [
           {
-            "section": "1. Introduction to Business Administration",
-            "marks": 12,
-            "subsections": [
-              "Definition and scope of business administration",
-              "Nature and importance of business",
-              "Role of business in economic development",
-              "Forms of business organizations"
-            ]
-          },
-          {
-            "section": "2. Management",
-            "marks": 16,
-            "subsections": [
-              "Definition and functions of management",
-              "Planning, organizing, leading, and controlling",
-              "Decision-making process in management",
-              "Strategic management"
-            ]
-          },
-          {
-            "section": "3. Organizational Behavior",
-            "marks": 16,
-            "subsections": [
-              "Individual behavior in organizations",
-              "Motivation theories",
-              "Leadership styles",
-              "Communication in organizations",
-              "Group dynamics and teamwork"
-            ]
-          },
-          {
-            "section": "4. Human Resource Management",
-            "marks": 14,
-            "subsections": [
-              "Recruitment and selection",
-              "Training and development",
-              "Performance appraisal",
-              "Compensation and benefits"
-            ]
-          },
-          {
-            "section": "5. Marketing Management",
-            "marks": 14,
-            "subsections": [
-              "Concepts of marketing",
-              "Marketing mix: product, price, place, promotion",
-              "Consumer behavior",
-              "Market segmentation and targeting"
-            ]
-          },
-          {
-            "section": "6. Financial Management",
-            "marks": 14,
-            "subsections": [
-              "Nature and scope of financial management",
-              "Sources of business finance",
-              "Financial markets and institutions",
-              "Capital budgeting and financial decision-making"
-            ]
-          },
-          {
-            "section": "7. Business Environment",
-            "marks": 14,
-            "subsections": [
-              "Economic environment",
-              "Legal environment",
-              "Technological environment",
-              "Global business environment"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "public-administration",
-        "name": "Public Administration",
-        "marks": 100,
-        "icon": "🏢",
-        "color": "bg-orange-500",
-        "progress": 0,
-        "syllabus": [
-          {
-            "section": "1. Introduction to Public Administration",
-            "marks": 12,
-            "subsections": [
+            section: "1. Introduction to Public Administration",
+            marks: 12,
+            subsections: [
               "Definition and scope of public administration",
               "Evolution and development of public administration",
               "Difference between public and private administration",
@@ -1728,9 +1559,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "2. Administrative Theories",
-            "marks": 12,
-            "subsections": [
+            section: "2. Administrative Theories",
+            marks: 12,
+            subsections: [
               "Classical theory of administration",
               "Bureaucratic theory (Max Weber)",
               "Human relations theory",
@@ -1738,9 +1569,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "3. Organization and Management",
-            "marks": 14,
-            "subsections": [
+            section: "3. Organization and Management",
+            marks: 14,
+            subsections: [
               "Principles of organization",
               "Types of organizational structures",
               "Leadership and decision-making",
@@ -1748,9 +1579,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "4. Public Policy",
-            "marks": 12,
-            "subsections": [
+            section: "4. Public Policy",
+            marks: 12,
+            subsections: [
               "Concept of public policy",
               "Policy formulation and implementation",
               "Policy evaluation",
@@ -1758,36 +1589,36 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "5. Bureaucracy",
-            "marks": 12,
-            "subsections": [
+            section: "5. Bureaucracy",
+            marks: 12,
+            subsections: [
               "Nature and role of bureaucracy",
               "Bureaucratic structure and functions",
               "Relationship between bureaucracy and politics"
             ]
           },
           {
-            "section": "6. Financial Administration",
-            "marks": 12,
-            "subsections": [
+            section: "6. Financial Administration",
+            marks: 12,
+            subsections: [
               "Budgeting process",
               "Public finance management",
               "Accountability and financial control"
             ]
           },
           {
-            "section": "7. Administrative Reforms",
-            "marks": 12,
-            "subsections": [
+            section: "7. Administrative Reforms",
+            marks: 12,
+            subsections: [
               "Need for administrative reforms",
               "New public management",
               "Good governance and accountability"
             ]
           },
           {
-            "section": "8. Public Administration in Pakistan",
-            "marks": 14,
-            "subsections": [
+            section: "8. Public Administration in Pakistan",
+            marks: 14,
+            subsections: [
               "Structure of public administration in Pakistan",
               "Federal, provincial, and local governments",
               "Administrative challenges in Pakistan"
@@ -1796,17 +1627,17 @@ export const optionalGroups = [
         ]
       },
       {
-        "id": "governance",
-        "name": "Governance & Public Policies",
-        "marks": 100,
-        "icon": "⚖️",
-        "color": "bg-amber-500",
-        "progress": 0,
-        "syllabus": [
+        id: "governance",
+        name: "Governance & Public Policies",
+        marks: 100,
+        icon: "⚖️",
+        color: "bg-amber-500",
+        progress: 45,
+        syllabus: [
           {
-            "section": "1. Basic Concepts of Governance",
-            "marks": 16,
-            "subsections": [
+            section: "1. Basic Concepts of Governance",
+            marks: 16,
+            subsections: [
               "Origin of the term governance",
               "Definition of governance",
               "Definition of good governance",
@@ -1818,9 +1649,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "2. Governance Theories",
-            "marks": 12,
-            "subsections": [
+            section: "2. Governance Theories",
+            marks: 12,
+            subsections: [
               "Communitarianism",
               "Decentered theory",
               "Libertarian socialism",
@@ -1832,9 +1663,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "3. Governance Indicators",
-            "marks": 12,
-            "subsections": [
+            section: "3. Governance Indicators",
+            marks: 12,
+            subsections: [
               "Indicators developed by international institutions: World Bank, IMF, UNESCO, UNDP, Asian Development Bank",
               "Voice and accountability",
               "Political stability and absence of violence",
@@ -1845,9 +1676,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "4. Public Policy and Planning Institutions",
-            "marks": 14,
-            "subsections": [
+            section: "4. Public Policy and Planning Institutions",
+            marks: 14,
+            subsections: [
               "Institutional framework for policy coordination and planning",
               "Economic Coordination Committee of the Cabinet",
               "Federal Cabinet",
@@ -1864,9 +1695,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "5. Accountability",
-            "marks": 12,
-            "subsections": [
+            section: "5. Accountability",
+            marks: 12,
+            subsections: [
               "Concept of accountability",
               "Standards of accountability",
               "Symbolic and practical aspects",
@@ -1878,9 +1709,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "6. Bureaucracy",
-            "marks": 12,
-            "subsections": [
+            section: "6. Bureaucracy",
+            marks: 12,
+            subsections: [
               "Concept of bureaucracy",
               "Historical background",
               "Neutrality of bureaucracy",
@@ -1894,9 +1725,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "7. Administrative Reforms",
-            "marks": 10,
-            "subsections": [
+            section: "7. Administrative Reforms",
+            marks: 10,
+            subsections: [
               "Theories of administrative reforms",
               "Types of administrative reforms",
               "Reform strategies: privatization, regulation and deregulation, decentralization, public-private partnerships, business process re-engineering, quality assurance",
@@ -1904,9 +1735,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "8. Public Administration and Development",
-            "marks": 12,
-            "subsections": [
+            section: "8. Public Administration and Development",
+            marks: 12,
+            subsections: [
               "Role of public administration in development",
               "Development administration",
               "Difference between development administration and development management",
@@ -1916,17 +1747,98 @@ export const optionalGroups = [
         ]
       },
       {
-        "id": "town-planning-urban-management",
-        "name": "Town Planning & Urban Management",
-        "marks": 100,
-        "icon": "🏙️",
-        "color": "bg-cyan-600",
-        "progress": 0,
-        "syllabus": [
+        id: "business-administration",
+        name: "Business Administration",
+        marks: 100,
+        icon: "💼",
+        color: "bg-blue-500",
+        progress: 0,
+        syllabus: [
           {
-            "section": "1. Introduction to Town Planning",
-            "marks": 12,
-            "subsections": [
+            section: "1. Introduction to Business Administration",
+            marks: 12,
+            subsections: [
+              "Definition and scope of business administration",
+              "Nature and importance of business",
+              "Role of business in economic development",
+              "Forms of business organizations"
+            ]
+          },
+          {
+            section: "2. Management",
+            marks: 16,
+            subsections: [
+              "Definition and functions of management",
+              "Planning, organizing, leading, and controlling",
+              "Decision-making process in management",
+              "Strategic management"
+            ]
+          },
+          {
+            section: "3. Organizational Behavior",
+            marks: 16,
+            subsections: [
+              "Individual behavior in organizations",
+              "Motivation theories",
+              "Leadership styles",
+              "Communication in organizations",
+              "Group dynamics and teamwork"
+            ]
+          },
+          {
+            section: "4. Human Resource Management",
+            marks: 14,
+            subsections: [
+              "Recruitment and selection",
+              "Training and development",
+              "Performance appraisal",
+              "Compensation and benefits"
+            ]
+          },
+          {
+            section: "5. Marketing Management",
+            marks: 14,
+            subsections: [
+              "Concepts of marketing",
+              "Marketing mix: product, price, place, promotion",
+              "Consumer behavior",
+              "Market segmentation and targeting"
+            ]
+          },
+          {
+            section: "6. Financial Management",
+            marks: 14,
+            subsections: [
+              "Nature and scope of financial management",
+              "Sources of business finance",
+              "Financial markets and institutions",
+              "Capital budgeting and financial decision-making"
+            ]
+          },
+          {
+            section: "7. Business Environment",
+            marks: 14,
+            subsections: [
+              "Economic environment",
+              "Legal environment",
+              "Technological environment",
+              "Global business environment"
+            ]
+          }
+        ]
+      },
+      {
+        id: "town-planning-urban-management",
+        name: "Town Planning & Urban Management",
+        marks: 100,
+        icon: "🏙️",
+        color: "bg-cyan-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Introduction to Town Planning",
+            marks: 12,
+            subsections: [
               "Definition and scope of town planning",
               "Evolution of urban planning",
               "Objectives of town planning",
@@ -1934,9 +1846,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "2. Urbanization",
-            "marks": 12,
-            "subsections": [
+            section: "2. Urbanization",
+            marks: 12,
+            subsections: [
               "Causes of urbanization",
               "Patterns of urban growth",
               "Urbanization trends in developing countries",
@@ -1944,9 +1856,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "3. Urban Planning Principles",
-            "marks": 14,
-            "subsections": [
+            section: "3. Urban Planning Principles",
+            marks: 14,
+            subsections: [
               "Land-use planning",
               "Zoning and urban regulations",
               "Transportation planning",
@@ -1954,9 +1866,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "4. Housing and Urban Development",
-            "marks": 14,
-            "subsections": [
+            section: "4. Housing and Urban Development",
+            marks: 14,
+            subsections: [
               "Housing policies",
               "Housing problems in developing countries",
               "Low-cost housing and housing finance",
@@ -1964,9 +1876,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "5. Urban Infrastructure and Services",
-            "marks": 12,
-            "subsections": [
+            section: "5. Urban Infrastructure and Services",
+            marks: 12,
+            subsections: [
               "Water supply systems",
               "Sanitation and waste management",
               "Energy supply in cities",
@@ -1974,9 +1886,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "6. Urban Management",
-            "marks": 12,
-            "subsections": [
+            section: "6. Urban Management",
+            marks: 12,
+            subsections: [
               "Urban governance and institutions",
               "Role of municipal governments",
               "Urban management strategies",
@@ -1984,44 +1896,316 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "7. Urban Environmental Issues",
-            "marks": 12,
-            "subsections": [
+            section: "7. Urban Environmental Issues",
+            marks: 12,
+            subsections: [
               "Urban pollution",
               "Environmental sustainability in cities",
               "Green spaces and urban ecology"
             ]
           },
           {
-            "section": "8. Urban Planning in Pakistan",
-            "marks": 12,
-            "subsections": [
+            section: "8. Urban Planning in Pakistan",
+            marks: 12,
+            subsections: [
               "Urban development in Pakistan",
               "Housing and urban policies in Pakistan",
               "Challenges of urban management in Pakistan"
             ]
           }
         ]
-      }
-    ]
+      },
+    ],
   },
   {
-    "group": 4,
-    "name": "Group IV",
-    "selectionCriteria": "Select one subject - 100 marks",
-    "subjects": [
+    group: 4,
+    subjects: [
       {
-        "id": "history-pakistan-india",
-        "name": "History of Pakistan & India",
-        "marks": 100,
-        "icon": "🕌",
-        "color": "bg-amber-600",
-        "progress": 0,
-        "syllabus": [
+        id: "british-history",
+        name: "British History",
+        marks: 100,
+        icon: "🏰",
+        color: "bg-stone-500",
+        progress: 0,
+        syllabus: [
           {
-            "section": "1. Muslim Rule in the Subcontinent",
-            "marks": 12,
-            "subsections": [
+            section: "1. The Tudor Period (1485–1603)",
+            marks: 12,
+            subsections: [
+              "Rise of the Tudor dynasty",
+              "Reign of Henry VII and consolidation of power",
+              "Reign of Henry VIII and the English Reformation",
+              "Reign of Elizabeth I",
+              "Political and religious developments during the Tudor era"
+            ]
+          },
+          {
+            section: "2. The Stuart Period (1603–1714)",
+            marks: 13,
+            subsections: [
+              "Reign of James I",
+              "Reign of Charles I and conflict with Parliament",
+              "English Civil War",
+              "Execution of Charles I",
+              "Commonwealth and rule of Oliver Cromwell",
+              "Restoration of the monarchy"
+            ]
+          },
+          {
+            section: "3. The Glorious Revolution (1688)",
+            marks: 12,
+            subsections: [
+              "Causes of the Glorious Revolution",
+              "Deposition of James II",
+              "Rise of William and Mary",
+              "Establishment of parliamentary supremacy",
+              "Bill of Rights (1689)"
+            ]
+          },
+          {
+            section: "4. Constitutional Development",
+            marks: 13,
+            subsections: [
+              "Growth of parliamentary institutions",
+              "Cabinet system and the role of the Prime Minister",
+              "Evolution of constitutional monarchy"
+            ]
+          },
+          {
+            section: "5. Industrial Revolution",
+            marks: 13,
+            subsections: [
+              "Causes and development of industrialization",
+              "Economic and social impacts",
+              "Changes in industry, agriculture, and urbanization"
+            ]
+          },
+          {
+            section: "6. British Empire",
+            marks: 13,
+            subsections: [
+              "Expansion of the British Empire",
+              "Colonial administration",
+              "Economic and political influence of the empire"
+            ]
+          },
+          {
+            section: "7. Britain in the 19th Century",
+            marks: 13,
+            subsections: [
+              "Reform Acts and expansion of democracy",
+              "Social and political reforms",
+              "Rise of political parties"
+            ]
+          },
+          {
+            section: "8. Britain in the 20th Century",
+            marks: 11,
+            subsections: [
+              "Role in World War I",
+              "Role in World War II",
+              "Decline of the British Empire",
+              "Emergence of modern Britain"
+            ]
+          }
+        ]
+      },
+      { id: "european-history", name: "European History", marks: 100, icon: "🏯", color: "bg-slate-500", progress: 0, syllabus: [
+          {
+            section: "1. Renaissance",
+            marks: 11,
+            subsections: [
+              "Causes of the Renaissance",
+              "Cultural and intellectual revival in Europe",
+              "Contributions in art, literature, and science",
+              "Major Renaissance thinkers and artists"
+            ]
+          },
+          {
+            section: "2. Reformation",
+            marks: 11,
+            subsections: [
+              "Causes of the Protestant Reformation",
+              "Role of Martin Luther and John Calvin",
+              "Catholic Counter-Reformation",
+              "Religious conflicts in Europe"
+            ]
+          },
+          {
+            section: "3. Rise of Nation States",
+            marks: 11,
+            subsections: [
+              "Formation of modern nation states in Europe",
+              "Development of centralized governments",
+              "Political changes in major European countries"
+            ]
+          },
+          {
+            section: "4. French Revolution (1789)",
+            marks: 12,
+            subsections: [
+              "Causes of the French Revolution",
+              "Major events and phases of the revolution",
+              "Role of Napoleon Bonaparte",
+              "Impact of the revolution on Europe"
+            ]
+          },
+          {
+            section: "5. Industrial Revolution",
+            marks: 12,
+            subsections: [
+              "Causes and origin of industrialization in Europe",
+              "Technological developments",
+              "Social and economic impacts",
+              "Urbanization and labor movements"
+            ]
+          },
+          {
+            section: "6. Unification Movements",
+            marks: 12,
+            subsections: [
+              "Unification of Italy",
+              "Unification of Germany",
+              "Role of major political leaders"
+            ]
+          },
+          {
+            section: "7. World War I",
+            marks: 12,
+            subsections: [
+              "Causes of World War I",
+              "Major events of the war",
+              "Treaty of Versailles",
+              "Political consequences in Europe"
+            ]
+          },
+          {
+            section: "8. World War II",
+            marks: 12,
+            subsections: [
+              "Causes and outbreak of World War II",
+              "Rise of totalitarian regimes",
+              "Major events of the war",
+              "Consequences and restructuring of Europe"
+            ]
+          },
+          {
+            section: "9. Post-War Europe",
+            marks: 7,
+            subsections: [
+              "Cold War division of Europe",
+              "Formation of European organizations",
+              "Development of the European Union"
+            ]
+          }
+        ] },
+      { id: "history-usa", name: "History of USA", marks: 100, icon: "🗽", color: "bg-blue-500", progress: 0, syllabus: [
+          {
+            section: "1. Colonial Period",
+            marks: 10,
+            subsections: [
+              "European exploration and colonization of North America",
+              "Establishment of British colonies",
+              "Social, political, and economic life in the colonies"
+            ]
+          },
+          {
+            section: "2. American War of Independence (1775–1783)",
+            marks: 11,
+            subsections: [
+              "Causes of the American Revolution",
+              "Role of colonial leadership",
+              "Declaration of Independence (1776)",
+              "Major events and outcomes of the war"
+            ]
+          },
+          {
+            section: "3. Formation of the American Constitution",
+            marks: 11,
+            subsections: [
+              "Constitutional Convention (1787)",
+              "Key features of the U.S. Constitution",
+              "Federal system and separation of powers",
+              "Bill of Rights"
+            ]
+          },
+          {
+            section: "4. Expansion and Development",
+            marks: 10,
+            subsections: [
+              "Westward expansion",
+              "Manifest Destiny",
+              "Economic growth and industrial development"
+            ]
+          },
+          {
+            section: "5. American Civil War (1861–1865)",
+            marks: 11,
+            subsections: [
+              "Causes of the Civil War",
+              "Role of slavery and sectional differences",
+              "Major battles and leadership",
+              "Consequences of the war"
+            ]
+          },
+          {
+            section: "6. Reconstruction Era",
+            marks: 11,
+            subsections: [
+              "Political and social reconstruction after the Civil War",
+              "Amendments to the Constitution",
+              "Challenges of rebuilding the nation"
+            ]
+          },
+          {
+            section: "7. Industrialization and Economic Growth",
+            marks: 11,
+            subsections: [
+              "Rise of industrial capitalism",
+              "Urbanization and immigration",
+              "Labor movements and reforms"
+            ]
+          },
+          {
+            section: "8. USA in World Wars",
+            marks: 11,
+            subsections: [
+              "Role of the United States in World War I",
+              "Role of the United States in World War II",
+              "Emergence of the United States as a global power"
+            ]
+          },
+          {
+            section: "9. Cold War Era",
+            marks: 10,
+            subsections: [
+              "U.S. foreign policy during the Cold War",
+              "Containment policy",
+              "Conflicts and international alliances"
+            ]
+          },
+          {
+            section: "10. Contemporary USA",
+            marks: 4,
+            subsections: [
+              "Political and economic developments",
+              "Role of the USA in global politics",
+              "Major social and political changes in modern America"
+            ]
+          }
+        ] },
+      {
+        id: "history-pakistan-india",
+        name: "History of Pakistan & India",
+        marks: 100,
+        icon: "🕌",
+        color: "bg-amber-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Muslim Rule in the Subcontinent",
+            marks: 12,
+            subsections: [
               "Arab conquest of Sindh",
               "Establishment of Muslim rule in India",
               "Delhi Sultanate and its administration",
@@ -2029,27 +2213,27 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "2. Muslim Society and Culture",
-            "marks": 12,
-            "subsections": [
+            section: "2. Muslim Society and Culture",
+            marks: 12,
+            subsections: [
               "Social structure during Muslim rule",
               "Educational and cultural developments",
               "Contribution of Muslim rulers to administration and culture"
             ]
           },
           {
-            "section": "3. Decline of Muslim Power",
-            "marks": 12,
-            "subsections": [
+            section: "3. Decline of Muslim Power",
+            marks: 12,
+            subsections: [
               "Weaknesses of the Mughal Empire",
               "Internal conflicts and administrative decline",
               "Rise of regional powers"
             ]
           },
           {
-            "section": "4. Reform Movements",
-            "marks": 13,
-            "subsections": [
+            section: "4. Reform Movements",
+            marks: 13,
+            subsections: [
               "Religious and social reform movements among Muslims",
               "Role of Sheikh Ahmad Sirhindi",
               "Role of Shah Waliullah",
@@ -2057,36 +2241,36 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "5. British Rule in India",
-            "marks": 13,
-            "subsections": [
+            section: "5. British Rule in India",
+            marks: 13,
+            subsections: [
               "Establishment of British power",
               "Administrative and economic policies of the British",
               "Impact of British rule on Indian society"
             ]
           },
           {
-            "section": "6. Muslim Reform and Educational Movements",
-            "marks": 12,
-            "subsections": [
+            section: "6. Muslim Reform and Educational Movements",
+            marks: 12,
+            subsections: [
               "Aligarh Movement",
               "Role of Sir Syed Ahmad Khan",
               "Educational reforms among Muslims"
             ]
           },
           {
-            "section": "7. Rise of Muslim Nationalism",
-            "marks": 13,
-            "subsections": [
+            section: "7. Rise of Muslim Nationalism",
+            marks: 13,
+            subsections: [
               "Political awakening of Muslims",
               "Formation of All India Muslim League",
               "Role of Muslim leadership"
             ]
           },
           {
-            "section": "8. Freedom Movement and Creation of Pakistan",
-            "marks": 13,
-            "subsections": [
+            section: "8. Freedom Movement and Creation of Pakistan",
+            marks: 13,
+            subsections: [
               "Important constitutional developments",
               "Role of Quaid-e-Azam Muhammad Ali Jinnah",
               "Major events leading to the creation of Pakistan",
@@ -2102,26 +2286,26 @@ export const optionalGroups = [
         ]
       },
       {
-        "id": "islamic-history-culture",
-        "name": "Islamic History & Culture",
-        "marks": 100,
-        "icon": "🕌",
-        "color": "from-teal-600 to-green-600",
-        "progress": 0,
-        "syllabus": [
+        id: "islamic-history-culture",
+        name: "Islamic History & Culture",
+        marks: 100,
+        icon: "📖",
+        color: "bg-green-700",
+        progress: 0,
+        syllabus: [
           {
-            "section": "Paper I - Pre-Islamic Arabia",
-            "marks": 20,
-            "subsections": [
+            section: "1. Pre-Islamic Arabia",
+            marks: 12,
+            subsections: [
               "Social, political, and economic conditions of Arabia before Islam",
-              "Religious beliefs and tribal structure",
-              "Cultural traditions of Arab society"
+              "Religious beliefs and practices",
+              "Tribal structure of Arabian society"
             ]
           },
           {
-            "section": "Paper I - Life of Prophet Muhammad (PBUH)",
-            "marks": 30,
-            "subsections": [
+            section: "2. Life of Prophet Muhammad (PBUH)",
+            marks: 13,
+            subsections: [
               "Early life and prophethood",
               "Preaching of Islam in Makkah",
               "Migration (Hijrah) to Madinah",
@@ -2131,9 +2315,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Paper I - The Pious Caliphate (Khulafa-e-Rashideen)",
-            "marks": 30,
-            "subsections": [
+            section: "3. The Pious Caliphate (Khulafa-e-Rashideen)",
+            marks: 14,
+            subsections: [
               "Caliphate of Hazrat Abu Bakr (RA)",
               "Caliphate of Hazrat Umar (RA)",
               "Caliphate of Hazrat Uthman (RA)",
@@ -2144,476 +2328,82 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Paper I - Umayyad Dynasty",
-            "marks": 20,
-            "subsections": [
-              "Establishment of the Umayyad rule",
-              "Political and administrative system",
+            section: "4. Umayyad Dynasty",
+            marks: 12,
+            subsections: [
+              "Rise of the Umayyad dynasty",
+              "Administrative and political developments",
               "Expansion of the Muslim empire",
-              "Cultural developments"
+              "Cultural and intellectual developments"
             ]
           },
           {
-            "section": "Paper II - Abbasid Dynasty",
-            "marks": 25,
-            "subsections": [
-              "Rise of the Abbasid dynasty",
-              "Political and administrative system",
+            section: "5. Abbasid Dynasty",
+            marks: 13,
+            subsections: [
+              "Establishment of Abbasid rule",
+              "Political and administrative structure",
               "Development of Islamic civilization",
               "Scientific and intellectual achievements"
             ]
           },
           {
-            "section": "Paper II - Muslim Spain (Al-Andalus)",
-            "marks": 20,
-            "subsections": [
+            section: "6. Muslim Spain (Al-Andalus)",
+            marks: 12,
+            subsections: [
               "Establishment of Muslim rule in Spain",
-              "Cultural and scientific developments",
-              "Educational institutions and intellectual contributions"
+              "Political organization",
+              "Cultural and scientific contributions",
+              "Decline of Muslim rule in Spain"
             ]
           },
           {
-            "section": "Paper II - Ottoman Empire",
-            "marks": 20,
-            "subsections": [
+            section: "7. Ottoman Empire",
+            marks: 13,
+            subsections: [
               "Rise and expansion of the Ottoman Empire",
-              "Administrative and military organization",
+              "Administrative and military system",
               "Cultural and architectural achievements",
               "Decline of the Ottoman Empire"
             ]
           },
           {
-            "section": "Paper II - Muslim Contributions to Civilization",
-            "marks": 20,
-            "subsections": [
-              "Contributions to science and medicine",
-              "Development of philosophy and literature",
-              "Advances in mathematics and astronomy"
-            ]
-          },
-          {
-            "section": "Paper II - Islamic Art and Architecture",
-            "marks": 15,
-            "subsections": [
-              "Development of Islamic architecture",
-              "Mosques, palaces, and monuments",
-              "Calligraphy and decorative arts"
+            section: "8. Muslim Civilization and Culture",
+            marks: 11,
+            subsections: [
+              "Development of Islamic arts and architecture",
+              "Contributions to science, philosophy, and literature",
+              "Educational institutions and intellectual movements"
             ]
           }
         ]
       },
-      {
-        "id": "british-history",
-        "name": "British History",
-        "marks": 100,
-        "icon": "🏰",
-        "color": "bg-stone-500",
-        "progress": 0,
-        "syllabus": [
-          {
-            "section": "1. The Tudor Period (1485–1603)",
-            "marks": 12,
-            "subsections": [
-              "Rise of the Tudor dynasty",
-              "Reign of Henry VII and consolidation of power",
-              "Reign of Henry VIII and the English Reformation",
-              "Reign of Elizabeth I",
-              "Political and religious developments during the Tudor era"
-            ]
-          },
-          {
-            "section": "2. The Stuart Period (1603–1714)",
-            "marks": 13,
-            "subsections": [
-              "Reign of James I",
-              "Reign of Charles I and conflict with Parliament",
-              "English Civil War",
-              "Execution of Charles I",
-              "Commonwealth and rule of Oliver Cromwell",
-              "Restoration of the monarchy"
-            ]
-          },
-          {
-            "section": "3. The Glorious Revolution (1688)",
-            "marks": 12,
-            "subsections": [
-              "Causes of the Glorious Revolution",
-              "Deposition of James II",
-              "Rise of William and Mary",
-              "Establishment of parliamentary supremacy",
-              "Bill of Rights (1689)"
-            ]
-          },
-          {
-            "section": "4. Constitutional Development",
-            "marks": 13,
-            "subsections": [
-              "Growth of parliamentary institutions",
-              "Cabinet system and the role of the Prime Minister",
-              "Evolution of constitutional monarchy"
-            ]
-          },
-          {
-            "section": "5. Industrial Revolution",
-            "marks": 13,
-            "subsections": [
-              "Causes and development of industrialization",
-              "Economic and social impacts",
-              "Changes in industry, agriculture, and urbanization"
-            ]
-          },
-          {
-            "section": "6. British Empire",
-            "marks": 13,
-            "subsections": [
-              "Expansion of the British Empire",
-              "Colonial administration",
-              "Economic and political influence of the empire"
-            ]
-          },
-          {
-            "section": "7. Britain in the 19th Century",
-            "marks": 13,
-            "subsections": [
-              "Reform Acts and expansion of democracy",
-              "Social and political reforms",
-              "Rise of political parties"
-            ]
-          },
-          {
-            "section": "8. Britain in the 20th Century",
-            "marks": 11,
-            "subsections": [
-              "Role in World War I",
-              "Role in World War II",
-              "Decline of the British Empire",
-              "Emergence of modern Britain"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "european-history",
-        "name": "European History",
-        "marks": 100,
-        "icon": "🏯",
-        "color": "bg-slate-500",
-        "progress": 0,
-        "syllabus": [
-          {
-            "section": "1. Renaissance",
-            "marks": 11,
-            "subsections": [
-              "Causes of the Renaissance",
-              "Cultural and intellectual revival in Europe",
-              "Contributions in art, literature, and science",
-              "Major Renaissance thinkers and artists"
-            ]
-          },
-          {
-            "section": "2. Reformation",
-            "marks": 11,
-            "subsections": [
-              "Causes of the Protestant Reformation",
-              "Role of Martin Luther and John Calvin",
-              "Catholic Counter-Reformation",
-              "Religious conflicts in Europe"
-            ]
-          },
-          {
-            "section": "3. Rise of Nation States",
-            "marks": 11,
-            "subsections": [
-              "Formation of modern nation states in Europe",
-              "Development of centralized governments",
-              "Political changes in major European countries"
-            ]
-          },
-          {
-            "section": "4. French Revolution (1789)",
-            "marks": 12,
-            "subsections": [
-              "Causes of the French Revolution",
-              "Major events and phases of the revolution",
-              "Role of Napoleon Bonaparte",
-              "Impact of the revolution on Europe"
-            ]
-          },
-          {
-            "section": "5. Industrial Revolution",
-            "marks": 12,
-            "subsections": [
-              "Causes and origin of industrialization in Europe",
-              "Technological developments",
-              "Social and economic impacts",
-              "Urbanization and labor movements"
-            ]
-          },
-          {
-            "section": "6. Unification Movements",
-            "marks": 12,
-            "subsections": [
-              "Unification of Italy",
-              "Unification of Germany",
-              "Role of major political leaders"
-            ]
-          },
-          {
-            "section": "7. World War I",
-            "marks": 12,
-            "subsections": [
-              "Causes of World War I",
-              "Major events of the war",
-              "Treaty of Versailles",
-              "Political consequences in Europe"
-            ]
-          },
-          {
-            "section": "8. World War II",
-            "marks": 12,
-            "subsections": [
-              "Causes and outbreak of World War II",
-              "Rise of totalitarian regimes",
-              "Major events of the war",
-              "Consequences and restructuring of Europe"
-            ]
-          },
-          {
-            "section": "9. Post-War Europe",
-            "marks": 7,
-            "subsections": [
-              "Cold War division of Europe",
-              "Formation of European organizations",
-              "Development of the European Union"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "history-usa",
-        "name": "History of USA",
-        "marks": 100,
-        "icon": "🗽",
-        "color": "bg-blue-500",
-        "progress": 0,
-        "syllabus": [
-          {
-            "section": "1. Colonial Period",
-            "marks": 10,
-            "subsections": [
-              "European exploration and colonization of North America",
-              "Establishment of British colonies",
-              "Social, political, and economic life in the colonies"
-            ]
-          },
-          {
-            "section": "2. American War of Independence (1775–1783)",
-            "marks": 11,
-            "subsections": [
-              "Causes of the American Revolution",
-              "Role of colonial leadership",
-              "Declaration of Independence (1776)",
-              "Major events and outcomes of the war"
-            ]
-          },
-          {
-            "section": "3. Formation of the American Constitution",
-            "marks": 11,
-            "subsections": [
-              "Constitutional Convention (1787)",
-              "Key features of the U.S. Constitution",
-              "Federal system and separation of powers",
-              "Bill of Rights"
-            ]
-          },
-          {
-            "section": "4. Expansion and Development",
-            "marks": 10,
-            "subsections": [
-              "Westward expansion",
-              "Manifest Destiny",
-              "Economic growth and industrial development"
-            ]
-          },
-          {
-            "section": "5. American Civil War (1861–1865)",
-            "marks": 11,
-            "subsections": [
-              "Causes of the Civil War",
-              "Role of slavery and sectional differences",
-              "Major battles and leadership",
-              "Consequences of the war"
-            ]
-          },
-          {
-            "section": "6. Reconstruction Era",
-            "marks": 11,
-            "subsections": [
-              "Political and social reconstruction after the Civil War",
-              "Amendments to the Constitution",
-              "Challenges of rebuilding the nation"
-            ]
-          },
-          {
-            "section": "7. Industrialization and Economic Growth",
-            "marks": 11,
-            "subsections": [
-              "Rise of industrial capitalism",
-              "Urbanization and immigration",
-              "Labor movements and reforms"
-            ]
-          },
-          {
-            "section": "8. USA in World Wars",
-            "marks": 11,
-            "subsections": [
-              "Role of the United States in World War I",
-              "Role of the United States in World War II",
-              "Emergence of the United States as a global power"
-            ]
-          },
-          {
-            "section": "9. Cold War Era",
-            "marks": 10,
-            "subsections": [
-              "U.S. foreign policy during the Cold War",
-              "Containment policy",
-              "Conflicts and international alliances"
-            ]
-          },
-          {
-            "section": "10. Contemporary USA",
-            "marks": 4,
-            "subsections": [
-              "Political and economic developments",
-              "Role of the USA in global politics",
-              "Major social and political changes in modern America"
-            ]
-          }
-        ]
-      }
-    ]
+    ],
   },
   {
-    "group": 5,
-    "name": "Group V",
-    "selectionCriteria": "Select one subject - 100 marks",
-    "subjects": [
+    group: 5,
+    subjects: [
       {
-        "id": "gender-studies",
-        "name": "Gender Studies",
-        "marks": 100,
-        "icon": "⚧",
-        "color": "bg-pink-500",
-        "progress": 0,
-        "syllabus": [
+        id: "environmental-science",
+        name: "Environmental Science",
+        marks: 100,
+        icon: "🌿",
+        color: "bg-green-600",
+        progress: 30,
+        syllabus: [
           {
-            "section": "1. Introduction to Gender Studies",
-            "marks": 11,
-            "subsections": [
-              "Definition and scope of gender studies",
-              "Difference between sex and gender",
-              "Gender as a social construct",
-              "Importance of gender studies in modern societies"
-            ]
-          },
-          {
-            "section": "2. Feminist Theories",
-            "marks": 13,
-            "subsections": [
-              "Liberal feminism",
-              "Radical feminism",
-              "Marxist feminism",
-              "Socialist feminism",
-              "Postmodern feminism"
-            ]
-          },
-          {
-            "section": "3. Gender and Society",
-            "marks": 12,
-            "subsections": [
-              "Gender roles and stereotypes",
-              "Gender socialization",
-              "Gender discrimination and inequality"
-            ]
-          },
-          {
-            "section": "4. Women and Development",
-            "marks": 12,
-            "subsections": [
-              "Role of women in economic development",
-              "Women's participation in labor markets",
-              "Gender and poverty"
-            ]
-          },
-          {
-            "section": "5. Gender and Politics",
-            "marks": 12,
-            "subsections": [
-              "Women's political participation",
-              "Gender representation in political institutions",
-              "Gender equality in governance"
-            ]
-          },
-          {
-            "section": "6. Gender and Law",
-            "marks": 12,
-            "subsections": [
-              "Legal rights of women",
-              "Gender-based laws and policies",
-              "International conventions on women's rights"
-            ]
-          },
-          {
-            "section": "7. Gender-Based Violence",
-            "marks": 12,
-            "subsections": [
-              "Types of gender-based violence",
-              "Causes and consequences",
-              "Measures to prevent violence against women"
-            ]
-          },
-          {
-            "section": "8. Gender Issues in Pakistan",
-            "marks": 11,
-            "subsections": [
-              "Status of women in Pakistan",
-              "Social and cultural challenges",
-              "Government policies for gender equality"
-            ]
-          },
-          {
-            "section": "9. Global Gender Issues",
-            "marks": 5,
-            "subsections": [
-              "Gender equality movements",
-              "Role of international organizations",
-              "Global initiatives for women's empowerment"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "environmental-science",
-        "name": "Environmental Sciences",
-        "marks": 100,
-        "icon": "🌿",
-        "color": "bg-green-600",
-        "progress": 0,
-        "syllabus": [
-          {
-            "section": "1. Introduction to Environmental Science",
-            "marks": 11,
-            "subsections": [
+            section: "1. Introduction to Environmental Science",
+            marks: 11,
+            subsections: [
               "Definition and scope of environmental science",
               "Components of the environment",
               "Importance of environmental studies"
             ]
           },
           {
-            "section": "2. Ecosystems",
-            "marks": 12,
-            "subsections": [
+            section: "2. Ecosystems",
+            marks: 12,
+            subsections: [
               "Structure and functions of ecosystems",
               "Food chains and food webs",
               "Energy flow in ecosystems",
@@ -2621,18 +2411,18 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "3. Natural Resources",
-            "marks": 12,
-            "subsections": [
+            section: "3. Natural Resources",
+            marks: 12,
+            subsections: [
               "Renewable resources",
               "Non-renewable resources",
               "Conservation and sustainable use of resources"
             ]
           },
           {
-            "section": "4. Environmental Pollution",
-            "marks": 13,
-            "subsections": [
+            section: "4. Environmental Pollution",
+            marks: 13,
+            subsections: [
               "Air pollution",
               "Water pollution",
               "Soil pollution",
@@ -2641,36 +2431,36 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "5. Biodiversity",
-            "marks": 11,
-            "subsections": [
+            section: "5. Biodiversity",
+            marks: 11,
+            subsections: [
               "Importance of biodiversity",
               "Threats to biodiversity",
               "Conservation strategies"
             ]
           },
           {
-            "section": "6. Climate Change",
-            "marks": 12,
-            "subsections": [
+            section: "6. Climate Change",
+            marks: 12,
+            subsections: [
               "Causes of climate change",
               "Global warming and greenhouse gases",
               "Impact of climate change on ecosystems"
             ]
           },
           {
-            "section": "7. Environmental Management",
-            "marks": 11,
-            "subsections": [
+            section: "7. Environmental Management",
+            marks: 11,
+            subsections: [
               "Environmental impact assessment",
               "Environmental policies and regulations",
               "Sustainable development strategies"
             ]
           },
           {
-            "section": "8. Environmental Issues in Pakistan",
-            "marks": 12,
-            "subsections": [
+            section: "8. Environmental Issues in Pakistan",
+            marks: 12,
+            subsections: [
               "Water scarcity",
               "Deforestation",
               "Urban environmental problems",
@@ -2678,9 +2468,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "9. Global Environmental Initiatives",
-            "marks": 6,
-            "subsections": [
+            section: "9. Global Environmental Initiatives",
+            marks: 6,
+            subsections: [
               "International environmental agreements",
               "Role of global organizations in environmental protection"
             ]
@@ -2688,89 +2478,449 @@ export const optionalGroups = [
         ]
       },
       {
-        "id": "agriculture-forestry",
-        "name": "Agriculture & Forestry",
-        "marks": 100,
-        "icon": "🌾",
-        "color": "bg-yellow-700",
-        "progress": 0,
-        "syllabus": [
+        id: "gender-studies",
+        name: "Gender Studies",
+        marks: 100,
+        icon: "⚧",
+        color: "bg-pink-500",
+        progress: 20,
+        syllabus: [
           {
-            "section": "1. Introduction to Agriculture",
-            "marks": 11,
-            "subsections": [
+            section: "1. Introduction to Gender Studies",
+            marks: 11,
+            subsections: [
+              "Definition and scope of gender studies",
+              "Difference between sex and gender",
+              "Gender as a social construct",
+              "Importance of gender studies in modern societies"
+            ]
+          },
+          {
+            section: "2. Feminist Theories",
+            marks: 13,
+            subsections: [
+              "Liberal feminism",
+              "Radical feminism",
+              "Marxist feminism",
+              "Socialist feminism",
+              "Postmodern feminism"
+            ]
+          },
+          {
+            section: "3. Gender and Society",
+            marks: 12,
+            subsections: [
+              "Gender roles and stereotypes",
+              "Gender socialization",
+              "Gender discrimination and inequality"
+            ]
+          },
+          {
+            section: "4. Women and Development",
+            marks: 12,
+            subsections: [
+              "Role of women in economic development",
+              "Women's participation in labor markets",
+              "Gender and poverty"
+            ]
+          },
+          {
+            section: "5. Gender and Politics",
+            marks: 12,
+            subsections: [
+              "Women's political participation",
+              "Gender representation in political institutions",
+              "Gender equality in governance"
+            ]
+          },
+          {
+            section: "6. Gender and Law",
+            marks: 12,
+            subsections: [
+              "Legal rights of women",
+              "Gender-based laws and policies",
+              "International conventions on women's rights"
+            ]
+          },
+          {
+            section: "7. Gender-Based Violence",
+            marks: 12,
+            subsections: [
+              "Types of gender-based violence",
+              "Causes and consequences",
+              "Measures to prevent violence against women"
+            ]
+          },
+          {
+            section: "8. Gender Issues in Pakistan",
+            marks: 11,
+            subsections: [
+              "Status of women in Pakistan",
+              "Social and cultural challenges",
+              "Government policies for gender equality"
+            ]
+          },
+          {
+            section: "9. Global Gender Issues",
+            marks: 5,
+            subsections: [
+              "Gender equality movements",
+              "Role of international organizations",
+              "Global initiatives for women's empowerment"
+            ]
+          }
+        ]
+      },
+    ],
+  },
+  {
+    group: 6,
+    subjects: [
+      {
+        id: "law",
+        name: "Law",
+        marks: 100,
+        icon: "⚖️",
+        color: "bg-gray-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Introduction to Law",
+            marks: 12,
+            subsections: [
+              "Definition and nature of law",
+              "Importance and functions of law in society",
+              "Classification of law"
+            ]
+          },
+          {
+            section: "2. Sources of Law",
+            marks: 12,
+            subsections: [
+              "Legislation",
+              "Customs",
+              "Judicial precedents",
+              "Islamic law as a source of law"
+            ]
+          },
+          {
+            section: "3. Legal System",
+            marks: 12,
+            subsections: [
+              "Structure of the legal system",
+              "Civil and criminal law",
+              "Role of courts in the administration of justice"
+            ]
+          },
+          {
+            section: "4. Constitution and Legal Framework",
+            marks: 12,
+            subsections: [
+              "Basic principles of constitutional law",
+              "Separation of powers",
+              "Rule of law"
+            ]
+          },
+          {
+            section: "5. Court System in Pakistan",
+            marks: 12,
+            subsections: [
+              "Structure of courts in Pakistan",
+              "Jurisdiction of courts",
+              "Role of the Supreme Court and High Courts"
+            ]
+          },
+          {
+            section: "6. Rights and Duties",
+            marks: 12,
+            subsections: [
+              "Fundamental rights",
+              "Legal duties and obligations",
+              "Protection of civil liberties"
+            ]
+          },
+          {
+            section: "7. Legal Procedures",
+            marks: 12,
+            subsections: [
+              "Civil procedure",
+              "Criminal procedure",
+              "Evidence and legal proof"
+            ]
+          },
+          {
+            section: "8. Legal Profession",
+            marks: 4,
+            subsections: [
+              "Role of lawyers and judges",
+              "Ethics of the legal profession",
+              "Responsibilities of legal practitioners"
+            ]
+          }
+        ]
+      },
+      {
+        id: "constitutional-law",
+        name: "Constitutional Law",
+        marks: 100,
+        icon: "📜",
+        color: "bg-zinc-500",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Introduction to Constitutional Law",
+            marks: 11,
+            subsections: [
+              "Definition and scope of constitutional law",
+              "Nature and importance of constitutions",
+              "Types of constitutions: written and unwritten"
+            ]
+          },
+          {
+            section: "2. Principles of Constitutional Law",
+            marks: 12,
+            subsections: [
+              "Rule of law",
+              "Separation of powers",
+              "Checks and balances",
+              "Judicial review"
+            ]
+          },
+          {
+            section: "3. Fundamental Rights",
+            marks: 12,
+            subsections: [
+              "Concept of fundamental rights",
+              "Protection of civil liberties",
+              "Enforcement of fundamental rights"
+            ]
+          },
+          {
+            section: "4. Constitutional Development",
+            marks: 11,
+            subsections: [
+              "Historical evolution of constitutional systems",
+              "Development of democratic institutions"
+            ]
+          },
+          {
+            section: "5. Constitution of the United Kingdom",
+            marks: 12,
+            subsections: [
+              "Features of the British constitution",
+              "Role of Parliament",
+              "Role of the Prime Minister and Cabinet",
+              "Constitutional monarchy"
+            ]
+          },
+          {
+            section: "6. Constitution of the United States",
+            marks: 12,
+            subsections: [
+              "Federal system of government",
+              "Separation of powers",
+              "Role of Congress, President, and Supreme Court"
+            ]
+          },
+          {
+            section: "7. Constitution of France",
+            marks: 12,
+            subsections: [
+              "Structure of government in France",
+              "Role of the President and Parliament",
+              "Constitutional framework of the Fifth Republic"
+            ]
+          },
+          {
+            section: "8. Constitution of Pakistan",
+            marks: 6,
+            subsections: [
+              "Constitutional development in Pakistan",
+              "Features of the Constitution of 1973",
+              "Fundamental rights and institutions of governance"
+            ]
+          }
+        ]
+      },
+    ],
+  },
+  {
+    group: 7,
+    subjects: [
+      { id: "sociology", name: "Sociology", marks: 200, icon: "👥", color: "bg-violet-500", progress: 50 },
+      { id: "geography", name: "Geography", marks: 200, icon: "🗺️", color: "bg-lime-600", progress: 35 },
+      {
+        id: "geology",
+        name: "Geology",
+        marks: 100,
+        icon: "🪨",
+        color: "bg-amber-700",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Introduction to Geology",
+            marks: 10,
+            subsections: [
+              "Definition and scope of geology",
+              "Branches of geology",
+              "Importance of geology in modern society"
+            ]
+          },
+          {
+            section: "2. Earth and its Structure",
+            marks: 15,
+            subsections: [
+              "Structure of the Earth: crust, mantle, core",
+              "Plate tectonics and continental drift",
+              "Earthquakes and volcanoes"
+            ]
+          },
+          {
+            section: "3. Minerals",
+            marks: 10,
+            subsections: [
+              "Definition and classification of minerals",
+              "Physical properties of minerals",
+              "Identification of common minerals"
+            ]
+          },
+          {
+            section: "4. Rocks",
+            marks: 15,
+            subsections: [
+              "Types of rocks: igneous, sedimentary, metamorphic",
+              "Rock formation processes",
+              "Rock cycle"
+            ]
+          },
+          {
+            section: "5. Geological Structures",
+            marks: 10,
+            subsections: [
+              "Folds and faults",
+              "Joints and fractures",
+              "Structural deformation of rocks"
+            ]
+          },
+          {
+            section: "6. Stratigraphy",
+            marks: 10,
+            subsections: [
+              "Principles of stratigraphy",
+              "Geological time scale",
+              "Fossils and their importance in stratigraphy"
+            ]
+          },
+          {
+            section: "7. Economic Geology",
+            marks: 15,
+            subsections: [
+              "Mineral resources",
+              "Energy resources",
+              "Exploration and mining of minerals"
+            ]
+          },
+          {
+            section: "8. Geology of Pakistan",
+            marks: 15,
+            subsections: [
+              "Geological structure of Pakistan",
+              "Major mineral resources of Pakistan",
+              "Energy resources and geological prospects"
+            ]
+          }
+        ]
+      },
+      { id: "psychology", name: "Psychology", marks: 200, icon: "🧠", color: "bg-fuchsia-500", progress: 10 },
+    ],
+  },
+  {
+    group: 8,
+    subjects: [
+      {
+        id: "agriculture-forestry",
+        name: "Agriculture & Forestry",
+        marks: 100,
+        icon: "🌾",
+        color: "bg-yellow-700",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Introduction to Agriculture",
+            marks: 11,
+            subsections: [
               "Definition and scope of agriculture",
               "Importance of agriculture in national economies",
               "Agricultural systems and practices"
             ]
           },
           {
-            "section": "2. Soil Science",
-            "marks": 12,
-            "subsections": [
+            section: "2. Soil Science",
+            marks: 12,
+            subsections: [
               "Soil formation and classification",
               "Physical and chemical properties of soil",
               "Soil fertility and soil management"
             ]
           },
           {
-            "section": "3. Crop Production",
-            "marks": 12,
-            "subsections": [
+            section: "3. Crop Production",
+            marks: 12,
+            subsections: [
               "Major crops and cropping systems",
               "Methods of crop cultivation",
               "Crop improvement and plant breeding"
             ]
           },
           {
-            "section": "4. Irrigation and Water Management",
-            "marks": 12,
-            "subsections": [
+            section: "4. Irrigation and Water Management",
+            marks: 12,
+            subsections: [
               "Irrigation systems",
               "Water conservation techniques",
               "Efficient water management in agriculture"
             ]
           },
           {
-            "section": "5. Agricultural Inputs and Technology",
-            "marks": 11,
-            "subsections": [
+            section: "5. Agricultural Inputs and Technology",
+            marks: 11,
+            subsections: [
               "Use of fertilizers and pesticides",
               "Agricultural mechanization",
               "Modern agricultural technologies"
             ]
           },
           {
-            "section": "6. Forestry",
-            "marks": 12,
-            "subsections": [
+            section: "6. Forestry",
+            marks: 12,
+            subsections: [
               "Importance of forests",
               "Types of forests",
               "Forest management and conservation"
             ]
           },
           {
-            "section": "7. Agroforestry",
-            "marks": 11,
-            "subsections": [
+            section: "7. Agroforestry",
+            marks: 11,
+            subsections: [
               "Concept of agroforestry",
               "Benefits of integrating trees with agriculture",
               "Sustainable land management practices"
             ]
           },
           {
-            "section": "8. Agricultural Development",
-            "marks": 12,
-            "subsections": [
+            section: "8. Agricultural Development",
+            marks: 12,
+            subsections: [
               "Agricultural policies",
               "Rural development",
               "Challenges of agricultural development in developing countries"
             ]
           },
           {
-            "section": "9. Agriculture and Forestry in Pakistan",
-            "marks": 5,
-            "subsections": [
+            section: "9. Agriculture and Forestry in Pakistan",
+            marks: 5,
+            subsections: [
               "Importance of agriculture in Pakistan's economy",
               "Major crops of Pakistan",
               "Forest resources and conservation challenges"
@@ -2778,27 +2928,32 @@ export const optionalGroups = [
           }
         ]
       },
+    ],
+  },
+  {
+    group: 9,
+    subjects: [
       {
-        "id": "botany",
-        "name": "Botany",
-        "marks": 100,
-        "icon": "🌿",
-        "color": "bg-emerald-600",
-        "progress": 0,
-        "syllabus": [
+        id: "botany",
+        name: "Botany",
+        marks: 100,
+        icon: "🌿",
+        color: "bg-emerald-600",
+        progress: 0,
+        syllabus: [
           {
-            "section": "1. Introduction to Botany",
-            "marks": 11,
-            "subsections": [
+            section: "1. Introduction to Botany",
+            marks: 11,
+            subsections: [
               "Definition and scope of botany",
               "Importance of plants in ecosystems and human life",
               "Branches of botany"
             ]
           },
           {
-            "section": "2. Plant Cell and Tissue",
-            "marks": 12,
-            "subsections": [
+            section: "2. Plant Cell and Tissue",
+            marks: 12,
+            subsections: [
               "Structure and function of plant cells",
               "Cell organelles",
               "Types of plant tissues",
@@ -2806,18 +2961,18 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "3. Plant Anatomy",
-            "marks": 12,
-            "subsections": [
+            section: "3. Plant Anatomy",
+            marks: 12,
+            subsections: [
               "Internal structure of roots, stems, and leaves",
               "Vascular tissues (xylem and phloem)",
               "Secondary growth in plants"
             ]
           },
           {
-            "section": "4. Plant Physiology",
-            "marks": 13,
-            "subsections": [
+            section: "4. Plant Physiology",
+            marks: 13,
+            subsections: [
               "Photosynthesis",
               "Respiration in plants",
               "Water absorption and transpiration",
@@ -2825,9 +2980,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "5. Plant Reproduction",
-            "marks": 12,
-            "subsections": [
+            section: "5. Plant Reproduction",
+            marks: 12,
+            subsections: [
               "Asexual reproduction",
               "Sexual reproduction in plants",
               "Structure of flowers",
@@ -2835,62 +2990,67 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "6. Plant Genetics",
-            "marks": 12,
-            "subsections": [
+            section: "6. Plant Genetics",
+            marks: 12,
+            subsections: [
               "Principles of heredity",
               "Genetic variation in plants",
               "Plant breeding and genetic improvement"
             ]
           },
           {
-            "section": "7. Plant Ecology",
-            "marks": 12,
-            "subsections": [
+            section: "7. Plant Ecology",
+            marks: 12,
+            subsections: [
               "Relationship between plants and environment",
               "Plant communities and ecosystems",
               "Ecological adaptations"
             ]
           },
           {
-            "section": "8. Economic Botany",
-            "marks": 11,
-            "subsections": [
+            section: "8. Economic Botany",
+            marks: 11,
+            subsections: [
               "Plants used for food, medicine, and industry",
               "Importance of crops and medicinal plants"
             ]
           },
           {
-            "section": "9. Botany in Pakistan",
-            "marks": 5,
-            "subsections": [
+            section: "9. Botany in Pakistan",
+            marks: 5,
+            subsections: [
               "Important plant species in Pakistan",
               "Agricultural and ecological significance of plants in Pakistan"
             ]
           }
         ]
       },
+    ],
+  },
+  {
+    group: 10,
+    subjects: [
       {
-        "id": "zoology",
-        "name": "Zoology",
-        "marks": 100,
-        "icon": "🦁",
-        "color": "bg-orange-600",
-        "progress": 0,
-        "syllabus": [
+        id: "zoology",
+        name: "Zoology",
+        marks: 100,
+        icon: "🦁",
+        color: "bg-orange-600",
+        progress: 0,
+        syllabus: [
           {
-            "section": "1. Introduction to Zoology",
-            "marks": 11,
-            "subsections": [
+            section: "1. Introduction to Zoology",
+            marks: 11,
+            subsections: [
               "Definition and scope of zoology",
               "Branches of zoology",
               "Importance of studying animal life"
             ]
           },
           {
-            "section": "2. Animal Classification",
-            "marks": 12,
-            "subsections": [
+            section: "2. Animal Classification",
+            marks: 12,
+            subsections: [
               "Principles of animal classification",
               "Major groups of animals",
               "Invertebrates and vertebrates",
@@ -2898,18 +3058,18 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "3. Cell Biology",
-            "marks": 11,
-            "subsections": [
+            section: "3. Cell Biology",
+            marks: 11,
+            subsections: [
               "Structure and function of animal cells",
               "Cell organelles",
               "Cell division (mitosis and meiosis)"
             ]
           },
           {
-            "section": "4. Animal Physiology",
-            "marks": 13,
-            "subsections": [
+            section: "4. Animal Physiology",
+            marks: 13,
+            subsections: [
               "Digestive system",
               "Respiratory system",
               "Circulatory system",
@@ -2917,45 +3077,45 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "5. Reproduction and Development",
-            "marks": 12,
-            "subsections": [
+            section: "5. Reproduction and Development",
+            marks: 12,
+            subsections: [
               "Types of reproduction in animals",
               "Fertilization and embryonic development",
               "Growth and development"
             ]
           },
           {
-            "section": "6. Genetics and Evolution",
-            "marks": 12,
-            "subsections": [
+            section: "6. Genetics and Evolution",
+            marks: 12,
+            subsections: [
               "Principles of heredity",
               "Genetic variation",
               "Theories of evolution"
             ]
           },
           {
-            "section": "7. Animal Ecology",
-            "marks": 12,
-            "subsections": [
+            section: "7. Animal Ecology",
+            marks: 12,
+            subsections: [
               "Interaction between animals and environment",
               "Food chains and food webs",
               "Ecological balance"
             ]
           },
           {
-            "section": "8. Economic Zoology",
-            "marks": 12,
-            "subsections": [
+            section: "8. Economic Zoology",
+            marks: 12,
+            subsections: [
               "Importance of animals in agriculture and industry",
               "Fisheries and livestock",
               "Animal resources and management"
             ]
           },
           {
-            "section": "9. Zoology in Pakistan",
-            "marks": 5,
-            "subsections": [
+            section: "9. Zoology in Pakistan",
+            marks: 5,
+            subsections: [
               "Major animal species of Pakistan",
               "Conservation of wildlife",
               "Challenges in wildlife management"
@@ -2963,125 +3123,135 @@ export const optionalGroups = [
           }
         ]
       },
+    ],
+  },
+  {
+    group: 11,
+    subjects: [
       {
-        "id": "english-literature",
-        "name": "English Literature",
-        "marks": 100,
-        "icon": "📚",
-        "color": "bg-red-600",
-        "progress": 0,
-        "syllabus": [
+        id: "english-literature",
+        name: "English Literature",
+        marks: 100,
+        icon: "📚",
+        color: "bg-red-600",
+        progress: 0,
+        syllabus: [
           {
-            "section": "1. Introduction to English Literature",
-            "marks": 11,
-            "subsections": [
+            section: "1. Introduction to English Literature",
+            marks: 11,
+            subsections: [
               "Definition and scope of literature",
               "Literary genres: poetry, drama, and prose",
               "Major literary movements and trends"
             ]
           },
           {
-            "section": "2. Medieval Literature",
-            "marks": 11,
-            "subsections": [
+            section: "2. Medieval Literature",
+            marks: 11,
+            subsections: [
               "Development of English literature in the medieval period",
               "Works of Geoffrey Chaucer",
               "Themes and characteristics of medieval literature"
             ]
           },
           {
-            "section": "3. Renaissance Literature",
-            "marks": 12,
-            "subsections": [
+            section: "3. Renaissance Literature",
+            marks: 12,
+            subsections: [
               "Renaissance and humanism in England",
               "Works of William Shakespeare",
               "Development of drama and poetry during the Renaissance"
             ]
           },
           {
-            "section": "4. Seventeenth-Century Literature",
-            "marks": 11,
-            "subsections": [
+            section: "4. Seventeenth-Century Literature",
+            marks: 11,
+            subsections: [
               "Metaphysical poetry",
               "Works of John Donne and John Milton",
               "Religious and philosophical themes in literature"
             ]
           },
           {
-            "section": "5. Eighteenth-Century Literature",
-            "marks": 11,
-            "subsections": [
+            section: "5. Eighteenth-Century Literature",
+            marks: 11,
+            subsections: [
               "Rise of the novel",
               "Works of Jonathan Swift, Alexander Pope, and Daniel Defoe",
               "Satire and social criticism"
             ]
           },
           {
-            "section": "6. Romantic Literature",
-            "marks": 12,
-            "subsections": [
+            section: "6. Romantic Literature",
+            marks: 12,
+            subsections: [
               "Characteristics of Romanticism",
               "Major poets: William Wordsworth, Samuel Taylor Coleridge, John Keats, Percy Bysshe Shelley, Lord Byron",
               "Themes of nature, imagination, and individualism"
             ]
           },
           {
-            "section": "7. Victorian Literature",
-            "marks": 12,
-            "subsections": [
+            section: "7. Victorian Literature",
+            marks: 12,
+            subsections: [
               "Social and cultural context of the Victorian age",
               "Major writers: Charles Dickens, Thomas Hardy, Alfred Tennyson",
               "Development of the Victorian novel"
             ]
           },
           {
-            "section": "8. Modern Literature",
-            "marks": 12,
-            "subsections": [
+            section: "8. Modern Literature",
+            marks: 12,
+            subsections: [
               "Literary movements of the twentieth century",
               "Modernist writers: T. S. Eliot, James Joyce, Virginia Woolf",
               "Themes of modernism and realism"
             ]
           },
           {
-            "section": "9. Literary Criticism",
-            "marks": 8,
-            "subsections": [
+            section: "9. Literary Criticism",
+            marks: 8,
+            subsections: [
               "Basic principles of literary criticism",
               "Major critical approaches to literature"
             ]
           }
         ]
       },
+    ],
+  },
+  {
+    group: 12,
+    subjects: [
       {
-        "id": "urdu-literature",
-        "name": "Urdu Literature",
-        "marks": 100,
-        "icon": "🖋️",
-        "color": "bg-indigo-600",
-        "progress": 0,
-        "syllabus": [
+        id: "urdu-literature",
+        name: "Urdu Literature",
+        marks: 100,
+        icon: "🖋️",
+        color: "bg-indigo-600",
+        progress: 0,
+        syllabus: [
           {
-            "section": "1. Origin and Development of Urdu Language",
-            "marks": 10,
-            "subsections": [
+            section: "1. Origin and Development of Urdu Language",
+            marks: 10,
+            subsections: [
               "Origin of the Urdu language",
               "Evolution and development of Urdu",
               "Linguistic characteristics of Urdu"
             ]
           },
           {
-            "section": "2. Classical Urdu Poetry",
-            "marks": 12,
-            "subsections": [
+            section: "2. Classical Urdu Poetry",
+            marks: 12,
+            subsections: [
               "Early development of Urdu poetry",
               "Major poetic forms: Ghazal, Nazm, Qasida, Marsiya"
             ]
           },
           {
-            "section": "3. Classical Poets",
-            "marks": 12,
-            "subsections": [
+            section: "3. Classical Poets",
+            marks: 12,
+            subsections: [
               "Study of major classical poets and their contributions",
               "Mir Taqi Mir",
               "Mirza Ghalib",
@@ -3091,9 +3261,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "4. Modern Urdu Poetry",
-            "marks": 12,
-            "subsections": [
+            section: "4. Modern Urdu Poetry",
+            marks: 12,
+            subsections: [
               "Development of modern Urdu poetry and its themes",
               "Allama Muhammad Iqbal",
               "Faiz Ahmed Faiz",
@@ -3101,9 +3271,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "5. Urdu Prose",
-            "marks": 12,
-            "subsections": [
+            section: "5. Urdu Prose",
+            marks: 12,
+            subsections: [
               "Development of Urdu prose and its literary forms",
               "Novel",
               "Short story (Afsana)",
@@ -3112,9 +3282,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "6. Prominent Urdu Prose Writers",
-            "marks": 12,
-            "subsections": [
+            section: "6. Prominent Urdu Prose Writers",
+            marks: 12,
+            subsections: [
               "Sir Syed Ahmad Khan",
               "Deputy Nazir Ahmad",
               "Premchand",
@@ -3122,226 +3292,58 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "7. Literary Movements in Urdu",
-            "marks": 12,
-            "subsections": [
+            section: "7. Literary Movements in Urdu",
+            marks: 12,
+            subsections: [
               "Aligarh Movement",
               "Progressive Writers Movement",
               "Modern literary trends"
             ]
           },
           {
-            "section": "8. Literary Criticism",
-            "marks": 12,
-            "subsections": [
+            section: "8. Literary Criticism",
+            marks: 12,
+            subsections: [
               "Development of literary criticism in Urdu",
               "Major Urdu critics and their works"
             ]
           },
           {
-            "section": "9. Urdu Literature in Pakistan",
-            "marks": 6,
-            "subsections": [
+            section: "9. Urdu Literature in Pakistan",
+            marks: 6,
+            subsections: [
               "Development of Urdu literature after independence",
               "Contribution of Pakistani writers to Urdu literature"
             ]
           }
         ]
-      }
-    ]
+      },
+    ],
   },
   {
-    "group": 6,
-    "name": "Group VI",
-    "selectionCriteria": "Select one subject - 100 marks",
-    "subjects": [
+    group: 13,
+    subjects: [
       {
-        "id": "law",
-        "name": "Law",
-        "marks": 100,
-        "icon": "⚖️",
-        "color": "bg-gray-600",
-        "progress": 0,
-        "syllabus": [
+        id: "international-law",
+        name: "International Law",
+        marks: 100,
+        icon: "🌍",
+        color: "bg-cyan-600",
+        progress: 0,
+        syllabus: [
           {
-            "section": "1. Introduction to Law",
-            "marks": 12,
-            "subsections": [
-              "Definition and nature of law",
-              "Importance and functions of law in society",
-              "Classification of law"
-            ]
-          },
-          {
-            "section": "2. Sources of Law",
-            "marks": 12,
-            "subsections": [
-              "Legislation",
-              "Customs",
-              "Judicial precedents",
-              "Islamic law as a source of law"
-            ]
-          },
-          {
-            "section": "3. Legal System",
-            "marks": 12,
-            "subsections": [
-              "Structure of the legal system",
-              "Civil and criminal law",
-              "Role of courts in the administration of justice"
-            ]
-          },
-          {
-            "section": "4. Constitution and Legal Framework",
-            "marks": 12,
-            "subsections": [
-              "Basic principles of constitutional law",
-              "Separation of powers",
-              "Rule of law"
-            ]
-          },
-          {
-            "section": "5. Court System in Pakistan",
-            "marks": 12,
-            "subsections": [
-              "Structure of courts in Pakistan",
-              "Jurisdiction of courts",
-              "Role of the Supreme Court and High Courts"
-            ]
-          },
-          {
-            "section": "6. Rights and Duties",
-            "marks": 12,
-            "subsections": [
-              "Fundamental rights",
-              "Legal duties and obligations",
-              "Protection of civil liberties"
-            ]
-          },
-          {
-            "section": "7. Legal Procedures",
-            "marks": 12,
-            "subsections": [
-              "Civil procedure",
-              "Criminal procedure",
-              "Evidence and legal proof"
-            ]
-          },
-          {
-            "section": "8. Legal Profession",
-            "marks": 4,
-            "subsections": [
-              "Role of lawyers and judges",
-              "Ethics of the legal profession",
-              "Responsibilities of legal practitioners"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "constitutional-law",
-        "name": "Constitutional Law",
-        "marks": 100,
-        "icon": "📜",
-        "color": "bg-zinc-500",
-        "progress": 0,
-        "syllabus": [
-          {
-            "section": "1. Introduction to Constitutional Law",
-            "marks": 11,
-            "subsections": [
-              "Definition and scope of constitutional law",
-              "Nature and importance of constitutions",
-              "Types of constitutions: written and unwritten"
-            ]
-          },
-          {
-            "section": "2. Principles of Constitutional Law",
-            "marks": 12,
-            "subsections": [
-              "Rule of law",
-              "Separation of powers",
-              "Checks and balances",
-              "Judicial review"
-            ]
-          },
-          {
-            "section": "3. Fundamental Rights",
-            "marks": 12,
-            "subsections": [
-              "Concept of fundamental rights",
-              "Protection of civil liberties",
-              "Enforcement of fundamental rights"
-            ]
-          },
-          {
-            "section": "4. Constitutional Development",
-            "marks": 11,
-            "subsections": [
-              "Historical evolution of constitutional systems",
-              "Development of democratic institutions"
-            ]
-          },
-          {
-            "section": "5. Constitution of the United Kingdom",
-            "marks": 12,
-            "subsections": [
-              "Features of the British constitution",
-              "Role of Parliament",
-              "Role of the Prime Minister and Cabinet",
-              "Constitutional monarchy"
-            ]
-          },
-          {
-            "section": "6. Constitution of the United States",
-            "marks": 12,
-            "subsections": [
-              "Federal system of government",
-              "Separation of powers",
-              "Role of Congress, President, and Supreme Court"
-            ]
-          },
-          {
-            "section": "7. Constitution of France",
-            "marks": 12,
-            "subsections": [
-              "Structure of government in France",
-              "Role of the President and Parliament",
-              "Constitutional framework of the Fifth Republic"
-            ]
-          },
-          {
-            "section": "8. Constitution of Pakistan",
-            "marks": 6,
-            "subsections": [
-              "Constitutional development in Pakistan",
-              "Features of the Constitution of 1973",
-              "Fundamental rights and institutions of governance"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "international-law",
-        "name": "International Law",
-        "marks": 100,
-        "icon": "🌍",
-        "color": "bg-cyan-600",
-        "progress": 0,
-        "syllabus": [
-          {
-            "section": "1. Introduction to International Law",
-            "marks": 11,
-            "subsections": [
+            section: "1. Introduction to International Law",
+            marks: 11,
+            subsections: [
               "Definition and nature of international law",
               "Historical development of international law",
               "Relationship between international law and municipal law"
             ]
           },
           {
-            "section": "2. Sources of International Law",
-            "marks": 12,
-            "subsections": [
+            section: "2. Sources of International Law",
+            marks: 12,
+            subsections: [
               "International treaties and conventions",
               "International customs",
               "General principles of law",
@@ -3349,99 +3351,104 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "3. Subjects of International Law",
-            "marks": 11,
-            "subsections": [
+            section: "3. Subjects of International Law",
+            marks: 11,
+            subsections: [
               "States as primary subjects",
               "International organizations",
               "Individuals in international law"
             ]
           },
           {
-            "section": "4. Recognition",
-            "marks": 11,
-            "subsections": [
+            section: "4. Recognition",
+            marks: 11,
+            subsections: [
               "Recognition of states",
               "Recognition of governments",
               "Legal effects of recognition"
             ]
           },
           {
-            "section": "5. State Sovereignty and Jurisdiction",
-            "marks": 11,
-            "subsections": [
+            section: "5. State Sovereignty and Jurisdiction",
+            marks: 11,
+            subsections: [
               "Concept of sovereignty",
               "Territorial jurisdiction",
               "Extradition and asylum"
             ]
           },
           {
-            "section": "6. Law of Treaties",
-            "marks": 12,
-            "subsections": [
+            section: "6. Law of Treaties",
+            marks: 12,
+            subsections: [
               "Formation of treaties",
               "Validity and interpretation of treaties",
               "Termination of treaties"
             ]
           },
           {
-            "section": "7. International Dispute Settlement",
-            "marks": 12,
-            "subsections": [
+            section: "7. International Dispute Settlement",
+            marks: 12,
+            subsections: [
               "Peaceful settlement of disputes",
               "Negotiation, mediation, and arbitration",
               "International Court of Justice"
             ]
           },
           {
-            "section": "8. Laws of War and Neutrality",
-            "marks": 12,
-            "subsections": [
+            section: "8. Laws of War and Neutrality",
+            marks: 12,
+            subsections: [
               "International humanitarian law",
               "Rights and duties of neutral states",
               "Protection of civilians during armed conflict"
             ]
           },
           {
-            "section": "9. International Organizations",
-            "marks": 8,
-            "subsections": [
+            section: "9. International Organizations",
+            marks: 8,
+            subsections: [
               "United Nations and its structure",
               "Role of international organizations in maintaining peace and security"
             ]
           }
         ]
       },
+    ],
+  },
+  {
+    group: 14,
+    subjects: [
       {
-        "id": "muslim-law-jurisprudence",
-        "name": "Muslim Law & Jurisprudence",
-        "marks": 100,
-        "icon": "⚖️",
-        "color": "bg-teal-700",
-        "progress": 0,
-        "syllabus": [
+        id: "muslim-law-jurisprudence",
+        name: "Muslim Law & Jurisprudence",
+        marks: 100,
+        icon: "⚖️",
+        color: "bg-teal-700",
+        progress: 0,
+        syllabus: [
           {
-            "section": "1. Introduction to Islamic Law",
-            "marks": 12,
-            "subsections": [
+            section: "1. Introduction to Islamic Law",
+            marks: 12,
+            subsections: [
               "Definition and nature of Islamic law",
               "Historical development of Muslim law",
               "Importance of Shariah in Islamic society"
             ]
           },
           {
-            "section": "2. Sources of Islamic Law",
-            "marks": 13,
-            "subsections": [
+            section: "2. Sources of Islamic Law",
+            marks: 13,
+            subsections: [
               "Primary sources: Quran, Sunnah",
               "Secondary sources: Ijma (consensus), Qiyas (analogy)",
               "Other sources: Ijtihad, Istihsan, Istislah"
             ]
           },
           {
-            "section": "3. Schools of Islamic Jurisprudence",
-            "marks": 12,
-            "subsections": [
+            section: "3. Schools of Islamic Jurisprudence",
+            marks: 12,
+            subsections: [
               "Hanafi school",
               "Maliki school",
               "Shafi'i school",
@@ -3449,45 +3456,45 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "4. Law of Marriage",
-            "marks": 13,
-            "subsections": [
+            section: "4. Law of Marriage",
+            marks: 13,
+            subsections: [
               "Concept and objectives of marriage in Islam",
               "Conditions and essentials of marriage",
               "Rights and duties of spouses"
             ]
           },
           {
-            "section": "5. Law of Divorce",
-            "marks": 12,
-            "subsections": [
+            section: "5. Law of Divorce",
+            marks: 12,
+            subsections: [
               "Types of divorce in Islamic law",
               "Talaq and Khula",
               "Legal implications of divorce"
             ]
           },
           {
-            "section": "6. Law of Inheritance",
-            "marks": 13,
-            "subsections": [
+            section: "6. Law of Inheritance",
+            marks: 13,
+            subsections: [
               "Principles of inheritance in Islam",
               "Distribution of property among heirs",
               "Categories of heirs"
             ]
           },
           {
-            "section": "7. Waqf (Endowment)",
-            "marks": 13,
-            "subsections": [
+            section: "7. Waqf (Endowment)",
+            marks: 13,
+            subsections: [
               "Definition and nature of waqf",
               "Creation and management of waqf",
               "Legal implications of waqf"
             ]
           },
           {
-            "section": "8. Administration of Justice in Islam",
-            "marks": 12,
-            "subsections": [
+            section: "8. Administration of Justice in Islam",
+            marks: 12,
+            subsections: [
               "Judicial system in Islamic law",
               "Role of Qazi (judge)",
               "Evidence and legal procedure"
@@ -3495,27 +3502,32 @@ export const optionalGroups = [
           }
         ]
       },
+    ],
+  },
+  {
+    group: 15,
+    subjects: [
       {
-        "id": "mercantile-law",
-        "name": "Mercantile Law",
-        "marks": 100,
-        "icon": "💼",
-        "color": "bg-slate-700",
-        "progress": 0,
-        "syllabus": [
+        id: "mercantile-law",
+        name: "Mercantile Law",
+        marks: 100,
+        icon: "💼",
+        color: "bg-slate-700",
+        progress: 0,
+        syllabus: [
           {
-            "section": "1. Contract Act, 1872",
-            "marks": 15,
-            "subsections": [
+            section: "1. Contract Act, 1872",
+            marks: 15,
+            subsections: [
               "Introduction to Contract: Definition, essential elements, offer and acceptance, consideration",
               "Capacity and Consent: Capacity to contract, free consent, coercion, undue influence, fraud, misrepresentation",
               "Performance and Discharge: Performance of contracts, breach of contract, remedies and damages"
             ]
           },
           {
-            "section": "2. Sale of Goods Act, 1930",
-            "marks": 12,
-            "subsections": [
+            section: "2. Sale of Goods Act, 1930",
+            marks: 12,
+            subsections: [
               "Definition and essential elements of a contract of sale",
               "Difference between sale and agreement to sell",
               "Conditions and warranties",
@@ -3525,9 +3537,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "3. Partnership Act, 1932",
-            "marks": 12,
-            "subsections": [
+            section: "3. Partnership Act, 1932",
+            marks: 12,
+            subsections: [
               "Definition of partnership and essentials",
               "Types of partnership",
               "Rights and duties of partners",
@@ -3537,9 +3549,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "4. Negotiable Instruments Act, 1881",
-            "marks": 12,
-            "subsections": [
+            section: "4. Negotiable Instruments Act, 1881",
+            marks: 12,
+            subsections: [
               "Definition of negotiable instruments",
               "Types: Cheque, Bill of exchange, Promissory note",
               "Parties to negotiable instruments",
@@ -3548,9 +3560,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "5. Competition Act, 2010",
-            "marks": 11,
-            "subsections": [
+            section: "5. Competition Act, 2010",
+            marks: 11,
+            subsections: [
               "Concept of competition law",
               "Prohibition of anti-competitive practices",
               "Abuse of dominant position",
@@ -3558,36 +3570,36 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "6. Electronic Transaction Ordinance, 2002",
-            "marks": 10,
-            "subsections": [
+            section: "6. Electronic Transaction Ordinance, 2002",
+            marks: 10,
+            subsections: [
               "Recognition of electronic documents and signatures",
               "Legal status of electronic transactions",
               "Certification service providers"
             ]
           },
           {
-            "section": "7. Arbitration Law in Pakistan",
-            "marks": 10,
-            "subsections": [
+            section: "7. Arbitration Law in Pakistan",
+            marks: 10,
+            subsections: [
               "Appointment and role of arbitrators",
               "Arbitration agreements",
               "Powers of courts in arbitration"
             ]
           },
           {
-            "section": "8. Consumer Protection Act, 2006",
-            "marks": 10,
-            "subsections": [
+            section: "8. Consumer Protection Act, 2006",
+            marks: 10,
+            subsections: [
               "Consumer rights and protection mechanisms",
               "Consumer courts and commissions",
               "Duties and liabilities of producers and sellers"
             ]
           },
           {
-            "section": "9. Companies Ordinance, 1984",
-            "marks": 8,
-            "subsections": [
+            section: "9. Companies Ordinance, 1984",
+            marks: 8,
+            subsections: [
               "Types of companies",
               "Memorandum and Articles of Association",
               "Shareholders and directors",
@@ -3597,36 +3609,41 @@ export const optionalGroups = [
           }
         ]
       },
+    ],
+  },
+  {
+    group: 16,
+    subjects: [
       {
-        "id": "criminology",
-        "name": "Criminology",
-        "marks": 100,
-        "icon": "🔍",
-        "color": "bg-red-700",
-        "progress": 0,
-        "syllabus": [
+        id: "criminology",
+        name: "Criminology",
+        marks: 100,
+        icon: "🔍",
+        color: "bg-red-700",
+        progress: 0,
+        syllabus: [
           {
-            "section": "1. Introduction to Criminology",
-            "marks": 11,
-            "subsections": [
+            section: "1. Introduction to Criminology",
+            marks: 11,
+            subsections: [
               "Definition and scope of criminology",
               "Nature and importance of criminology",
               "Relationship of criminology with other social sciences"
             ]
           },
           {
-            "section": "2. Crime and Criminal Behavior",
-            "marks": 12,
-            "subsections": [
+            section: "2. Crime and Criminal Behavior",
+            marks: 12,
+            subsections: [
               "Concept and definition of crime",
               "Types and classification of crime",
               "Causes of criminal behavior"
             ]
           },
           {
-            "section": "3. Schools of Criminology",
-            "marks": 12,
-            "subsections": [
+            section: "3. Schools of Criminology",
+            marks: 12,
+            subsections: [
               "Classical school",
               "Positivist school",
               "Neo-classical school",
@@ -3634,9 +3651,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "4. Theories of Crime",
-            "marks": 13,
-            "subsections": [
+            section: "4. Theories of Crime",
+            marks: 13,
+            subsections: [
               "Biological theories of crime",
               "Psychological theories of crime",
               "Sociological theories of crime",
@@ -3645,18 +3662,18 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "5. Juvenile Delinquency",
-            "marks": 11,
-            "subsections": [
+            section: "5. Juvenile Delinquency",
+            marks: 11,
+            subsections: [
               "Definition and causes of juvenile delinquency",
               "Prevention and control of juvenile crime",
               "Juvenile justice system"
             ]
           },
           {
-            "section": "6. Criminal Justice System",
-            "marks": 12,
-            "subsections": [
+            section: "6. Criminal Justice System",
+            marks: 12,
+            subsections: [
               "Structure of the criminal justice system",
               "Role of police",
               "Role of courts",
@@ -3664,96 +3681,102 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "7. Punishment and Rehabilitation",
-            "marks": 12,
-            "subsections": [
+            section: "7. Punishment and Rehabilitation",
+            marks: 12,
+            subsections: [
               "Theories of punishment",
               "Types of punishment",
               "Rehabilitation and correctional programs"
             ]
           },
           {
-            "section": "8. Victimology",
-            "marks": 11,
-            "subsections": [
+            section: "8. Victimology",
+            marks: 11,
+            subsections: [
               "Concept of victimology",
               "Victim rights and protection",
               "Impact of crime on victims"
             ]
           },
           {
-            "section": "9. Crime Prevention",
-            "marks": 6,
-            "subsections": [
+            section: "9. Crime Prevention",
+            marks: 6,
+            subsections: [
               "Strategies for crime prevention",
               "Role of community and institutions in crime control"
             ]
           }
         ]
       },
+    ],
+  },
+  {
+    id: 17,
+    name: "Group XVII",
+    subjects: [
       {
-        "id": "philosophy",
-        "name": "Philosophy",
-        "marks": 100,
-        "icon": "🧠",
-        "color": "from-violet-600 to-indigo-600",
-        "progress": 0,
-        "syllabus": [
+        id: "philosophy",
+        name: "Philosophy",
+        marks: 100,
+        icon: "🧠",
+        color: "from-violet-600 to-indigo-600",
+        progress: 0,
+        syllabus: [
           {
-            "section": "Introduction to Philosophy",
-            "marks": 10,
-            "subsections": [
+            section: "Introduction to Philosophy",
+            marks: 10,
+            subsections: [
               "Definition and scope of philosophy",
               "Branches of philosophy",
               "Relationship between philosophy, religion, and science"
             ]
           },
           {
-            "section": "Greek Philosophy",
-            "marks": 12,
-            "subsections": [
+            section: "Greek Philosophy",
+            marks: 12,
+            subsections: [
               "Socrates and the Socratic method",
               "Plato and his theory of ideas",
               "Aristotle and his contributions to logic and ethics"
             ]
           },
           {
-            "section": "Medieval Philosophy",
-            "marks": 11,
-            "subsections": [
+            section: "Medieval Philosophy",
+            marks: 11,
+            subsections: [
               "Influence of religion on philosophy",
               "Contributions of St. Augustine",
               "Contributions of St. Thomas Aquinas"
             ]
           },
           {
-            "section": "Modern Philosophy",
-            "marks": 12,
-            "subsections": [
+            section: "Modern Philosophy",
+            marks: 12,
+            subsections: [
               "Rationalism: Descartes, Spinoza, Leibniz",
               "Empiricism: Locke, Berkeley, Hume"
             ]
           },
           {
-            "section": "Kant and German Idealism",
-            "marks": 11,
-            "subsections": [
+            section: "Kant and German Idealism",
+            marks: 11,
+            subsections: [
               "Philosophy of Immanuel Kant",
               "German idealism and its influence"
             ]
           },
           {
-            "section": "Existentialism",
-            "marks": 11,
-            "subsections": [
+            section: "Existentialism",
+            marks: 11,
+            subsections: [
               "Major ideas of existentialism",
               "Contributions of Kierkegaard, Nietzsche, and Sartre"
             ]
           },
           {
-            "section": "Islamic Philosophy",
-            "marks": 13,
-            "subsections": [
+            section: "Islamic Philosophy",
+            marks: 13,
+            subsections: [
               "Contributions of Al-Farabi",
               "Contributions of Ibn Sina (Avicenna)",
               "Contributions of Al-Ghazali",
@@ -3761,138 +3784,43 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Logic",
-            "marks": 11,
-            "subsections": [
+            section: "Logic",
+            marks: 11,
+            subsections: [
               "Basic principles of logic",
               "Deductive and inductive reasoning",
               "Logical fallacies"
             ]
           },
           {
-            "section": "Ethics",
-            "marks": 9,
-            "subsections": [
+            section: "Ethics",
+            marks: 9,
+            subsections: [
               "Concepts of good and evil",
               "Moral philosophy",
               "Major ethical theories"
             ]
           }
         ]
-      }
-    ]
+      },
+    ],
   },
   {
-    "group": 7,
-    "name": "Group VII",
-    "selectionCriteria": "Select one subject - 100 marks",
-    "subjects": [
+    id: 18,
+    name: "Group XVIII",
+    subjects: [
       {
-        "id": "journalism-mass-communication",
-        "name": "Journalism & Mass Communication",
-        "marks": 100,
-        "icon": "📰",
-        "color": "from-rose-600 to-red-600",
-        "progress": 0,
-        "syllabus": [
+        id: "psychology",
+        name: "Psychology",
+        marks: 100,
+        icon: "💭",
+        color: "from-purple-600 to-pink-600",
+        progress: 0,
+        syllabus: [
           {
-            "section": "Introduction to Mass Communication",
-            "marks": 10,
-            "subsections": [
-              "Definition and scope of mass communication",
-              "Functions of mass media",
-              "Types of mass media (print, electronic, digital)"
-            ]
-          },
-          {
-            "section": "History of Journalism",
-            "marks": 11,
-            "subsections": [
-              "Development of journalism in the world",
-              "Evolution of journalism in the subcontinent",
-              "Development of journalism in Pakistan"
-            ]
-          },
-          {
-            "section": "News and Reporting",
-            "marks": 12,
-            "subsections": [
-              "Definition and elements of news",
-              "News values and news sources",
-              "Reporting techniques",
-              "Interviewing skills"
-            ]
-          },
-          {
-            "section": "Editing and News Writing",
-            "marks": 11,
-            "subsections": [
-              "Principles of editing",
-              "Headline writing",
-              "Structure of news stories",
-              "Editorial writing"
-            ]
-          },
-          {
-            "section": "Communication Theories",
-            "marks": 12,
-            "subsections": [
-              "Hypodermic needle theory",
-              "Two-step flow theory",
-              "Agenda-setting theory",
-              "Uses and gratifications theory"
-            ]
-          },
-          {
-            "section": "Media Ethics and Laws",
-            "marks": 11,
-            "subsections": [
-              "Ethical standards in journalism",
-              "Freedom of the press",
-              "Media laws and regulations"
-            ]
-          },
-          {
-            "section": "Public Relations and Advertising",
-            "marks": 11,
-            "subsections": [
-              "Concept of public relations",
-              "Role of advertising in media",
-              "Communication strategies"
-            ]
-          },
-          {
-            "section": "Electronic and Digital Media",
-            "marks": 11,
-            "subsections": [
-              "Television and radio broadcasting",
-              "Online journalism and social media",
-              "Impact of digital media on communication"
-            ]
-          },
-          {
-            "section": "Media and Society",
-            "marks": 11,
-            "subsections": [
-              "Role of media in shaping public opinion",
-              "Media and democracy",
-              "Media influence on culture and politics"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "psychology",
-        "name": "Psychology",
-        "marks": 100,
-        "icon": "💭",
-        "color": "from-purple-600 to-pink-600",
-        "progress": 0,
-        "syllabus": [
-          {
-            "section": "Introduction to Psychology",
-            "marks": 10,
-            "subsections": [
+            section: "Introduction to Psychology",
+            marks: 10,
+            subsections: [
               "Definition and scope of psychology",
               "Historical development of psychology",
               "Branches of psychology",
@@ -3900,27 +3828,27 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Biological Basis of Behavior",
-            "marks": 11,
-            "subsections": [
+            section: "Biological Basis of Behavior",
+            marks: 11,
+            subsections: [
               "Structure and functions of the nervous system",
               "Brain and its functions",
               "Hormones and behavior"
             ]
           },
           {
-            "section": "Sensation and Perception",
-            "marks": 11,
-            "subsections": [
+            section: "Sensation and Perception",
+            marks: 11,
+            subsections: [
               "Sensory processes",
               "Perception and interpretation of stimuli",
               "Factors affecting perception"
             ]
           },
           {
-            "section": "Learning",
-            "marks": 12,
-            "subsections": [
+            section: "Learning",
+            marks: 12,
+            subsections: [
               "Classical conditioning",
               "Operant conditioning",
               "Observational learning",
@@ -3928,45 +3856,45 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Memory",
-            "marks": 11,
-            "subsections": [
+            section: "Memory",
+            marks: 11,
+            subsections: [
               "Types of memory",
               "Processes of memory (encoding, storage, retrieval)",
               "Forgetting and memory improvement"
             ]
           },
           {
-            "section": "Motivation and Emotion",
-            "marks": 11,
-            "subsections": [
+            section: "Motivation and Emotion",
+            marks: 11,
+            subsections: [
               "Theories of motivation",
               "Biological and psychological motives",
               "Nature and expression of emotions"
             ]
           },
           {
-            "section": "Personality",
-            "marks": 12,
-            "subsections": [
+            section: "Personality",
+            marks: 12,
+            subsections: [
               "Theories of personality",
               "Personality development",
               "Assessment of personality"
             ]
           },
           {
-            "section": "Intelligence",
-            "marks": 11,
-            "subsections": [
+            section: "Intelligence",
+            marks: 11,
+            subsections: [
               "Concepts and theories of intelligence",
               "Intelligence testing",
               "Factors affecting intelligence"
             ]
           },
           {
-            "section": "Social Psychology",
-            "marks": 11,
-            "subsections": [
+            section: "Social Psychology",
+            marks: 11,
+            subsections: [
               "Social behavior and attitudes",
               "Group dynamics",
               "Social influence and conformity"
@@ -3974,129 +3902,33 @@ export const optionalGroups = [
           }
         ]
       },
+    ],
+  },
+  {
+    id: 19,
+    name: "Group XIX",
+    subjects: [
       {
-        "id": "geography",
-        "name": "Geography",
-        "marks": 100,
-        "icon": "🌍",
-        "color": "from-green-600 to-teal-600",
-        "progress": 0,
-        "syllabus": [
+        id: "sociology",
+        name: "Sociology",
+        marks: 100,
+        icon: "👥",
+        color: "from-cyan-600 to-teal-600",
+        progress: 0,
+        syllabus: [
           {
-            "section": "Paper I - Introduction to Geography",
-            "marks": 20,
-            "subsections": [
-              "Definition and scope of geography",
-              "Branches of geography",
-              "Importance of geographical studies"
-            ]
-          },
-          {
-            "section": "Paper I - The Earth",
-            "marks": 20,
-            "subsections": [
-              "Origin and structure of the Earth",
-              "Latitude and longitude",
-              "Time zones and map projections"
-            ]
-          },
-          {
-            "section": "Paper I - Geomorphology",
-            "marks": 20,
-            "subsections": [
-              "Landforms and their formation",
-              "Weathering and erosion",
-              "Rivers, glaciers, and deserts"
-            ]
-          },
-          {
-            "section": "Paper I - Climatology",
-            "marks": 20,
-            "subsections": [
-              "Structure of the atmosphere",
-              "Weather and climate",
-              "Global wind systems",
-              "Climate change and global warming"
-            ]
-          },
-          {
-            "section": "Paper I - Oceanography",
-            "marks": 20,
-            "subsections": [
-              "Physical characteristics of oceans",
-              "Ocean currents",
-              "Tides and waves",
-              "Marine resources"
-            ]
-          },
-          {
-            "section": "Paper II - Human Geography",
-            "marks": 20,
-            "subsections": [
-              "Population distribution and growth",
-              "Migration and urbanization",
-              "Cultural geography"
-            ]
-          },
-          {
-            "section": "Paper II - Economic Geography",
-            "marks": 20,
-            "subsections": [
-              "Agriculture and food production",
-              "Industrial development",
-              "Transportation and trade"
-            ]
-          },
-          {
-            "section": "Paper II - Political Geography",
-            "marks": 20,
-            "subsections": [
-              "Concept of political geography",
-              "Boundaries and geopolitics",
-              "Role of geography in international relations"
-            ]
-          },
-          {
-            "section": "Paper II - Environmental Geography",
-            "marks": 20,
-            "subsections": [
-              "Human impact on the environment",
-              "Resource management",
-              "Sustainable development"
-            ]
-          },
-          {
-            "section": "Paper II - Geography of Pakistan",
-            "marks": 20,
-            "subsections": [
-              "Physical geography of Pakistan",
-              "Climate and natural resources",
-              "Population and economic activities"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "sociology",
-        "name": "Sociology",
-        "marks": 100,
-        "icon": "👥",
-        "color": "from-cyan-600 to-teal-600",
-        "progress": 0,
-        "syllabus": [
-          {
-            "section": "Introduction to Sociology",
-            "marks": 10,
-            "subsections": [
+            section: "Introduction to Sociology",
+            marks: 10,
+            subsections: [
               "Definition and scope of sociology",
               "Development of sociology as a discipline",
               "Relationship of sociology with other social sciences"
             ]
           },
           {
-            "section": "Sociological Theories",
-            "marks": 13,
-            "subsections": [
+            section: "Sociological Theories",
+            marks: 13,
+            subsections: [
               "Functionalism",
               "Conflict theory",
               "Symbolic interactionism",
@@ -4107,36 +3939,36 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Social Structure",
-            "marks": 10,
-            "subsections": [
+            section: "Social Structure",
+            marks: 10,
+            subsections: [
               "Components of social structure",
               "Social status and roles",
               "Social groups and organizations"
             ]
           },
           {
-            "section": "Culture",
-            "marks": 11,
-            "subsections": [
+            section: "Culture",
+            marks: 11,
+            subsections: [
               "Elements of culture",
               "Cultural values and norms",
               "Cultural change and diversity"
             ]
           },
           {
-            "section": "Socialization",
-            "marks": 11,
-            "subsections": [
+            section: "Socialization",
+            marks: 11,
+            subsections: [
               "Process of socialization",
               "Agents of socialization (family, education, media)",
               "Importance of socialization in personality development"
             ]
           },
           {
-            "section": "Social Institutions",
-            "marks": 12,
-            "subsections": [
+            section: "Social Institutions",
+            marks: 12,
+            subsections: [
               "Family",
               "Religion",
               "Education",
@@ -4145,27 +3977,27 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Social Stratification",
-            "marks": 11,
-            "subsections": [
+            section: "Social Stratification",
+            marks: 11,
+            subsections: [
               "Concept of social inequality",
               "Class system and caste system",
               "Social mobility"
             ]
           },
           {
-            "section": "Social Change",
-            "marks": 11,
-            "subsections": [
+            section: "Social Change",
+            marks: 11,
+            subsections: [
               "Causes of social change",
               "Modernization and globalization",
               "Impact of technological development on society"
             ]
           },
           {
-            "section": "Sociological Issues in Pakistan",
-            "marks": 11,
-            "subsections": [
+            section: "Sociological Issues in Pakistan",
+            marks: 11,
+            subsections: [
               "Population growth",
               "Urbanization",
               "Poverty and inequality",
@@ -4174,27 +4006,133 @@ export const optionalGroups = [
           }
         ]
       },
+    ],
+  },
+  {
+    id: 20,
+    name: "Group XX",
+    subjects: [
       {
-        "id": "anthropology",
-        "name": "Anthropology",
-        "marks": 100,
-        "icon": "🗿",
-        "color": "from-amber-600 to-orange-600",
-        "progress": 0,
-        "syllabus": [
+        id: "journalism-mass-communication",
+        name: "Journalism & Mass Communication",
+        marks: 100,
+        icon: "📰",
+        color: "from-rose-600 to-red-600",
+        progress: 0,
+        syllabus: [
           {
-            "section": "Introduction to Anthropology",
-            "marks": 10,
-            "subsections": [
+            section: "Introduction to Mass Communication",
+            marks: 10,
+            subsections: [
+              "Definition and scope of mass communication",
+              "Functions of mass media",
+              "Types of mass media (print, electronic, digital)"
+            ]
+          },
+          {
+            section: "History of Journalism",
+            marks: 11,
+            subsections: [
+              "Development of journalism in the world",
+              "Evolution of journalism in the subcontinent",
+              "Development of journalism in Pakistan"
+            ]
+          },
+          {
+            section: "News and Reporting",
+            marks: 12,
+            subsections: [
+              "Definition and elements of news",
+              "News values and news sources",
+              "Reporting techniques",
+              "Interviewing skills"
+            ]
+          },
+          {
+            section: "Editing and News Writing",
+            marks: 11,
+            subsections: [
+              "Principles of editing",
+              "Headline writing",
+              "Structure of news stories",
+              "Editorial writing"
+            ]
+          },
+          {
+            section: "Communication Theories",
+            marks: 12,
+            subsections: [
+              "Hypodermic needle theory",
+              "Two-step flow theory",
+              "Agenda-setting theory",
+              "Uses and gratifications theory"
+            ]
+          },
+          {
+            section: "Media Ethics and Laws",
+            marks: 11,
+            subsections: [
+              "Ethical standards in journalism",
+              "Freedom of the press",
+              "Media laws and regulations"
+            ]
+          },
+          {
+            section: "Public Relations and Advertising",
+            marks: 11,
+            subsections: [
+              "Concept of public relations",
+              "Role of advertising in media",
+              "Communication strategies"
+            ]
+          },
+          {
+            section: "Electronic and Digital Media",
+            marks: 11,
+            subsections: [
+              "Television and radio broadcasting",
+              "Online journalism and social media",
+              "Impact of digital media on communication"
+            ]
+          },
+          {
+            section: "Media and Society",
+            marks: 11,
+            subsections: [
+              "Role of media in shaping public opinion",
+              "Media and democracy",
+              "Media influence on culture and politics"
+            ]
+          }
+        ]
+      },
+    ],
+  },
+  {
+    id: 21,
+    name: "Group XXI",
+    subjects: [
+      {
+        id: "anthropology",
+        name: "Anthropology",
+        marks: 100,
+        icon: "🗿",
+        color: "from-amber-600 to-orange-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Introduction to Anthropology",
+            marks: 10,
+            subsections: [
               "Definition and scope of anthropology",
               "Branches of anthropology",
               "Importance of anthropological studies"
             ]
           },
           {
-            "section": "Biological Anthropology",
-            "marks": 12,
-            "subsections": [
+            section: "Biological Anthropology",
+            marks: 12,
+            subsections: [
               "Human evolution",
               "Human biological variation",
               "Genetics and inheritance",
@@ -4202,62 +4140,62 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Cultural Anthropology",
-            "marks": 11,
-            "subsections": [
+            section: "Cultural Anthropology",
+            marks: 11,
+            subsections: [
               "Concept of culture",
               "Cultural patterns and diversity",
               "Cultural change and diffusion"
             ]
           },
           {
-            "section": "Social Organization",
-            "marks": 11,
-            "subsections": [
+            section: "Social Organization",
+            marks: 11,
+            subsections: [
               "Kinship systems",
               "Marriage and family structures",
               "Social groups and institutions"
             ]
           },
           {
-            "section": "Economic and Political Systems",
-            "marks": 11,
-            "subsections": [
+            section: "Economic and Political Systems",
+            marks: 11,
+            subsections: [
               "Traditional economic systems",
               "Exchange and trade in societies",
               "Political organization in different cultures"
             ]
           },
           {
-            "section": "Religion and Belief Systems",
-            "marks": 11,
-            "subsections": [
+            section: "Religion and Belief Systems",
+            marks: 11,
+            subsections: [
               "Role of religion in society",
               "Types of religious beliefs and rituals",
               "Anthropology of religion"
             ]
           },
           {
-            "section": "Archaeology",
-            "marks": 11,
-            "subsections": [
+            section: "Archaeology",
+            marks: 11,
+            subsections: [
               "Study of ancient human societies",
               "Archaeological methods and discoveries",
               "Importance of archaeological evidence"
             ]
           },
           {
-            "section": "Applied Anthropology",
-            "marks": 11,
-            "subsections": [
+            section: "Applied Anthropology",
+            marks: 11,
+            subsections: [
               "Use of anthropology in development and policy",
               "Anthropology in health, education, and social planning"
             ]
           },
           {
-            "section": "Anthropology in Pakistan",
-            "marks": 12,
-            "subsections": [
+            section: "Anthropology in Pakistan",
+            marks: 12,
+            subsections: [
               "Cultural diversity in Pakistan",
               "Ethnic groups and traditions",
               "Anthropological studies of Pakistani society"
@@ -4265,27 +4203,141 @@ export const optionalGroups = [
           }
         ]
       },
+    ],
+  },
+  {
+    id: 22,
+    name: "Group XXII",
+    subjects: [
       {
-        "id": "punjabi",
-        "name": "Punjabi",
-        "marks": 100,
-        "icon": "📖",
-        "color": "from-yellow-600 to-amber-600",
-        "progress": 0,
-        "syllabus": [
+        id: "geography",
+        name: "Geography",
+        marks: 200,
+        icon: "🌍",
+        color: "from-green-600 to-teal-600",
+        progress: 0,
+        syllabus: [
           {
-            "section": "Origin and Development of Punjabi Language",
-            "marks": 14,
-            "subsections": [
+            section: "Paper I - Introduction to Geography",
+            marks: 20,
+            subsections: [
+              "Definition and scope of geography",
+              "Branches of geography",
+              "Importance of geographical studies"
+            ]
+          },
+          {
+            section: "Paper I - The Earth",
+            marks: 20,
+            subsections: [
+              "Origin and structure of the Earth",
+              "Latitude and longitude",
+              "Time zones and map projections"
+            ]
+          },
+          {
+            section: "Paper I - Geomorphology",
+            marks: 20,
+            subsections: [
+              "Landforms and their formation",
+              "Weathering and erosion",
+              "Rivers, glaciers, and deserts"
+            ]
+          },
+          {
+            section: "Paper I - Climatology",
+            marks: 20,
+            subsections: [
+              "Structure of the atmosphere",
+              "Weather and climate",
+              "Global wind systems",
+              "Climate change and global warming"
+            ]
+          },
+          {
+            section: "Paper I - Oceanography",
+            marks: 20,
+            subsections: [
+              "Physical characteristics of oceans",
+              "Ocean currents",
+              "Tides and waves",
+              "Marine resources"
+            ]
+          },
+          {
+            section: "Paper II - Human Geography",
+            marks: 20,
+            subsections: [
+              "Population distribution and growth",
+              "Migration and urbanization",
+              "Cultural geography"
+            ]
+          },
+          {
+            section: "Paper II - Economic Geography",
+            marks: 20,
+            subsections: [
+              "Agriculture and food production",
+              "Industrial development",
+              "Transportation and trade"
+            ]
+          },
+          {
+            section: "Paper II - Political Geography",
+            marks: 20,
+            subsections: [
+              "Concept of political geography",
+              "Boundaries and geopolitics",
+              "Role of geography in international relations"
+            ]
+          },
+          {
+            section: "Paper II - Environmental Geography",
+            marks: 20,
+            subsections: [
+              "Human impact on the environment",
+              "Resource management",
+              "Sustainable development"
+            ]
+          },
+          {
+            section: "Paper II - Geography of Pakistan",
+            marks: 20,
+            subsections: [
+              "Physical geography of Pakistan",
+              "Climate and natural resources",
+              "Population and economic activities"
+            ]
+          }
+        ]
+      },
+    ],
+  },
+  {
+    id: 23,
+    name: "Group XXIII",
+    subjects: [
+      {
+        id: "punjabi",
+        name: "Punjabi",
+        marks: 100,
+        icon: "📖",
+        color: "from-yellow-600 to-amber-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Origin and Development of Punjabi Language",
+            marks: 14,
+            subsections: [
               "Historical background of Punjabi",
               "Linguistic characteristics of Punjabi",
               "Development of Punjabi literature"
             ]
           },
           {
-            "section": "Classical Punjabi Poetry",
-            "marks": 15,
-            "subsections": [
+            section: "Classical Punjabi Poetry",
+            marks: 15,
+            subsections: [
               "Study of Shah Hussain and his works",
               "Study of Sultan Bahu and his works",
               "Study of Bulleh Shah and his works",
@@ -4296,18 +4348,18 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Punjabi Folk Literature",
-            "marks": 14,
-            "subsections": [
+            section: "Punjabi Folk Literature",
+            marks: 14,
+            subsections: [
               "Folk poetry and folk songs",
               "Folktales and legends",
               "Cultural traditions in Punjabi folklore"
             ]
           },
           {
-            "section": "Modern Punjabi Literature",
-            "marks": 15,
-            "subsections": [
+            section: "Modern Punjabi Literature",
+            marks: 15,
+            subsections: [
               "Development of modern Punjabi literature and its themes",
               "Major poets: Mian Muhammad Bakhsh",
               "Major poets: Baba Farid",
@@ -4315,9 +4367,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Punjabi Prose",
-            "marks": 14,
-            "subsections": [
+            section: "Punjabi Prose",
+            marks: 14,
+            subsections: [
               "Development of Punjabi prose",
               "Essays and short stories",
               "Novels",
@@ -4325,44 +4377,50 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Literary Criticism",
-            "marks": 14,
-            "subsections": [
+            section: "Literary Criticism",
+            marks: 14,
+            subsections: [
               "Principles of literary criticism in Punjabi literature",
               "Contributions of major Punjabi critics"
             ]
           },
           {
-            "section": "Punjabi Literature in Pakistan",
-            "marks": 14,
-            "subsections": [
+            section: "Punjabi Literature in Pakistan",
+            marks: 14,
+            subsections: [
               "Development of Punjabi literature after independence",
               "Cultural significance of Punjabi literature"
             ]
           }
         ]
       },
+    ],
+  },
+  {
+    id: 24,
+    name: "Group XXIV",
+    subjects: [
       {
-        "id": "sindhi",
-        "name": "Sindhi",
-        "marks": 100,
-        "icon": "📜",
-        "color": "from-lime-600 to-green-600",
-        "progress": 0,
-        "syllabus": [
+        id: "sindhi",
+        name: "Sindhi",
+        marks: 100,
+        icon: "📜",
+        color: "from-lime-600 to-green-600",
+        progress: 0,
+        syllabus: [
           {
-            "section": "Origin and Development of Sindhi Language",
-            "marks": 14,
-            "subsections": [
+            section: "Origin and Development of Sindhi Language",
+            marks: 14,
+            subsections: [
               "Historical background of Sindhi language",
               "Linguistic characteristics of Sindhi",
               "Evolution of Sindhi literature"
             ]
           },
           {
-            "section": "Classical Sindhi Poetry",
-            "marks": 15,
-            "subsections": [
+            section: "Classical Sindhi Poetry",
+            marks: 15,
+            subsections: [
               "Study of Shah Abdul Latif Bhittai and his works",
               "Study of Sachal Sarmast and his works",
               "Study of Sami and his works",
@@ -4372,27 +4430,27 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Sindhi Folk Literature",
-            "marks": 14,
-            "subsections": [
+            section: "Sindhi Folk Literature",
+            marks: 14,
+            subsections: [
               "Folk songs and poetry",
               "Folktales and legends",
               "Cultural traditions reflected in Sindhi folklore"
             ]
           },
           {
-            "section": "Modern Sindhi Literature",
-            "marks": 15,
-            "subsections": [
+            section: "Modern Sindhi Literature",
+            marks: 15,
+            subsections: [
               "Development of modern Sindhi literature and its themes",
               "Major writer: Shaikh Ayaz",
               "Major writer: Mirza Qaleech Beg"
             ]
           },
           {
-            "section": "Sindhi Prose",
-            "marks": 14,
-            "subsections": [
+            section: "Sindhi Prose",
+            marks: 14,
+            subsections: [
               "Development of Sindhi prose",
               "Essays and short stories",
               "Novels",
@@ -4400,44 +4458,50 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Literary Criticism",
-            "marks": 14,
-            "subsections": [
+            section: "Literary Criticism",
+            marks: 14,
+            subsections: [
               "Principles of literary criticism in Sindhi literature",
               "Contributions of major Sindhi critics"
             ]
           },
           {
-            "section": "Sindhi Literature in Pakistan",
-            "marks": 14,
-            "subsections": [
+            section: "Sindhi Literature in Pakistan",
+            marks: 14,
+            subsections: [
               "Development of Sindhi literature after independence",
               "Role of Sindhi literature in cultural preservation"
             ]
           }
         ]
       },
+    ],
+  },
+  {
+    id: 25,
+    name: "Group XXV",
+    subjects: [
       {
-        "id": "pashto",
-        "name": "Pashto",
-        "marks": 100,
-        "icon": "🎭",
-        "color": "from-blue-600 to-cyan-600",
-        "progress": 0,
-        "syllabus": [
+        id: "pashto",
+        name: "Pashto",
+        marks: 100,
+        icon: "🎭",
+        color: "from-blue-600 to-cyan-600",
+        progress: 0,
+        syllabus: [
           {
-            "section": "Origin and Development of Pashto Language",
-            "marks": 14,
-            "subsections": [
+            section: "Origin and Development of Pashto Language",
+            marks: 14,
+            subsections: [
               "Historical background of Pashto",
               "Linguistic characteristics of the Pashto language",
               "Development of Pashto literature"
             ]
           },
           {
-            "section": "Classical Pashto Poetry",
-            "marks": 15,
-            "subsections": [
+            section: "Classical Pashto Poetry",
+            marks: 15,
+            subsections: [
               "Study of Khushal Khan Khattak and his works",
               "Study of Rehman Baba and his works",
               "Study of Hamza Baba and his works",
@@ -4447,27 +4511,27 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Pashto Folk Literature",
-            "marks": 14,
-            "subsections": [
+            section: "Pashto Folk Literature",
+            marks: 14,
+            subsections: [
               "Folk songs and poetry",
               "Folktales and legends",
               "Cultural traditions reflected in Pashto folklore"
             ]
           },
           {
-            "section": "Modern Pashto Literature",
-            "marks": 15,
-            "subsections": [
+            section: "Modern Pashto Literature",
+            marks: 15,
+            subsections: [
               "Development of modern Pashto literature and its themes",
               "Major writer: Ghani Khan",
               "Major writer: Hamza Shinwari"
             ]
           },
           {
-            "section": "Pashto Prose",
-            "marks": 14,
-            "subsections": [
+            section: "Pashto Prose",
+            marks: 14,
+            subsections: [
               "Development of Pashto prose",
               "Essays and short stories",
               "Novels",
@@ -4475,44 +4539,50 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Literary Criticism",
-            "marks": 14,
-            "subsections": [
+            section: "Literary Criticism",
+            marks: 14,
+            subsections: [
               "Principles of literary criticism in Pashto literature",
               "Contributions of major Pashto critics"
             ]
           },
           {
-            "section": "Pashto Literature in Pakistan",
-            "marks": 14,
-            "subsections": [
+            section: "Pashto Literature in Pakistan",
+            marks: 14,
+            subsections: [
               "Development of Pashto literature after independence",
               "Cultural significance of Pashto literature"
             ]
           }
         ]
       },
+    ],
+  },
+  {
+    id: 26,
+    name: "Group XXVI",
+    subjects: [
       {
-        "id": "balochi",
-        "name": "Balochi",
-        "marks": 100,
-        "icon": "🏜️",
-        "color": "from-orange-600 to-yellow-600",
-        "progress": 0,
-        "syllabus": [
+        id: "balochi",
+        name: "Balochi",
+        marks: 100,
+        icon: "🏜️",
+        color: "from-orange-600 to-yellow-600",
+        progress: 0,
+        syllabus: [
           {
-            "section": "Origin and Development of Balochi Language",
-            "marks": 14,
-            "subsections": [
+            section: "Origin and Development of Balochi Language",
+            marks: 14,
+            subsections: [
               "Historical background of the Balochi language",
               "Linguistic characteristics of Balochi",
               "Evolution of Balochi literature"
             ]
           },
           {
-            "section": "Classical Balochi Poetry",
-            "marks": 15,
-            "subsections": [
+            section: "Classical Balochi Poetry",
+            marks: 15,
+            subsections: [
               "Study of Jam Durrak and his works",
               "Study of Mast Tawakali and his works",
               "Study of Gul Khan Naseer and his works",
@@ -4522,27 +4592,27 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Balochi Folk Literature",
-            "marks": 14,
-            "subsections": [
+            section: "Balochi Folk Literature",
+            marks: 14,
+            subsections: [
               "Folk poetry and folk songs",
               "Folktales and legends",
               "Oral traditions in Balochi culture"
             ]
           },
           {
-            "section": "Modern Balochi Literature",
-            "marks": 15,
-            "subsections": [
+            section: "Modern Balochi Literature",
+            marks: 15,
+            subsections: [
               "Development of modern Balochi literature and its themes",
               "Major writer: Atta Shad",
               "Major writer: Gul Khan Naseer"
             ]
           },
           {
-            "section": "Balochi Prose",
-            "marks": 14,
-            "subsections": [
+            section: "Balochi Prose",
+            marks: 14,
+            subsections: [
               "Development of Balochi prose",
               "Essays and short stories",
               "Novels",
@@ -4550,44 +4620,50 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Literary Criticism",
-            "marks": 14,
-            "subsections": [
+            section: "Literary Criticism",
+            marks: 14,
+            subsections: [
               "Principles of literary criticism in Balochi literature",
               "Contributions of major Balochi critics"
             ]
           },
           {
-            "section": "Balochi Literature in Pakistan",
-            "marks": 14,
-            "subsections": [
+            section: "Balochi Literature in Pakistan",
+            marks: 14,
+            subsections: [
               "Development of Balochi literature after independence",
               "Cultural and literary importance of the Balochi language"
             ]
           }
         ]
       },
+    ],
+  },
+  {
+    id: 27,
+    name: "Group XXVII",
+    subjects: [
       {
-        "id": "persian",
-        "name": "Persian",
-        "marks": 100,
-        "icon": "📚",
-        "color": "from-indigo-600 to-purple-600",
-        "progress": 0,
-        "syllabus": [
+        id: "persian",
+        name: "Persian",
+        marks: 100,
+        icon: "📚",
+        color: "from-indigo-600 to-purple-600",
+        progress: 0,
+        syllabus: [
           {
-            "section": "Origin and Development of Persian Language",
-            "marks": 14,
-            "subsections": [
+            section: "Origin and Development of Persian Language",
+            marks: 14,
+            subsections: [
               "Historical development of Persian language",
               "Influence of Persian on other languages",
               "Importance of Persian literature in Islamic civilization"
             ]
           },
           {
-            "section": "Classical Persian Poetry",
-            "marks": 15,
-            "subsections": [
+            section: "Classical Persian Poetry",
+            marks: 15,
+            subsections: [
               "Study of Firdawsi and his literary works",
               "Study of Saadi and his literary works",
               "Study of Hafiz Shirazi and his literary works",
@@ -4599,9 +4675,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Persian Prose",
-            "marks": 14,
-            "subsections": [
+            section: "Persian Prose",
+            marks: 14,
+            subsections: [
               "Development of Persian prose",
               "Historical writings",
               "Essays and biographical works",
@@ -4609,9 +4685,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Persian Literary Forms",
-            "marks": 14,
-            "subsections": [
+            section: "Persian Literary Forms",
+            marks: 14,
+            subsections: [
               "Ghazal",
               "Masnavi",
               "Rubai",
@@ -4619,52 +4695,58 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Modern Persian Literature",
-            "marks": 14,
-            "subsections": [
+            section: "Modern Persian Literature",
+            marks: 14,
+            subsections: [
               "Development of modern Persian literature",
               "Modern literary trends and writers"
             ]
           },
           {
-            "section": "Translation",
-            "marks": 14,
-            "subsections": [
+            section: "Translation",
+            marks: 14,
+            subsections: [
               "Translation of Persian passages into English or Urdu",
               "Understanding and interpretation of classical texts"
             ]
           },
           {
-            "section": "Literary Criticism",
-            "marks": 15,
-            "subsections": [
+            section: "Literary Criticism",
+            marks: 15,
+            subsections: [
               "Principles of literary criticism in Persian literature",
               "Contributions of major Persian scholars"
             ]
           }
         ]
       },
+    ],
+  },
+  {
+    id: 28,
+    name: "Group XXVIII",
+    subjects: [
       {
-        "id": "arabic",
-        "name": "Arabic",
-        "marks": 100,
-        "icon": "🕌",
-        "color": "from-red-600 to-rose-600",
-        "progress": 0,
-        "syllabus": [
+        id: "arabic",
+        name: "Arabic",
+        marks: 100,
+        icon: "🕌",
+        color: "from-red-600 to-rose-600",
+        progress: 0,
+        syllabus: [
           {
-            "section": "Origin and Development of Arabic Language",
-            "marks": 12,
-            "subsections": [
+            section: "Origin and Development of Arabic Language",
+            marks: 12,
+            subsections: [
               "Historical development of Arabic",
               "Importance of Arabic in Islamic civilization",
               "Influence of Arabic language on other languages"
             ]
           },
           {
-            "section": "Classical Arabic Literature",
-            "marks": 15,
-            "subsections": [
+            section: "Classical Arabic Literature",
+            marks: 15,
+            subsections: [
               "Study of Imru' al-Qais and his works",
               "Study of Al-Mutanabbi and his works",
               "Study of Abu Tammam and his works",
@@ -4674,9 +4756,9 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Arabic Prose",
-            "marks": 13,
-            "subsections": [
+            section: "Arabic Prose",
+            marks: 13,
+            subsections: [
               "Development of Arabic prose",
               "Essays and historical writings",
               "Religious literature",
@@ -4685,51 +4767,462 @@ export const optionalGroups = [
             ]
           },
           {
-            "section": "Arabic Poetry",
-            "marks": 13,
-            "subsections": [
+            section: "Arabic Poetry",
+            marks: 13,
+            subsections: [
               "Major poetic form: Qasida",
               "Major poetic form: Ghazal",
               "Major poetic form: Marsiya"
             ]
           },
           {
-            "section": "Arabic Grammar",
-            "marks": 12,
-            "subsections": [
+            section: "Arabic Grammar",
+            marks: 12,
+            subsections: [
               "Basic principles of Arabic grammar",
               "Sentence structure",
               "Morphology"
             ]
           },
           {
-            "section": "Modern Arabic Literature",
-            "marks": 12,
-            "subsections": [
+            section: "Modern Arabic Literature",
+            marks: 12,
+            subsections: [
               "Development of modern Arabic literature",
               "Major modern writers and literary trends"
             ]
           },
           {
-            "section": "Translation",
-            "marks": 12,
-            "subsections": [
+            section: "Translation",
+            marks: 12,
+            subsections: [
               "Translation of Arabic passages into English or Urdu",
               "Understanding and interpretation of classical Arabic texts"
             ]
           },
           {
-            "section": "Literary Criticism",
-            "marks": 11,
-            "subsections": [
+            section: "Literary Criticism",
+            marks: 11,
+            subsections: [
               "Principles of literary criticism in Arabic literature",
               "Contributions of major Arabic scholars"
             ]
           }
         ]
-      }
-    ]
-  }
+      },
+    ],
+  },
+  {
+    id: 29,
+    name: "Group XXIX",
+    subjects: [
+      {
+        id: "islamic-studies",
+        name: "Islamic Studies (Optional)",
+        marks: 100,
+        icon: "🌙",
+        color: "from-green-600 to-emerald-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Quranic Studies",
+            marks: 13,
+            subsections: [
+              "Introduction to the Quran",
+              "Compilation and preservation of the Quran",
+              "Major themes of the Quran",
+              "Selected study of important Quranic verses"
+            ]
+          },
+          {
+            section: "Hadith Studies",
+            marks: 13,
+            subsections: [
+              "Definition and importance of Hadith",
+              "Compilation of Hadith",
+              "Major Hadith collections",
+              "Principles of Hadith criticism"
+            ]
+          },
+          {
+            section: "Islamic Law (Shariah)",
+            marks: 13,
+            subsections: [
+              "Concept and sources of Islamic law",
+              "Development of Islamic jurisprudence",
+              "Schools of Islamic law",
+              "Application of Shariah in modern society"
+            ]
+          },
+          {
+            section: "Islamic Political System",
+            marks: 12,
+            subsections: [
+              "Concept of the Islamic state",
+              "Principles of governance in Islam",
+              "Role of Shura (consultation)",
+              "Rights and duties of citizens"
+            ]
+          },
+          {
+            section: "Islamic Economic System",
+            marks: 12,
+            subsections: [
+              "Principles of Islamic economics",
+              "Concept of interest (Riba) and prohibition",
+              "Zakat and social welfare",
+              "Islamic banking and finance"
+            ]
+          },
+          {
+            section: "Islamic Civilization",
+            marks: 13,
+            subsections: [
+              "Development of Islamic civilization",
+              "Contributions of Muslims in science, philosophy, and arts",
+              "Educational institutions in Islamic history"
+            ]
+          },
+          {
+            section: "Islamic Philosophy",
+            marks: 12,
+            subsections: [
+              "Contributions of Muslim philosophers",
+              "Influence of Greek philosophy on Islamic thought",
+              "Development of Islamic intellectual traditions"
+            ]
+          },
+          {
+            section: "Contemporary Issues in the Muslim World",
+            marks: 12,
+            subsections: [
+              "Challenges faced by Muslim societies",
+              "Islam and modernity",
+              "Extremism and reform movements"
+            ]
+          }
+        ]
+      },
+    ],
+  },
+  {
+    id: 30,
+    name: "Group XXX",
+    subjects: [
+      {
+        id: "comparative-study-religions",
+        name: "Comparative Study of Major Religions",
+        marks: 100,
+        icon: "⛪",
+        color: "from-blue-600 to-purple-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Introduction to the Study of Religions",
+            marks: 12,
+            subsections: [
+              "Definition and scope of comparative religion",
+              "Importance of studying different religions",
+              "Methods used in comparative religious studies"
+            ]
+          },
+          {
+            section: "Judaism",
+            marks: 12,
+            subsections: [
+              "Historical background of Judaism",
+              "Sacred texts (Torah, Talmud)",
+              "Basic beliefs and practices",
+              "Social and cultural influence"
+            ]
+          },
+          {
+            section: "Christianity",
+            marks: 13,
+            subsections: [
+              "Origin and development of Christianity",
+              "Life and teachings of Jesus Christ (AS)",
+              "Sacred texts (Bible)",
+              "Major Christian denominations"
+            ]
+          },
+          {
+            section: "Hinduism",
+            marks: 13,
+            subsections: [
+              "Historical development of Hinduism",
+              "Sacred texts (Vedas, Upanishads, Bhagavad Gita)",
+              "Major beliefs and practices",
+              "Social and cultural traditions"
+            ]
+          },
+          {
+            section: "Buddhism",
+            marks: 12,
+            subsections: [
+              "Life and teachings of Gautama Buddha",
+              "Basic principles of Buddhism",
+              "Spread of Buddhism in Asia"
+            ]
+          },
+          {
+            section: "Islam",
+            marks: 12,
+            subsections: [
+              "Basic beliefs and practices of Islam",
+              "Quran and Hadith",
+              "Principles of Islamic teachings"
+            ]
+          },
+          {
+            section: "Comparative Analysis of Religions",
+            marks: 12,
+            subsections: [
+              "Similarities and differences among major religions",
+              "Concepts of God, morality, and salvation",
+              "Role of religion in society"
+            ]
+          },
+          {
+            section: "Religion and Modern Society",
+            marks: 12,
+            subsections: [
+              "Role of religion in contemporary world",
+              "Interfaith dialogue",
+              "Religious tolerance and coexistence"
+            ]
+          }
+        ]
+      },
+    ],
+  },
+  {
+    id: 31,
+    name: "Group XXXI",
+    subjects: [
+      {
+        id: "islamic-history-culture",
+        name: "Islamic History & Culture",
+        marks: 200,
+        icon: "🕌",
+        color: "from-teal-600 to-green-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Paper I - Pre-Islamic Arabia",
+            marks: 20,
+            subsections: [
+              "Social, political, and economic conditions of Arabia before Islam",
+              "Religious beliefs and tribal structure",
+              "Cultural traditions of Arab society"
+            ]
+          },
+          {
+            section: "Paper I - Life of Prophet Muhammad (PBUH)",
+            marks: 30,
+            subsections: [
+              "Early life and prophethood",
+              "Preaching of Islam in Makkah",
+              "Migration (Hijrah) to Madinah",
+              "Establishment of the Islamic state in Madinah",
+              "Major battles and treaties",
+              "Conquest of Makkah"
+            ]
+          },
+          {
+            section: "Paper I - The Pious Caliphate (Khulafa-e-Rashideen)",
+            marks: 30,
+            subsections: [
+              "Caliphate of Hazrat Abu Bakr (RA)",
+              "Caliphate of Hazrat Umar (RA)",
+              "Caliphate of Hazrat Uthman (RA)",
+              "Caliphate of Hazrat Ali (RA)",
+              "Administrative system",
+              "Judicial system",
+              "Expansion of the Islamic state"
+            ]
+          },
+          {
+            section: "Paper I - Umayyad Dynasty",
+            marks: 20,
+            subsections: [
+              "Establishment of the Umayyad rule",
+              "Political and administrative system",
+              "Expansion of the Muslim empire",
+              "Cultural developments"
+            ]
+          },
+          {
+            section: "Paper II - Abbasid Dynasty",
+            marks: 25,
+            subsections: [
+              "Rise of the Abbasid dynasty",
+              "Political and administrative system",
+              "Development of Islamic civilization",
+              "Scientific and intellectual achievements"
+            ]
+          },
+          {
+            section: "Paper II - Muslim Spain (Al-Andalus)",
+            marks: 20,
+            subsections: [
+              "Establishment of Muslim rule in Spain",
+              "Cultural and scientific developments",
+              "Educational institutions and intellectual contributions"
+            ]
+          },
+          {
+            section: "Paper II - Ottoman Empire",
+            marks: 20,
+            subsections: [
+              "Rise and expansion of the Ottoman Empire",
+              "Administrative and military organization",
+              "Cultural and architectural achievements",
+              "Decline of the Ottoman Empire"
+            ]
+          },
+          {
+            section: "Paper II - Muslim Contributions to Civilization",
+            marks: 20,
+            subsections: [
+              "Contributions to science and medicine",
+              "Development of philosophy and literature",
+              "Advances in mathematics and astronomy"
+            ]
+          },
+          {
+            section: "Paper II - Islamic Art and Architecture",
+            marks: 15,
+            subsections: [
+              "Development of Islamic architecture",
+              "Mosques, palaces, and monuments",
+              "Calligraphy and decorative arts"
+            ]
+          }
+        ]
+      },
+    ],
+  },
+  {
+    id: 32,
+    name: "Group XXXII",
+    subjects: [
+      {
+        id: "international-relations",
+        name: "International Relations",
+        marks: 200,
+        icon: "🌐",
+        color: "from-sky-600 to-blue-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Paper I - Introduction to International Relations",
+            marks: 15,
+            subsections: [
+              "Definition, nature, and scope of international relations",
+              "Evolution of international relations as a discipline",
+              "Key concepts in international relations"
+            ]
+          },
+          {
+            section: "Paper I - Theories of International Relations",
+            marks: 20,
+            subsections: [
+              "Realism",
+              "Neo-realism",
+              "Liberalism",
+              "Neo-liberalism",
+              "Constructivism",
+              "Marxism and dependency theory"
+            ]
+          },
+          {
+            section: "Paper I - National Power",
+            marks: 15,
+            subsections: [
+              "Elements of national power",
+              "Balance of power",
+              "Collective security",
+              "Deterrence"
+            ]
+          },
+          {
+            section: "Paper I - Foreign Policy",
+            marks: 20,
+            subsections: [
+              "Determinants of foreign policy",
+              "Decision-making process in foreign policy",
+              "Role of diplomacy in international relations"
+            ]
+          },
+          {
+            section: "Paper I - International Law and Organizations",
+            marks: 30,
+            subsections: [
+              "Role of international law in global politics",
+              "Structure and functions of the United Nations",
+              "Role of international organizations"
+            ]
+          },
+          {
+            section: "Paper II - Major Developments in International Politics",
+            marks: 20,
+            subsections: [
+              "World Wars and their impact on international relations",
+              "Cold War and post-Cold War world order",
+              "Emergence of new global powers"
+            ]
+          },
+          {
+            section: "Paper II - International Security",
+            marks: 15,
+            subsections: [
+              "Arms race and arms control",
+              "Nuclear proliferation",
+              "Terrorism and counterterrorism"
+            ]
+          },
+          {
+            section: "Paper II - International Political Economy",
+            marks: 20,
+            subsections: [
+              "Global economic institutions",
+              "International trade and financial systems",
+              "Globalization and economic interdependence"
+            ]
+          },
+          {
+            section: "Paper II - Regional Organizations",
+            marks: 15,
+            subsections: [
+              "European Union (EU)",
+              "ASEAN",
+              "SAARC",
+              "African Union"
+            ]
+          },
+          {
+            section: "Paper II - Pakistan's Foreign Policy",
+            marks: 20,
+            subsections: [
+              "Principles and objectives of Pakistan's foreign policy",
+              "Pakistan's relations with neighboring countries",
+              "Pakistan's relations with major global powers"
+            ]
+          },
+          {
+            section: "Paper II - Contemporary Global Issues",
+            marks: 15,
+            subsections: [
+              "Climate change",
+              "Migration and refugee crises",
+              "Human rights issues"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
