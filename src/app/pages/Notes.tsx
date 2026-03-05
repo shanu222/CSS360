@@ -462,7 +462,7 @@ export default function Notes() {
                         <div className="mt-2 flex flex-wrap gap-1">
                           {note.placements?.map((placement) => (
                             <span key={`${note.id}-${placement.subjectId}-${placement.topic}`} className="text-[11px] px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">
-                              {placement.subjectName}{' → '}{placement.topic}
+                              {placement.subjectName} / {placement.topic}
                             </span>
                           ))}
                         </div>
