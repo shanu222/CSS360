@@ -3504,6 +3504,113 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    group: 15,
+    subjects: [
+      {
+        id: "mercantile-law",
+        name: "Mercantile Law",
+        marks: 100,
+        icon: "💼",
+        color: "bg-slate-700",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Contract Act, 1872",
+            marks: 15,
+            subsections: [
+              "Introduction to Contract: Definition, essential elements, offer and acceptance, consideration",
+              "Capacity and Consent: Capacity to contract, free consent, coercion, undue influence, fraud, misrepresentation",
+              "Performance and Discharge: Performance of contracts, breach of contract, remedies and damages"
+            ]
+          },
+          {
+            section: "2. Sale of Goods Act, 1930",
+            marks: 12,
+            subsections: [
+              "Definition and essential elements of a contract of sale",
+              "Difference between sale and agreement to sell",
+              "Conditions and warranties",
+              "Doctrine of Caveat Emptor",
+              "Rights and duties of buyer and seller",
+              "Rights of an unpaid seller"
+            ]
+          },
+          {
+            section: "3. Partnership Act, 1932",
+            marks: 12,
+            subsections: [
+              "Definition of partnership and essentials",
+              "Types of partnership",
+              "Rights and duties of partners",
+              "Relationship of partners with third parties",
+              "Admission and retirement of partners",
+              "Dissolution of partnership firms"
+            ]
+          },
+          {
+            section: "4. Negotiable Instruments Act, 1881",
+            marks: 12,
+            subsections: [
+              "Definition of negotiable instruments",
+              "Types: Cheque, Bill of exchange, Promissory note",
+              "Parties to negotiable instruments",
+              "Negotiation and endorsement",
+              "Dishonor and discharge of instruments"
+            ]
+          },
+          {
+            section: "5. Competition Act, 2010",
+            marks: 11,
+            subsections: [
+              "Concept of competition law",
+              "Prohibition of anti-competitive practices",
+              "Abuse of dominant position",
+              "Role and powers of the Competition Commission of Pakistan"
+            ]
+          },
+          {
+            section: "6. Electronic Transaction Ordinance, 2002",
+            marks: 10,
+            subsections: [
+              "Recognition of electronic documents and signatures",
+              "Legal status of electronic transactions",
+              "Certification service providers"
+            ]
+          },
+          {
+            section: "7. Arbitration Law in Pakistan",
+            marks: 10,
+            subsections: [
+              "Appointment and role of arbitrators",
+              "Arbitration agreements",
+              "Powers of courts in arbitration"
+            ]
+          },
+          {
+            section: "8. Consumer Protection Act, 2006",
+            marks: 10,
+            subsections: [
+              "Consumer rights and protection mechanisms",
+              "Consumer courts and commissions",
+              "Duties and liabilities of producers and sellers"
+            ]
+          },
+          {
+            section: "9. Companies Ordinance, 1984",
+            marks: 8,
+            subsections: [
+              "Types of companies",
+              "Memorandum and Articles of Association",
+              "Shareholders and directors",
+              "Meetings and corporate governance",
+              "Winding up of companies"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
