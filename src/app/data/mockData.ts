@@ -4812,6 +4812,99 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    id: 29,
+    name: "Group XXIX",
+    subjects: [
+      {
+        id: "islamic-studies",
+        name: "Islamic Studies (Optional)",
+        marks: 100,
+        icon: "🌙",
+        color: "from-green-600 to-emerald-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Quranic Studies",
+            marks: 13,
+            subsections: [
+              "Introduction to the Quran",
+              "Compilation and preservation of the Quran",
+              "Major themes of the Quran",
+              "Selected study of important Quranic verses"
+            ]
+          },
+          {
+            section: "Hadith Studies",
+            marks: 13,
+            subsections: [
+              "Definition and importance of Hadith",
+              "Compilation of Hadith",
+              "Major Hadith collections",
+              "Principles of Hadith criticism"
+            ]
+          },
+          {
+            section: "Islamic Law (Shariah)",
+            marks: 13,
+            subsections: [
+              "Concept and sources of Islamic law",
+              "Development of Islamic jurisprudence",
+              "Schools of Islamic law",
+              "Application of Shariah in modern society"
+            ]
+          },
+          {
+            section: "Islamic Political System",
+            marks: 12,
+            subsections: [
+              "Concept of the Islamic state",
+              "Principles of governance in Islam",
+              "Role of Shura (consultation)",
+              "Rights and duties of citizens"
+            ]
+          },
+          {
+            section: "Islamic Economic System",
+            marks: 12,
+            subsections: [
+              "Principles of Islamic economics",
+              "Concept of interest (Riba) and prohibition",
+              "Zakat and social welfare",
+              "Islamic banking and finance"
+            ]
+          },
+          {
+            section: "Islamic Civilization",
+            marks: 13,
+            subsections: [
+              "Development of Islamic civilization",
+              "Contributions of Muslims in science, philosophy, and arts",
+              "Educational institutions in Islamic history"
+            ]
+          },
+          {
+            section: "Islamic Philosophy",
+            marks: 12,
+            subsections: [
+              "Contributions of Muslim philosophers",
+              "Influence of Greek philosophy on Islamic thought",
+              "Development of Islamic intellectual traditions"
+            ]
+          },
+          {
+            section: "Contemporary Issues in the Muslim World",
+            marks: 12,
+            subsections: [
+              "Challenges faced by Muslim societies",
+              "Islam and modernity",
+              "Extremism and reform movements"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
