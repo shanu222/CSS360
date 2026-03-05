@@ -3416,6 +3416,94 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    group: 14,
+    subjects: [
+      {
+        id: "muslim-law-jurisprudence",
+        name: "Muslim Law & Jurisprudence",
+        marks: 100,
+        icon: "⚖️",
+        color: "bg-teal-700",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Introduction to Islamic Law",
+            marks: 12,
+            subsections: [
+              "Definition and nature of Islamic law",
+              "Historical development of Muslim law",
+              "Importance of Shariah in Islamic society"
+            ]
+          },
+          {
+            section: "2. Sources of Islamic Law",
+            marks: 13,
+            subsections: [
+              "Primary sources: Quran, Sunnah",
+              "Secondary sources: Ijma (consensus), Qiyas (analogy)",
+              "Other sources: Ijtihad, Istihsan, Istislah"
+            ]
+          },
+          {
+            section: "3. Schools of Islamic Jurisprudence",
+            marks: 12,
+            subsections: [
+              "Hanafi school",
+              "Maliki school",
+              "Shafi'i school",
+              "Hanbali school"
+            ]
+          },
+          {
+            section: "4. Law of Marriage",
+            marks: 13,
+            subsections: [
+              "Concept and objectives of marriage in Islam",
+              "Conditions and essentials of marriage",
+              "Rights and duties of spouses"
+            ]
+          },
+          {
+            section: "5. Law of Divorce",
+            marks: 12,
+            subsections: [
+              "Types of divorce in Islamic law",
+              "Talaq and Khula",
+              "Legal implications of divorce"
+            ]
+          },
+          {
+            section: "6. Law of Inheritance",
+            marks: 13,
+            subsections: [
+              "Principles of inheritance in Islam",
+              "Distribution of property among heirs",
+              "Categories of heirs"
+            ]
+          },
+          {
+            section: "7. Waqf (Endowment)",
+            marks: 13,
+            subsections: [
+              "Definition and nature of waqf",
+              "Creation and management of waqf",
+              "Legal implications of waqf"
+            ]
+          },
+          {
+            section: "8. Administration of Justice in Islam",
+            marks: 12,
+            subsections: [
+              "Judicial system in Islamic law",
+              "Role of Qazi (judge)",
+              "Evidence and legal procedure"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
