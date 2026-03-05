@@ -2014,6 +2014,99 @@ export const optionalGroups = [
           }
         ]
       },
+      {
+        id: "islamic-history-culture",
+        name: "Islamic History & Culture",
+        marks: 100,
+        icon: "📖",
+        color: "bg-green-700",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Pre-Islamic Arabia",
+            marks: 12,
+            subsections: [
+              "Social, political, and economic conditions of Arabia before Islam",
+              "Religious beliefs and practices",
+              "Tribal structure of Arabian society"
+            ]
+          },
+          {
+            section: "2. Life of Prophet Muhammad (PBUH)",
+            marks: 13,
+            subsections: [
+              "Early life and prophethood",
+              "Preaching of Islam in Makkah",
+              "Migration (Hijrah) to Madinah",
+              "Establishment of the Islamic state in Madinah",
+              "Major battles and treaties",
+              "Conquest of Makkah"
+            ]
+          },
+          {
+            section: "3. The Pious Caliphate (Khulafa-e-Rashideen)",
+            marks: 14,
+            subsections: [
+              "Caliphate of Hazrat Abu Bakr (RA)",
+              "Caliphate of Hazrat Umar (RA)",
+              "Caliphate of Hazrat Uthman (RA)",
+              "Caliphate of Hazrat Ali (RA)",
+              "Administrative system",
+              "Judicial system",
+              "Expansion of the Islamic state"
+            ]
+          },
+          {
+            section: "4. Umayyad Dynasty",
+            marks: 12,
+            subsections: [
+              "Rise of the Umayyad dynasty",
+              "Administrative and political developments",
+              "Expansion of the Muslim empire",
+              "Cultural and intellectual developments"
+            ]
+          },
+          {
+            section: "5. Abbasid Dynasty",
+            marks: 13,
+            subsections: [
+              "Establishment of Abbasid rule",
+              "Political and administrative structure",
+              "Development of Islamic civilization",
+              "Scientific and intellectual achievements"
+            ]
+          },
+          {
+            section: "6. Muslim Spain (Al-Andalus)",
+            marks: 12,
+            subsections: [
+              "Establishment of Muslim rule in Spain",
+              "Political organization",
+              "Cultural and scientific contributions",
+              "Decline of Muslim rule in Spain"
+            ]
+          },
+          {
+            section: "7. Ottoman Empire",
+            marks: 13,
+            subsections: [
+              "Rise and expansion of the Ottoman Empire",
+              "Administrative and military system",
+              "Cultural and architectural achievements",
+              "Decline of the Ottoman Empire"
+            ]
+          },
+          {
+            section: "8. Muslim Civilization and Culture",
+            marks: 11,
+            subsections: [
+              "Development of Islamic arts and architecture",
+              "Contributions to science, philosophy, and literature",
+              "Educational institutions and intellectual movements"
+            ]
+          }
+        ]
+      },
     ],
   },
   {
