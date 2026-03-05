@@ -3320,6 +3320,102 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    group: 13,
+    subjects: [
+      {
+        id: "international-law",
+        name: "International Law",
+        marks: 100,
+        icon: "🌍",
+        color: "bg-cyan-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Introduction to International Law",
+            marks: 11,
+            subsections: [
+              "Definition and nature of international law",
+              "Historical development of international law",
+              "Relationship between international law and municipal law"
+            ]
+          },
+          {
+            section: "2. Sources of International Law",
+            marks: 12,
+            subsections: [
+              "International treaties and conventions",
+              "International customs",
+              "General principles of law",
+              "Judicial decisions and writings of jurists"
+            ]
+          },
+          {
+            section: "3. Subjects of International Law",
+            marks: 11,
+            subsections: [
+              "States as primary subjects",
+              "International organizations",
+              "Individuals in international law"
+            ]
+          },
+          {
+            section: "4. Recognition",
+            marks: 11,
+            subsections: [
+              "Recognition of states",
+              "Recognition of governments",
+              "Legal effects of recognition"
+            ]
+          },
+          {
+            section: "5. State Sovereignty and Jurisdiction",
+            marks: 11,
+            subsections: [
+              "Concept of sovereignty",
+              "Territorial jurisdiction",
+              "Extradition and asylum"
+            ]
+          },
+          {
+            section: "6. Law of Treaties",
+            marks: 12,
+            subsections: [
+              "Formation of treaties",
+              "Validity and interpretation of treaties",
+              "Termination of treaties"
+            ]
+          },
+          {
+            section: "7. International Dispute Settlement",
+            marks: 12,
+            subsections: [
+              "Peaceful settlement of disputes",
+              "Negotiation, mediation, and arbitration",
+              "International Court of Justice"
+            ]
+          },
+          {
+            section: "8. Laws of War and Neutrality",
+            marks: 12,
+            subsections: [
+              "International humanitarian law",
+              "Rights and duties of neutral states",
+              "Protection of civilians during armed conflict"
+            ]
+          },
+          {
+            section: "9. International Organizations",
+            marks: 8,
+            subsections: [
+              "United Nations and its structure",
+              "Role of international organizations in maintaining peace and security"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
