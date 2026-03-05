@@ -2,7 +2,7 @@ import fs from 'fs';
 import { promises as fsp } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { PDFParse } from 'pdf-parse';
+// import { PDFParse } from 'pdf-parse'; // Disabled: pdfjs-dist incompatible with Node.js DOM APIs
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -104,14 +104,10 @@ async function listReportFiles(reportDir) {
 }
 
 async function extractPdfText(filePath) {
-  const buffer = await fsp.readFile(filePath);
-  const parser = new PDFParse({ data: buffer });
-  try {
-    const parsed = await parser.getText();
-    return normalizeText(parsed.text || '');
-  } finally {
-    await parser.destroy();
-  }
+  // PDF parsing disabled due to pdfjs-dist Node.js incompatibility
+  // Model will be trained from text-based reports instead
+  console.warn(`Skipping PDF text extraction for ${filePath}`);
+  return '';
 }
 
 function buildRubricWeights(rubricCounts) {
