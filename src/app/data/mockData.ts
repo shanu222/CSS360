@@ -4477,6 +4477,87 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    id: 25,
+    name: "Group XXV",
+    subjects: [
+      {
+        id: "pashto",
+        name: "Pashto",
+        marks: 100,
+        icon: "🎭",
+        color: "from-blue-600 to-cyan-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Origin and Development of Pashto Language",
+            marks: 14,
+            subsections: [
+              "Historical background of Pashto",
+              "Linguistic characteristics of the Pashto language",
+              "Development of Pashto literature"
+            ]
+          },
+          {
+            section: "Classical Pashto Poetry",
+            marks: 15,
+            subsections: [
+              "Study of Khushal Khan Khattak and his works",
+              "Study of Rehman Baba and his works",
+              "Study of Hamza Baba and his works",
+              "Themes: Mysticism",
+              "Themes: Courage and honor",
+              "Themes: Social and cultural values"
+            ]
+          },
+          {
+            section: "Pashto Folk Literature",
+            marks: 14,
+            subsections: [
+              "Folk songs and poetry",
+              "Folktales and legends",
+              "Cultural traditions reflected in Pashto folklore"
+            ]
+          },
+          {
+            section: "Modern Pashto Literature",
+            marks: 15,
+            subsections: [
+              "Development of modern Pashto literature and its themes",
+              "Major writer: Ghani Khan",
+              "Major writer: Hamza Shinwari"
+            ]
+          },
+          {
+            section: "Pashto Prose",
+            marks: 14,
+            subsections: [
+              "Development of Pashto prose",
+              "Essays and short stories",
+              "Novels",
+              "Drama"
+            ]
+          },
+          {
+            section: "Literary Criticism",
+            marks: 14,
+            subsections: [
+              "Principles of literary criticism in Pashto literature",
+              "Contributions of major Pashto critics"
+            ]
+          },
+          {
+            section: "Pashto Literature in Pakistan",
+            marks: 14,
+            subsections: [
+              "Development of Pashto literature after independence",
+              "Cultural significance of Pashto literature"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
