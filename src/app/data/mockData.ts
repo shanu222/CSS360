@@ -1438,6 +1438,103 @@ export const optionalGroups = [
           }
         ]
       },
+      {
+        id: "statistics",
+        name: "Statistics",
+        marks: 100,
+        icon: "📈",
+        color: "bg-emerald-500",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Introduction to Statistics",
+            marks: 8,
+            subsections: [
+              "Definition and scope of statistics",
+              "Importance and applications of statistics",
+              "Types of data and measurement scales"
+            ]
+          },
+          {
+            section: "2. Data Collection and Presentation",
+            marks: 10,
+            subsections: [
+              "Methods of data collection",
+              "Primary and secondary data",
+              "Classification and tabulation of data",
+              "Graphical presentation: bar charts, histograms, pie charts, frequency polygons"
+            ]
+          },
+          {
+            section: "3. Measures of Central Tendency",
+            marks: 12,
+            subsections: [
+              "Arithmetic mean",
+              "Median",
+              "Mode",
+              "Weighted mean",
+              "Geometric and harmonic mean"
+            ]
+          },
+          {
+            section: "4. Measures of Dispersion",
+            marks: 12,
+            subsections: [
+              "Range",
+              "Mean deviation",
+              "Variance",
+              "Standard deviation",
+              "Coefficient of variation"
+            ]
+          },
+          {
+            section: "5. Probability",
+            marks: 12,
+            subsections: [
+              "Basic concepts of probability",
+              "Laws of probability",
+              "Conditional probability",
+              "Random variables"
+            ]
+          },
+          {
+            section: "6. Probability Distributions",
+            marks: 10,
+            subsections: [
+              "Binomial distribution",
+              "Poisson distribution",
+              "Normal distribution"
+            ]
+          },
+          {
+            section: "7. Sampling and Sampling Distributions",
+            marks: 10,
+            subsections: [
+              "Methods of sampling",
+              "Sampling errors",
+              "Sampling distributions"
+            ]
+          },
+          {
+            section: "8. Statistical Inference",
+            marks: 12,
+            subsections: [
+              "Estimation",
+              "Hypothesis testing",
+              "Confidence intervals"
+            ]
+          },
+          {
+            section: "9. Correlation and Regression",
+            marks: 14,
+            subsections: [
+              "Correlation analysis",
+              "Regression analysis",
+              "Linear regression"
+            ]
+          }
+        ]
+      },
     ],
   },
   {
