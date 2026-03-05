@@ -268,6 +268,102 @@ export const compulsorySubjects = [
     description: "History, geography, politics, economy, and society of Pakistan.",
     progress: 30,
     topics: ["Pakistan Movement", "Constitutional Development", "Foreign Policy", "Economic Issues", "Governance Challenges", "Social Issues"],
+    syllabus: [
+      {
+        section: "I. Historical Background",
+        marks: 10,
+        subsections: [
+          "Muslim rule in the Subcontinent",
+          "Decline of Muslim power in India",
+          "Causes of the decline of the Mughal Empire",
+          "Muslim revivalist movements in the Subcontinent"
+        ]
+      },
+      {
+        section: "II. Muslim Reform Movements",
+        marks: 10,
+        subsections: [
+          "Sheikh Ahmad Sirhindi and his teachings",
+          "Shah Waliullah and Islamic revival",
+          "Syed Ahmad Shaheed Barelvi and his movement",
+          "Aligarh Movement and the role of Sir Syed Ahmad Khan"
+        ]
+      },
+      {
+        section: "III. Pakistan Movement",
+        marks: 22,
+        subsections: [
+          "Ideological basis of Pakistan",
+          "Two-Nation Theory",
+          "Role of All India Muslim League",
+          "Partition of Bengal (1905)",
+          "Simla Deputation (1906)",
+          "Lucknow Pact (1916)",
+          "Khilafat Movement",
+          "Allahabad Address (1930)",
+          "Lahore Resolution (1940)",
+          "Cabinet Mission Plan",
+          "Creation of Pakistan in 1947"
+        ]
+      },
+      {
+        section: "IV. Constitutional and Political Development",
+        marks: 18,
+        subsections: [
+          "Early constitutional problems of Pakistan",
+          "1956 Constitution: first constitution of Islamic Republic",
+          "1962 Constitution: military rule and constitutional development",
+          "1973 Constitution: restoration of democracy",
+          "Political instability and democratic challenges",
+          "Civil-military relations"
+        ]
+      },
+      {
+        section: "V. Pakistan's Foreign Policy",
+        marks: 15,
+        subsections: [
+          "Relations with India: Kashmir dispute and bilateral relations",
+          "Relations with Afghanistan and Iran",
+          "Relations with China and strategic partnership",
+          "Relations with major global powers: USA, Saudi Arabia, European Powers",
+          "Role in international organizations: UN, OIC, SCO",
+          "Regional cooperation initiatives"
+        ]
+      },
+      {
+        section: "VI. Economic Development",
+        marks: 12,
+        subsections: [
+          "Agricultural development and green revolution",
+          "Industrial development and manufacturing sector",
+          "Economic planning and five-year plans",
+          "Major economic challenges and reforms",
+          "Trade and commerce development"
+        ]
+      },
+      {
+        section: "VII. Social and Cultural Issues",
+        marks: 8,
+        subsections: [
+          "Education and literacy development",
+          "Population growth and demographics",
+          "Social justice and equality",
+          "Media and cultural development",
+          "Religious and ethnic harmony"
+        ]
+      },
+      {
+        section: "VIII. Contemporary Challenges of Pakistan",
+        marks: 5,
+        subsections: [
+          "Governance and political stability issues",
+          "Energy crisis and power generation",
+          "Terrorism and extremism",
+          "Water scarcity and irrigation challenges",
+          "Climate change and environmental threats"
+        ]
+      }
+    ]
   },
   {
     id: "islamic-studies",
