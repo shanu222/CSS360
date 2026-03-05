@@ -61,7 +61,7 @@ export const getMCQs = async (req, res) => {
   }
 };
 
-// Submit MCQ attempt
+// Submit MCQ attempt - returns results without saving (auth removed)
 export const submitMCQAttempt = async (req, res) => {
   try {
     const { subject, topic, answers, timeTaken } = req.body;
@@ -84,19 +84,7 @@ export const submitMCQAttempt = async (req, res) => {
     const totalQuestions = questions.length;
     const percentage = (score / totalQuestions) * 100;
 
-    const attempt = new MCQAttempt({
-      userId: req.userId,
-      subject,
-      topic,
-      questions,
-      score,
-      totalQuestions,
-      percentage,
-      timeTaken,
-    });
-
-    await attempt.save();
-
+    // Return result without saving to database
     res.status(201).json({ 
       message: 'Attempt submitted successfully', 
       result: {
@@ -112,81 +100,24 @@ export const submitMCQAttempt = async (req, res) => {
   }
 };
 
-// Get user's MCQ attempts
+// Get user's MCQ attempts - returns empty (auth removed)
 export const getMCQAttempts = async (req, res) => {
-  try {
-    const { subject } = req.query;
-
-    const query = { userId: req.userId };
-    if (subject) {
-      query.subject = subject;
-    }
-
-    const attempts = await MCQAttempt.find(query)
-      .sort({ completedAt: -1 })
-      .limit(50)
-      .select('-questions'); // Don't send full questions for list
-
-    res.json({ attempts });
-  } catch (error) {
-    console.error('Get attempts error:', error);
-    res.status(500).json({ error: 'Failed to fetch attempts' });
-  }
+  res.json({ attempts: [] });
 };
 
-// Get single attempt with details
+// Get single attempt with details - returns 404 (auth removed)
 export const getMCQAttempt = async (req, res) => {
-  try {
-    const { id } = req.params;
-
-    const attempt = await MCQAttempt.findOne({ 
-      _id: id, 
-      userId: req.userId 
-    });
-
-    if (!attempt) {
-      return res.status(404).json({ error: 'Attempt not found' });
-    }
-
-    res.json({ attempt });
-  } catch (error) {
-    console.error('Get attempt error:', error);
-    res.status(500).json({ error: 'Failed to fetch attempt' });
-  }
+  res.status(404).json({ error: 'Attempt not found' });
 };
 
-// Get MCQ statistics
+// Get MCQ statistics - returns empty stats (auth removed)
 export const getMCQStats = async (req, res) => {
-  try {
-    const attempts = await MCQAttempt.find({ userId: req.userId });
-
-    const stats = {
-      totalAttempts: attempts.length,
-      averageScore: attempts.reduce((sum, a) => sum + a.percentage, 0) / attempts.length || 0,
-      totalQuestionsSolved: attempts.reduce((sum, a) => sum + a.totalQuestions, 0),
+  res.json({ 
+    stats: {
+      totalAttempts: 0,
+      averageScore: 0,
+      totalQuestionsSolved: 0,
       subjectWise: {},
-    };
-
-    attempts.forEach(attempt => {
-      if (!stats.subjectWise[attempt.subject]) {
-        stats.subjectWise[attempt.subject] = {
-          attempts: 0,
-          averageScore: 0,
-          totalQuestions: 0,
-        };
-      }
-
-      const subjectStat = stats.subjectWise[attempt.subject];
-      subjectStat.attempts += 1;
-      subjectStat.averageScore = 
-        (subjectStat.averageScore * (subjectStat.attempts - 1) + attempt.percentage) / 
-        subjectStat.attempts;
-      subjectStat.totalQuestions += attempt.totalQuestions;
-    });
-
-    res.json({ stats });
-  } catch (error) {
-    console.error('Get MCQ stats error:', error);
-    res.status(500).json({ error: 'Failed to fetch statistics' });
-  }
+    }
+  });
 };
