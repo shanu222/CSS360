@@ -14,8 +14,9 @@ dist/
 build/
 .next/
 
-# Uploads
-uploads/
+# Uploads (keep directory structure)
+uploads/*
+!uploads/.gitkeep
 
 # IDE
 .vscode/

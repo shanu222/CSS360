@@ -46,16 +46,22 @@ export const createNote = async (req, res) => {
 export const uploadImageNote = async (req, res) => {
   try {
     if (!req.file) {
-      return res.status(400).json({ error: 'Image file is required' });
+      return res.status(400).json({ error: 'File is required' });
     }
 
-    const imageUrl = `/uploads/${req.file.filename}`;
-    const ocrResult = await extractTextFromImage(req.file.path, { minimumBytes: 1024 });
+    const fileUrl = `/uploads/${req.file.filename}`;
+    const isImage = /\.(jpg|jpeg|png|gif|bmp|webp|svg)$/i.test(req.file.originalname);
+    
+    // Only run OCR on image files
+    let ocrResult = { text: '', confidence: 0, engine: 'none', skipped: true };
+    if (isImage) {
+      ocrResult = await extractTextFromImage(req.file.path, { minimumBytes: 1024 });
+    }
 
     const note = await createImageNote({
       title: req.body?.title,
       content: req.body?.content,
-      imageUrl,
+      imageUrl: fileUrl,
       imageName: req.file.originalname,
       ocrText: ocrResult.text,
       ocrConfidence: ocrResult.confidence,
@@ -65,8 +71,8 @@ export const uploadImageNote = async (req, res) => {
 
     res.status(201).json({ note });
   } catch (error) {
-    console.error('Upload image note error:', error);
-    res.status(500).json({ error: 'Failed to upload image note' });
+    console.error('Upload file note error:', error);
+    res.status(500).json({ error: 'Failed to upload file' });
   }
 };
 
