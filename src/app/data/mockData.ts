@@ -374,6 +374,100 @@ export const compulsorySubjects = [
     description: "Islamic teachings, history, jurisprudence, and comparative religion.",
     progress: 88,
     topics: ["Quran & Hadith", "Islamic Jurisprudence", "Islamic History", "Comparative Religion", "Ethics & Morality", "Islam & Modernity"],
+    syllabus: [
+      {
+        section: "I. Introduction to Islam",
+        marks: 15,
+        subsections: [
+          "Concept of Islam and its meaning",
+          "Importance of Deen in human life",
+          "Difference between Deen and religion",
+          "Distinctive aspects of Islam",
+          "Islamic beliefs and their impact on individual and society",
+          "Fundamental teachings of Islam",
+          "Islamic worship and its spiritual, moral, and social impact"
+        ]
+      },
+      {
+        section: "II. Study of the Seerah of Prophet Muhammad (PBUH) as a Role Model",
+        marks: 15,
+        subsections: [
+          "Prophet Muhammad as an individual: personal qualities and character",
+          "Prophet Muhammad as a diplomat: diplomatic missions and treaties",
+          "Prophet Muhammad as an educator: teaching methods and principles",
+          "Prophet Muhammad as a military strategist: battles and campaigns",
+          "Prophet Muhammad as a peace maker: reconciliation and conflict resolution"
+        ]
+      },
+      {
+        section: "III. Human Rights and Status of Women in Islam",
+        marks: 15,
+        subsections: [
+          "Human rights in Islam: Quranic perspective",
+          "Dignity and equality of men and women",
+          "Rights of women in Islamic society",
+          "Responsibilities of women in Islamic context",
+          "Women's role in Islamic history and civilization"
+        ]
+      },
+      {
+        section: "IV. Islamic Civilization and Culture",
+        marks: 15,
+        subsections: [
+          "Meaning and essential elements of Islamic civilization",
+          "Role of civilization in development of human personality",
+          "Tawhid: concept of monotheism",
+          "Self-purification and spiritual development",
+          "Dignity of humanity in Islam",
+          "Equality: social and economic foundation",
+          "Social justice and compassion",
+          "Tolerance and coexistence",
+          "Rule of law in Islamic society"
+        ]
+      },
+      {
+        section: "V. Islam and the World",
+        marks: 12,
+        subsections: [
+          "Impact of Islamic civilization on the West",
+          "Influence of Western thought on Islamic societies",
+          "Role of Islam in the modern world",
+          "Contemporary challenges faced by the Muslim world",
+          "Causes and rise of extremism",
+          "Islam and secularism"
+        ]
+      },
+      {
+        section: "VI. Public Administration and Governance in Islam",
+        marks: 18,
+        subsections: [
+          "Concept of public administration in Islam",
+          "Quranic guidance on good governance",
+          "Concept of governance in light of Qur'an, Sunnah, and Fiqh",
+          "Governance structure in Islam: Shura (consultation)",
+          "Legislation in Islamic framework",
+          "Sources of Islamic law",
+          "Governance under the Pious Caliphate",
+          "Letters of Hazrat Umar (RA) to administrators",
+          "Letters of Hazrat Ali (RA) to administrators",
+          "Responsibilities of civil servants in Islam",
+          "Accountability system (Hisbah) in Islam"
+        ]
+      },
+      {
+        section: "VII. Islamic Code of Life",
+        marks: 10,
+        subsections: [
+          "Islamic social system: family, community, society",
+          "Islamic political system: governance and authority",
+          "Islamic economic system: justice and distribution",
+          "Islamic judicial system: Sharia and justice",
+          "Islamic administrative system: accountability",
+          "Concept and procedure of Ijma (consensus)",
+          "Concept and procedure of Ijtihad (independent reasoning)"
+        ]
+      }
+    ]
   },
 ];
 
