@@ -2383,7 +2383,100 @@ export const optionalGroups = [
   {
     group: 5,
     subjects: [
-      { id: "environmental-science", name: "Environmental Science", marks: 200, icon: "🌿", color: "bg-green-600", progress: 30 },
+      {
+        id: "environmental-science",
+        name: "Environmental Science",
+        marks: 100,
+        icon: "🌿",
+        color: "bg-green-600",
+        progress: 30,
+        syllabus: [
+          {
+            section: "1. Introduction to Environmental Science",
+            marks: 11,
+            subsections: [
+              "Definition and scope of environmental science",
+              "Components of the environment",
+              "Importance of environmental studies"
+            ]
+          },
+          {
+            section: "2. Ecosystems",
+            marks: 12,
+            subsections: [
+              "Structure and functions of ecosystems",
+              "Food chains and food webs",
+              "Energy flow in ecosystems",
+              "Ecological balance"
+            ]
+          },
+          {
+            section: "3. Natural Resources",
+            marks: 12,
+            subsections: [
+              "Renewable resources",
+              "Non-renewable resources",
+              "Conservation and sustainable use of resources"
+            ]
+          },
+          {
+            section: "4. Environmental Pollution",
+            marks: 13,
+            subsections: [
+              "Air pollution",
+              "Water pollution",
+              "Soil pollution",
+              "Noise pollution",
+              "Causes, effects, and control measures of pollution"
+            ]
+          },
+          {
+            section: "5. Biodiversity",
+            marks: 11,
+            subsections: [
+              "Importance of biodiversity",
+              "Threats to biodiversity",
+              "Conservation strategies"
+            ]
+          },
+          {
+            section: "6. Climate Change",
+            marks: 12,
+            subsections: [
+              "Causes of climate change",
+              "Global warming and greenhouse gases",
+              "Impact of climate change on ecosystems"
+            ]
+          },
+          {
+            section: "7. Environmental Management",
+            marks: 11,
+            subsections: [
+              "Environmental impact assessment",
+              "Environmental policies and regulations",
+              "Sustainable development strategies"
+            ]
+          },
+          {
+            section: "8. Environmental Issues in Pakistan",
+            marks: 12,
+            subsections: [
+              "Water scarcity",
+              "Deforestation",
+              "Urban environmental problems",
+              "Climate change impacts in Pakistan"
+            ]
+          },
+          {
+            section: "9. Global Environmental Initiatives",
+            marks: 6,
+            subsections: [
+              "International environmental agreements",
+              "Role of global organizations in environmental protection"
+            ]
+          }
+        ]
+      },
       {
         id: "gender-studies",
         name: "Gender Studies",
