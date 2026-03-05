@@ -5177,87 +5177,87 @@ export const subjectBooksHierarchy: Record<string, any> = {
             "books": [
               {
                 "id": "accountancy-auditing-rec-p1-1",
-                "name": "Intermediate Accounting",
-                "author": "Kieso, Weygandt & Warfield",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "Accounting Principles (Free Alternative: Intermediate Accounting)",
+                "author": "OpenStax (Free) | Original: Kieso, Weygandt & Warfield",
+                "pdfUrl": "https://openstax.org/details/books/accounting-principles",
+                "downloadUrl": "https://openstax.org/details/books/accounting-principles"
               },
               {
                 "id": "accountancy-auditing-rec-p1-2",
-                "name": "Fundamentals of Accounting Principles",
-                "author": "Wild, Larson & Chiappetta",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "Introductory Accounting I (Free Alternative: Fundamentals of Accounting)",
+                "author": "Lumen Learning (Free) | Original: Wild, Larson & Chiappetta",
+                "pdfUrl": "https://courses.lumenlearning.com/intro-accounting/",
+                "downloadUrl": "https://courses.lumenlearning.com/intro-accounting/"
               },
               {
                 "id": "accountancy-auditing-rec-p1-3",
-                "name": "Accounting for Decision Making",
-                "author": "Meigs, William & Haka",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "Financial Accounting (Free Alternative: Accounting for Decision Making)",
+                "author": "LibreTexts (Free) | Original: Meigs, William & Haka",
+                "pdfUrl": "https://biz.libretexts.org/Bookshelves/Accounting/Financial_Accounting",
+                "downloadUrl": "https://biz.libretexts.org/Bookshelves/Accounting/Financial_Accounting"
               },
               {
                 "id": "accountancy-auditing-rec-p1-4",
-                "name": "IFRSs / IASs",
-                "author": "ICAP / IFAC",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "IFRSs / IASs (International Standards)",
+                "author": "IFRS Foundation & ICAP/IFAC",
+                "pdfUrl": "https://www.ifrs.org/",
+                "downloadUrl": "https://www.ifrs.org/"
               },
               {
                 "id": "accountancy-auditing-rec-p1-5",
-                "name": "Principles and Practice of Book Keeping and Accounts",
-                "author": "B.G. Vickery",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "Principles of Accounting (Free: Book Keeping Fundamentals)",
+                "author": "OpenStax (Free) | Original: B.G. Vickery",
+                "pdfUrl": "https://openstax.org/details/books/principles-accounting",
+                "downloadUrl": "https://openstax.org/details/books/principles-accounting"
               },
               {
                 "id": "accountancy-auditing-rec-p1-6",
-                "name": "Financial Accounting",
-                "author": "M. Hanif & A. Mukherjee",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "Introductory Financial Accounting",
+                "author": "LibreTexts (Free Community) | Original: M. Hanif & A. Mukherjee",
+                "pdfUrl": "https://biz.libretexts.org/Bookshelves/Accounting/Introductory_Accounting",
+                "downloadUrl": "https://biz.libretexts.org/Bookshelves/Accounting/Introductory_Accounting"
               },
               {
                 "id": "accountancy-auditing-rec-p1-7",
-                "name": "Principles of Accounting and Advanced Accounting",
-                "author": "Sohail Afzal",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "Advanced Accounting (Free Alternative)",
+                "author": "OpenStax (Free) | Original: Sohail Afzal",
+                "pdfUrl": "https://openstax.org/details/books/principles-accounting",
+                "downloadUrl": "https://openstax.org/details/books/principles-accounting"
               },
               {
                 "id": "accountancy-auditing-rec-p1-8",
-                "name": "Principles of Accounting and Advanced Accounting",
-                "author": "M.A. Ghani & Ejaz",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "Accounting Fundamentals",
+                "author": "LibreTexts (Free) | Original: M.A. Ghani & Ejaz",
+                "pdfUrl": "https://biz.libretexts.org/Bookshelves/Accounting/Introductory_Accounting",
+                "downloadUrl": "https://biz.libretexts.org/Bookshelves/Accounting/Introductory_Accounting"
               },
               {
                 "id": "accountancy-auditing-rec-p1-9",
                 "name": "Cost Accounting – Planning and Control",
-                "author": "Usry, Hammer & Matz",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "author": "LibreTexts (Free) | Original: Usry, Hammer & Matz",
+                "pdfUrl": "https://biz.libretexts.org/Bookshelves/Accounting/Cost_Accounting",
+                "downloadUrl": "https://biz.libretexts.org/Bookshelves/Accounting/Cost_Accounting"
               },
               {
                 "id": "accountancy-auditing-rec-p1-10",
                 "name": "Managerial Accounting",
-                "author": "Peter C. Brewer, Ray H. Garrison & Eric W. Noreen",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "author": "OpenStax (Free) | Original: Brewer, Garrison & Noreen",
+                "pdfUrl": "https://openstax.org/details/books/managerial-accounting",
+                "downloadUrl": "https://openstax.org/details/books/managerial-accounting"
               },
               {
                 "id": "accountancy-auditing-rec-p1-11",
-                "name": "Cost Accounting",
-                "author": "Jain & Narang",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "Cost Accounting (Advanced)",
+                "author": "LibreTexts (Free) | Original: Jain & Narang",
+                "pdfUrl": "https://biz.libretexts.org/Bookshelves/Accounting/Cost_Accounting",
+                "downloadUrl": "https://biz.libretexts.org/Bookshelves/Accounting/Cost_Accounting"
               },
               {
                 "id": "accountancy-auditing-rec-p1-12",
-                "name": "Cost Accounting",
-                "author": "Nisar-ud-Din",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "Cost Accounting (Free Alternative)",
+                "author": "LibreTexts (Free) | Original: Nisar-ud-Din",
+                "pdfUrl": "https://biz.libretexts.org/Bookshelves/Accounting/Cost_Accounting",
+                "downloadUrl": "https://biz.libretexts.org/Bookshelves/Accounting/Cost_Accounting"
               }
             ]
           },
@@ -5266,87 +5266,87 @@ export const subjectBooksHierarchy: Record<string, any> = {
             "books": [
               {
                 "id": "accountancy-auditing-rec-p2-1",
-                "name": "Auditing: Principles and Techniques",
-                "author": "S.K. Basu",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "Auditing: Principles and Techniques (Free Alternative: Official Standards)",
+                "author": "PCAOB/IAASB (Free) | Original: S.K. Basu",
+                "pdfUrl": "https://pcaobus.org/standards",
+                "downloadUrl": "https://pcaobus.org/standards"
               },
               {
                 "id": "accountancy-auditing-rec-p2-2",
-                "name": "Auditing",
-                "author": "L.R. Dicksee",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "International Auditing Standards",
+                "author": "IAASB (Free) | Original: L.R. Dicksee",
+                "pdfUrl": "https://www.iaasb.org/",
+                "downloadUrl": "https://www.iaasb.org/"
               },
               {
                 "id": "accountancy-auditing-rec-p2-3",
-                "name": "Practical Auditing",
-                "author": "Spicer & Pegler",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "AICPA Professional Auditing Guidance",
+                "author": "AICPA (Free Resources) | Original: Spicer & Pegler",
+                "pdfUrl": "https://www.aicpa.org/",
+                "downloadUrl": "https://www.aicpa.org/"
               },
               {
                 "id": "accountancy-auditing-rec-p2-4",
-                "name": "Companies Ordinance 1984",
-                "author": "SECP",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "Companies Ordinance 1984 (Pakistan)",
+                "author": "SECP (Pakistan) - Official",
+                "pdfUrl": "https://www.secp.gov.pk/",
+                "downloadUrl": "https://www.secp.gov.pk/"
               },
               {
                 "id": "accountancy-auditing-rec-p2-5",
-                "name": "Auditing",
-                "author": "S.K. Millichamp",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "Auditing Standards (Free Reference)",
+                "author": "IAASB/PCAOB (Free) | Original: S.K. Millichamp",
+                "pdfUrl": "https://www.iaasb.org/",
+                "downloadUrl": "https://www.iaasb.org/"
               },
               {
                 "id": "accountancy-auditing-rec-p2-6",
-                "name": "Handbook of International Quality Control, Auditing, Review and Other Assurance",
-                "author": "ICAP / IFAC",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "International Quality Control & Assurance Standards",
+                "author": "IAASB (Free) | Original: ICAP/IFAC",
+                "pdfUrl": "https://www.iaasb.org/",
+                "downloadUrl": "https://www.iaasb.org/"
               },
               {
                 "id": "accountancy-auditing-rec-p2-7",
-                "name": "Auditing",
-                "author": "M. Irshad",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "Auditing Standards & Procedures",
+                "author": "PCAOB/IAASB (Free) | Original: M. Irshad",
+                "pdfUrl": "https://pcaobus.org/standards",
+                "downloadUrl": "https://pcaobus.org/standards"
               },
               {
                 "id": "accountancy-auditing-rec-p2-8",
-                "name": "Advanced Auditing",
-                "author": "Prof. Dr. Khawaja Amjad Saeed",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "Advanced Auditing Techniques",
+                "author": "AICPA (Free Resources) | Original: Khawaja Amjad Saeed",
+                "pdfUrl": "https://www.aicpa.org/cpe-learning",
+                "downloadUrl": "https://www.aicpa.org/cpe-learning"
               },
               {
                 "id": "accountancy-auditing-rec-p2-9",
-                "name": "Income Tax Ordinance 2001",
-                "author": "FBR",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "Income Tax Ordinance 2001 (Pakistan - Official)",
+                "author": "FBR (Pakistan) - Official Document",
+                "pdfUrl": "https://www.fbr.gov.pk/",
+                "downloadUrl": "https://www.fbr.gov.pk/"
               },
               {
                 "id": "accountancy-auditing-rec-p2-10",
-                "name": "Introduction to Taxation / Synopsis of Taxes in Pakistan",
-                "author": "Mirza Munawar Hussain",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "Introduction to Taxation (Free Course)",
+                "author": "Lumen Learning (Free) | Original: Mirza Munawar Hussain",
+                "pdfUrl": "https://courses.lumenlearning.com/waymaker-taxation/",
+                "downloadUrl": "https://courses.lumenlearning.com/waymaker-taxation/"
               },
               {
                 "id": "accountancy-auditing-rec-p2-11",
-                "name": "Law in Practice – Income and Sales Tax",
-                "author": "Abdul Razzaq",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "name": "Taxation Fundamentals",
+                "author": "LibreTexts (Free) | Original: Abdul Razzaq",
+                "pdfUrl": "https://biz.libretexts.org/Bookshelves/Accounting/Taxation",
+                "downloadUrl": "https://biz.libretexts.org/Bookshelves/Accounting/Taxation"
               },
               {
                 "id": "accountancy-auditing-rec-p2-12",
                 "name": "Business Taxation",
-                "author": "Ijaz Ali Waince",
-                "pdfUrl": "",
-                "downloadUrl": ""
+                "author": "LibreTexts (Free) | Original: Ijaz Ali Waince",
+                "pdfUrl": "https://biz.libretexts.org/Bookshelves/Accounting/Taxation",
+                "downloadUrl": "https://biz.libretexts.org/Bookshelves/Accounting/Taxation"
               }
             ]
           }
