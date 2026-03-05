@@ -4205,6 +4205,114 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    id: 22,
+    name: "Group XXII",
+    subjects: [
+      {
+        id: "geography",
+        name: "Geography",
+        marks: 200,
+        icon: "🌍",
+        color: "from-green-600 to-teal-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Paper I - Introduction to Geography",
+            marks: 20,
+            subsections: [
+              "Definition and scope of geography",
+              "Branches of geography",
+              "Importance of geographical studies"
+            ]
+          },
+          {
+            section: "Paper I - The Earth",
+            marks: 20,
+            subsections: [
+              "Origin and structure of the Earth",
+              "Latitude and longitude",
+              "Time zones and map projections"
+            ]
+          },
+          {
+            section: "Paper I - Geomorphology",
+            marks: 20,
+            subsections: [
+              "Landforms and their formation",
+              "Weathering and erosion",
+              "Rivers, glaciers, and deserts"
+            ]
+          },
+          {
+            section: "Paper I - Climatology",
+            marks: 20,
+            subsections: [
+              "Structure of the atmosphere",
+              "Weather and climate",
+              "Global wind systems",
+              "Climate change and global warming"
+            ]
+          },
+          {
+            section: "Paper I - Oceanography",
+            marks: 20,
+            subsections: [
+              "Physical characteristics of oceans",
+              "Ocean currents",
+              "Tides and waves",
+              "Marine resources"
+            ]
+          },
+          {
+            section: "Paper II - Human Geography",
+            marks: 20,
+            subsections: [
+              "Population distribution and growth",
+              "Migration and urbanization",
+              "Cultural geography"
+            ]
+          },
+          {
+            section: "Paper II - Economic Geography",
+            marks: 20,
+            subsections: [
+              "Agriculture and food production",
+              "Industrial development",
+              "Transportation and trade"
+            ]
+          },
+          {
+            section: "Paper II - Political Geography",
+            marks: 20,
+            subsections: [
+              "Concept of political geography",
+              "Boundaries and geopolitics",
+              "Role of geography in international relations"
+            ]
+          },
+          {
+            section: "Paper II - Environmental Geography",
+            marks: 20,
+            subsections: [
+              "Human impact on the environment",
+              "Resource management",
+              "Sustainable development"
+            ]
+          },
+          {
+            section: "Paper II - Geography of Pakistan",
+            marks: 20,
+            subsections: [
+              "Physical geography of Pakistan",
+              "Climate and natural resources",
+              "Population and economic activities"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
