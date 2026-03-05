@@ -3805,6 +3805,105 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    id: 18,
+    name: "Group XVIII",
+    subjects: [
+      {
+        id: "psychology",
+        name: "Psychology",
+        marks: 100,
+        icon: "💭",
+        color: "from-purple-600 to-pink-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Introduction to Psychology",
+            marks: 10,
+            subsections: [
+              "Definition and scope of psychology",
+              "Historical development of psychology",
+              "Branches of psychology",
+              "Methods of psychological research"
+            ]
+          },
+          {
+            section: "Biological Basis of Behavior",
+            marks: 11,
+            subsections: [
+              "Structure and functions of the nervous system",
+              "Brain and its functions",
+              "Hormones and behavior"
+            ]
+          },
+          {
+            section: "Sensation and Perception",
+            marks: 11,
+            subsections: [
+              "Sensory processes",
+              "Perception and interpretation of stimuli",
+              "Factors affecting perception"
+            ]
+          },
+          {
+            section: "Learning",
+            marks: 12,
+            subsections: [
+              "Classical conditioning",
+              "Operant conditioning",
+              "Observational learning",
+              "Cognitive learning theories"
+            ]
+          },
+          {
+            section: "Memory",
+            marks: 11,
+            subsections: [
+              "Types of memory",
+              "Processes of memory (encoding, storage, retrieval)",
+              "Forgetting and memory improvement"
+            ]
+          },
+          {
+            section: "Motivation and Emotion",
+            marks: 11,
+            subsections: [
+              "Theories of motivation",
+              "Biological and psychological motives",
+              "Nature and expression of emotions"
+            ]
+          },
+          {
+            section: "Personality",
+            marks: 12,
+            subsections: [
+              "Theories of personality",
+              "Personality development",
+              "Assessment of personality"
+            ]
+          },
+          {
+            section: "Intelligence",
+            marks: 11,
+            subsections: [
+              "Concepts and theories of intelligence",
+              "Intelligence testing",
+              "Factors affecting intelligence"
+            ]
+          },
+          {
+            section: "Social Psychology",
+            marks: 11,
+            subsections: [
+              "Social behavior and attitudes",
+              "Group dynamics",
+              "Social influence and conformity"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
