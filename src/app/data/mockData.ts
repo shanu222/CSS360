@@ -3904,6 +3904,110 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    id: 19,
+    name: "Group XIX",
+    subjects: [
+      {
+        id: "sociology",
+        name: "Sociology",
+        marks: 100,
+        icon: "👥",
+        color: "from-cyan-600 to-teal-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Introduction to Sociology",
+            marks: 10,
+            subsections: [
+              "Definition and scope of sociology",
+              "Development of sociology as a discipline",
+              "Relationship of sociology with other social sciences"
+            ]
+          },
+          {
+            section: "Sociological Theories",
+            marks: 13,
+            subsections: [
+              "Functionalism",
+              "Conflict theory",
+              "Symbolic interactionism",
+              "Contributions of Auguste Comte",
+              "Contributions of Karl Marx",
+              "Contributions of Emile Durkheim",
+              "Contributions of Max Weber"
+            ]
+          },
+          {
+            section: "Social Structure",
+            marks: 10,
+            subsections: [
+              "Components of social structure",
+              "Social status and roles",
+              "Social groups and organizations"
+            ]
+          },
+          {
+            section: "Culture",
+            marks: 11,
+            subsections: [
+              "Elements of culture",
+              "Cultural values and norms",
+              "Cultural change and diversity"
+            ]
+          },
+          {
+            section: "Socialization",
+            marks: 11,
+            subsections: [
+              "Process of socialization",
+              "Agents of socialization (family, education, media)",
+              "Importance of socialization in personality development"
+            ]
+          },
+          {
+            section: "Social Institutions",
+            marks: 12,
+            subsections: [
+              "Family",
+              "Religion",
+              "Education",
+              "Economy",
+              "Political institutions"
+            ]
+          },
+          {
+            section: "Social Stratification",
+            marks: 11,
+            subsections: [
+              "Concept of social inequality",
+              "Class system and caste system",
+              "Social mobility"
+            ]
+          },
+          {
+            section: "Social Change",
+            marks: 11,
+            subsections: [
+              "Causes of social change",
+              "Modernization and globalization",
+              "Impact of technological development on society"
+            ]
+          },
+          {
+            section: "Sociological Issues in Pakistan",
+            marks: 11,
+            subsections: [
+              "Population growth",
+              "Urbanization",
+              "Poverty and inequality",
+              "Social problems in Pakistani society"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
