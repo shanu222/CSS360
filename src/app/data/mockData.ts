@@ -5177,15 +5177,85 @@ export const subjectBooksHierarchy: Record<string, any> = {
             "books": [
               {
                 "id": "accountancy-auditing-rec-p1-1",
-                "name": "Book Name - Placeholder 1",
-                "author": "",
+                "name": "Intermediate Accounting",
+                "author": "Kieso, Weygandt & Warfield",
                 "pdfUrl": "",
                 "downloadUrl": ""
               },
               {
                 "id": "accountancy-auditing-rec-p1-2",
-                "name": "Book Name - Placeholder 2",
-                "author": "",
+                "name": "Fundamentals of Accounting Principles",
+                "author": "Wild, Larson & Chiappetta",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p1-3",
+                "name": "Accounting for Decision Making",
+                "author": "Meigs, William & Haka",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p1-4",
+                "name": "IFRSs / IASs",
+                "author": "ICAP / IFAC",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p1-5",
+                "name": "Principles and Practice of Book Keeping and Accounts",
+                "author": "B.G. Vickery",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p1-6",
+                "name": "Financial Accounting",
+                "author": "M. Hanif & A. Mukherjee",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p1-7",
+                "name": "Principles of Accounting and Advanced Accounting",
+                "author": "Sohail Afzal",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p1-8",
+                "name": "Principles of Accounting and Advanced Accounting",
+                "author": "M.A. Ghani & Ejaz",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p1-9",
+                "name": "Cost Accounting – Planning and Control",
+                "author": "Usry, Hammer & Matz",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p1-10",
+                "name": "Managerial Accounting",
+                "author": "Peter C. Brewer, Ray H. Garrison & Eric W. Noreen",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p1-11",
+                "name": "Cost Accounting",
+                "author": "Jain & Narang",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p1-12",
+                "name": "Cost Accounting",
+                "author": "Nisar-ud-Din",
                 "pdfUrl": "",
                 "downloadUrl": ""
               }
@@ -5196,15 +5266,85 @@ export const subjectBooksHierarchy: Record<string, any> = {
             "books": [
               {
                 "id": "accountancy-auditing-rec-p2-1",
-                "name": "Book Name - Placeholder 1",
-                "author": "",
+                "name": "Auditing: Principles and Techniques",
+                "author": "S.K. Basu",
                 "pdfUrl": "",
                 "downloadUrl": ""
               },
               {
                 "id": "accountancy-auditing-rec-p2-2",
-                "name": "Book Name - Placeholder 2",
-                "author": "",
+                "name": "Auditing",
+                "author": "L.R. Dicksee",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p2-3",
+                "name": "Practical Auditing",
+                "author": "Spicer & Pegler",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p2-4",
+                "name": "Companies Ordinance 1984",
+                "author": "SECP",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p2-5",
+                "name": "Auditing",
+                "author": "S.K. Millichamp",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p2-6",
+                "name": "Handbook of International Quality Control, Auditing, Review and Other Assurance",
+                "author": "ICAP / IFAC",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p2-7",
+                "name": "Auditing",
+                "author": "M. Irshad",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p2-8",
+                "name": "Advanced Auditing",
+                "author": "Prof. Dr. Khawaja Amjad Saeed",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p2-9",
+                "name": "Income Tax Ordinance 2001",
+                "author": "FBR",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p2-10",
+                "name": "Introduction to Taxation / Synopsis of Taxes in Pakistan",
+                "author": "Mirza Munawar Hussain",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p2-11",
+                "name": "Law in Practice – Income and Sales Tax",
+                "author": "Abdul Razzaq",
+                "pdfUrl": "",
+                "downloadUrl": ""
+              },
+              {
+                "id": "accountancy-auditing-rec-p2-12",
+                "name": "Business Taxation",
+                "author": "Ijaz Ali Waince",
                 "pdfUrl": "",
                 "downloadUrl": ""
               }
