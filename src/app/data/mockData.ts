@@ -2766,6 +2766,103 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    group: 9,
+    subjects: [
+      {
+        id: "botany",
+        name: "Botany",
+        marks: 100,
+        icon: "🌿",
+        color: "bg-emerald-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Introduction to Botany",
+            marks: 11,
+            subsections: [
+              "Definition and scope of botany",
+              "Importance of plants in ecosystems and human life",
+              "Branches of botany"
+            ]
+          },
+          {
+            section: "2. Plant Cell and Tissue",
+            marks: 12,
+            subsections: [
+              "Structure and function of plant cells",
+              "Cell organelles",
+              "Types of plant tissues",
+              "Tissue systems in plants"
+            ]
+          },
+          {
+            section: "3. Plant Anatomy",
+            marks: 12,
+            subsections: [
+              "Internal structure of roots, stems, and leaves",
+              "Vascular tissues (xylem and phloem)",
+              "Secondary growth in plants"
+            ]
+          },
+          {
+            section: "4. Plant Physiology",
+            marks: 13,
+            subsections: [
+              "Photosynthesis",
+              "Respiration in plants",
+              "Water absorption and transpiration",
+              "Mineral nutrition"
+            ]
+          },
+          {
+            section: "5. Plant Reproduction",
+            marks: 12,
+            subsections: [
+              "Asexual reproduction",
+              "Sexual reproduction in plants",
+              "Structure of flowers",
+              "Pollination and fertilization"
+            ]
+          },
+          {
+            section: "6. Plant Genetics",
+            marks: 12,
+            subsections: [
+              "Principles of heredity",
+              "Genetic variation in plants",
+              "Plant breeding and genetic improvement"
+            ]
+          },
+          {
+            section: "7. Plant Ecology",
+            marks: 12,
+            subsections: [
+              "Relationship between plants and environment",
+              "Plant communities and ecosystems",
+              "Ecological adaptations"
+            ]
+          },
+          {
+            section: "8. Economic Botany",
+            marks: 11,
+            subsections: [
+              "Plants used for food, medicine, and industry",
+              "Importance of crops and medicinal plants"
+            ]
+          },
+          {
+            section: "9. Botany in Pakistan",
+            marks: 5,
+            subsections: [
+              "Important plant species in Pakistan",
+              "Agricultural and ecological significance of plants in Pakistan"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
