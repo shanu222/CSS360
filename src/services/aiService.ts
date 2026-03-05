@@ -31,4 +31,38 @@ export const aiService = {
     const response = await api.post('/ai/study/suggestions', data);
     return response.data.suggestions;
   },
+
+  async trainExaminerModel() {
+    const response = await api.post('/ai/examiner/train');
+    return response.data;
+  },
+
+  async getExaminerProfile() {
+    const response = await api.get('/ai/examiner/profile');
+    return response.data.profile;
+  },
+
+  async evaluateByExaminerModel(answer: string, question?: string) {
+    const response = await api.post('/ai/examiner/evaluate', {
+      answer,
+      question,
+    });
+    return response.data;
+  },
+
+  async refineByExaminerModel(answer: string, question?: string) {
+    const response = await api.post('/ai/examiner/refine', {
+      answer,
+      question,
+    });
+    return response.data;
+  },
+
+  async predictFutureQuestions(subject?: string, count: number = 5) {
+    const response = await api.post('/ai/examiner/predict-questions', {
+      subject,
+      count,
+    });
+    return response.data;
+  },
 };

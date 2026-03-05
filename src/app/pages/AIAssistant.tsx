@@ -37,6 +37,13 @@ I'm your intelligent study companion for CSS preparation. I can help you with:
   const [isTyping, setIsTyping] = useState(false);
   const [copied, setCopied] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [examinerBusy, setExaminerBusy] = useState(false);
+  const [examinerAction, setExaminerAction] = useState<string | null>(null);
+  const [examinerOutput, setExaminerOutput] = useState<string>("");
+  const [examinerQuestion, setExaminerQuestion] = useState("");
+  const [examinerAnswer, setExaminerAnswer] = useState("");
+  const [examinerSubject, setExaminerSubject] = useState("");
+  const [examinerCount, setExaminerCount] = useState(5);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -98,6 +105,56 @@ I'm your intelligent study companion for CSS preparation. I can help you with:
       .replace(/\n/g, '<br/>');
   };
 
+  const runExaminerAction = async (label: string, runner: () => Promise<any>) => {
+    setExaminerBusy(true);
+    setExaminerAction(label);
+    setError(null);
+
+    try {
+      const result = await runner();
+      const output = typeof result === 'string' ? result : JSON.stringify(result, null, 2);
+      setExaminerOutput(output);
+      setMessages(prev => [
+        ...prev,
+        {
+          role: 'assistant',
+          content: `**${label} complete**\n\n\`\`\`json\n${output}\n\`\`\``,
+          timestamp: new Date(),
+        },
+      ]);
+    } catch (err: any) {
+      const errorMessage = err.response?.data?.error || err.message || `${label} failed`;
+      setError(errorMessage);
+      setExaminerOutput(JSON.stringify({ error: errorMessage }, null, 2));
+    } finally {
+      setExaminerBusy(false);
+      setExaminerAction(null);
+    }
+  };
+
+  const handleTrainModel = () => runExaminerAction('Train Examiner Model', () => aiService.trainExaminerModel());
+  const handleGetProfile = () => runExaminerAction('Load Examiner Profile', () => aiService.getExaminerProfile());
+
+  const handleEvaluate = () => {
+    if (!examinerAnswer.trim()) {
+      setError('Answer text is required for evaluation.');
+      return;
+    }
+
+    runExaminerAction('Evaluate Answer', () => aiService.evaluateByExaminerModel(examinerAnswer, examinerQuestion || undefined));
+  };
+
+  const handleRefine = () => {
+    if (!examinerAnswer.trim()) {
+      setError('Answer text is required for refinement.');
+      return;
+    }
+
+    runExaminerAction('Refine Answer', () => aiService.refineByExaminerModel(examinerAnswer, examinerQuestion || undefined));
+  };
+
+  const handlePredict = () => runExaminerAction('Predict Questions', () => aiService.predictFutureQuestions(examinerSubject || undefined, examinerCount));
+
   return (
     <div className="h-full flex flex-col">
       {/* Header */}
@@ -120,6 +177,74 @@ I'm your intelligent study companion for CSS preparation. I can help you with:
       </div>
 
       <div className="flex-1 flex flex-col overflow-hidden bg-gray-50">
+        {error && (
+          <div className="mx-3 mt-3 sm:mx-4 sm:mt-4 p-2.5 rounded-lg border border-red-200 bg-red-50 text-red-700 text-xs sm:text-sm flex items-start gap-2">
+            <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+            <span>{error}</span>
+          </div>
+        )}
+
+        <div className="p-3 sm:p-4 border-b border-gray-200 bg-white space-y-2">
+          <div className="flex items-center justify-between gap-2">
+            <h3 className="text-sm sm:text-base font-semibold text-gray-800">Examiner Tools</h3>
+            {examinerBusy && (
+              <span className="text-xs text-green-700 flex items-center gap-1">
+                <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                {examinerAction || 'Working...'}
+              </span>
+            )}
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+            <button onClick={handleTrainModel} disabled={examinerBusy} className="px-2 py-1.5 text-xs rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-50">Train</button>
+            <button onClick={handleGetProfile} disabled={examinerBusy} className="px-2 py-1.5 text-xs rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-50">Profile</button>
+            <button onClick={handleEvaluate} disabled={examinerBusy} className="px-2 py-1.5 text-xs rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-50">Evaluate</button>
+            <button onClick={handleRefine} disabled={examinerBusy} className="px-2 py-1.5 text-xs rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-50">Refine</button>
+            <button onClick={handlePredict} disabled={examinerBusy} className="px-2 py-1.5 text-xs rounded-lg border border-gray-300 hover:bg-gray-50 disabled:opacity-50">Predict</button>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+            <input
+              type="text"
+              value={examinerQuestion}
+              onChange={(e) => setExaminerQuestion(e.target.value)}
+              placeholder="Question (for evaluate/refine)"
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 text-xs sm:text-sm"
+            />
+            <div className="grid grid-cols-3 gap-2">
+              <input
+                type="text"
+                value={examinerSubject}
+                onChange={(e) => setExaminerSubject(e.target.value)}
+                placeholder="Subject (predict)"
+                className="col-span-2 rounded-lg border border-gray-300 px-3 py-2 text-xs sm:text-sm"
+              />
+              <input
+                type="number"
+                min={1}
+                max={20}
+                value={examinerCount}
+                onChange={(e) => setExaminerCount(Number(e.target.value) || 5)}
+                placeholder="Count"
+                className="rounded-lg border border-gray-300 px-2 py-2 text-xs sm:text-sm"
+              />
+            </div>
+          </div>
+
+          <textarea
+            value={examinerAnswer}
+            onChange={(e) => setExaminerAnswer(e.target.value)}
+            placeholder="Answer text (required for evaluate/refine)"
+            className="w-full min-h-[72px] rounded-lg border border-gray-300 px-3 py-2 text-xs sm:text-sm"
+          />
+
+          {examinerOutput && (
+            <pre className="max-h-36 overflow-auto bg-gray-900 text-gray-100 rounded-lg p-2 text-[11px] sm:text-xs whitespace-pre-wrap break-words">
+              {examinerOutput}
+            </pre>
+          )}
+        </div>
+
         {/* Messages */}
         <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
           {messages.map((msg, idx) => (
