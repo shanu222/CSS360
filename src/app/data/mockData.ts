@@ -4108,6 +4108,103 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    id: 21,
+    name: "Group XXI",
+    subjects: [
+      {
+        id: "anthropology",
+        name: "Anthropology",
+        marks: 100,
+        icon: "🗿",
+        color: "from-amber-600 to-orange-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "Introduction to Anthropology",
+            marks: 10,
+            subsections: [
+              "Definition and scope of anthropology",
+              "Branches of anthropology",
+              "Importance of anthropological studies"
+            ]
+          },
+          {
+            section: "Biological Anthropology",
+            marks: 12,
+            subsections: [
+              "Human evolution",
+              "Human biological variation",
+              "Genetics and inheritance",
+              "Adaptation to different environments"
+            ]
+          },
+          {
+            section: "Cultural Anthropology",
+            marks: 11,
+            subsections: [
+              "Concept of culture",
+              "Cultural patterns and diversity",
+              "Cultural change and diffusion"
+            ]
+          },
+          {
+            section: "Social Organization",
+            marks: 11,
+            subsections: [
+              "Kinship systems",
+              "Marriage and family structures",
+              "Social groups and institutions"
+            ]
+          },
+          {
+            section: "Economic and Political Systems",
+            marks: 11,
+            subsections: [
+              "Traditional economic systems",
+              "Exchange and trade in societies",
+              "Political organization in different cultures"
+            ]
+          },
+          {
+            section: "Religion and Belief Systems",
+            marks: 11,
+            subsections: [
+              "Role of religion in society",
+              "Types of religious beliefs and rituals",
+              "Anthropology of religion"
+            ]
+          },
+          {
+            section: "Archaeology",
+            marks: 11,
+            subsections: [
+              "Study of ancient human societies",
+              "Archaeological methods and discoveries",
+              "Importance of archaeological evidence"
+            ]
+          },
+          {
+            section: "Applied Anthropology",
+            marks: 11,
+            subsections: [
+              "Use of anthropology in development and policy",
+              "Anthropology in health, education, and social planning"
+            ]
+          },
+          {
+            section: "Anthropology in Pakistan",
+            marks: 12,
+            subsections: [
+              "Cultural diversity in Pakistan",
+              "Ethnic groups and traditions",
+              "Anthropological studies of Pakistani society"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
