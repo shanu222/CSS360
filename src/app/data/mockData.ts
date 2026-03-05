@@ -1626,7 +1626,126 @@ export const optionalGroups = [
           }
         ]
       },
-      { id: "governance", name: "Governance & Public Policy", marks: 200, icon: "⚖️", color: "bg-amber-500", progress: 45 },
+      {
+        id: "governance",
+        name: "Governance & Public Policies",
+        marks: 100,
+        icon: "⚖️",
+        color: "bg-amber-500",
+        progress: 45,
+        syllabus: [
+          {
+            section: "1. Basic Concepts of Governance",
+            marks: 16,
+            subsections: [
+              "Origin of the term governance",
+              "Definition of governance",
+              "Definition of good governance",
+              "Characteristics of good governance: participation, rule of law, transparency, responsiveness, equity, effectiveness and efficiency, accountability, strategic vision",
+              "Failure of governance",
+              "Indicators of governance failure",
+              "Diagnostic tools",
+              "Effects of weak governance"
+            ]
+          },
+          {
+            section: "2. Governance Theories",
+            marks: 12,
+            subsections: [
+              "Communitarianism",
+              "Decentered theory",
+              "Libertarian socialism",
+              "Institutionalism",
+              "Marxism",
+              "Neoliberalism",
+              "Rational choice theory",
+              "Regulation theory"
+            ]
+          },
+          {
+            section: "3. Governance Indicators",
+            marks: 12,
+            subsections: [
+              "Indicators developed by international institutions: World Bank, IMF, UNESCO, UNDP, Asian Development Bank",
+              "Voice and accountability",
+              "Political stability and absence of violence",
+              "Government effectiveness",
+              "Regulatory quality",
+              "Rule of law",
+              "Control of corruption"
+            ]
+          },
+          {
+            section: "4. Public Policy and Planning Institutions",
+            marks: 14,
+            subsections: [
+              "Institutional framework for policy coordination and planning",
+              "Economic Coordination Committee of the Cabinet",
+              "Federal Cabinet",
+              "Secretaries Committee",
+              "Prime Minister's Secretariat",
+              "Planning Commission",
+              "Finance Division",
+              "Cabinet Division",
+              "Federal Ministries",
+              "Role of Planning Commission: strategic planning and policy development",
+              "Role of governments: federal, provincial, local",
+              "Role of international donors: IMF, World Bank, development partners",
+              "Policy implementation in health and education sectors"
+            ]
+          },
+          {
+            section: "5. Accountability",
+            marks: 12,
+            subsections: [
+              "Concept of accountability",
+              "Standards of accountability",
+              "Symbolic and practical aspects",
+              "Types of accountability: political, legal/judicial, administrative, professional",
+              "Public vs private accountability",
+              "Anti-corruption strategies",
+              "National strategies against corruption",
+              "Institutional reforms"
+            ]
+          },
+          {
+            section: "6. Bureaucracy",
+            marks: 12,
+            subsections: [
+              "Concept of bureaucracy",
+              "Historical background",
+              "Neutrality of bureaucracy",
+              "Role in state governance",
+              "Theories of bureaucracy: Max Weber, Karl Marx, John Stuart Mill, Woodrow Wilson",
+              "Bureaucracy in Pakistan",
+              "Colonial legacy",
+              "Civil-military relations",
+              "Political influence",
+              "Institutional challenges"
+            ]
+          },
+          {
+            section: "7. Administrative Reforms",
+            marks: 10,
+            subsections: [
+              "Theories of administrative reforms",
+              "Types of administrative reforms",
+              "Reform strategies: privatization, regulation and deregulation, decentralization, public-private partnerships, business process re-engineering, quality assurance",
+              "Administrative reforms in Pakistan"
+            ]
+          },
+          {
+            section: "8. Public Administration and Development",
+            marks: 12,
+            subsections: [
+              "Role of public administration in development",
+              "Development administration",
+              "Difference between development administration and development management",
+              "Issues and challenges of public administration in Pakistan"
+            ]
+          }
+        ]
+      },
       {
         id: "business-administration",
         name: "Business Administration",
