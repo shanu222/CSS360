@@ -3611,6 +3611,105 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    group: 16,
+    subjects: [
+      {
+        id: "criminology",
+        name: "Criminology",
+        marks: 100,
+        icon: "🔍",
+        color: "bg-red-700",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Introduction to Criminology",
+            marks: 11,
+            subsections: [
+              "Definition and scope of criminology",
+              "Nature and importance of criminology",
+              "Relationship of criminology with other social sciences"
+            ]
+          },
+          {
+            section: "2. Crime and Criminal Behavior",
+            marks: 12,
+            subsections: [
+              "Concept and definition of crime",
+              "Types and classification of crime",
+              "Causes of criminal behavior"
+            ]
+          },
+          {
+            section: "3. Schools of Criminology",
+            marks: 12,
+            subsections: [
+              "Classical school",
+              "Positivist school",
+              "Neo-classical school",
+              "Modern criminological perspectives"
+            ]
+          },
+          {
+            section: "4. Theories of Crime",
+            marks: 13,
+            subsections: [
+              "Biological theories of crime",
+              "Psychological theories of crime",
+              "Sociological theories of crime",
+              "Strain theory",
+              "Social control theory"
+            ]
+          },
+          {
+            section: "5. Juvenile Delinquency",
+            marks: 11,
+            subsections: [
+              "Definition and causes of juvenile delinquency",
+              "Prevention and control of juvenile crime",
+              "Juvenile justice system"
+            ]
+          },
+          {
+            section: "6. Criminal Justice System",
+            marks: 12,
+            subsections: [
+              "Structure of the criminal justice system",
+              "Role of police",
+              "Role of courts",
+              "Role of correctional institutions"
+            ]
+          },
+          {
+            section: "7. Punishment and Rehabilitation",
+            marks: 12,
+            subsections: [
+              "Theories of punishment",
+              "Types of punishment",
+              "Rehabilitation and correctional programs"
+            ]
+          },
+          {
+            section: "8. Victimology",
+            marks: 11,
+            subsections: [
+              "Concept of victimology",
+              "Victim rights and protection",
+              "Impact of crime on victims"
+            ]
+          },
+          {
+            section: "9. Crime Prevention",
+            marks: 6,
+            subsections: [
+              "Strategies for crime prevention",
+              "Role of community and institutions in crime control"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
