@@ -618,7 +618,122 @@ export const optionalGroups = [
           }
         ]
       },
-      { id: "political-science", name: "Political Science", marks: 200, icon: "🏛️", color: "bg-blue-600", progress: 25 },
+      {
+        id: "political-science",
+        name: "Political Science",
+        marks: 200,
+        icon: "🏛️",
+        color: "bg-blue-600",
+        progress: 25,
+        syllabus: [
+          {
+            section: "PAPER I – POLITICAL THEORY AND POLITICAL SYSTEMS (100 Marks) – 1. Introduction to Political Science",
+            marks: 14,
+            subsections: [
+              "Definition and scope of political science",
+              "Relationship of political science with other social sciences",
+              "Nature and importance of political theory"
+            ]
+          },
+          {
+            section: "PAPER I – POLITICAL THEORY AND POLITICAL SYSTEMS (100 Marks) – 2. State",
+            marks: 16,
+            subsections: [
+              "Definition and elements of the state",
+              "Theories of the origin of the state",
+              "Functions of the state",
+              "Sovereignty and its evolution"
+            ]
+          },
+          {
+            section: "PAPER I – POLITICAL THEORY AND POLITICAL SYSTEMS (100 Marks) – 3. Political Ideologies",
+            marks: 18,
+            subsections: [
+              "Liberalism",
+              "Socialism",
+              "Marxism",
+              "Fascism",
+              "Nationalism"
+            ]
+          },
+          {
+            section: "PAPER I – POLITICAL THEORY AND POLITICAL SYSTEMS (100 Marks) – 4. Forms of Government",
+            marks: 16,
+            subsections: [
+              "Democracy and dictatorship",
+              "Parliamentary system",
+              "Presidential system",
+              "Federal and unitary systems"
+            ]
+          },
+          {
+            section: "PAPER I – POLITICAL THEORY AND POLITICAL SYSTEMS (100 Marks) – 5. Political Institutions",
+            marks: 20,
+            subsections: [
+              "Legislature: structure and functions",
+              "Executive: powers and responsibilities",
+              "Judiciary: independence and role in governance"
+            ]
+          },
+          {
+            section: "PAPER I – POLITICAL THEORY AND POLITICAL SYSTEMS (100 Marks) – 6. Political Parties and Pressure Groups",
+            marks: 16,
+            subsections: [
+              "Role of political parties in democracy",
+              "Party systems",
+              "Pressure groups and interest groups"
+            ]
+          },
+          {
+            section: "PAPER II – COMPARATIVE POLITICS AND INTERNATIONAL POLITICS (100 Marks) – 1. Comparative Political Systems",
+            marks: 25,
+            subsections: [
+              "Political systems of major countries",
+              "United Kingdom",
+              "United States of America",
+              "France",
+              "China"
+            ]
+          },
+          {
+            section: "PAPER II – COMPARATIVE POLITICS AND INTERNATIONAL POLITICS (100 Marks) – 2. Political Development",
+            marks: 15,
+            subsections: [
+              "Concept of political development",
+              "Political modernization",
+              "Political culture and socialization"
+            ]
+          },
+          {
+            section: "PAPER II – COMPARATIVE POLITICS AND INTERNATIONAL POLITICS (100 Marks) – 3. International Politics",
+            marks: 20,
+            subsections: [
+              "Nature and scope of international politics",
+              "National interest and power",
+              "Diplomacy and foreign policy"
+            ]
+          },
+          {
+            section: "PAPER II – COMPARATIVE POLITICS AND INTERNATIONAL POLITICS (100 Marks) – 4. International Organizations",
+            marks: 20,
+            subsections: [
+              "United Nations and its structure",
+              "Regional organizations",
+              "Role of international institutions in global governance"
+            ]
+          },
+          {
+            section: "PAPER II – COMPARATIVE POLITICS AND INTERNATIONAL POLITICS (100 Marks) – 5. Contemporary Global Issues",
+            marks: 20,
+            subsections: [
+              "Globalization",
+              "Security challenges",
+              "International conflicts",
+              "Economic cooperation"
+            ]
+          }
+        ]
+      },
       {
         id: "computer-science",
         name: "Computer Science",
