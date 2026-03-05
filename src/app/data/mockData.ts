@@ -2961,6 +2961,101 @@ export const optionalGroups = [
       },
     ],
   },
+  {
+    group: 11,
+    subjects: [
+      {
+        id: "english-literature",
+        name: "English Literature",
+        marks: 100,
+        icon: "📚",
+        color: "bg-red-600",
+        progress: 0,
+        syllabus: [
+          {
+            section: "1. Introduction to English Literature",
+            marks: 11,
+            subsections: [
+              "Definition and scope of literature",
+              "Literary genres: poetry, drama, and prose",
+              "Major literary movements and trends"
+            ]
+          },
+          {
+            section: "2. Medieval Literature",
+            marks: 11,
+            subsections: [
+              "Development of English literature in the medieval period",
+              "Works of Geoffrey Chaucer",
+              "Themes and characteristics of medieval literature"
+            ]
+          },
+          {
+            section: "3. Renaissance Literature",
+            marks: 12,
+            subsections: [
+              "Renaissance and humanism in England",
+              "Works of William Shakespeare",
+              "Development of drama and poetry during the Renaissance"
+            ]
+          },
+          {
+            section: "4. Seventeenth-Century Literature",
+            marks: 11,
+            subsections: [
+              "Metaphysical poetry",
+              "Works of John Donne and John Milton",
+              "Religious and philosophical themes in literature"
+            ]
+          },
+          {
+            section: "5. Eighteenth-Century Literature",
+            marks: 11,
+            subsections: [
+              "Rise of the novel",
+              "Works of Jonathan Swift, Alexander Pope, and Daniel Defoe",
+              "Satire and social criticism"
+            ]
+          },
+          {
+            section: "6. Romantic Literature",
+            marks: 12,
+            subsections: [
+              "Characteristics of Romanticism",
+              "Major poets: William Wordsworth, Samuel Taylor Coleridge, John Keats, Percy Bysshe Shelley, Lord Byron",
+              "Themes of nature, imagination, and individualism"
+            ]
+          },
+          {
+            section: "7. Victorian Literature",
+            marks: 12,
+            subsections: [
+              "Social and cultural context of the Victorian age",
+              "Major writers: Charles Dickens, Thomas Hardy, Alfred Tennyson",
+              "Development of the Victorian novel"
+            ]
+          },
+          {
+            section: "8. Modern Literature",
+            marks: 12,
+            subsections: [
+              "Literary movements of the twentieth century",
+              "Modernist writers: T. S. Eliot, James Joyce, Virginia Woolf",
+              "Themes of modernism and realism"
+            ]
+          },
+          {
+            section: "9. Literary Criticism",
+            marks: 8,
+            subsections: [
+              "Basic principles of literary criticism",
+              "Major critical approaches to literature"
+            ]
+          }
+        ]
+      },
+    ],
+  },
 ];
 
 export const books = [
