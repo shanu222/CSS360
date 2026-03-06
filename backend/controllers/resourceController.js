@@ -1,61 +1,190 @@
-import Resource from '../models/Resource.js';
 import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import Resource from '../models/Resource.js';
+import { emitGlobalEvent } from '../services/realtimeService.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const buildFilters = (query) => {
+  const filters = { isActive: true };
 
-// Get all resources (with filters) - returns empty (auth/db removed)
+  if (query.type) filters.type = query.type;
+  if (query.category) filters.category = query.category;
+  if (query.year) filters.year = Number(query.year);
+  if (query.search) {
+    filters.$or = [
+      { title: { $regex: query.search, $options: 'i' } },
+      { description: { $regex: query.search, $options: 'i' } },
+      { tags: { $in: [new RegExp(query.search, 'i')] } },
+    ];
+  }
+
+  return filters;
+};
+
 export const getResources = async (req, res) => {
   try {
-    // Return empty array since database is not connected
-    res.json([]);
+    const resources = await Resource.find(buildFilters(req.query)).sort({ createdAt: -1 }).lean();
+    return res.json(resources);
   } catch (error) {
     console.error('Get resources error:', error);
-    res.json([]);
+    return res.status(500).json({ error: 'Failed to fetch resources' });
   }
 };
 
-// Get single resource - returns 404
 export const getResource = async (req, res) => {
-  res.status(404).json({ error: 'Resource not found' });
+  try {
+    const resource = await Resource.findOne({ _id: req.params.id, isActive: true }).lean();
+    if (!resource) {
+      return res.status(404).json({ error: 'Resource not found' });
+    }
+
+    return res.json(resource);
+  } catch (error) {
+    console.error('Get resource error:', error);
+    return res.status(500).json({ error: 'Failed to fetch resource' });
+  }
 };
 
-// Create resource (admin only) - requires auth
 export const createResource = async (req, res) => {
-  res.status(401).json({ error: 'Authentication required' });
+  try {
+    const { title, type, category, fileUrl, fileType } = req.body || {};
+    if (!title || !type || !category || !fileUrl || !fileType) {
+      return res.status(400).json({ error: 'title, type, category, fileUrl, and fileType are required' });
+    }
+
+    const created = await Resource.create({
+      ...req.body,
+      uploadedBy: req.userDoc._id,
+      isActive: true,
+    });
+
+    emitGlobalEvent('resources:created', { resource: created.toObject() });
+
+    return res.status(201).json({ resource: created });
+  } catch (error) {
+    console.error('Create resource error:', error);
+    return res.status(500).json({ error: 'Failed to create resource' });
+  }
 };
 
-// Update resource (admin only) - requires auth
 export const updateResource = async (req, res) => {
-  res.status(401).json({ error: 'Authentication required' });
+  try {
+    const updated = await Resource.findOneAndUpdate(
+      { _id: req.params.id, isActive: true },
+      { ...req.body },
+      { new: true }
+    );
+
+    if (!updated) {
+      return res.status(404).json({ error: 'Resource not found' });
+    }
+
+    emitGlobalEvent('resources:updated', { resource: updated.toObject() });
+
+    return res.json({ resource: updated });
+  } catch (error) {
+    console.error('Update resource error:', error);
+    return res.status(500).json({ error: 'Failed to update resource' });
+  }
 };
 
-// Delete resource (admin only) - requires auth
 export const deleteResource = async (req, res) => {
-  res.status(401).json({ error: 'Authentication required' });
+  try {
+    const resource = await Resource.findOneAndUpdate(
+      { _id: req.params.id, isActive: true },
+      { isActive: false },
+      { new: true }
+    );
+
+    if (!resource) {
+      return res.status(404).json({ error: 'Resource not found' });
+    }
+
+    emitGlobalEvent('resources:deleted', { resourceId: req.params.id });
+
+    return res.json({ message: 'Resource deleted successfully' });
+  } catch (error) {
+    console.error('Delete resource error:', error);
+    return res.status(500).json({ error: 'Failed to delete resource' });
+  }
 };
 
-// Increment view count - safe operation
 export const incrementViews = async (req, res) => {
-  res.json({ views: 0 });
+  try {
+    const resource = await Resource.findOneAndUpdate(
+      { _id: req.params.id, isActive: true },
+      { $inc: { views: 1 } },
+      { new: true }
+    );
+
+    if (!resource) {
+      return res.status(404).json({ error: 'Resource not found' });
+    }
+
+    return res.json({ views: resource.views });
+  } catch (error) {
+    console.error('Increment views error:', error);
+    return res.status(500).json({ error: 'Failed to increment views' });
+  }
 };
 
-// Increment download count - safe operation
 export const incrementDownloads = async (req, res) => {
-  res.json({ downloads: 0 });
+  try {
+    const resource = await Resource.findOneAndUpdate(
+      { _id: req.params.id, isActive: true },
+      { $inc: { downloads: 1 } },
+      { new: true }
+    );
+
+    if (!resource) {
+      return res.status(404).json({ error: 'Resource not found' });
+    }
+
+    return res.json({ downloads: resource.downloads });
+  } catch (error) {
+    console.error('Increment downloads error:', error);
+    return res.status(500).json({ error: 'Failed to increment downloads' });
+  }
 };
 
-// Get resource statistics (admin only) - returns empty
-export const getStatistics = async (req, res) => {
-  res.json({
-    totalResources: 0,
-    byType: [],
-  });
+export const getStatistics = async (_req, res) => {
+  try {
+    const [totalResources, byType] = await Promise.all([
+      Resource.countDocuments({ isActive: true }),
+      Resource.aggregate([
+        { $match: { isActive: true } },
+        { $group: { _id: '$type', count: { $sum: 1 } } },
+        { $sort: { count: -1 } },
+      ]),
+    ]);
+
+    return res.json({ totalResources, byType });
+  } catch (error) {
+    console.error('Get statistics error:', error);
+    return res.status(500).json({ error: 'Failed to fetch statistics' });
+  }
 };
 
-// Upload file handler - requires auth
 export const handleFileUpload = async (req, res) => {
-  res.status(401).json({ error: 'Authentication required' });
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: 'No file uploaded' });
+    }
+
+    const relativePath = `/uploads/${req.file.filename}`;
+    return res.status(201).json({
+      message: 'File uploaded successfully',
+      fileUrl: relativePath,
+      originalName: req.file.originalname,
+      size: req.file.size,
+      mimeType: req.file.mimetype,
+    });
+  } catch (error) {
+    console.error('File upload handler error:', error);
+
+    // Cleanup partially uploaded file when possible
+    if (req.file?.path && fs.existsSync(req.file.path)) {
+      fs.unlinkSync(req.file.path);
+    }
+
+    return res.status(500).json({ error: 'File upload failed' });
+  }
 };

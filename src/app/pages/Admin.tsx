@@ -1,476 +1,455 @@
-import { useState, useEffect } from 'react';
-import { Plus, File, Eye, Trash2, Upload, Loader2 } from 'lucide-react';
-import { resourceService } from '../../services/resourceService';
+import { useEffect, useMemo, useState, type FormEvent } from 'react';
+import { Trash2, LogOut, RefreshCcw, Upload, Plus, FileText } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
+import { adminService, type AdminUser, type ContentItem } from '../../services/adminService';
+import { resourceService } from '../../services/resourceService';
+import { getSocket } from '../../services/socketService';
+
+interface ResourceItem {
+  _id: string;
+  title: string;
+  category: string;
+  type: string;
+  views: number;
+  downloads: number;
+  fileUrl: string;
+}
+
+type Tab = 'users' | 'content' | 'resources';
+
+const initialContentForm = {
+  title: '',
+  type: 'announcement' as ContentItem['type'],
+  body: '',
+  tags: '',
+};
 
 export default function AdminPanel() {
   const { user } = useAuth();
-  const [activeTab, setActiveTab] = useState<'upload' | 'manage'>('upload');
-  const [resources, setResources] = useState<any[]>([]);
-  const [statistics, setStatistics] = useState<any>(null);
-  const [loading, setLoading] = useState(false);
-  const [uploadProgress, setUploadProgress] = useState(0);
-  const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState<string | null>(null);
 
-  // Form state
-  const [formData, setFormData] = useState({
+  const [tab, setTab] = useState<Tab>('users');
+  const [users, setUsers] = useState<AdminUser[]>([]);
+  const [activeUsers, setActiveUsers] = useState<AdminUser[]>([]);
+  const [contentItems, setContentItems] = useState<ContentItem[]>([]);
+  const [resources, setResources] = useState<ResourceItem[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+
+  const [contentForm, setContentForm] = useState(initialContentForm);
+
+  const [resourceFile, setResourceFile] = useState<File | null>(null);
+  const [resourceForm, setResourceForm] = useState({
     title: '',
-    description: '',
-    type: 'past_paper',
     category: '',
-    year: new Date().getFullYear(),
-    solved: false,
-    tags: '',
+    type: 'past_paper',
+    description: '',
   });
 
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [uploadedFileUrl, setUploadedFileUrl] = useState('');
+  const loadAll = async () => {
+    try {
+      setLoading(true);
+      setError('');
+
+      const [loadedUsers, loadedActiveUsers, loadedContent, loadedResources] = await Promise.all([
+        adminService.getUsers(),
+        adminService.getActiveUsers(),
+        adminService.getContent(),
+        resourceService.getResources(),
+      ]);
+
+      setUsers(loadedUsers);
+      setActiveUsers(loadedActiveUsers);
+      setContentItems(loadedContent);
+      setResources(loadedResources as ResourceItem[]);
+    } catch (err: any) {
+      setError(err?.response?.data?.error || 'Failed to load admin data');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     if (user?.role === 'admin') {
-      loadResources();
-      loadStatistics();
+      loadAll();
     }
-  }, [user]);
+  }, [user?.role]);
 
-  const loadResources = async () => {
+  useEffect(() => {
+    const socket = getSocket();
+    const reload = () => {
+      void loadAll();
+    };
+
+    socket.on('auth:user-registered', reload);
+    socket.on('auth:user-login', reload);
+    socket.on('auth:user-logout', reload);
+    socket.on('admin:user-deleted', reload);
+    socket.on('admin:user-force-logout', reload);
+    socket.on('admin:content-created', reload);
+    socket.on('admin:content-updated', reload);
+    socket.on('admin:content-deleted', reload);
+    socket.on('resources:created', reload);
+    socket.on('resources:updated', reload);
+    socket.on('resources:deleted', reload);
+
+    return () => {
+      socket.off('auth:user-registered', reload);
+      socket.off('auth:user-login', reload);
+      socket.off('auth:user-logout', reload);
+      socket.off('admin:user-deleted', reload);
+      socket.off('admin:user-force-logout', reload);
+      socket.off('admin:content-created', reload);
+      socket.off('admin:content-updated', reload);
+      socket.off('admin:content-deleted', reload);
+      socket.off('resources:created', reload);
+      socket.off('resources:updated', reload);
+      socket.off('resources:deleted', reload);
+    };
+  }, []);
+
+  const stats = useMemo(() => {
+    return {
+      totalUsers: users.length,
+      onlineUsers: activeUsers.length,
+      totalContent: contentItems.length,
+      totalResources: resources.length,
+    };
+  }, [users.length, activeUsers.length, contentItems.length, resources.length]);
+
+  const handleDeleteUser = async (id: string) => {
+    if (!window.confirm('Delete this user permanently?')) return;
+
     try {
-      const data = await resourceService.getResources();
-      setResources(data);
+      await adminService.deleteUser(id);
+      setSuccess('User deleted successfully');
+      await loadAll();
     } catch (err: any) {
-      console.error('Failed to load resources:', err);
+      setError(err?.response?.data?.error || 'Failed to delete user');
     }
   };
 
-  const loadStatistics = async () => {
+  const handleForceLogout = async (id: string) => {
     try {
-      const data = await resourceService.getStatistics();
-      setStatistics(data);
+      await adminService.forceLogoutUser(id);
+      setSuccess('User logged out successfully');
+      await loadAll();
     } catch (err: any) {
-      console.error('Failed to load statistics:', err);
+      setError(err?.response?.data?.error || 'Failed to log out user');
     }
   };
 
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setSelectedFile(e.target.files[0]);
-      setError(null);
-    }
-  };
-
-  const handleFileUpload = async () => {
-    if (!selectedFile) {
-      setError('Please select a file');
-      return;
-    }
-
-    setLoading(true);
-    setUploadProgress(0);
-    setError(null);
+  const handleCreateContent = async (event: FormEvent) => {
+    event.preventDefault();
 
     try {
-      const response = await resourceService.uploadFile(selectedFile, (progress) => {
-        setUploadProgress(progress);
+      await adminService.createContent({
+        title: contentForm.title,
+        type: contentForm.type,
+        body: contentForm.body,
+        tags: contentForm.tags
+          .split(',')
+          .map((tag) => tag.trim())
+          .filter(Boolean),
       });
-
-      setUploadedFileUrl(response.fileUrl);
-      setSuccess('File uploaded successfully!');
-      setSelectedFile(null);
-      setUploadProgress(0);
+      setContentForm(initialContentForm);
+      setSuccess('Content created successfully');
+      await loadAll();
     } catch (err: any) {
-      setError(err.response?.data?.error || 'Failed to upload file');
-    } finally {
-      setLoading(false);
+      setError(err?.response?.data?.error || 'Failed to create content item');
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleDeleteContent = async (id: string) => {
+    if (!window.confirm('Delete this content item?')) return;
 
-    if (!uploadedFileUrl) {
-      setError('Please upload a file first');
+    try {
+      await adminService.deleteContent(id);
+      setSuccess('Content deleted successfully');
+      await loadAll();
+    } catch (err: any) {
+      setError(err?.response?.data?.error || 'Failed to delete content');
+    }
+  };
+
+  const handleUploadResource = async (event: FormEvent) => {
+    event.preventDefault();
+
+    if (!resourceFile) {
+      setError('Please select a file before creating a resource.');
       return;
     }
 
-    setLoading(true);
-    setError(null);
-
     try {
-      const fileType = selectedFile?.type || 'application/pdf';
-      const fileSize = selectedFile?.size || 0;
-
+      setLoading(true);
+      const uploaded = await resourceService.uploadFile(resourceFile);
       await resourceService.createResource({
-        title: formData.title,
-        description: formData.description,
-        type: formData.type,
-        category: formData.category,
-        year: formData.type === 'past_paper' ? formData.year : undefined,
-        fileUrl: uploadedFileUrl,
-        fileType,
-        fileSize,
-        solved: formData.solved,
-        tags: formData.tags.split(',').map(t => t.trim()).filter(Boolean),
+        title: resourceForm.title,
+        description: resourceForm.description,
+        type: resourceForm.type,
+        category: resourceForm.category,
+        fileUrl: uploaded.fileUrl,
+        fileType: resourceFile.type || 'application/octet-stream',
       });
 
-      setSuccess('Resource created successfully!');
-      
-      // Reset form
-      setFormData({
-        title: '',
-        description: '',
-        type: 'past_paper',
-        category: '',
-        year: new Date().getFullYear(),
-        solved: false,
-        tags: '',
-      });
-      setUploadedFileUrl('');
-      
-      // Reload data
-      loadResources();
-      loadStatistics();
+      setResourceFile(null);
+      setResourceForm({ title: '', category: '', type: 'past_paper', description: '' });
+      setSuccess('Resource uploaded and published successfully');
+      await loadAll();
     } catch (err: any) {
-      setError(err.response?.data?.error || 'Failed to create resource');
+      setError(err?.response?.data?.error || 'Failed to upload resource');
     } finally {
       setLoading(false);
     }
   };
 
-  const handleDelete = async (id: string) => {
-    if (!confirm('Are you sure you want to delete this resource?')) return;
+  const handleDeleteResource = async (id: string) => {
+    if (!window.confirm('Delete this resource?')) return;
 
     try {
       await resourceService.deleteResource(id);
       setSuccess('Resource deleted successfully');
-      loadResources();
-      loadStatistics();
+      await loadAll();
     } catch (err: any) {
-      setError(err.response?.data?.error || 'Failed to delete resource');
+      setError(err?.response?.data?.error || 'Failed to delete resource');
     }
   };
 
   if (user?.role !== 'admin') {
     return (
-      <div className="p-6 text-center">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">Access Denied</h2>
-        <p className="text-gray-600">You don't have permission to access this page.</p>
+      <div className="min-h-screen flex items-center justify-center p-6">
+        <div className="rounded-xl border border-red-200 bg-red-50 p-6 text-center">
+          <h2 className="text-xl font-semibold text-red-800">Access Denied</h2>
+          <p className="mt-1 text-sm text-red-700">This area is only available to administrators.</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="p-4 lg:p-6 space-y-5">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-purple-600 to-indigo-700 rounded-2xl p-5 text-white">
-        <h2 className="text-2xl text-white mb-1">Admin Panel</h2>
-        <p className="text-purple-200 text-sm">Upload and manage all platform content</p>
-        
-        {/* Statistics */}
-        {statistics && (
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
-            <div className="bg-white/10 rounded-xl p-3">
-              <p className="text-purple-300 text-xs">Total Resources</p>
-              <p className="text-white font-semibold text-xl mt-0.5">{statistics.totalResources}</p>
-            </div>
-            {statistics.byType?.map((stat: any) => (
-              <div key={stat._id} className="bg-white/10 rounded-xl p-3">
-                <p className="text-purple-300 text-xs capitalize">{stat._id.replace('_', ' ')}</p>
-                <p className="text-white font-semibold text-xl mt-0.5">{stat.count}</p>
-              </div>
-            ))}
+    <div className="min-h-screen bg-slate-50 p-4 sm:p-6 space-y-4">
+      <div className="rounded-2xl bg-slate-900 p-5 text-white">
+        <h1 className="text-2xl font-semibold">Admin Dashboard</h1>
+        <p className="mt-1 text-sm text-slate-300">Manage users, live sessions, and platform content.</p>
+
+        <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="rounded-lg bg-slate-800 p-3">
+            <p className="text-xs text-slate-300">Total Users</p>
+            <p className="text-xl font-semibold">{stats.totalUsers}</p>
           </div>
-        )}
+          <div className="rounded-lg bg-slate-800 p-3">
+            <p className="text-xs text-slate-300">Active Sessions</p>
+            <p className="text-xl font-semibold">{stats.onlineUsers}</p>
+          </div>
+          <div className="rounded-lg bg-slate-800 p-3">
+            <p className="text-xs text-slate-300">Content Items</p>
+            <p className="text-xl font-semibold">{stats.totalContent}</p>
+          </div>
+          <div className="rounded-lg bg-slate-800 p-3">
+            <p className="text-xs text-slate-300">Resources</p>
+            <p className="text-xl font-semibold">{stats.totalResources}</p>
+          </div>
+        </div>
       </div>
 
-      {/* Alerts */}
-      {error && (
-        <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-red-700 text-sm">
-          {error}
-        </div>
-      )}
-      {success && (
-        <div className="bg-green-50 border border-green-200 rounded-xl p-4 text-green-700 text-sm">
-          {success}
-        </div>
-      )}
-
-      {/* Tabs */}
-      <div className="flex gap-2 border-b border-gray-200">
-        <button
-          onClick={() => setActiveTab('upload')}
-          className={`px-4 py-2 text-sm font-medium transition-colors ${
-            activeTab === 'upload'
-              ? 'text-purple-600 border-b-2 border-purple-600'
-              : 'text-gray-600 hover:text-gray-800'
-          }`}
-        >
-          <Upload className="w-4 h-4 inline mr-2" />
-          Upload Content
+      <div className="flex flex-wrap items-center gap-2">
+        <button onClick={() => setTab('users')} className={`rounded-lg px-3 py-2 text-sm ${tab === 'users' ? 'bg-slate-900 text-white' : 'bg-white border border-slate-200'}`}>
+          Users
         </button>
-        <button
-          onClick={() => setActiveTab('manage')}
-          className={`px-4 py-2 text-sm font-medium transition-colors ${
-            activeTab === 'manage'
-              ? 'text-purple-600 border-b-2 border-purple-600'
-              : 'text-gray-600 hover:text-gray-800'
-          }`}
-        >
-          <File className="w-4 h-4 inline mr-2" />
-          Manage Resources
+        <button onClick={() => setTab('content')} className={`rounded-lg px-3 py-2 text-sm ${tab === 'content' ? 'bg-slate-900 text-white' : 'bg-white border border-slate-200'}`}>
+          Content
+        </button>
+        <button onClick={() => setTab('resources')} className={`rounded-lg px-3 py-2 text-sm ${tab === 'resources' ? 'bg-slate-900 text-white' : 'bg-white border border-slate-200'}`}>
+          Upload/Resources
+        </button>
+        <button onClick={() => void loadAll()} className="ml-auto inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm">
+          <RefreshCcw className="h-4 w-4" /> Refresh
         </button>
       </div>
 
-      {/* Upload Tab */}
-      {activeTab === 'upload' && (
-        <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-6">
-          <form onSubmit={handleSubmit} className="space-y-5">
-            {/* File Upload */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Upload File *
-              </label>
-              <div className="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-purple-400 transition-colors">
-                <input
-                  type="file"
-                  onChange={handleFileSelect}
-                  accept=".pdf,.doc,.docx,.ppt,.pptx,.mp4,.avi,.mov,.jpg,.jpeg,.png"
-                  className="hidden"
-                  id="file-upload"
-                />
-                <label htmlFor="file-upload" className="cursor-pointer">
-                  <Upload className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-                  <p className="text-gray-600 font-medium">
-                    {selectedFile ? selectedFile.name : 'Click to upload or drag and drop'}
-                  </p>
-                  <p className="text-gray-400 text-xs mt-1">
-                    PDF, DOC, PPT, MP4, or images (max 100MB)
-                  </p>
-                </label>
-              </div>
+      {error && <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">{error}</div>}
+      {success && <div className="rounded-lg border border-green-200 bg-green-50 p-3 text-sm text-green-700">{success}</div>}
 
-              {selectedFile && !uploadedFileUrl && (
-                <button
-                  type="button"
-                  onClick={handleFileUpload}
-                  disabled={loading}
-                  className="mt-3 w-full px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50 flex items-center justify-center gap-2"
-                >
-                  {loading ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      Uploading... {uploadProgress}%
-                    </>
-                  ) : (
-                    <>
-                      <Upload className="w-4 h-4" />
-                      Upload File
-                    </>
-                  )}
-                </button>
-              )}
-
-              {uploadedFileUrl && (
-                <div className="mt-3 p-3 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm">
-                  ✓ File uploaded successfully!
-                </div>
-              )}
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Title */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Title *
-                </label>
-                <input
-                  type="text"
-                  value={formData.title}
-                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  placeholder="e.g., CSS 2024 Pakistan Affairs Paper"
-                />
-              </div>
-
-              {/* Type */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Type *
-                </label>
-                <select
-                  value={formData.type}
-                  onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                >
-                  <option value="past_paper">Past Paper</option>
-                  <option value="note">Notes</option>
-                  <option value="video">Video</option>
-                  <option value="book">Book</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              {/* Category */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Category/Subject *
-                </label>
-                <input
-                  type="text"
-                  value={formData.category}
-                  onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  placeholder="e.g., Pakistan Affairs"
-                />
-              </div>
-
-              {/* Year */}
-              {formData.type === 'past_paper' && (
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Year
-                  </label>
-                  <input
-                    type="number"
-                    value={formData.year}
-                    onChange={(e) => setFormData({ ...formData, year: parseInt(e.target.value) })}
-                    min="2000"
-                    max="2030"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  />
-                </div>
-              )}
-            </div>
-
-            {/* Description */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Description
-              </label>
-              <textarea
-                value={formData.description}
-                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                rows={3}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                placeholder="Brief description of the resource..."
-              />
-            </div>
-
-            {/* Tags */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Tags (comma-separated)
-              </label>
-              <input
-                type="text"
-                value={formData.tags}
-                onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                placeholder="e.g., compulsory, essay, important"
-              />
-            </div>
-
-            {/* Solved checkbox for past papers */}
-            {formData.type === 'past_paper' && (
-              <div className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  id="solved"
-                  checked={formData.solved}
-                  onChange={(e) => setFormData({ ...formData, solved: e.target.checked })}
-                  className="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
-                />
-                <label htmlFor="solved" className="text-sm text-gray-700">
-                  Answers/Solutions Available
-                </label>
-              </div>
-            )}
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={loading || !uploadedFileUrl}
-              className="w-full px-6 py-3 bg-purple-600 text-white rounded-xl hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 font-medium transition-colors"
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="w-5 h-5 animate-spin" />
-                  Creating Resource...
-                </>
-              ) : (
-                <>
-                  <Plus className="w-5 h-5" />
-                  Create Resource
-                </>
-              )}
-            </button>
-          </form>
-        </div>
-      )}
-
-      {/* Manage Tab */}
-      {activeTab === 'manage' && (
-        <div className="bg-white border border-gray-100 rounded-xl shadow-sm">
-          <div className="p-4 border-b border-gray-100">
-            <h3 className="text-lg font-semibold text-gray-800">All Resources</h3>
-            <p className="text-sm text-gray-600 mt-1">
-              {resources.length} resources total
-            </p>
-          </div>
-
-          <div className="divide-y divide-gray-100">
-            {resources.map((resource) => (
-              <div key={resource._id} className="p-4 hover:bg-gray-50 transition-colors">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <h4 className="font-medium text-gray-800">{resource.title}</h4>
-                    <p className="text-sm text-gray-600 mt-1">{resource.description}</p>
-                    <div className="flex items-center gap-3 mt-2 text-xs text-gray-500">
-                      <span className="capitalize">{resource.type.replace('_', ' ')}</span>
-                      <span>•</span>
-                      <span>{resource.category}</span>
-                      {resource.year && (
-                        <>
-                          <span>•</span>
-                          <span>{resource.year}</span>
-                        </>
-                      )}
-                      <span>•</span>
-                      <span>{resource.views} views</span>
-                      <span>•</span>
-                      <span>{resource.downloads} downloads</span>
+      {tab === 'users' && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="rounded-xl border border-slate-200 bg-white p-4">
+            <h2 className="mb-3 text-lg font-semibold">Registered Users</h2>
+            <div className="space-y-3">
+              {users.map((item) => (
+                <div key={item._id} className="rounded-lg border border-slate-100 p-3">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <p className="font-medium text-slate-900">{item.name}</p>
+                      <p className="text-sm text-slate-600">{item.email}</p>
+                      <p className="text-xs text-slate-500">Role: {item.role}</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <button onClick={() => void handleForceLogout(item._id)} className="rounded-md border border-amber-200 bg-amber-50 p-2 text-amber-700" title="Force logout">
+                        <LogOut className="h-4 w-4" />
+                      </button>
+                      <button onClick={() => void handleDeleteUser(item._id)} className="rounded-md border border-red-200 bg-red-50 p-2 text-red-700" title="Delete user">
+                        <Trash2 className="h-4 w-4" />
+                      </button>
                     </div>
                   </div>
+                </div>
+              ))}
+              {users.length === 0 && <p className="text-sm text-slate-500">No users found.</p>}
+            </div>
+          </div>
 
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => window.open(resource.fileUrl, '_blank')}
-                      className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                      title="View"
-                    >
-                      <Eye className="w-4 h-4" />
-                    </button>
-                    <button
-                      onClick={() => handleDelete(resource._id)}
-                      className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-                      title="Delete"
-                    >
-                      <Trash2 className="w-4 h-4" />
+          <div className="rounded-xl border border-slate-200 bg-white p-4">
+            <h2 className="mb-3 text-lg font-semibold">Currently Logged In</h2>
+            <div className="space-y-3">
+              {activeUsers.map((item) => (
+                <div key={item._id} className="rounded-lg border border-emerald-100 bg-emerald-50 p-3">
+                  <p className="font-medium text-slate-900">{item.name}</p>
+                  <p className="text-sm text-slate-600">{item.email}</p>
+                  <p className="text-xs text-slate-500">Device: {item.activeDeviceId || 'unknown'}</p>
+                </div>
+              ))}
+              {activeUsers.length === 0 && <p className="text-sm text-slate-500">No active sessions.</p>}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {tab === 'content' && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <form onSubmit={handleCreateContent} className="rounded-xl border border-slate-200 bg-white p-4 space-y-3">
+            <h2 className="text-lg font-semibold">Create Content</h2>
+            <input
+              value={contentForm.title}
+              onChange={(event) => setContentForm((prev) => ({ ...prev, title: event.target.value }))}
+              required
+              placeholder="Content title"
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+            />
+            <select
+              value={contentForm.type}
+              onChange={(event) => setContentForm((prev) => ({ ...prev, type: event.target.value as ContentItem['type'] }))}
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+            >
+              <option value="announcement">Announcement</option>
+              <option value="resource">Resource</option>
+              <option value="update">Update</option>
+              <option value="notice">Notice</option>
+            </select>
+            <textarea
+              value={contentForm.body}
+              onChange={(event) => setContentForm((prev) => ({ ...prev, body: event.target.value }))}
+              required
+              rows={4}
+              placeholder="Write content body"
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+            />
+            <input
+              value={contentForm.tags}
+              onChange={(event) => setContentForm((prev) => ({ ...prev, tags: event.target.value }))}
+              placeholder="Tags (comma separated)"
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+            />
+            <button type="submit" className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white">
+              <Plus className="h-4 w-4" /> Publish Content
+            </button>
+          </form>
+
+          <div className="rounded-xl border border-slate-200 bg-white p-4">
+            <h2 className="mb-3 text-lg font-semibold">Manage Content</h2>
+            <div className="space-y-3">
+              {contentItems.map((item) => (
+                <div key={item._id} className="rounded-lg border border-slate-100 p-3">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <p className="font-medium text-slate-900">{item.title}</p>
+                      <p className="text-xs uppercase tracking-wide text-slate-500">{item.type}</p>
+                      <p className="mt-1 text-sm text-slate-700 line-clamp-2">{item.body}</p>
+                    </div>
+                    <button onClick={() => void handleDeleteContent(item._id)} className="rounded-md border border-red-200 bg-red-50 p-2 text-red-700">
+                      <Trash2 className="h-4 w-4" />
                     </button>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+              {contentItems.length === 0 && <p className="text-sm text-slate-500">No content created yet.</p>}
+            </div>
+          </div>
+        </div>
+      )}
 
-            {resources.length === 0 && (
-              <div className="p-12 text-center text-gray-500">
-                <File className="w-12 h-12 mx-auto mb-3 text-gray-300" />
-                <p>No resources uploaded yet</p>
-              </div>
-            )}
+      {tab === 'resources' && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <form onSubmit={handleUploadResource} className="rounded-xl border border-slate-200 bg-white p-4 space-y-3">
+            <h2 className="text-lg font-semibold">Upload App Content</h2>
+            <input
+              value={resourceForm.title}
+              onChange={(event) => setResourceForm((prev) => ({ ...prev, title: event.target.value }))}
+              required
+              placeholder="Resource title"
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+            />
+            <input
+              value={resourceForm.category}
+              onChange={(event) => setResourceForm((prev) => ({ ...prev, category: event.target.value }))}
+              required
+              placeholder="Category / Subject"
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+            />
+            <select
+              value={resourceForm.type}
+              onChange={(event) => setResourceForm((prev) => ({ ...prev, type: event.target.value }))}
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+            >
+              <option value="past_paper">Past Paper</option>
+              <option value="note">Note</option>
+              <option value="video">Video</option>
+              <option value="book">Book</option>
+              <option value="other">Other</option>
+            </select>
+            <textarea
+              value={resourceForm.description}
+              onChange={(event) => setResourceForm((prev) => ({ ...prev, description: event.target.value }))}
+              placeholder="Description"
+              rows={3}
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+            />
+            <label className="block rounded-lg border border-dashed border-slate-300 p-3 text-sm text-slate-600">
+              <input
+                type="file"
+                className="mb-2 block w-full text-sm"
+                onChange={(event) => setResourceFile(event.target.files?.[0] || null)}
+                required
+              />
+              <span>Select file for upload</span>
+            </label>
+            <button type="submit" disabled={loading} className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white disabled:opacity-60">
+              <Upload className="h-4 w-4" /> {loading ? 'Uploading...' : 'Upload Resource'}
+            </button>
+          </form>
+
+          <div className="rounded-xl border border-slate-200 bg-white p-4">
+            <h2 className="mb-3 text-lg font-semibold">Existing Resources</h2>
+            <div className="space-y-3">
+              {resources.map((item) => (
+                <div key={item._id} className="rounded-lg border border-slate-100 p-3">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <p className="font-medium text-slate-900">{item.title}</p>
+                      <p className="text-sm text-slate-600">{item.category} • {item.type}</p>
+                      <p className="text-xs text-slate-500">Views {item.views} • Downloads {item.downloads}</p>
+                    </div>
+                    <button onClick={() => void handleDeleteResource(item._id)} className="rounded-md border border-red-200 bg-red-50 p-2 text-red-700">
+                      <Trash2 className="h-4 w-4" />
+                    </button>
+                  </div>
+                </div>
+              ))}
+              {resources.length === 0 && (
+                <div className="rounded-lg border border-slate-100 p-4 text-sm text-slate-500 flex items-center gap-2">
+                  <FileText className="h-4 w-4" /> No resources yet.
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}

@@ -12,8 +12,22 @@ import StudyPlanner from "./pages/StudyPlanner";
 import CurrentAffairs from "./pages/CurrentAffairs";
 import Notes from "./pages/Notes";
 import Community from "./pages/Community";
+import Login from "./pages/Login";
+import Admin from "./pages/Admin";
+import AdminLogin from "./pages/AdminLogin";
+import { ProtectedRoute } from "../components/ProtectedRoute";
 
 export const router = createBrowserRouter([
+  { path: "/login", Component: Login },
+  { path: "/admin/login", Component: AdminLogin },
+  {
+    path: "/admin",
+    element: (
+      <ProtectedRoute>
+        <Admin />
+      </ProtectedRoute>
+    ),
+  },
   {
     path: "/",
     element: <Layout />,

@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Outlet, NavLink, useLocation } from "react-router";
+import { Outlet, NavLink, useLocation, Link } from "react-router";
 import {
   Home, BookOpen, GraduationCap, FileText, ChevronLeft,
   ChevronRight, Brain, Calendar, Globe, Users, Newspaper,
   Menu, X, Star, Zap, Target, Award, Search, Bell, User,
   ClipboardList, Library
 } from "lucide-react";
+import { useAuth } from "../../../contexts/AuthContext";
 
 const navItems = [
   { path: "/", label: "Dashboard", icon: Home },
@@ -22,11 +23,16 @@ const navItems = [
 ];
 
 export function Layout() {
+  const { user, isAuthenticated, logout } = useAuth();
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
-  const currentPage = navItems.find(item =>
+  const resolvedNavItems = user?.role === "admin"
+    ? [...navItems, { path: "/admin", label: "Admin Panel", icon: Newspaper }]
+    : navItems;
+
+  const currentPage = resolvedNavItems.find(item =>
     item.path === location.pathname || (item.path !== "/" && location.pathname.startsWith(item.path))
   );
 
@@ -71,7 +77,7 @@ export function Layout() {
 
         {/* Navigation */}
         <nav className="flex-1 overflow-y-auto py-3 sm:py-4 px-1.5 sm:px-2 space-y-1">
-          {navItems.map(({ path, label, icon: Icon }) => (
+          {resolvedNavItems.map(({ path, label, icon: Icon }) => (
             <NavLink
               key={path}
               to={path}
@@ -116,12 +122,33 @@ export function Layout() {
           <div className="p-3 border-t border-white/10 flex-shrink-0">
             <div className="flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-white/10 active:bg-white/20 cursor-pointer transition-all touch-highlight">
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-xs font-bold text-white flex-shrink-0">
-                AR
+                {user?.name?.slice(0, 1)?.toUpperCase() || 'G'}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm text-white truncate">Ahmad Raza</p>
-                <p className="text-xs text-green-300 truncate">CSS 2026 Aspirant</p>
+                <p className="text-sm text-white truncate">{user?.name || 'Guest User'}</p>
+                <p className="text-xs text-green-300 truncate">{isAuthenticated ? (user?.role || 'student') : 'not logged in'}</p>
               </div>
+            </div>
+
+            <div className="mt-2 flex items-center gap-2 px-1">
+              {user?.role === 'admin' && (
+                <Link to="/admin" className="text-xs text-green-200 hover:text-white">
+                  Open Admin
+                </Link>
+              )}
+              {isAuthenticated ? (
+                <button
+                  type="button"
+                  onClick={() => void logout()}
+                  className="text-xs text-green-200 hover:text-white"
+                >
+                  Logout
+                </button>
+              ) : (
+                <Link to="/login" className="text-xs text-green-200 hover:text-white">
+                  Login
+                </Link>
+              )}
             </div>
           </div>
         )}

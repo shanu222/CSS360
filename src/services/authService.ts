@@ -21,9 +21,27 @@ export interface RegisterData {
   name: string;
 }
 
+const DEVICE_ID_KEY = 'deviceId';
+
+const getOrCreateDeviceId = (): string => {
+  const existing = localStorage.getItem(DEVICE_ID_KEY);
+  if (existing) return existing;
+
+  const generated =
+    typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
+      ? crypto.randomUUID()
+      : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+
+  localStorage.setItem(DEVICE_ID_KEY, generated);
+  return generated;
+};
+
 export const authService = {
   async login(credentials: LoginCredentials) {
-    const response = await api.post('/auth/login', credentials);
+    const response = await api.post('/auth/login', {
+      ...credentials,
+      deviceId: getOrCreateDeviceId(),
+    });
     if (response.data.token) {
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify(response.data.user));
@@ -31,12 +49,22 @@ export const authService = {
     return response.data;
   },
 
-  async register(data: RegisterData) {
-    const response = await api.post('/auth/register', data);
+  async adminLogin(credentials: LoginCredentials) {
+    const response = await api.post('/auth/admin/login', {
+      ...credentials,
+      deviceId: getOrCreateDeviceId(),
+    });
+
     if (response.data.token) {
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify(response.data.user));
     }
+
+    return response.data;
+  },
+
+  async register(data: RegisterData) {
+    const response = await api.post('/auth/register', data);
     return response.data;
   },
 
@@ -53,10 +81,15 @@ export const authService = {
     return response.data;
   },
 
-  logout() {
+  async logout() {
+    try {
+      await api.post('/auth/logout');
+    } catch (_error) {
+      // Ignore logout network errors and clear local session anyway.
+    }
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    window.location.href = '/login';
+    window.location.href = '/';
   },
 
   getStoredUser(): User | null {
@@ -66,5 +99,9 @@ export const authService = {
 
   isAuthenticated(): boolean {
     return !!localStorage.getItem('token');
+  },
+
+  getDeviceId(): string {
+    return getOrCreateDeviceId();
   },
 };

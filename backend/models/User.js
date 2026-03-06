@@ -27,6 +27,22 @@ const userSchema = new mongoose.Schema({
     enum: ['student', 'admin'],
     default: 'student',
   },
+  isLoggedIn: {
+    type: Boolean,
+    default: false,
+  },
+  activeSessionId: {
+    type: String,
+    default: null,
+  },
+  activeDeviceId: {
+    type: String,
+    default: null,
+  },
+  lastLoginAt: {
+    type: Date,
+    default: null,
+  },
   subjects: [{
     subjectId: String,
     name: String,
@@ -60,5 +76,8 @@ userSchema.pre('save', function(next) {
   this.updatedAt = new Date();
   next();
 });
+
+userSchema.index({ isLoggedIn: 1 });
+userSchema.index({ activeSessionId: 1 });
 
 export default mongoose.model('User', userSchema);

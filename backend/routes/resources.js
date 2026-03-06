@@ -1,8 +1,8 @@
 import express from 'express';
 import multer from 'multer';
 import path from 'path';
-import { fileURLToPath } from 'url';
-// Authentication removed - all routes are now public
+import fs from 'fs';
+import { authenticate, adminOnly } from '../middleware/auth.js';
 import {
   getResources,
   getResource,
@@ -16,8 +16,10 @@ import {
 } from '../controllers/resourceController.js';
 
 const router = express.Router();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+
+if (!fs.existsSync('uploads')) {
+  fs.mkdirSync('uploads', { recursive: true });
+}
 
 // Configure multer for file uploads
 const storage = multer.diskStorage({
@@ -56,12 +58,12 @@ router.get('/:id', getResource); // Get single resource
 router.post('/:id/view', incrementViews); // Increment view count
 router.post('/:id/download', incrementDownloads); // Increment download count
 
-// Public routes (previously admin)
-router.post('/', createResource); // Create resource
-router.put('/:id', updateResource); // Update resource
-router.delete('/:id', deleteResource); // Delete resource
+// Admin-only routes
+router.post('/', authenticate, adminOnly, createResource); // Create resource
+router.put('/:id', authenticate, adminOnly, updateResource); // Update resource
+router.delete('/:id', authenticate, adminOnly, deleteResource); // Delete resource
 
 // File upload route
-router.post('/upload', upload.single('file'), handleFileUpload);
+router.post('/upload', authenticate, adminOnly, upload.single('file'), handleFileUpload);
 
 export default router;

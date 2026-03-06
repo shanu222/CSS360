@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { useEffect, useState, type FormEvent } from "react";
 import {
   Award, GraduationCap, Library, ClipboardList, Target,
   Brain, Calendar, Globe, Users, FileText, TrendingUp,
@@ -6,6 +7,17 @@ import {
   BarChart2
 } from "lucide-react";
 import { compulsorySubjects, studyPlanData, currentAffairsData } from "../data/mockData";
+import { useAuth } from "../../contexts/AuthContext";
+import { contentService } from "../../services/contentService";
+import { getSocket } from "../../services/socketService";
+
+interface PublishedContent {
+  _id: string;
+  title: string;
+  type: 'announcement' | 'resource' | 'update' | 'notice';
+  body: string;
+  tags: string[];
+}
 
 const quickCards = [
   { path: "/exam-process", label: "Exam Process", icon: Award, color: "bg-blue-500", desc: "CSS journey & timeline" },
@@ -28,12 +40,135 @@ const stats = [
 ];
 
 export default function Home() {
+  const { user, isAuthenticated, login, register } = useAuth();
+  const [isLoginMode, setIsLoginMode] = useState(true);
+  const [authName, setAuthName] = useState('');
+  const [authEmail, setAuthEmail] = useState('');
+  const [authPassword, setAuthPassword] = useState('');
+  const [authLoading, setAuthLoading] = useState(false);
+  const [authError, setAuthError] = useState('');
+  const [liveContent, setLiveContent] = useState<PublishedContent[]>([]);
+
   const today = new Date();
   const dateStr = today.toLocaleDateString("en-PK", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
   const progressPercent = Math.round((studyPlanData.daysCompleted / studyPlanData.totalDays) * 100);
 
+  const handleAuthSubmit = async (event: FormEvent) => {
+    event.preventDefault();
+    setAuthError('');
+    setAuthLoading(true);
+
+    try {
+      if (isLoginMode) {
+        await login(authEmail, authPassword);
+      } else {
+        await register(authEmail, authPassword, authName);
+      }
+
+      setAuthEmail('');
+      setAuthPassword('');
+      setAuthName('');
+    } catch (error: any) {
+      setAuthError(error?.response?.data?.error || 'Authentication failed. Please try again.');
+    } finally {
+      setAuthLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const loadContent = async () => {
+      try {
+        const data = await contentService.getPublishedContent();
+        setLiveContent(data);
+      } catch (_error) {
+        setLiveContent([]);
+      }
+    };
+
+    void loadContent();
+
+    const socket = getSocket();
+    const refresh = () => {
+      void loadContent();
+    };
+
+    socket.on('admin:content-created', refresh);
+    socket.on('admin:content-updated', refresh);
+    socket.on('admin:content-deleted', refresh);
+
+    return () => {
+      socket.off('admin:content-created', refresh);
+      socket.off('admin:content-updated', refresh);
+      socket.off('admin:content-deleted', refresh);
+    };
+  }, []);
+
   return (
     <div className="p-3 sm:p-4 lg:p-6 space-y-5 sm:space-y-6 overflow-y-auto">
+      {!isAuthenticated && (
+        <div className="rounded-2xl border border-emerald-200 bg-white p-4 sm:p-6 shadow-sm">
+          <div className="mb-4 flex flex-col gap-1">
+            <h2 className="text-lg font-semibold text-gray-900">Login or Signup</h2>
+            <p className="text-sm text-gray-600">Use your credentials to access personalized features on any device.</p>
+          </div>
+
+          {authError && (
+            <div className="mb-3 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">{authError}</div>
+          )}
+
+          <form onSubmit={handleAuthSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {!isLoginMode && (
+              <input
+                type="text"
+                value={authName}
+                onChange={(event) => setAuthName(event.target.value)}
+                placeholder="Full name"
+                required
+                className="rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none focus:border-emerald-600"
+              />
+            )}
+            <input
+              type="email"
+              value={authEmail}
+              onChange={(event) => setAuthEmail(event.target.value)}
+              placeholder="Email"
+              required
+              className="rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none focus:border-emerald-600"
+            />
+            <input
+              type="password"
+              value={authPassword}
+              onChange={(event) => setAuthPassword(event.target.value)}
+              placeholder="Password"
+              minLength={6}
+              required
+              className="rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none focus:border-emerald-600"
+            />
+            <button
+              type="submit"
+              disabled={authLoading}
+              className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 disabled:opacity-60"
+            >
+              {authLoading ? 'Please wait...' : isLoginMode ? 'Login' : 'Signup'}
+            </button>
+          </form>
+
+          <div className="mt-3 flex items-center justify-between text-sm">
+            <button
+              type="button"
+              className="text-emerald-700 hover:underline"
+              onClick={() => {
+                setIsLoginMode((prev) => !prev);
+                setAuthError('');
+              }}
+            >
+              {isLoginMode ? 'Need an account? Signup' : 'Already have an account? Login'}
+            </button>
+            <Link to="/admin/login" className="text-slate-700 hover:underline">Admin login</Link>
+          </div>
+        </div>
+      )}
+
       {/* Hero Banner */}
       <div
         className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#0f3d2b] via-[#1a5c3e] to-[#0e4d34] p-4 sm:p-6 lg:p-8 text-white"
@@ -49,7 +184,7 @@ export default function Home() {
               <Star className="w-4 h-4 text-yellow-400 flex-shrink-0" fill="currentColor" />
               <span className="text-green-300 text-xs sm:text-sm truncate">{dateStr}</span>
             </div>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl text-white mb-1 leading-tight">Welcome back, Ahmad! 👋</h2>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl text-white mb-1 leading-tight">Welcome back, {user?.name || 'Aspirant'}! 👋</h2>
             <p className="text-green-200 text-xs sm:text-sm lg:text-base max-w-xl">
               You're on day <span className="text-yellow-400 font-semibold">{studyPlanData.daysCompleted}</span> of your CSS preparation journey.
               Keep going — your dream civil service career is within reach!
@@ -204,6 +339,27 @@ export default function Home() {
               <p className="text-gray-700 text-sm font-medium line-clamp-2">{item.title}</p>
             </div>
           ))}
+        </div>
+      </div>
+
+      <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-5">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-gray-700 font-semibold">Live Admin Updates</h3>
+          <span className="text-xs text-gray-500">Real-time</span>
+        </div>
+        <div className="space-y-3">
+          {liveContent.slice(0, 5).map((item) => (
+            <div key={item._id} className="rounded-lg border border-gray-100 p-3">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-700 uppercase">{item.type}</span>
+              </div>
+              <p className="text-sm font-medium text-gray-800">{item.title}</p>
+              <p className="text-xs text-gray-600 mt-1 line-clamp-2">{item.body}</p>
+            </div>
+          ))}
+          {liveContent.length === 0 && (
+            <p className="text-sm text-gray-500">No live updates published yet.</p>
+          )}
         </div>
       </div>
     </div>
